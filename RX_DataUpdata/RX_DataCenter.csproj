@@ -167,6 +167,7 @@
     <Compile Include="DChart.Designer.cs">
       <DependentUpon>DChart.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdentityModels.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
