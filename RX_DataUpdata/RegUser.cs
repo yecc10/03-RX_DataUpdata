@@ -16,7 +16,7 @@ namespace RX_DataUpdata
 
         private void RegNewUser_Click(object sender, EventArgs e)
         {
-            if (NUserPassword.Text != NUserPassword.Text || NUserPassword.Text.Length<6)
+            if (NUserPassword.Text != NUserPassword1.Text || NUserPassword.Text.Length<6)
             {
                 MessageBox.Show("二次填写的密码不统一,或密码长度小于6位！");
                 return;
