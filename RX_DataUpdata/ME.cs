@@ -227,6 +227,14 @@ namespace RX_DataUpdata
         private void button1_Click_1(object sender, EventArgs e)
         {
             Remark.Text = string.Empty;
+            Jianxi.Checked = false;
+            AlongPonit.Checked = false;
+            FirstPoint.Checked = false;
+            Waiguan.Checked = false;
+            Yaheng.Checked = false;
+            FeiJian.Checked = false;
+            lieWen.Checked = false;
+            Zhanfu.Checked = false;
         }
 
         private void QueXian_CheckedChanged(object sender, EventArgs e)
@@ -234,7 +242,7 @@ namespace RX_DataUpdata
             SysVar.BackRemark = Remark.Text;
             if (Jianxi.Checked)
             {
-                Remark.Text = Remark.Text + "，无其他明显缺陷。";
+                Remark.Text = Remark.Text + "无其他明显缺陷。";
             }
             else
             {
