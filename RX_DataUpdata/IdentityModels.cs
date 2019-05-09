@@ -8,61 +8,77 @@ using System.Web;
 using System.Security;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Host.SystemWeb;
+using Microsoft.Owin.Security;
 
 namespace RX_DataUpdata
 {
-    public class RxUseManager : IdentityUser
+    // 可以通过将更多属性添加到用户类来添加用户的用户数据，请访问 http://go.microsoft.com/fwlink/?LinkID=317594 了解详细信息。
+    public class ApplicationUser : IdentityUser
     {
 
     }
-    public class RxDbContext : IdentityDbContext<RxUseManager>
+    //创建ROLSES数据库连接方式
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public RxDbContext():base ("IdentityDb")
+        public ApplicationDbContext()
+            : base("DefaultConnection")
         {
-
-        }
-        static RxDbContext()
-        {
-           
         }
     }
-
-
-    public class RxIdentityUser : IUser
+    #region 帮助器
+    public class UserManager : UserManager<ApplicationUser>
     {
-        /// <summary>
-        /// 用户ID
-        /// </summary>
-        public virtual Guid UserId { get; set; }
-        /// <summary>
-        /// HashPassword
-        /// </summary>
-        public virtual string PasswordHash { get; set; }
-        /// <summary>
-        /// 秘钥戳
-        /// </summary>
-        public virtual string SecurityStamp { get; set; }
-        /// <summary>
-        /// 角色
-        /// </summary>
-        public virtual string RolesStr { get; set; }
-        /// <summary>
-        /// 用户名
-        /// </summary>
-        public virtual string UserName { get; set; }
-        /// <summary>
-        /// 权限E1,E2,E3......E99
-        /// </summary>
-        public virtual string Acc { get; set; }
-        /// <summary>
-        /// 所在科室
-        /// </summary>
-        public virtual string keshi { get; set; }
-        public virtual string Id
+        public UserManager()
+            : base(new UserStore<ApplicationUser>(new ApplicationDbContext()))
         {
-            get { return UserId.ToString(); }
         }
+
     }
 }
 
-       
+namespace RX_DataUpdata
+{
+    public static class IdentityHelper
+    {
+        // 在链接外部登录名时用于 XSRF
+        public const string XsrfKey = "XsrfId";
+
+        public static void SignIn(UserManager manager, ApplicationUser user, bool isPersistent)
+        {
+            IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            var identity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+            authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
+        }
+
+        public const string ProviderNameKey = "providerName";
+        public static string GetProviderNameFromRequest(HttpRequest request)
+        {
+            return request[ProviderNameKey];
+        }
+
+        public static string GetExternalLoginRedirectUrl(string accountProvider)
+        {
+            return "/Account/RegisterExternalLogin?" + ProviderNameKey + "=" + accountProvider;
+        }
+
+        private static bool IsLocalUrl(string url)
+        {
+            return !string.IsNullOrEmpty(url) && ((url[0] == '/' && (url.Length == 1 || (url[1] != '/' && url[1] != '\\'))) || (url.Length > 1 && url[0] == '~' && url[1] == '/'));
+        }
+
+        public static void RedirectToReturnUrl(string returnUrl, HttpResponse response)
+        {
+            if (!String.IsNullOrEmpty(returnUrl) && IsLocalUrl(returnUrl))
+            {
+                response.Redirect(returnUrl);
+            }
+            else
+            {
+                response.Redirect("~/");
+            }
+        }
+    }
+    #endregion
+}
