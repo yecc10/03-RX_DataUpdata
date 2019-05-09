@@ -16,7 +16,20 @@ namespace RX_DataUpdata
 
         private void RegNewUser_Click(object sender, EventArgs e)
         {
-           
+            var manager = new UserManager();
+            var user = new ApplicationUser() { UserName = NUserName.Text, PhoneNumber = Phone.Text, Email = Email.Text };
+            IdentityResult result = manager.Create(user, NUserPassword.Text);
+            if (result.Succeeded)
+            {
+                IdentityHelper.SignIn(manager, user, isPersistent: false);
+                //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+
+            }
+            else
+            {
+                //ErrorMessage.Text = result.Errors.FirstOrDefault();
+            }
+
         }
     }
 }
