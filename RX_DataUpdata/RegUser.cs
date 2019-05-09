@@ -17,7 +17,7 @@ namespace RX_DataUpdata
         private void RegNewUser_Click(object sender, EventArgs e)
         {
             var manager = new UserManager();
-            var user = new ApplicationUser() { UserName = NUserName.Text, PhoneNumber = Phone.Text, Email = Email.Text};
+            var user = new ApplicationUser() { UserName = NUserName.Text, PhoneNumber = Phone.Text, Email = Email.Text, Keshi = Keshi.Text,QuanXian=ACC.Text };
             IdentityResult result = manager.Create(user, NUserPassword.Text);
             if (result.Succeeded)
             {
