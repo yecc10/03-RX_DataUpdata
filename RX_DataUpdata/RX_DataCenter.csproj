@@ -206,6 +206,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RXYF_YECCDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="SysVar.cs" />
     <Compile Include="ULogin.cs">
       <SubType>Form</SubType>

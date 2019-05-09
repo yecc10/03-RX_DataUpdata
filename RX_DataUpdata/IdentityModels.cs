@@ -22,7 +22,7 @@ namespace RX_DataUpdata
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection")
+            : base(global::RX_DataUpdata.Properties.Settings.Default.RXYF_YECCConnectionString3)
         {
         }
     }
@@ -46,10 +46,7 @@ namespace RX_DataUpdata
 
         public static void SignIn(UserManager manager, ApplicationUser user, bool isPersistent)
         {
-            IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-            authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-            var identity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-            authenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
+           
         }
 
         public const string ProviderNameKey = "providerName";
