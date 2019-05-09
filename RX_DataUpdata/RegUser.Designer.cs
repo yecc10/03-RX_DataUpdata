@@ -52,7 +52,7 @@
             this.RegNewUser.Location = new System.Drawing.Point(240, 294);
             this.RegNewUser.Name = "RegNewUser";
             this.RegNewUser.Size = new System.Drawing.Size(75, 23);
-            this.RegNewUser.TabIndex = 1;
+            this.RegNewUser.TabIndex = 8;
             this.RegNewUser.Text = "注册";
             this.RegNewUser.UseVisualStyleBackColor = true;
             this.RegNewUser.Click += new System.EventHandler(this.RegNewUser_Click);
@@ -72,7 +72,7 @@
             this.NUserName.Location = new System.Drawing.Point(147, 19);
             this.NUserName.Name = "NUserName";
             this.NUserName.Size = new System.Drawing.Size(168, 21);
-            this.NUserName.TabIndex = 3;
+            this.NUserName.TabIndex = 1;
             // 
             // label2
             // 
@@ -90,7 +90,7 @@
             this.NUserPassword.Name = "NUserPassword";
             this.NUserPassword.PasswordChar = '+';
             this.NUserPassword.Size = new System.Drawing.Size(168, 21);
-            this.NUserPassword.TabIndex = 3;
+            this.NUserPassword.TabIndex = 2;
             // 
             // label3
             // 
@@ -125,7 +125,7 @@
             this.Phone.Location = new System.Drawing.Point(147, 127);
             this.Phone.Name = "Phone";
             this.Phone.Size = new System.Drawing.Size(168, 21);
-            this.Phone.TabIndex = 3;
+            this.Phone.TabIndex = 4;
             // 
             // label5
             // 
@@ -142,7 +142,7 @@
             this.Email.Location = new System.Drawing.Point(147, 163);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(168, 21);
-            this.Email.TabIndex = 3;
+            this.Email.TabIndex = 5;
             // 
             // label6
             // 
@@ -170,7 +170,7 @@
             this.ACC.Name = "ACC";
             this.ACC.ReadOnly = true;
             this.ACC.Size = new System.Drawing.Size(168, 21);
-            this.ACC.TabIndex = 3;
+            this.ACC.TabIndex = 7;
             this.ACC.Text = "E1";
             // 
             // label8
@@ -193,7 +193,7 @@
             this.comboBox1.Location = new System.Drawing.Point(147, 198);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(168, 20);
-            this.comboBox1.TabIndex = 5;
+            this.comboBox1.TabIndex = 6;
             // 
             // RegUser
             // 
