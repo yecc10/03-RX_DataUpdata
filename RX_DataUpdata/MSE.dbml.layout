@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11.375" name="MSE">
+  <DataContextMoniker Name="/MSEDataContext" />
+  <nestedChildShapes>
+    <classShape Id="35b90d2f-a7c1-4aa7-a02e-9779355ae61f" absoluteBounds="6.25, 3.375, 2, 4.4940108235677076">
+      <DataClassMoniker Name="/MSEDataContext/ExperienceView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a218001-2a6f-4ec2-a827-ff77e1520602" absoluteBounds="6.265, 3.835, 1.9700000000000002, 3.934010823567708" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c366c736-db84-4bb6-a3dc-934573a863b2" absoluteBounds="3.25, 8.375, 2, 1.1677168782552094">
+      <DataClassMoniker Name="/MSEDataContext/Board_SportData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0c4db7f4-d923-461a-b4b4-197ed2436c7f" absoluteBounds="3.265, 8.835, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c5f6202e-a535-4544-b88c-def0a845d9e7" absoluteBounds="6.875, 8.625, 2, 2.4612756347656237">
+      <DataClassMoniker Name="/MSEDataContext/BoardData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f1e6e542-3569-40fe-b792-52073036968c" absoluteBounds="6.89, 9.085, 1.9700000000000002, 1.901275634765625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="304b8afd-02c2-4e0e-92dc-5c9ea3437db0" absoluteBounds="0.75, 4.625, 2, 3.2004520670572916">
+      <DataClassMoniker Name="/MSEDataContext/SportData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d9a6001e-75a2-4604-82c8-3bc380be1168" absoluteBounds="0.765, 5.085, 1.9700000000000002, 2.6404520670572915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.875 : 9.0838584391276); (5.25 : 9.0838584391276)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MSEDataContext/BoardData/BoardData_Board_SportData" />
+      <nodes>
+        <classShapeMoniker Id="c5f6202e-a535-4544-b88c-def0a845d9e7" />
+        <classShapeMoniker Id="c366c736-db84-4bb6-a3dc-934573a863b2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.82545206705729); (3.25 : 8.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/MSEDataContext/SportData/SportData_Board_SportData" />
+      <nodes>
+        <classShapeMoniker Id="304b8afd-02c2-4e0e-92dc-5c9ea3437db0" />
+        <classShapeMoniker Id="c366c736-db84-4bb6-a3dc-934573a863b2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

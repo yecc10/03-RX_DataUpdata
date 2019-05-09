@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RXYF_YECC" Class="MSDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=RX_YFB_YF079\RXYF;Initial Catalog=RXYF_YECC;Persist Security Info=True;User ID=sa" SettingsObjectName="RX_DataUpdata.Properties.Settings" SettingsPropertyName="RXYF_YECCConnectionString3" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.AddRuleProductAndUser" Method="AddRuleProductAndUser">
+    <Parameter Name="ProduceID" Parameter="produceID" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpRuleData" Method="UpRuleData">
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Context" Parameter="context" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="PassageID" Parameter="passageID" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CheckPassword" Method="CheckPassword">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CheckUserName" Method="CheckUserName">
+    <Parameter Name="CUserName" Parameter="cUserName" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreatExperience" Method="CreatExperience">
+    <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Reason" Parameter="reason" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Analysis" Parameter="analysis" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="summary" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreatStockAndUserData" Method="CreatStockAndUserData">
+    <Parameter Name="ProductionID" Parameter="productionID" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreatStockAndUserStockData" Method="CreatStockAndUserStockData">
+    <Parameter Name="LOCKID" Parameter="lOCKID" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="ProductID" Parameter="productID" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreatStockInformationAndUserData" Method="CreatStockInformationAndUserData">
+    <Parameter Name="LockId" Parameter="lockId" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreatStockProduct" Method="CreatStockProduct">
+    <Parameter Name="ProductImage" Parameter="productImage" Type="System.String" DbType="VarChar(128)" />
+    <Parameter Name="ProductCategory" Parameter="productCategory" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="AllNumber" Parameter="allNumber" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="ProductStatus" Parameter="productStatus" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="ProducName" Parameter="producName" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Introduce" Parameter="introduce" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreatUserAndExperienceData" Method="CreatUserAndExperienceData">
+    <Parameter Name="ProduceID" Parameter="produceID" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreatUserStock" Method="CreatUserStock">
+    <Parameter Name="LockProductNo" Parameter="lockProductNo" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Introduce" Parameter="introduce" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="ProductID" Parameter="productID" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteExperience" Method="DeleteExperience">
+    <Parameter Name="ID" Parameter="iD" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteRulePassage" Method="DeleteRulePassage">
+    <Parameter Name="PassageID" Parameter="passageID" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteStockData" Method="DeleteStockData">
+    <Parameter Name="ProductId" Parameter="productId" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteUserStock" Method="deleteUserStock">
+    <Parameter Name="LockId" Parameter="lockId" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetRoleID" Method="GetRoleID">
+    <Parameter Name="UserRoleName" Parameter="userRoleName" Type="System.String" DbType="NVarChar(256)" />
+    <Parameter Name="UserRoleID" Parameter="userRoleID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertRuleProduce" Method="InsertRuleProduce">
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Context" Parameter="context" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Level" Parameter="level" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SerchDataForInfromation" Method="SerchDataForInfromation">
+    <Parameter Name="ID" Parameter="iD" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(50)" Direction="InOut" />
+    <Parameter Name="Context" Parameter="context" Type="System.String" DbType="NVarChar(999)" Direction="InOut" />
+    <ElementType Name="SerchDataForInfromationResult">
+      <Column Name="Context" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UpdataExperience" Method="UpdataExperience">
+    <Parameter Name="PassageId" Parameter="passageId" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Reason" Parameter="reason" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Analysis" Parameter="analysis" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateStockData" Method="UpdateStockData">
+    <Parameter Name="ProductId" Parameter="productId" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="ProductImage" Parameter="productImage" Type="System.String" DbType="NVarChar(450)" />
+    <Parameter Name="ProductCategory" Parameter="productCategory" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="AllNumber" Parameter="allNumber" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="ProductStatus" Parameter="productStatus" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="ProducName" Parameter="producName" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Introduce" Parameter="introduce" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UpdateUserStock" Method="UpdateUserStock">
+    <Parameter Name="LockProductNo" Parameter="lockProductNo" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="Introduce" Parameter="introduce" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="LockId" Parameter="lockId" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

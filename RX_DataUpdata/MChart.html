@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+@{
+var db = Database.Open("SmallBakery") ;
+var selectQueryString = "SELECT * FROM Product ORDER BY Id";
+var data = db.Query(selectQueryString);
+var grid = new WebGrid(data);
+}
+<html>
+<head>
+    <title>Displaying Data Using the WebGrid Helper</title>
+</head>
+<body>
+    <h1>Small Bakery Products</h1>
+    <div id="grid">
+        @grid.GetHtml()
+    </div>
+</body>
+</html>

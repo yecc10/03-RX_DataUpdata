@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RX_DataCenter", "RX_DataUpdata\RX_DataCenter.csproj", "{A0824EE8-AD38-4F64-9F47-050E5464D190}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0824EE8-AD38-4F64-9F47-050E5464D190}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{A0824EE8-AD38-4F64-9F47-050E5464D190}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{A0824EE8-AD38-4F64-9F47-050E5464D190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0824EE8-AD38-4F64-9F47-050E5464D190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0824EE8-AD38-4F64-9F47-050E5464D190}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0824EE8-AD38-4F64-9F47-050E5464D190}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{A0824EE8-AD38-4F64-9F47-050E5464D190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0824EE8-AD38-4F64-9F47-050E5464D190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0824EE8-AD38-4F64-9F47-050E5464D190}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{A0824EE8-AD38-4F64-9F47-050E5464D190}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {901C6607-F970-4857-891D-CBE756CE8CAF}
+	EndGlobalSection
+EndGlobal
