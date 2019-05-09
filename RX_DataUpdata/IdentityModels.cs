@@ -16,7 +16,8 @@ namespace RX_DataUpdata
     // 可以通过将更多属性添加到用户类来添加用户的用户数据，请访问 http://go.microsoft.com/fwlink/?LinkID=317594 了解详细信息。
     public class ApplicationUser : IdentityUser
     {
-       
+        public virtual string Keshi { get; set; }
+        public virtual string QuanXian { get; set; }
     }
     //创建ROLSES数据库连接方式
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
