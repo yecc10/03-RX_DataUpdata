@@ -26,7 +26,6 @@ namespace RX_DataUpdata
                 MessageBox.Show("当前信息未填写完成！");
                 return;
             }
-            
             var manager = new UserManager();
             var user = new ApplicationUser() { UserName = NUserName.Text, PhoneNumber = Phone.Text, Email = Email.Text, Keshi = Keshi.Text,QuanXian=ACC.Text };
             IdentityResult result = manager.Create(user, NUserPassword.Text);
