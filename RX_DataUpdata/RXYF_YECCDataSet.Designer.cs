@@ -1522,6 +1522,20 @@ namespace RX_DataUpdata {
             
             private global::System.Data.DataColumn column最终焊接点;
             
+            private global::System.Data.DataColumn columnZhanfu;
+            
+            private global::System.Data.DataColumn columnLieWen;
+            
+            private global::System.Data.DataColumn columnFeiJian;
+            
+            private global::System.Data.DataColumn columnYaHeng;
+            
+            private global::System.Data.DataColumn columnWaiGuanNG;
+            
+            private global::System.Data.DataColumn columnLianXuHanDian;
+            
+            private global::System.Data.DataColumn columnHanJieJianXi;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ExperienceViewDataTable() {
@@ -1741,6 +1755,62 @@ namespace RX_DataUpdata {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ZhanfuColumn {
+                get {
+                    return this.columnZhanfu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LieWenColumn {
+                get {
+                    return this.columnLieWen;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FeiJianColumn {
+                get {
+                    return this.columnFeiJian;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn YaHengColumn {
+                get {
+                    return this.columnYaHeng;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WaiGuanNGColumn {
+                get {
+                    return this.columnWaiGuanNG;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LianXuHanDianColumn {
+                get {
+                    return this.columnLianXuHanDian;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HanJieJianXiColumn {
+                get {
+                    return this.columnHanJieJianXi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1799,7 +1869,14 @@ namespace RX_DataUpdata {
                         System.DateTime 上传日期, 
                         bool 凿检点, 
                         bool 修磨第一点, 
-                        bool 最终焊接点) {
+                        bool 最终焊接点, 
+                        bool Zhanfu, 
+                        bool LieWen, 
+                        bool FeiJian, 
+                        bool YaHeng, 
+                        bool WaiGuanNG, 
+                        bool LianXuHanDian, 
+                        bool HanJieJianXi) {
                 ExperienceViewRow rowExperienceViewRow = ((ExperienceViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -1824,7 +1901,14 @@ namespace RX_DataUpdata {
                         上传日期,
                         凿检点,
                         修磨第一点,
-                        最终焊接点};
+                        最终焊接点,
+                        Zhanfu,
+                        LieWen,
+                        FeiJian,
+                        YaHeng,
+                        WaiGuanNG,
+                        LianXuHanDian,
+                        HanJieJianXi};
                 rowExperienceViewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowExperienceViewRow);
                 return rowExperienceViewRow;
@@ -1877,6 +1961,13 @@ namespace RX_DataUpdata {
                 this.column凿检点 = base.Columns["凿检点"];
                 this.column修磨第一点 = base.Columns["修磨第一点"];
                 this.column最终焊接点 = base.Columns["最终焊接点"];
+                this.columnZhanfu = base.Columns["Zhanfu"];
+                this.columnLieWen = base.Columns["LieWen"];
+                this.columnFeiJian = base.Columns["FeiJian"];
+                this.columnYaHeng = base.Columns["YaHeng"];
+                this.columnWaiGuanNG = base.Columns["WaiGuanNG"];
+                this.columnLianXuHanDian = base.Columns["LianXuHanDian"];
+                this.columnHanJieJianXi = base.Columns["HanJieJianXi"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1928,6 +2019,20 @@ namespace RX_DataUpdata {
                 base.Columns.Add(this.column修磨第一点);
                 this.column最终焊接点 = new global::System.Data.DataColumn("最终焊接点", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column最终焊接点);
+                this.columnZhanfu = new global::System.Data.DataColumn("Zhanfu", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZhanfu);
+                this.columnLieWen = new global::System.Data.DataColumn("LieWen", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLieWen);
+                this.columnFeiJian = new global::System.Data.DataColumn("FeiJian", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeiJian);
+                this.columnYaHeng = new global::System.Data.DataColumn("YaHeng", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnYaHeng);
+                this.columnWaiGuanNG = new global::System.Data.DataColumn("WaiGuanNG", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWaiGuanNG);
+                this.columnLianXuHanDian = new global::System.Data.DataColumn("LianXuHanDian", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLianXuHanDian);
+                this.columnHanJieJianXi = new global::System.Data.DataColumn("HanJieJianXi", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHanJieJianXi);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AllowDBNull = false;
@@ -3116,6 +3221,118 @@ namespace RX_DataUpdata {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Zhanfu {
+                get {
+                    try {
+                        return ((bool)(this[this.tableExperienceView.ZhanfuColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“ExperienceView”中列“Zhanfu”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableExperienceView.ZhanfuColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool LieWen {
+                get {
+                    try {
+                        return ((bool)(this[this.tableExperienceView.LieWenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“ExperienceView”中列“LieWen”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableExperienceView.LieWenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool FeiJian {
+                get {
+                    try {
+                        return ((bool)(this[this.tableExperienceView.FeiJianColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“ExperienceView”中列“FeiJian”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableExperienceView.FeiJianColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool YaHeng {
+                get {
+                    try {
+                        return ((bool)(this[this.tableExperienceView.YaHengColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“ExperienceView”中列“YaHeng”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableExperienceView.YaHengColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool WaiGuanNG {
+                get {
+                    try {
+                        return ((bool)(this[this.tableExperienceView.WaiGuanNGColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“ExperienceView”中列“WaiGuanNG”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableExperienceView.WaiGuanNGColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool LianXuHanDian {
+                get {
+                    try {
+                        return ((bool)(this[this.tableExperienceView.LianXuHanDianColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“ExperienceView”中列“LianXuHanDian”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableExperienceView.LianXuHanDianColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool HanJieJianXi {
+                get {
+                    try {
+                        return ((bool)(this[this.tableExperienceView.HanJieJianXiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“ExperienceView”中列“HanJieJianXi”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableExperienceView.HanJieJianXiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBIDNull() {
                 return this.IsNull(this.tableExperienceView.BIDColumn);
             }
@@ -3364,6 +3581,90 @@ namespace RX_DataUpdata {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set最终焊接点Null() {
                 this[this.tableExperienceView.最终焊接点Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsZhanfuNull() {
+                return this.IsNull(this.tableExperienceView.ZhanfuColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetZhanfuNull() {
+                this[this.tableExperienceView.ZhanfuColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLieWenNull() {
+                return this.IsNull(this.tableExperienceView.LieWenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLieWenNull() {
+                this[this.tableExperienceView.LieWenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFeiJianNull() {
+                return this.IsNull(this.tableExperienceView.FeiJianColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFeiJianNull() {
+                this[this.tableExperienceView.FeiJianColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsYaHengNull() {
+                return this.IsNull(this.tableExperienceView.YaHengColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetYaHengNull() {
+                this[this.tableExperienceView.YaHengColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWaiGuanNGNull() {
+                return this.IsNull(this.tableExperienceView.WaiGuanNGColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWaiGuanNGNull() {
+                this[this.tableExperienceView.WaiGuanNGColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLianXuHanDianNull() {
+                return this.IsNull(this.tableExperienceView.LianXuHanDianColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLianXuHanDianNull() {
+                this[this.tableExperienceView.LianXuHanDianColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHanJieJianXiNull() {
+                return this.IsNull(this.tableExperienceView.HanJieJianXiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHanJieJianXiNull() {
+                this[this.tableExperienceView.HanJieJianXiColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5287,6 +5588,13 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
             tableMapping.ColumnMappings.Add("凿检点", "凿检点");
             tableMapping.ColumnMappings.Add("修磨第一点", "修磨第一点");
             tableMapping.ColumnMappings.Add("最终焊接点", "最终焊接点");
+            tableMapping.ColumnMappings.Add("Zhanfu", "Zhanfu");
+            tableMapping.ColumnMappings.Add("LieWen", "LieWen");
+            tableMapping.ColumnMappings.Add("FeiJian", "FeiJian");
+            tableMapping.ColumnMappings.Add("YaHeng", "YaHeng");
+            tableMapping.ColumnMappings.Add("WaiGuanNG", "WaiGuanNG");
+            tableMapping.ColumnMappings.Add("LianXuHanDian", "LianXuHanDian");
+            tableMapping.ColumnMappings.Add("HanJieJianXi", "HanJieJianXi");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5303,15 +5611,13 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, BID, PID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B" +
-                "3Thinkness, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, 总料" +
-                "厚, BZ备注, 上传日期, 凿检点, 修磨第一点, 最终焊接点 FROM dbo.ExperienceView";
+            this._commandCollection[0].CommandText = @"SELECT ID, BID, PID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thinkness, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, 总料厚, BZ备注, 上传日期, 凿检点, 修磨第一点, 最终焊接点, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi FROM dbo.ExperienceView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT   ID, BID, PID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thinkness, DJ电极端面直径, 
                 JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, 总料厚, BZ备注, 上传日期, 
-                凿检点, 修磨第一点, 最终焊接点
+                凿检点, 修磨第一点, 最终焊接点, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi
 FROM      ExperienceView
 WHERE   (BID = @BID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;

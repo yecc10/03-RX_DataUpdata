@@ -603,7 +603,6 @@
             this.MaximumSize = new System.Drawing.Size(514, 695);
             this.MinimumSize = new System.Drawing.Size(514, 695);
             this.Name = "ME";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "数据登记";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.DA.ResumeLayout(false);

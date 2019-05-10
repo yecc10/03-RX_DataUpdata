@@ -610,7 +610,6 @@
             this.MaximumSize = new System.Drawing.Size(514, 690);
             this.MinimumSize = new System.Drawing.Size(514, 690);
             this.Name = "ME_Updata";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "数据更新";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.DA.ResumeLayout(false);

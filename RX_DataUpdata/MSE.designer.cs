@@ -100,14 +100,6 @@ namespace RX_DataUpdata
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NewSportData")]
-		public ISingleResult<NewSportDataResult> NewSportData([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string bid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string pid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PoleDim", DbType="Float")] System.Nullable<double> poleDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Presstime", DbType="Float")] System.Nullable<double> presstime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weldele", DbType="Float")] System.Nullable<double> weldele, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> weldtime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Keeptime", DbType="Float")] System.Nullable<double> keeptime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pressure", DbType="Float")] System.Nullable<double> pressure, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SportDim", DbType="Float")] System.Nullable<double> sportDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RongheDim", DbType="Float")] System.Nullable<double> rongheDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="NVarChar(255)")] string remarks, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> zhanjian, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FistPoint", DbType="Bit")] System.Nullable<bool> fistPoint, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndPoint", DbType="Bit")] System.Nullable<bool> endPoint, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ret", DbType="Int")] ref System.Nullable<int> ret)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bid, pid, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks, zhanjian, fistPoint, endPoint, ret);
-			ret = ((System.Nullable<int>)(result.GetParameterValue(14)));
-			return ((ISingleResult<NewSportDataResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NewExp")]
 		public ISingleResult<NewExpResult> NewExp(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bid", DbType="NVarChar(128)")] string bid, 
@@ -128,18 +120,74 @@ namespace RX_DataUpdata
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zaojian", DbType="Bit")] System.Nullable<bool> zaojian, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FistPoint", DbType="Bit")] System.Nullable<bool> fistPoint, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndPoint", DbType="Bit")] System.Nullable<bool> endPoint, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zhanfu", DbType="Bit")] System.Nullable<bool> zhanfu, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LieWen", DbType="Bit")] System.Nullable<bool> lieWen, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FeiJian", DbType="Bit")] System.Nullable<bool> feiJian, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="YaHeng", DbType="Bit")] System.Nullable<bool> yaHeng, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="WaiGuanNG", DbType="Bit")] System.Nullable<bool> waiGuanNG, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LianXuHanDian", DbType="Bit")] System.Nullable<bool> lianXuHanDian, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="HanJieJianXi", DbType="Bit")] System.Nullable<bool> hanJieJianXi, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rnum1", DbType="Int")] ref System.Nullable<int> rnum1)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bid, pid, b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks, zaojian, fistPoint, endPoint, rnum1);
-			rnum1 = ((System.Nullable<int>)(result.GetParameterValue(18)));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bid, pid, b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks, zaojian, fistPoint, endPoint, zhanfu, lieWen, feiJian, yaHeng, waiGuanNG, lianXuHanDian, hanJieJianXi, rnum1);
+			rnum1 = ((System.Nullable<int>)(result.GetParameterValue(25)));
 			return ((ISingleResult<NewExpResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NewBoardData")]
-		public ISingleResult<NewBoardDataResult> NewBoardData([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string bid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b1t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b2t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b3t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(50)")] string b3m)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SerchExp")]
+		public ISingleResult<SerchExpResult> SerchExp(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string pid, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] ref System.Nullable<double> b1t, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] ref System.Nullable<double> b2t, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] ref System.Nullable<double> b3t, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(50)")] ref string b3m, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PoleDim", DbType="Float")] ref System.Nullable<double> poleDim, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Presstime", DbType="Float")] ref System.Nullable<double> presstime, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weldele", DbType="Float")] ref System.Nullable<double> weldele, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] ref System.Nullable<double> weldtime, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Keeptime", DbType="Float")] ref System.Nullable<double> keeptime, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pressure", DbType="Float")] ref System.Nullable<double> pressure, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SportDim", DbType="Float")] ref System.Nullable<double> sportDim, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="RongheDim", DbType="Float")] ref System.Nullable<double> rongheDim, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="NVarChar(255)")] ref string remarks, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zaojian", DbType="Bit")] ref System.Nullable<bool> zaojian, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FistPoint", DbType="Bit")] ref System.Nullable<bool> fistPoint, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndPoint", DbType="Bit")] ref System.Nullable<bool> endPoint, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zhanfu", DbType="Bit")] ref System.Nullable<bool> zhanfu, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LieWen", DbType="Bit")] ref System.Nullable<bool> lieWen, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FeiJian", DbType="Bit")] ref System.Nullable<bool> feiJian, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="YaHeng", DbType="Bit")] ref System.Nullable<bool> yaHeng, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="WaiGuanNG", DbType="Bit")] ref System.Nullable<bool> waiGuanNG, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LianXuHanDian", DbType="Bit")] ref System.Nullable<bool> lianXuHanDian, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="HanJieJianXi", DbType="Bit")] ref System.Nullable<bool> hanJieJianXi, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ret", DbType="Int")] ref System.Nullable<int> ret)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bid, b1t, b2t, b3t, b3m);
-			return ((ISingleResult<NewBoardDataResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pid, b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks, zaojian, fistPoint, endPoint, zhanfu, lieWen, feiJian, yaHeng, waiGuanNG, lianXuHanDian, hanJieJianXi, ret);
+			b1t = ((System.Nullable<double>)(result.GetParameterValue(1)));
+			b2t = ((System.Nullable<double>)(result.GetParameterValue(2)));
+			b3t = ((System.Nullable<double>)(result.GetParameterValue(3)));
+			b3m = ((string)(result.GetParameterValue(4)));
+			poleDim = ((System.Nullable<double>)(result.GetParameterValue(5)));
+			presstime = ((System.Nullable<double>)(result.GetParameterValue(6)));
+			weldele = ((System.Nullable<double>)(result.GetParameterValue(7)));
+			weldtime = ((System.Nullable<double>)(result.GetParameterValue(8)));
+			keeptime = ((System.Nullable<double>)(result.GetParameterValue(9)));
+			pressure = ((System.Nullable<double>)(result.GetParameterValue(10)));
+			sportDim = ((System.Nullable<double>)(result.GetParameterValue(11)));
+			rongheDim = ((System.Nullable<double>)(result.GetParameterValue(12)));
+			remarks = ((string)(result.GetParameterValue(13)));
+			zaojian = ((System.Nullable<bool>)(result.GetParameterValue(14)));
+			fistPoint = ((System.Nullable<bool>)(result.GetParameterValue(15)));
+			endPoint = ((System.Nullable<bool>)(result.GetParameterValue(16)));
+			zhanfu = ((System.Nullable<bool>)(result.GetParameterValue(17)));
+			lieWen = ((System.Nullable<bool>)(result.GetParameterValue(18)));
+			feiJian = ((System.Nullable<bool>)(result.GetParameterValue(19)));
+			yaHeng = ((System.Nullable<bool>)(result.GetParameterValue(20)));
+			waiGuanNG = ((System.Nullable<bool>)(result.GetParameterValue(21)));
+			lianXuHanDian = ((System.Nullable<bool>)(result.GetParameterValue(22)));
+			hanJieJianXi = ((System.Nullable<bool>)(result.GetParameterValue(23)));
+			ret = ((System.Nullable<int>)(result.GetParameterValue(24)));
+			return ((ISingleResult<SerchExpResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdataExp")]
@@ -162,53 +210,18 @@ namespace RX_DataUpdata
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zaojian", DbType="Bit")] System.Nullable<bool> zaojian, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FistPoint", DbType="Bit")] System.Nullable<bool> fistPoint, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndPoint", DbType="Bit")] System.Nullable<bool> endPoint, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zhanfu", DbType="Bit")] System.Nullable<bool> zhanfu, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LieWen", DbType="Bit")] System.Nullable<bool> lieWen, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FeiJian", DbType="Bit")] System.Nullable<bool> feiJian, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="YaHeng", DbType="Bit")] System.Nullable<bool> yaHeng, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="WaiGuanNG", DbType="Bit")] System.Nullable<bool> waiGuanNG, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LianXuHanDian", DbType="Bit")] System.Nullable<bool> lianXuHanDian, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="HanJieJianXi", DbType="Bit")] System.Nullable<bool> hanJieJianXi, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rnum1", DbType="Int")] ref System.Nullable<int> rnum1)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bid, pid, b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks, zaojian, fistPoint, endPoint, rnum1);
-			rnum1 = ((System.Nullable<int>)(result.GetParameterValue(18)));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bid, pid, b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks, zaojian, fistPoint, endPoint, zhanfu, lieWen, feiJian, yaHeng, waiGuanNG, lianXuHanDian, hanJieJianXi, rnum1);
+			rnum1 = ((System.Nullable<int>)(result.GetParameterValue(25)));
 			return ((ISingleResult<UpdataExpResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SerchExp")]
-		public ISingleResult<SerchExpResult> SerchExp(
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string pid, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] ref System.Nullable<double> b1t, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] ref System.Nullable<double> b2t, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] ref System.Nullable<double> b3t, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(50)")] ref string b3m, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PoleDim", DbType="Float")] ref System.Nullable<double> poleDim, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Presstime", DbType="Float")] ref System.Nullable<double> presstime, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weldele", DbType="Float")] ref System.Nullable<double> weldele, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] ref System.Nullable<double> weldtime, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Keeptime", DbType="Float")] ref System.Nullable<double> keeptime, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pressure", DbType="Float")] ref System.Nullable<double> pressure, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SportDim", DbType="Float")] ref System.Nullable<double> sportDim, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="RongheDim", DbType="Float")] ref System.Nullable<double> rongheDim, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="NVarChar(255)")] ref string remarks, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zaojian", DbType="Bit")] ref System.Nullable<bool> zaojian, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FistPoint", DbType="Bit")] ref System.Nullable<bool> fistPoint, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndPoint", DbType="Bit")] ref System.Nullable<bool> endPoint, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ret", DbType="Int")] ref System.Nullable<int> ret)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pid, b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks, zaojian, fistPoint, endPoint, ret);
-			b1t = ((System.Nullable<double>)(result.GetParameterValue(1)));
-			b2t = ((System.Nullable<double>)(result.GetParameterValue(2)));
-			b3t = ((System.Nullable<double>)(result.GetParameterValue(3)));
-			b3m = ((string)(result.GetParameterValue(4)));
-			poleDim = ((System.Nullable<double>)(result.GetParameterValue(5)));
-			presstime = ((System.Nullable<double>)(result.GetParameterValue(6)));
-			weldele = ((System.Nullable<double>)(result.GetParameterValue(7)));
-			weldtime = ((System.Nullable<double>)(result.GetParameterValue(8)));
-			keeptime = ((System.Nullable<double>)(result.GetParameterValue(9)));
-			pressure = ((System.Nullable<double>)(result.GetParameterValue(10)));
-			sportDim = ((System.Nullable<double>)(result.GetParameterValue(11)));
-			rongheDim = ((System.Nullable<double>)(result.GetParameterValue(12)));
-			remarks = ((string)(result.GetParameterValue(13)));
-			zaojian = ((System.Nullable<bool>)(result.GetParameterValue(14)));
-			fistPoint = ((System.Nullable<bool>)(result.GetParameterValue(15)));
-			endPoint = ((System.Nullable<bool>)(result.GetParameterValue(16)));
-			ret = ((System.Nullable<int>)(result.GetParameterValue(17)));
-			return ((ISingleResult<SerchExpResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -912,11 +925,25 @@ namespace RX_DataUpdata
 		
 		private System.Nullable<System.DateTime> _TDate;
 		
-		private System.Nullable<bool> _ZhanJian;
+		private System.Nullable<bool> _Zaojian;
 		
 		private System.Nullable<bool> _FistPoint;
 		
 		private System.Nullable<bool> _EndPoint;
+		
+		private System.Nullable<bool> _Zhanfu;
+		
+		private System.Nullable<bool> _LieWen;
+		
+		private System.Nullable<bool> _FeiJian;
+		
+		private System.Nullable<bool> _YaHeng;
+		
+		private System.Nullable<bool> _WaiGuanNG;
+		
+		private System.Nullable<bool> _LianXuHanDian;
+		
+		private System.Nullable<bool> _HanJieJianXi;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -948,12 +975,26 @@ namespace RX_DataUpdata
     partial void OnBZ备注Changed();
     partial void OnTDateChanging(System.Nullable<System.DateTime> value);
     partial void OnTDateChanged();
-    partial void OnZhanJianChanging(System.Nullable<bool> value);
-    partial void OnZhanJianChanged();
+    partial void OnZaojianChanging(System.Nullable<bool> value);
+    partial void OnZaojianChanged();
     partial void OnFistPointChanging(System.Nullable<bool> value);
     partial void OnFistPointChanged();
     partial void OnEndPointChanging(System.Nullable<bool> value);
     partial void OnEndPointChanged();
+    partial void OnZhanfuChanging(System.Nullable<bool> value);
+    partial void OnZhanfuChanged();
+    partial void OnLieWenChanging(System.Nullable<bool> value);
+    partial void OnLieWenChanged();
+    partial void OnFeiJianChanging(System.Nullable<bool> value);
+    partial void OnFeiJianChanged();
+    partial void OnYaHengChanging(System.Nullable<bool> value);
+    partial void OnYaHengChanged();
+    partial void OnWaiGuanNGChanging(System.Nullable<bool> value);
+    partial void OnWaiGuanNGChanged();
+    partial void OnLianXuHanDianChanging(System.Nullable<bool> value);
+    partial void OnLianXuHanDianChanged();
+    partial void OnHanJieJianXiChanging(System.Nullable<bool> value);
+    partial void OnHanJieJianXiChanged();
     #endregion
 		
 		public SportData()
@@ -1221,22 +1262,22 @@ namespace RX_DataUpdata
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZhanJian", DbType="Bit")]
-		public System.Nullable<bool> ZhanJian
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zaojian", DbType="Bit")]
+		public System.Nullable<bool> Zaojian
 		{
 			get
 			{
-				return this._ZhanJian;
+				return this._Zaojian;
 			}
 			set
 			{
-				if ((this._ZhanJian != value))
+				if ((this._Zaojian != value))
 				{
-					this.OnZhanJianChanging(value);
+					this.OnZaojianChanging(value);
 					this.SendPropertyChanging();
-					this._ZhanJian = value;
-					this.SendPropertyChanged("ZhanJian");
-					this.OnZhanJianChanged();
+					this._Zaojian = value;
+					this.SendPropertyChanged("Zaojian");
+					this.OnZaojianChanged();
 				}
 			}
 		}
@@ -1281,6 +1322,146 @@ namespace RX_DataUpdata
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zhanfu", DbType="Bit")]
+		public System.Nullable<bool> Zhanfu
+		{
+			get
+			{
+				return this._Zhanfu;
+			}
+			set
+			{
+				if ((this._Zhanfu != value))
+				{
+					this.OnZhanfuChanging(value);
+					this.SendPropertyChanging();
+					this._Zhanfu = value;
+					this.SendPropertyChanged("Zhanfu");
+					this.OnZhanfuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LieWen", DbType="Bit")]
+		public System.Nullable<bool> LieWen
+		{
+			get
+			{
+				return this._LieWen;
+			}
+			set
+			{
+				if ((this._LieWen != value))
+				{
+					this.OnLieWenChanging(value);
+					this.SendPropertyChanging();
+					this._LieWen = value;
+					this.SendPropertyChanged("LieWen");
+					this.OnLieWenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FeiJian", DbType="Bit")]
+		public System.Nullable<bool> FeiJian
+		{
+			get
+			{
+				return this._FeiJian;
+			}
+			set
+			{
+				if ((this._FeiJian != value))
+				{
+					this.OnFeiJianChanging(value);
+					this.SendPropertyChanging();
+					this._FeiJian = value;
+					this.SendPropertyChanged("FeiJian");
+					this.OnFeiJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YaHeng", DbType="Bit")]
+		public System.Nullable<bool> YaHeng
+		{
+			get
+			{
+				return this._YaHeng;
+			}
+			set
+			{
+				if ((this._YaHeng != value))
+				{
+					this.OnYaHengChanging(value);
+					this.SendPropertyChanging();
+					this._YaHeng = value;
+					this.SendPropertyChanged("YaHeng");
+					this.OnYaHengChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WaiGuanNG", DbType="Bit")]
+		public System.Nullable<bool> WaiGuanNG
+		{
+			get
+			{
+				return this._WaiGuanNG;
+			}
+			set
+			{
+				if ((this._WaiGuanNG != value))
+				{
+					this.OnWaiGuanNGChanging(value);
+					this.SendPropertyChanging();
+					this._WaiGuanNG = value;
+					this.SendPropertyChanged("WaiGuanNG");
+					this.OnWaiGuanNGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LianXuHanDian", DbType="Bit")]
+		public System.Nullable<bool> LianXuHanDian
+		{
+			get
+			{
+				return this._LianXuHanDian;
+			}
+			set
+			{
+				if ((this._LianXuHanDian != value))
+				{
+					this.OnLianXuHanDianChanging(value);
+					this.SendPropertyChanging();
+					this._LianXuHanDian = value;
+					this.SendPropertyChanged("LianXuHanDian");
+					this.OnLianXuHanDianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HanJieJianXi", DbType="Bit")]
+		public System.Nullable<bool> HanJieJianXi
+		{
+			get
+			{
+				return this._HanJieJianXi;
+			}
+			set
+			{
+				if ((this._HanJieJianXi != value))
+				{
+					this.OnHanJieJianXiChanging(value);
+					this.SendPropertyChanging();
+					this._HanJieJianXi = value;
+					this.SendPropertyChanged("HanJieJianXi");
+					this.OnHanJieJianXiChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1302,90 +1483,12 @@ namespace RX_DataUpdata
 		}
 	}
 	
-	public partial class NewSportDataResult
-	{
-		
-		private string _Column1;
-		
-		public NewSportDataResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(4000)")]
-		public string Column1
-		{
-			get
-			{
-				return this._Column1;
-			}
-			set
-			{
-				if ((this._Column1 != value))
-				{
-					this._Column1 = value;
-				}
-			}
-		}
-	}
-	
 	public partial class NewExpResult
 	{
 		
 		private string _Column1;
 		
 		public NewExpResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(4000)")]
-		public string Column1
-		{
-			get
-			{
-				return this._Column1;
-			}
-			set
-			{
-				if ((this._Column1 != value))
-				{
-					this._Column1 = value;
-				}
-			}
-		}
-	}
-	
-	public partial class NewBoardDataResult
-	{
-		
-		private string _Column1;
-		
-		public NewBoardDataResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(4000)")]
-		public string Column1
-		{
-			get
-			{
-				return this._Column1;
-			}
-			set
-			{
-				if ((this._Column1 != value))
-				{
-					this._Column1 = value;
-				}
-			}
-		}
-	}
-	
-	public partial class UpdataExpResult
-	{
-		
-		private string _Column1;
-		
-		public UpdataExpResult()
 		{
 		}
 		
@@ -1440,6 +1543,20 @@ namespace RX_DataUpdata
 		private System.Nullable<bool> _FistPoint;
 		
 		private System.Nullable<bool> _EndPoint;
+		
+		private System.Nullable<bool> _Zhanfu;
+		
+		private System.Nullable<bool> _LieWen;
+		
+		private System.Nullable<bool> _FeiJian;
+		
+		private System.Nullable<bool> _YaHeng;
+		
+		private System.Nullable<bool> _WaiGuanNG;
+		
+		private System.Nullable<bool> _LianXuHanDian;
+		
+		private System.Nullable<bool> _HanJieJianXi;
 		
 		public SerchExpResult()
 		{
@@ -1697,6 +1814,144 @@ namespace RX_DataUpdata
 				if ((this._EndPoint != value))
 				{
 					this._EndPoint = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zhanfu", DbType="Bit")]
+		public System.Nullable<bool> Zhanfu
+		{
+			get
+			{
+				return this._Zhanfu;
+			}
+			set
+			{
+				if ((this._Zhanfu != value))
+				{
+					this._Zhanfu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LieWen", DbType="Bit")]
+		public System.Nullable<bool> LieWen
+		{
+			get
+			{
+				return this._LieWen;
+			}
+			set
+			{
+				if ((this._LieWen != value))
+				{
+					this._LieWen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FeiJian", DbType="Bit")]
+		public System.Nullable<bool> FeiJian
+		{
+			get
+			{
+				return this._FeiJian;
+			}
+			set
+			{
+				if ((this._FeiJian != value))
+				{
+					this._FeiJian = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YaHeng", DbType="Bit")]
+		public System.Nullable<bool> YaHeng
+		{
+			get
+			{
+				return this._YaHeng;
+			}
+			set
+			{
+				if ((this._YaHeng != value))
+				{
+					this._YaHeng = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WaiGuanNG", DbType="Bit")]
+		public System.Nullable<bool> WaiGuanNG
+		{
+			get
+			{
+				return this._WaiGuanNG;
+			}
+			set
+			{
+				if ((this._WaiGuanNG != value))
+				{
+					this._WaiGuanNG = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LianXuHanDian", DbType="Bit")]
+		public System.Nullable<bool> LianXuHanDian
+		{
+			get
+			{
+				return this._LianXuHanDian;
+			}
+			set
+			{
+				if ((this._LianXuHanDian != value))
+				{
+					this._LianXuHanDian = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HanJieJianXi", DbType="Bit")]
+		public System.Nullable<bool> HanJieJianXi
+		{
+			get
+			{
+				return this._HanJieJianXi;
+			}
+			set
+			{
+				if ((this._HanJieJianXi != value))
+				{
+					this._HanJieJianXi = value;
+				}
+			}
+		}
+	}
+	
+	public partial class UpdataExpResult
+	{
+		
+		private string _Column1;
+		
+		public UpdataExpResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(4000)")]
+		public string Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
 				}
 			}
 		}

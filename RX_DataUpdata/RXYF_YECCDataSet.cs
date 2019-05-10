@@ -7,9 +7,12 @@
     }
 }
 
-namespace RX_DataUpdata.RXYF_YECCDataSetTableAdapters {
-    
-    
+namespace RX_DataUpdata.RXYF_YECCDataSetTableAdapters
+{
+    partial class ExperienceViewTableAdapter
+    {
+    }
+
     public partial class SportDataTableAdapter {
     }
 }
