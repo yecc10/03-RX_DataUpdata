@@ -18,6 +18,7 @@ namespace RX_DataUpdata
             InitializeComponent();
             CTime.Text = DateTime.Now.ToString();
             timer.Enabled = true;
+            UpdataData.Enabled = false; //默认更新按钮不可点击
         }
         /// <summary>
         /// 修改板号时对应的焊点编号重置为1
@@ -189,6 +190,8 @@ namespace RX_DataUpdata
         /// <param name="e"></param>
         private void UpdataData_Click(object sender, EventArgs e)
         {
+            UpdataData.Enabled = false; //关闭上传点击功能
+            AutoClearData.Enabled = true; //打开计时器
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
             DialogResult result = MessageBox.Show("是否确认更新" + SysPid.Pid + "焊点！", "更新确认-安徽瑞祥工业！", MessageBoxButtons.YesNo);
             if (result== System.Windows.Forms.DialogResult.Yes)
@@ -237,6 +240,7 @@ namespace RX_DataUpdata
                 SP=NewExp.ReadExp(SysPid.Pid);
                 if (SP.Res==11)
                 {
+                    UpdataData.Enabled = true;
                     Ustatus.Text = SP.pid + "焊点已读取成功！";
                     B1t.Text =Convert.ToString(SP.b1t);
                     b2t.Text = Convert.ToString(SP.b2t);
@@ -260,6 +264,17 @@ namespace RX_DataUpdata
                     Ustatus.Text = "服务器未检索到"+SP.pid + "焊点！";
                 }
             }
+        }
+
+        /// <summary>
+        /// 每3S执行一次
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AutoClearData_Tick(object sender, EventArgs e)
+        {
+            //Ustatus.Text = "";
+            AutoClearData.Enabled = false;
         }
     }
 }

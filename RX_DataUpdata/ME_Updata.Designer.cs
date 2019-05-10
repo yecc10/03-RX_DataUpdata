@@ -81,6 +81,7 @@
             this.Ustatus = new System.Windows.Forms.Label();
             this.CTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.AutoClearData = new System.Windows.Forms.Timer(this.components);
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -588,6 +589,11 @@
             this.timer.Interval = 500;
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // AutoClearData
+            // 
+            this.AutoClearData.Interval = 3000;
+            this.AutoClearData.Tick += new System.EventHandler(this.AutoClearData_Tick);
+            // 
             // ME_Updata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -670,6 +676,7 @@
         private System.Windows.Forms.CheckBox EndPoint;
         private System.Windows.Forms.CheckBox ZaoJian;
         private System.Windows.Forms.Button ReadPointData;
+        private System.Windows.Forms.Timer AutoClearData;
     }
 }
 
