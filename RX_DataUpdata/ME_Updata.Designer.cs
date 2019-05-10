@@ -94,7 +94,7 @@
             this.UpdataData.Name = "UpdataData";
             this.UpdataData.Size = new System.Drawing.Size(75, 56);
             this.UpdataData.TabIndex = 0;
-            this.UpdataData.Text = "上传数据";
+            this.UpdataData.Text = "执行更新";
             this.UpdataData.UseVisualStyleBackColor = false;
             this.UpdataData.Click += new System.EventHandler(this.UpdataData_Click);
             // 
@@ -502,7 +502,7 @@
             // ReadPointData
             // 
             this.ReadPointData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ReadPointData.Location = new System.Drawing.Point(334, 56);
+            this.ReadPointData.Location = new System.Drawing.Point(334, 49);
             this.ReadPointData.Name = "ReadPointData";
             this.ReadPointData.Size = new System.Drawing.Size(126, 28);
             this.ReadPointData.TabIndex = 4;

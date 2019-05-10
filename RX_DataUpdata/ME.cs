@@ -227,6 +227,9 @@ namespace RX_DataUpdata
             FeiJian.Checked = false;
             lieWen.Checked = false;
             Zhanfu.Checked = false;
+            ZaoJian.Checked = false;
+            EndPoint.Checked = false;
+            QueXian.Checked = false;
         }
 
         private void QueXian_CheckedChanged(object sender, EventArgs e)

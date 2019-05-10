@@ -501,7 +501,7 @@
             // OpenDialogForPoint
             // 
             this.OpenDialogForPoint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.OpenDialogForPoint.Location = new System.Drawing.Point(334, 62);
+            this.OpenDialogForPoint.Location = new System.Drawing.Point(334, 51);
             this.OpenDialogForPoint.Name = "OpenDialogForPoint";
             this.OpenDialogForPoint.Size = new System.Drawing.Size(126, 28);
             this.OpenDialogForPoint.TabIndex = 4;
