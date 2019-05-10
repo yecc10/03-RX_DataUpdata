@@ -1,6 +1,6 @@
 ﻿namespace RX_DataUpdata
 {
-    partial class ME
+    partial class ME_Updata
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ME));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ME_Updata));
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.InsertData = new System.Windows.Forms.Button();
+            this.UpdataData = new System.Windows.Forms.Button();
             this.DA = new System.Windows.Forms.GroupBox();
             this.Remark = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -80,22 +80,22 @@
             this.Ustatus = new System.Windows.Forms.Label();
             this.CTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.OpenDialogForPoint = new System.Windows.Forms.Button();
+            this.ReadPointData = new System.Windows.Forms.Button();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // InsertData
+            // UpdataData
             // 
-            this.InsertData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.InsertData.Location = new System.Drawing.Point(403, 583);
-            this.InsertData.Name = "InsertData";
-            this.InsertData.Size = new System.Drawing.Size(75, 30);
-            this.InsertData.TabIndex = 0;
-            this.InsertData.Text = "上传数据";
-            this.InsertData.UseVisualStyleBackColor = false;
-            this.InsertData.Click += new System.EventHandler(this.button1_Click);
+            this.UpdataData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.UpdataData.Location = new System.Drawing.Point(403, 583);
+            this.UpdataData.Name = "UpdataData";
+            this.UpdataData.Size = new System.Drawing.Size(75, 30);
+            this.UpdataData.TabIndex = 0;
+            this.UpdataData.Text = "上传数据";
+            this.UpdataData.UseVisualStyleBackColor = false;
+            this.UpdataData.Click += new System.EventHandler(this.UpdataData_Click);
             // 
             // DA
             // 
@@ -478,7 +478,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.OpenDialogForPoint);
+            this.groupBox1.Controls.Add(this.ReadPointData);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.Waiguan);
             this.groupBox1.Controls.Add(this.QueXian);
@@ -577,33 +577,33 @@
             this.timer.Interval = 500;
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // OpenDialogForPoint
+            // ReadPointData
             // 
-            this.OpenDialogForPoint.Location = new System.Drawing.Point(334, 62);
-            this.OpenDialogForPoint.Name = "OpenDialogForPoint";
-            this.OpenDialogForPoint.Size = new System.Drawing.Size(126, 28);
-            this.OpenDialogForPoint.TabIndex = 4;
-            this.OpenDialogForPoint.Text = "更新焊点参数";
-            this.OpenDialogForPoint.UseVisualStyleBackColor = true;
-            this.OpenDialogForPoint.Click += new System.EventHandler(this.OpenDialogForPoint_Click);
+            this.ReadPointData.Location = new System.Drawing.Point(334, 56);
+            this.ReadPointData.Name = "ReadPointData";
+            this.ReadPointData.Size = new System.Drawing.Size(126, 28);
+            this.ReadPointData.TabIndex = 4;
+            this.ReadPointData.Text = "读取该焊点参数";
+            this.ReadPointData.UseVisualStyleBackColor = true;
+            this.ReadPointData.Click += new System.EventHandler(this.ReadPointData_Click);
             // 
-            // ME
+            // ME_Updata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(498, 625);
             this.Controls.Add(this.CTime);
             this.Controls.Add(this.Ustatus);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DA);
-            this.Controls.Add(this.InsertData);
+            this.Controls.Add(this.UpdataData);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(514, 664);
             this.MinimumSize = new System.Drawing.Size(514, 664);
-            this.Name = "ME";
+            this.Name = "ME_Updata";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "数据登记";
+            this.Text = "数据更新";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.DA.ResumeLayout(false);
             this.DA.PerformLayout();
@@ -618,7 +618,7 @@
         #endregion
 
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.Button InsertData;
+        private System.Windows.Forms.Button UpdataData;
         private System.Windows.Forms.GroupBox DA;
         private System.Windows.Forms.TextBox Remark;
         private System.Windows.Forms.Label label8;
@@ -667,7 +667,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.CheckBox EndPoint;
         private System.Windows.Forms.CheckBox ZaoJian;
-        private System.Windows.Forms.Button OpenDialogForPoint;
+        private System.Windows.Forms.Button ReadPointData;
     }
 }
 

@@ -174,6 +174,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="ME_Updata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ME_Updata.Designer.cs">
+      <DependentUpon>ME_Updata.cs</DependentUpon>
+    </Compile>
     <Compile Include="ME.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ME_Updata.resx">
+      <DependentUpon>ME_Updata.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ME.resx">
       <DependentUpon>ME.cs</DependentUpon>

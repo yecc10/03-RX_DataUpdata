@@ -11,106 +11,14 @@ using System.Configuration;
 
 namespace RX_DataUpdata
 {
-    public partial class ME : Form
+    public partial class ME_Updata : Form
     {
-        public ME()
+        public ME_Updata()
         {
             InitializeComponent();
             CTime.Text = DateTime.Now.ToString();
             timer.Enabled = true;
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string text=string.Empty;
-            text = SportBordID.Text;
-            if (text.Length<6)
-            {
-                int len = 6 - text.Length;
-                switch (len)
-                {
-                    case 2:
-                        {
-                            string p = text.Substring(0, 3);
-                            string p1 = text.Substring(3, 1);
-                            string p2 = p + "00" + p1;
-                            text = p2;
-                            break;
-                        }
-                    case 1:
-                        {
-                            string p = text.Substring(0, 3);
-                            string p1 = text.Substring(3, 2);
-                            string p2 = p + "0" + p1;
-                            text = p2;
-                            break;
-                        }
-                }
-            }
-            string text2 = string.Empty;
-            text2 = Pid.Text;
-            if (text2.Length<2)
-            {
-                text2 = "0" + text2; //BID
-                text2 = text + text2; //PID
-            }
-            else
-            {
-                text2 = text + text2;
-            }
-            if (text.Length>4)
-            {
-                try
-                {
-                    var Ret=-2;
-                    Ret =NewExp.AddExp(text, text2, Convert.ToDouble(B1t.Text), Convert.ToDouble(b2t.Text), Convert.ToDouble(B3t.Text), B3m.Text.ToString(), Convert.ToDouble(PoleDim.Text), Convert.ToDouble(PressTime.Text), Convert.ToDouble(Weldele.Text), Convert.ToDouble(WeldTime.Text), Convert.ToDouble(KeepTime.Text), Convert.ToDouble(Pressure.Text), Convert.ToDouble(SportDim.Text), Convert.ToDouble(RongheDim.Text), Remark.Text.ToString(),ZaoJian.Checked,FirstPoint.Checked,EndPoint.Checked,Ret);
-                    
-                    if (Ret==11)
-                    {
-                        Ustatus.Text = text + Pid.Text + "上传成功！";
-                    }
-                    else if(Ret == -99)
-                    {
-                        Ustatus.Text = text + Pid.Text + "该焊点已存在未进行上传！";
-                    }
-                }
-                catch (Exception)
-                {
-                    Ustatus.Text = text+ Pid.Text + "上传失败！";
-                    throw;
-                }
-                int NU=0;
-                NU = Convert.ToUInt16(Pid.Text);
-                NU += 1; 
-                try
-                {
-                    Pid.Text = Convert.ToString(NU); 
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-            }
-            
-      }
-
-        private void SerchData_Click(object sender, EventArgs e)
-        {
-            MSEDataContext mSEData = new MSEDataContext();
-            string b3m, remarks;
-            double b1t = 0, b2t = 0, b3t = 0, PoleDim = 0, presstime = 0, weldele = 0, weldtime = 0, keeptime = 0, pressure = 0, sportDim = 0, rongheDim = 0;
-            try
-            {
-                //mSEData.SerchExp(Pid.Text, ref b1t, ref b2t, ref b3t, ref b3m, ref PoleDim, ref presstime, ref weldele, ref weldtime, ref keeptime, ref pressure, ref sportDim, ref rongheDim, ref remarks);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         /// <summary>
         /// 修改板号时对应的焊点编号重置为1
         /// </summary>
@@ -274,10 +182,42 @@ namespace RX_DataUpdata
             MessageBox.Show("你已选定该焊点为造检点！");
         }
 
-        private void OpenDialogForPoint_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 更新焊点参数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdataData_Click(object sender, EventArgs e)
         {
-            ME_Updata MEU = new ME_Updata();
-            MEU.ShowDialog();
+            DialogResult result = MessageBox.Show("是否确认更新数据！", "更新确认-安徽瑞祥工业！", MessageBoxButtons.YesNo);
+            if (result== System.Windows.Forms.DialogResult.Yes)
+            {
+                MSEDataContext mSEData = new MSEDataContext();
+                try
+                {
+                    //mSEData.SerchExp(Pid.Text, ref b1t, ref b2t, ref b3t, ref b3m, ref PoleDim, ref presstime, ref weldele, ref weldtime, ref keeptime, ref pressure, ref sportDim, ref rongheDim, ref remarks);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            else
+            {
+                MessageBox.Show("你已取消更新该焊点参数任务！");
+            }
+            
+        }
+
+        /// <summary>
+        /// 读取焊点参数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReadPointData_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
