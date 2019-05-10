@@ -31,12 +31,12 @@ namespace RX_DataUpdata
         /// <param name="fistPoint">是否修磨后第一个焊点</param>
         /// <param name="endPoint">当前参数最终焊点</param>
         /// <param name="Ret">返回执行结果</param>
-        static public int AddExp(string bid,string pid,double b1t, double b2t, double b3t,string b3m, double poleDim, double presstime, double weldele, double weldtime, double keeptime, double pressure, double sportDim, double rongheDim,string remarks,bool zhanjian, bool fistPoint, bool endPoint,int? Ret)
+        static public int AddExp(string bid,string pid,double b1t, double b2t, double b3t,string b3m, double poleDim, double presstime, double weldele, double weldtime, double keeptime, double pressure, double sportDim, double rongheDim,string remarks,bool zhanjian, bool fistPoint, bool endPoint, bool Zhanfu, bool LieWen, bool FeiJian, bool YaHeng, bool WaiGuanNG, bool LianXuHanDian, bool HanJieJianXi,int? Ret)
         {
             MSEDataContext ND = new MSEDataContext();
             try
             {
-                ND.NewExp(bid,pid,b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks,zhanjian,fistPoint,endPoint, ref Ret);
+                ND.NewExp(bid,pid,b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks,zhanjian,fistPoint,endPoint, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi, ref Ret);
                 ND.SubmitChanges();
                 return Convert.ToInt16(Ret);
 
@@ -71,7 +71,7 @@ namespace RX_DataUpdata
         static public ReadPonit ReadExp(string pid)
         {
             double? b1t=0, b2t = 0, b3t = 0, poleDim = 0, presstime = 0, weldele = 0, weldtime = 0, keeptime = 0, pressure = 0, sportDim = 0, rongheDim = 0;
-            bool? zhanjian=false, fistPoint = false, endPoint = false;
+            bool? zhanjian=false, fistPoint = false, endPoint = false, Zhanfu = false,  LieWen = false,  FeiJian = false,  YaHeng = false,  WaiGuanNG = false,  LianXuHanDian = false,  HanJieJianXi = false;
             string b3m=string.Empty, remarks = string.Empty;
             MSEDataContext NE = new MSEDataContext();
             try
