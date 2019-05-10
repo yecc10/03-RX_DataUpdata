@@ -62,8 +62,17 @@ namespace RX_DataUpdata
             {
                 try
                 {
-                    NewExp newData = new NewExp(text, text2, Convert.ToDouble(B1t.Text), Convert.ToDouble(b2t.Text), Convert.ToDouble(B3t.Text), B3m.Text.ToString(), Convert.ToDouble(PoleDim.Text), Convert.ToDouble(PressTime.Text), Convert.ToDouble(Weldele.Text), Convert.ToDouble(WeldTime.Text), Convert.ToDouble(KeepTime.Text), Convert.ToDouble(Pressure.Text), Convert.ToDouble(SportDim.Text), Convert.ToDouble(RongheDim.Text), Remark.Text.ToString());
-                    Ustatus.Text = text+ Pid.Text + "上传成功！";
+                    var Ret=-2;
+                    Ret =NewExp.AddExp(text, text2, Convert.ToDouble(B1t.Text), Convert.ToDouble(b2t.Text), Convert.ToDouble(B3t.Text), B3m.Text.ToString(), Convert.ToDouble(PoleDim.Text), Convert.ToDouble(PressTime.Text), Convert.ToDouble(Weldele.Text), Convert.ToDouble(WeldTime.Text), Convert.ToDouble(KeepTime.Text), Convert.ToDouble(Pressure.Text), Convert.ToDouble(SportDim.Text), Convert.ToDouble(RongheDim.Text), Remark.Text.ToString(),ZaoJian.Checked,FirstPoint.Checked,EndPoint.Checked,Ret);
+                    
+                    if (Ret==11)
+                    {
+                        Ustatus.Text = text + Pid.Text + "上传成功！";
+                    }
+                    else if(Ret == -99)
+                    {
+                        Ustatus.Text = text + Pid.Text + "该焊点已存在未进行上传！";
+                    }
                 }
                 catch (Exception)
                 {
@@ -253,6 +262,16 @@ namespace RX_DataUpdata
         private void timer1_Tick(object sender, EventArgs e)
         {
             CTime.Text = DateTime.Now.ToString();
+        }
+
+        private void EndPoint_CheckedChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("你已选定该焊点为该组实验最终焊接参数！");
+        }
+
+        private void ZaoJian_CheckedChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("你已选定该焊点为造检点！");
         }
     }
 }

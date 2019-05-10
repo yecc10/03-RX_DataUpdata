@@ -100,20 +100,6 @@ namespace RX_DataUpdata
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NewBoardData")]
-		public ISingleResult<NewBoardDataResult> NewBoardData([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string pid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b1t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b2t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b3t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(50)")] string b3m)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pid, b1t, b2t, b3t, b3m);
-			return ((ISingleResult<NewBoardDataResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NewSportData")]
-		public ISingleResult<NewSportDataResult> NewSportData([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string pid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PoleDim", DbType="Float")] System.Nullable<double> poleDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Presstime", DbType="Float")] System.Nullable<double> presstime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weldele", DbType="Float")] System.Nullable<double> weldele, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> weldtime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Keeptime", DbType="Float")] System.Nullable<double> keeptime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pressure", DbType="Float")] System.Nullable<double> pressure, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SportDim", DbType="Float")] System.Nullable<double> sportDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RongheDim", DbType="Float")] System.Nullable<double> rongheDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="NVarChar(255)")] string remarks)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pid, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks);
-			return ((ISingleResult<NewSportDataResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdataExp")]
 		public int UpdataExp([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string pid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b1t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b2t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b3t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(50)")] string b3m, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PoleDim", DbType="Float")] System.Nullable<double> poleDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Presstime", DbType="Float")] System.Nullable<double> presstime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weldele", DbType="Float")] System.Nullable<double> weldele, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> weldtime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Keeptime", DbType="Float")] System.Nullable<double> keeptime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pressure", DbType="Float")] System.Nullable<double> pressure, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SportDim", DbType="Float")] System.Nullable<double> sportDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RongheDim", DbType="Float")] System.Nullable<double> rongheDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="NVarChar(255)")] string remarks)
 		{
@@ -141,11 +127,46 @@ namespace RX_DataUpdata
 			return ((ISingleResult<SerchExpResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NewExp")]
-		public ISingleResult<NewExpResult> NewExp([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bid", DbType="NVarChar(128)")] string bid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string pid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b1t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b2t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b3t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(50)")] string b3m, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PoleDim", DbType="Float")] System.Nullable<double> poleDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Presstime", DbType="Float")] System.Nullable<double> presstime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weldele", DbType="Float")] System.Nullable<double> weldele, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> weldtime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Keeptime", DbType="Float")] System.Nullable<double> keeptime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pressure", DbType="Float")] System.Nullable<double> pressure, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SportDim", DbType="Float")] System.Nullable<double> sportDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RongheDim", DbType="Float")] System.Nullable<double> rongheDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="NVarChar(255)")] string remarks)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NewSportData")]
+		public ISingleResult<NewSportDataResult> NewSportData([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string bid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string pid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PoleDim", DbType="Float")] System.Nullable<double> poleDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Presstime", DbType="Float")] System.Nullable<double> presstime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weldele", DbType="Float")] System.Nullable<double> weldele, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> weldtime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Keeptime", DbType="Float")] System.Nullable<double> keeptime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pressure", DbType="Float")] System.Nullable<double> pressure, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SportDim", DbType="Float")] System.Nullable<double> sportDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RongheDim", DbType="Float")] System.Nullable<double> rongheDim, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="NVarChar(255)")] string remarks, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> zhanjian, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FistPoint", DbType="Bit")] System.Nullable<bool> fistPoint, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndPoint", DbType="Bit")] System.Nullable<bool> endPoint, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ret", DbType="Int")] ref System.Nullable<int> ret)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bid, pid, b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bid, pid, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks, zhanjian, fistPoint, endPoint, ret);
+			ret = ((System.Nullable<int>)(result.GetParameterValue(14)));
+			return ((ISingleResult<NewSportDataResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NewExp")]
+		public ISingleResult<NewExpResult> NewExp(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Bid", DbType="NVarChar(128)")] string bid, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string pid, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b1t, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b2t, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b3t, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(50)")] string b3m, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PoleDim", DbType="Float")] System.Nullable<double> poleDim, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Presstime", DbType="Float")] System.Nullable<double> presstime, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weldele", DbType="Float")] System.Nullable<double> weldele, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> weldtime, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Keeptime", DbType="Float")] System.Nullable<double> keeptime, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pressure", DbType="Float")] System.Nullable<double> pressure, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SportDim", DbType="Float")] System.Nullable<double> sportDim, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="RongheDim", DbType="Float")] System.Nullable<double> rongheDim, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="NVarChar(255)")] string remarks, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Zaojian", DbType="Bit")] System.Nullable<bool> zaojian, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FistPoint", DbType="Bit")] System.Nullable<bool> fistPoint, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndPoint", DbType="Bit")] System.Nullable<bool> endPoint, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Rnum1", DbType="Int")] ref System.Nullable<int> rnum1)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bid, pid, b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks, zaojian, fistPoint, endPoint, rnum1);
+			rnum1 = ((System.Nullable<int>)(result.GetParameterValue(18)));
 			return ((ISingleResult<NewExpResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.NewBoardData")]
+		public ISingleResult<NewBoardDataResult> NewBoardData([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(128)")] string bid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b1t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b2t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Float")] System.Nullable<double> b3t, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(50)")] string b3m)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bid, b1t, b2t, b3t, b3m);
+			return ((ISingleResult<NewBoardDataResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -849,6 +870,12 @@ namespace RX_DataUpdata
 		
 		private System.Nullable<System.DateTime> _TDate;
 		
+		private System.Nullable<bool> _ZhanJian;
+		
+		private System.Nullable<bool> _FistPoint;
+		
+		private System.Nullable<bool> _EndPoint;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -879,6 +906,12 @@ namespace RX_DataUpdata
     partial void OnBZ备注Changed();
     partial void OnTDateChanging(System.Nullable<System.DateTime> value);
     partial void OnTDateChanged();
+    partial void OnZhanJianChanging(System.Nullable<bool> value);
+    partial void OnZhanJianChanged();
+    partial void OnFistPointChanging(System.Nullable<bool> value);
+    partial void OnFistPointChanged();
+    partial void OnEndPointChanging(System.Nullable<bool> value);
+    partial void OnEndPointChanged();
     #endregion
 		
 		public SportData()
@@ -1146,6 +1179,66 @@ namespace RX_DataUpdata
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZhanJian", DbType="Bit")]
+		public System.Nullable<bool> ZhanJian
+		{
+			get
+			{
+				return this._ZhanJian;
+			}
+			set
+			{
+				if ((this._ZhanJian != value))
+				{
+					this.OnZhanJianChanging(value);
+					this.SendPropertyChanging();
+					this._ZhanJian = value;
+					this.SendPropertyChanged("ZhanJian");
+					this.OnZhanJianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FistPoint", DbType="Bit")]
+		public System.Nullable<bool> FistPoint
+		{
+			get
+			{
+				return this._FistPoint;
+			}
+			set
+			{
+				if ((this._FistPoint != value))
+				{
+					this.OnFistPointChanging(value);
+					this.SendPropertyChanging();
+					this._FistPoint = value;
+					this.SendPropertyChanged("FistPoint");
+					this.OnFistPointChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndPoint", DbType="Bit")]
+		public System.Nullable<bool> EndPoint
+		{
+			get
+			{
+				return this._EndPoint;
+			}
+			set
+			{
+				if ((this._EndPoint != value))
+				{
+					this.OnEndPointChanging(value);
+					this.SendPropertyChanging();
+					this._EndPoint = value;
+					this.SendPropertyChanged("EndPoint");
+					this.OnEndPointChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1163,58 +1256,6 @@ namespace RX_DataUpdata
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	public partial class NewBoardDataResult
-	{
-		
-		private string _Column1;
-		
-		public NewBoardDataResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(4000)")]
-		public string Column1
-		{
-			get
-			{
-				return this._Column1;
-			}
-			set
-			{
-				if ((this._Column1 != value))
-				{
-					this._Column1 = value;
-				}
-			}
-		}
-	}
-	
-	public partial class NewSportDataResult
-	{
-		
-		private string _Column1;
-		
-		public NewSportDataResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(4000)")]
-		public string Column1
-		{
-			get
-			{
-				return this._Column1;
-			}
-			set
-			{
-				if ((this._Column1 != value))
-				{
-					this._Column1 = value;
-				}
 			}
 		}
 	}
@@ -1461,12 +1502,64 @@ namespace RX_DataUpdata
 		}
 	}
 	
+	public partial class NewSportDataResult
+	{
+		
+		private string _Column1;
+		
+		public NewSportDataResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(4000)")]
+		public string Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
+	}
+	
 	public partial class NewExpResult
 	{
 		
 		private string _Column1;
 		
 		public NewExpResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="NVarChar(4000)")]
+		public string Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class NewBoardDataResult
+	{
+		
+		private string _Column1;
+		
+		public NewBoardDataResult()
 		{
 		}
 		
