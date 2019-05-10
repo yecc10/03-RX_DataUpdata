@@ -230,6 +230,22 @@ namespace RX_DataUpdata
                 if (SP.pid!=string.Empty)
                 {
                     Ustatus.Text = SP.pid + "焊点已读取成功！";
+                    B1t.Text =Convert.ToString(SP.b1t);
+                    b2t.Text = Convert.ToString(SP.b2t);
+                    B3t.Text = Convert.ToString(SP.b3t);
+                    B3m.Text = Convert.ToString(SP.b3m);
+                    PoleDim.Text = Convert.ToString(SP.poleDim);
+                    PressTime.Text = Convert.ToString(SP.presstime);
+                    Weldele.Text = Convert.ToString(SP.weldele);
+                    WeldTime.Text = Convert.ToString(SP.weldtime);
+                    KeepTime.Text = Convert.ToString(SP.keeptime);
+                    Pressure.Text = Convert.ToString(SP.pressure);
+                    SportDim.Text = Convert.ToString(SP.sportDim);
+                    RongheDim.Text = Convert.ToString(SP.rongheDim);
+                    Remark.Text = SP.remarks;
+                    ZaoJian.Checked = SP.zaoJian;
+                    FirstPoint.Checked = SP.fistPoint;
+                    EndPoint.Checked = SP.endPoint;
                 }
             }
         }

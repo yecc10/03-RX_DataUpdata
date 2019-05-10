@@ -500,12 +500,13 @@
             // 
             // OpenDialogForPoint
             // 
+            this.OpenDialogForPoint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.OpenDialogForPoint.Location = new System.Drawing.Point(334, 62);
             this.OpenDialogForPoint.Name = "OpenDialogForPoint";
             this.OpenDialogForPoint.Size = new System.Drawing.Size(126, 28);
             this.OpenDialogForPoint.TabIndex = 4;
             this.OpenDialogForPoint.Text = "更新焊点参数";
-            this.OpenDialogForPoint.UseVisualStyleBackColor = true;
+            this.OpenDialogForPoint.UseVisualStyleBackColor = false;
             this.OpenDialogForPoint.Click += new System.EventHandler(this.OpenDialogForPoint_Click);
             // 
             // button1

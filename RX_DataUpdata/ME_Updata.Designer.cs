@@ -500,12 +500,13 @@
             // 
             // ReadPointData
             // 
+            this.ReadPointData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ReadPointData.Location = new System.Drawing.Point(334, 56);
             this.ReadPointData.Name = "ReadPointData";
             this.ReadPointData.Size = new System.Drawing.Size(126, 28);
             this.ReadPointData.TabIndex = 4;
             this.ReadPointData.Text = "读取该焊点参数";
-            this.ReadPointData.UseVisualStyleBackColor = true;
+            this.ReadPointData.UseVisualStyleBackColor = false;
             this.ReadPointData.Click += new System.EventHandler(this.ReadPointData_Click);
             // 
             // button1
