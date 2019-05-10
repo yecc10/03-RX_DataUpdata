@@ -68,7 +68,7 @@ namespace RX_DataUpdata
         /// <param name="endPoint">当前参数最终焊点</param>
         /// <param name="Ret">返回执行结果</param>
         /// <returns></returns>
-        static public Spoint ReadExp(string pid)
+        static public ReadPonit ReadExp(string pid)
         {
             double? b1t=0, b2t = 0, b3t = 0, poleDim = 0, presstime = 0, weldele = 0, weldtime = 0, keeptime = 0, pressure = 0, sportDim = 0, rongheDim = 0;
             bool? zhanjian=false, fistPoint = false, endPoint = false;
@@ -76,14 +76,15 @@ namespace RX_DataUpdata
             MSEDataContext NE = new MSEDataContext();
             try
             {
-                NE.SerchExp(pid, ref b1t, ref b2t, ref b3t, ref b3m, ref poleDim, ref presstime, ref weldele, ref weldtime, ref keeptime, ref pressure, ref sportDim, ref rongheDim, ref remarks, ref zhanjian, ref fistPoint, ref endPoint);
+                int? Ret = 0;
+                NE.SerchExp(pid, ref b1t, ref b2t, ref b3t, ref b3m, ref poleDim, ref presstime, ref weldele, ref weldtime, ref keeptime, ref pressure, ref sportDim, ref rongheDim, ref remarks, ref zhanjian, ref fistPoint, ref endPoint,ref Ret);
                 NE.SubmitChanges();
-                Spoint sp = new Spoint()
+                ReadPonit sp = new ReadPonit()
                 {
                     pid = pid, b1t = Convert.ToDouble(b1t),
                     b2t = Convert.ToDouble(b2t),
-                    b3t = Convert.ToDouble(b3t) ,
-                    b3m = Convert.ToString(b3m) ,
+                    b3t = Convert.ToDouble(b3t),
+                    b3m = Convert.ToString(b3m),
                     poleDim = Convert.ToDouble(poleDim),
                     presstime = Convert.ToDouble(presstime),
                     weldele = Convert.ToDouble(weldele),
@@ -95,7 +96,8 @@ namespace RX_DataUpdata
                     remarks = Convert.ToString(remarks),
                     zaoJian = Convert.ToBoolean(zhanjian),
                     fistPoint = Convert.ToBoolean(fistPoint),
-                    endPoint = Convert.ToBoolean(endPoint)
+                    endPoint = Convert.ToBoolean(endPoint),
+                    Res =Convert.ToInt16(Ret)
                 };
                 return sp; 
             }

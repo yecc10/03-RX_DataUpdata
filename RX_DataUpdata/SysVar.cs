@@ -96,6 +96,12 @@ namespace RX_DataUpdata
         /// </summary>
         public virtual string remarks { get; set; }
     }
+
+    public class ReadPonit:Spoint
+    {
+        public virtual int Res { get; set; }
+    }
+
     /// <summary>
     /// 焊点编号集BID/PID
     /// </summary>

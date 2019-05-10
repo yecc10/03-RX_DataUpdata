@@ -233,9 +233,9 @@ namespace RX_DataUpdata
             else
             {
                var SysPid= NewExp.GetPid(SportBordID.Text, Pid.Text);
-                Spoint SP = new Spoint();
+                ReadPonit SP = new ReadPonit();
                 SP=NewExp.ReadExp(SysPid.Pid);
-                if (SP.pid!=string.Empty)
+                if (SP.Res==11)
                 {
                     Ustatus.Text = SP.pid + "焊点已读取成功！";
                     B1t.Text =Convert.ToString(SP.b1t);
@@ -254,6 +254,10 @@ namespace RX_DataUpdata
                     ZaoJian.Checked = SP.zaoJian;
                     FirstPoint.Checked = SP.fistPoint;
                     EndPoint.Checked = SP.endPoint;
+                }
+                else
+                {
+                    Ustatus.Text = "服务器未检索到"+SP.pid + "焊点！";
                 }
             }
         }
