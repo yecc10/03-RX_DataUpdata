@@ -189,12 +189,12 @@ namespace RX_DataUpdata
         /// <param name="e"></param>
         private void UpdataData_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("是否确认更新数据！", "更新确认-安徽瑞祥工业！", MessageBoxButtons.YesNo);
+            var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+            DialogResult result = MessageBox.Show("是否确认更新" + SysPid.Pid + "焊点！", "更新确认-安徽瑞祥工业！", MessageBoxButtons.YesNo);
             if (result== System.Windows.Forms.DialogResult.Yes)
             {
                 try
                 {
-                    var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
                     var Res = NewExp.UpdataExp(SysPid.Bid, SysPid.Pid, Convert.ToDouble(B1t.Text), Convert.ToDouble(b2t.Text), Convert.ToDouble(B3t.Text), B3m.Text.ToString(), Convert.ToDouble(PoleDim.Text), Convert.ToDouble(PressTime.Text), Convert.ToDouble(Weldele.Text), Convert.ToDouble(WeldTime.Text), Convert.ToDouble(KeepTime.Text), Convert.ToDouble(Pressure.Text), Convert.ToDouble(SportDim.Text), Convert.ToDouble(RongheDim.Text), Remark.Text.ToString(), ZaoJian.Checked, FirstPoint.Checked, EndPoint.Checked);
                     if (Res == 11)
                     {
