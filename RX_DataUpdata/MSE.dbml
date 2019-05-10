@@ -67,23 +67,6 @@
       <Association Name="SportData_Board_SportData" Member="Board_SportData" ThisKey="ID" OtherKey="PID" Type="Board_SportData" />
     </Type>
   </Table>
-  <Function Name="dbo.UpdataExp" Method="UpdataExp">
-    <Parameter Name="pid" Type="System.String" DbType="NVarChar(128)" />
-    <Parameter Name="b1t" Type="System.Double" DbType="Float" />
-    <Parameter Name="b2t" Type="System.Double" DbType="Float" />
-    <Parameter Name="b3t" Type="System.Double" DbType="Float" />
-    <Parameter Name="b3m" Type="System.String" DbType="NChar(50)" />
-    <Parameter Name="PoleDim" Parameter="poleDim" Type="System.Double" DbType="Float" />
-    <Parameter Name="Presstime" Parameter="presstime" Type="System.Double" DbType="Float" />
-    <Parameter Name="Weldele" Parameter="weldele" Type="System.Double" DbType="Float" />
-    <Parameter Name="weldtime" Type="System.Double" DbType="Float" />
-    <Parameter Name="Keeptime" Parameter="keeptime" Type="System.Double" DbType="Float" />
-    <Parameter Name="Pressure" Parameter="pressure" Type="System.Double" DbType="Float" />
-    <Parameter Name="SportDim" Parameter="sportDim" Type="System.Double" DbType="Float" />
-    <Parameter Name="RongheDim" Parameter="rongheDim" Type="System.Double" DbType="Float" />
-    <Parameter Name="Remarks" Parameter="remarks" Type="System.String" DbType="NVarChar(255)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.NewSportData" Method="NewSportData">
     <Parameter Name="bid" Type="System.String" DbType="NVarChar(128)" />
     <Parameter Name="pid" Type="System.String" DbType="NVarChar(128)" />
@@ -173,6 +156,30 @@
       <Column Name="Zaojian" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="FistPoint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="EndPoint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UpdataExp" Method="UpdataExp">
+    <Parameter Name="Bid" Parameter="bid" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="pid" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="b1t" Type="System.Double" DbType="Float" />
+    <Parameter Name="b2t" Type="System.Double" DbType="Float" />
+    <Parameter Name="b3t" Type="System.Double" DbType="Float" />
+    <Parameter Name="b3m" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="PoleDim" Parameter="poleDim" Type="System.Double" DbType="Float" />
+    <Parameter Name="Presstime" Parameter="presstime" Type="System.Double" DbType="Float" />
+    <Parameter Name="Weldele" Parameter="weldele" Type="System.Double" DbType="Float" />
+    <Parameter Name="weldtime" Type="System.Double" DbType="Float" />
+    <Parameter Name="Keeptime" Parameter="keeptime" Type="System.Double" DbType="Float" />
+    <Parameter Name="Pressure" Parameter="pressure" Type="System.Double" DbType="Float" />
+    <Parameter Name="SportDim" Parameter="sportDim" Type="System.Double" DbType="Float" />
+    <Parameter Name="RongheDim" Parameter="rongheDim" Type="System.Double" DbType="Float" />
+    <Parameter Name="Remarks" Parameter="remarks" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Zaojian" Parameter="zaojian" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="FistPoint" Parameter="fistPoint" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="EndPoint" Parameter="endPoint" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Rnum1" Parameter="rnum1" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="UpdataExpResult">
+      <Column Name="" Member="Column1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
