@@ -94,23 +94,6 @@ namespace RX_DataUpdata
             }
             
       }
-
-        private void SerchData_Click(object sender, EventArgs e)
-        {
-            MSEDataContext mSEData = new MSEDataContext();
-            string b3m, remarks;
-            double b1t = 0, b2t = 0, b3t = 0, PoleDim = 0, presstime = 0, weldele = 0, weldtime = 0, keeptime = 0, pressure = 0, sportDim = 0, rongheDim = 0;
-            try
-            {
-                //mSEData.SerchExp(Pid.Text, ref b1t, ref b2t, ref b3t, ref b3m, ref PoleDim, ref presstime, ref weldele, ref weldtime, ref keeptime, ref pressure, ref sportDim, ref rongheDim, ref remarks);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         /// <summary>
         /// 修改板号时对应的焊点编号重置为1
         /// </summary>

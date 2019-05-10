@@ -192,10 +192,18 @@ namespace RX_DataUpdata
             DialogResult result = MessageBox.Show("是否确认更新数据！", "更新确认-安徽瑞祥工业！", MessageBoxButtons.YesNo);
             if (result== System.Windows.Forms.DialogResult.Yes)
             {
-                MSEDataContext mSEData = new MSEDataContext();
                 try
                 {
-                    //mSEData.SerchExp(Pid.Text, ref b1t, ref b2t, ref b3t, ref b3m, ref PoleDim, ref presstime, ref weldele, ref weldtime, ref keeptime, ref pressure, ref sportDim, ref rongheDim, ref remarks);
+                    var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+                    var Res = NewExp.UpdataExp(SysPid.Bid, SysPid.Pid, Convert.ToDouble(B1t.Text), Convert.ToDouble(b2t.Text), Convert.ToDouble(B3t.Text), B3m.Text.ToString(), Convert.ToDouble(PoleDim.Text), Convert.ToDouble(PressTime.Text), Convert.ToDouble(Weldele.Text), Convert.ToDouble(WeldTime.Text), Convert.ToDouble(KeepTime.Text), Convert.ToDouble(Pressure.Text), Convert.ToDouble(SportDim.Text), Convert.ToDouble(RongheDim.Text), Remark.Text.ToString(), ZaoJian.Checked, FirstPoint.Checked, EndPoint.Checked);
+                    if (Res == 11)
+                    {
+                        Ustatus.Text = SysPid.Pid  + "更新成功！";
+                    }
+                    else if (Res == -99)
+                    {
+                        Ustatus.Text = SysPid.Pid  + "该焊点已存在未成功更新！";
+                    }
                 }
                 catch (Exception)
                 {
@@ -226,7 +234,7 @@ namespace RX_DataUpdata
             {
                var SysPid= NewExp.GetPid(SportBordID.Text, Pid.Text);
                 Spoint SP = new Spoint();
-                SP=NewExp.ReadExp(SysPid);
+                SP=NewExp.ReadExp(SysPid.Pid);
                 if (SP.pid!=string.Empty)
                 {
                     Ustatus.Text = SP.pid + "焊点已读取成功！";

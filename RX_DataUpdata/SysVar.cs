@@ -96,6 +96,14 @@ namespace RX_DataUpdata
         /// </summary>
         public virtual string remarks { get; set; }
     }
+    /// <summary>
+    /// 焊点编号集BID/PID
+    /// </summary>
+    public class SportName
+    {
+        public virtual string Bid { get; set; }
+        public virtual string Pid { get; set; }
+    }
     class RegOprate
     {
         /// <summary>

@@ -27,11 +27,11 @@ namespace RX_DataUpdata
         /// <param name="sportDim">焊点直径</param>
         /// <param name="rongheDim">熔核直径</param>
         /// <param name="remarks">备注</param>
-        /// <param name="zhanjian">是否粘件</param>
+        /// <param name="zhanjian">是否为凿检点</param>
         /// <param name="fistPoint">是否修磨后第一个焊点</param>
         /// <param name="endPoint">当前参数最终焊点</param>
         /// <param name="Ret">返回执行结果</param>
-       static public int AddExp(string bid,string pid,double b1t, double b2t, double b3t,string b3m, double poleDim, double presstime, double weldele, double weldtime, double keeptime, double pressure, double sportDim, double rongheDim,string remarks,bool zhanjian, bool fistPoint, bool endPoint,int? Ret)
+        static public int AddExp(string bid,string pid,double b1t, double b2t, double b3t,string b3m, double poleDim, double presstime, double weldele, double weldtime, double keeptime, double pressure, double sportDim, double rongheDim,string remarks,bool zhanjian, bool fistPoint, bool endPoint,int? Ret)
         {
             MSEDataContext ND = new MSEDataContext();
             try
@@ -111,7 +111,7 @@ namespace RX_DataUpdata
         /// <param name="text">BID.Text值</param>
         /// <param name="text2">PID.Text值</param>
         /// <returns></returns>
-        static public string GetPid(string text, string text2)
+        static public SportName GetPid(string text, string text2)
         {
                 if (text.Length < 6)
                 {
@@ -145,12 +145,10 @@ namespace RX_DataUpdata
                 {
                     text2 = text + text2;
                 }
-            return text2;
+            SportName SN = new SportName() { Bid = text, Pid = text2 };
+            return SN;
         }
 
-    }
-    public class UpdataExp
-    {
         /// <summary>
         /// 更新实验数据
         /// </summary>
@@ -168,18 +166,25 @@ namespace RX_DataUpdata
         /// <param name="sportDim">焊点直径</param>
         /// <param name="rongheDim">熔核直径</param>
         /// <param name="remarks">备注</param>
-        public UpdataExp(string pid, double b1t, double b2t, double b3t, string b3m, double poleDim, double presstime, double weldele, double weldtime, double keeptime, double pressure, double sportDim, double rongheDim, string remarks)
+        /// <param name="zhanjian">是否为凿检点</param>
+        /// <param name="fistPoint">是否修磨后第一个焊点</param>
+        /// <param name="endPoint">当前参数最终焊点</param>
+        /// <param name="Ret">返回执行结果</param>
+        static public int UpdataExp(string bid, string pid, double b1t, double b2t, double b3t, string b3m, double poleDim, double presstime, double weldele, double weldtime, double keeptime, double pressure, double sportDim, double rongheDim, string remarks, bool zhanjian, bool fistPoint, bool endPoint)
         {
+            int? Ret = 0;
             MSEDataContext mSEData = new MSEDataContext();
             try
             {
-                mSEData.UpdataExp(pid, b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks);
+                mSEData.UpdataExp(bid, pid, b1t, b2t, b3t, b3m, poleDim, presstime, weldele, weldtime, keeptime, pressure, sportDim, rongheDim, remarks, zhanjian, fistPoint, endPoint, ref Ret);
                 mSEData.SubmitChanges();
+                return Convert.ToInt16(Ret);
             }
             catch (Exception)
             {
                 throw;
             }
         }
+
     }
 }
