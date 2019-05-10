@@ -217,7 +217,21 @@ namespace RX_DataUpdata
         /// <param name="e"></param>
         private void ReadPointData_Click(object sender, EventArgs e)
         {
-
+            if (SportBordID.Text.Length<4 ||Pid.Text.Length<1)
+            {
+                MessageBox.Show("焊点名称错误!请检查焊点名称！");
+                return;
+            }
+            else
+            {
+               var SysPid= NewExp.GetPid(SportBordID.Text, Pid.Text);
+                Spoint SP = new Spoint();
+                SP=NewExp.ReadExp(SysPid);
+                if (SP.pid!=string.Empty)
+                {
+                    Ustatus.Text = SP.pid + "焊点已读取成功！";
+                }
+            }
         }
     }
 }

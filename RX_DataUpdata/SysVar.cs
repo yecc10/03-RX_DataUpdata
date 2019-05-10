@@ -22,6 +22,80 @@ namespace RX_DataUpdata
         public static string ClientIP = string.Empty;  //客户端IP
         public static string BackRemark = string.Empty;  //程序临时备份文件
     }
+  public  class Spoint
+    {
+        /// <summary>
+        /// 实验版ID
+        /// </summary>
+        public virtual  string bid { get; set; }
+        /// <summary>
+        /// 实验焊点ID
+        /// </summary>
+        public virtual  string pid { get; set; }
+        /// <summary>
+        /// 上层板厚度，默认材料6061
+        /// </summary>
+        public virtual  double b1t { get; set; }
+        /// <summary>
+        /// 下层板厚度，默认材料5052
+        /// </summary>
+        public virtual double b2t { get; set; }
+        /// <summary>
+        /// 第三层板材料厚度
+        /// </summary>
+        public virtual double b3t { get; set; }
+        /// <summary>
+        ///第三层板材料
+        /// </summary>
+        public virtual string b3m { get; set; }
+        /// <summary>
+        /// 焊点直径
+        /// </summary>
+        public virtual double poleDim { get; set; }
+        /// <summary>
+        /// 加压时间
+        /// </summary>
+        public virtual double presstime { get; set; }
+        /// <summary>
+        /// 焊接电流
+        /// </summary>
+        public virtual double weldele { get; set; }
+        /// <summary>
+        /// 焊接时间
+        /// </summary>
+        public virtual double weldtime { get; set; }
+        /// <summary>
+        /// 保持时间
+        /// </summary>
+        public virtual double keeptime { get; set; }
+        /// <summary>
+        /// 焊接压力
+        /// </summary>
+        public virtual double pressure { get; set; }
+        /// <summary>
+        /// 焊点直径
+        /// </summary>
+        public virtual double sportDim { get; set; }
+        /// <summary>
+        /// 熔合直径
+        /// </summary>
+        public virtual double rongheDim { get; set; }
+        /// 是否凿检
+        /// </summary>
+        public virtual bool zaoJian { get; set; }
+        /// <summary>
+        /// 修磨后首个焊点
+        /// </summary>
+        public virtual bool fistPoint { get; set; }
+        /// <summary>
+        /// 该搭接最终焊点
+        /// </summary>
+        public virtual bool endPoint { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public virtual string remarks { get; set; }
+    }
     class RegOprate
     {
         /// <summary>

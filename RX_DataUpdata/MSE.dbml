@@ -84,37 +84,6 @@
     <Parameter Name="Remarks" Parameter="remarks" Type="System.String" DbType="NVarChar(255)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.SerchExp" Method="SerchExp">
-    <Parameter Name="pid" Type="System.String" DbType="NVarChar(128)" />
-    <Parameter Name="b1t" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="b2t" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="b3t" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="b3m" Type="System.String" DbType="NChar(50)" Direction="InOut" />
-    <Parameter Name="PoleDim" Parameter="poleDim" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="Presstime" Parameter="presstime" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="Weldele" Parameter="weldele" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="weldtime" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="Keeptime" Parameter="keeptime" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="Pressure" Parameter="pressure" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="SportDim" Parameter="sportDim" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="RongheDim" Parameter="rongheDim" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="Remarks" Parameter="remarks" Type="System.String" DbType="NVarChar(255)" Direction="InOut" />
-    <ElementType Name="SerchExpResult">
-      <Column Name="ID" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
-      <Column Name="PID" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
-      <Column Name="DJ电极端面直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="JY加压时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HJ焊接电流" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HJ焊接时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="WC维持时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DJ电极压力" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HD焊点直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HH熔核直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ZH总厚度" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="BZ备注" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="TDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.NewSportData" Method="NewSportData">
     <Parameter Name="bid" Type="System.String" DbType="NVarChar(128)" />
     <Parameter Name="pid" Type="System.String" DbType="NVarChar(128)" />
@@ -167,6 +136,43 @@
     <Parameter Name="b3m" Type="System.String" DbType="NChar(50)" />
     <ElementType Name="NewBoardDataResult">
       <Column Name="" Member="Column1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SerchExp" Method="SerchExp">
+    <Parameter Name="pid" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="b1t" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="b2t" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="b3t" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="b3m" Type="System.String" DbType="NChar(50)" Direction="InOut" />
+    <Parameter Name="PoleDim" Parameter="poleDim" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="Presstime" Parameter="presstime" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="Weldele" Parameter="weldele" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="weldtime" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="Keeptime" Parameter="keeptime" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="Pressure" Parameter="pressure" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="SportDim" Parameter="sportDim" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="RongheDim" Parameter="rongheDim" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="Remarks" Parameter="remarks" Type="System.String" DbType="NVarChar(255)" Direction="InOut" />
+    <Parameter Name="Zaojian" Parameter="zaojian" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="FistPoint" Parameter="fistPoint" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="EndPoint" Parameter="endPoint" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <ElementType Name="SerchExpResult">
+      <Column Name="ID" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="PID" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
+      <Column Name="DJ电极端面直径" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="JY加压时间" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HJ焊接电流" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HJ焊接时间" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WC维持时间" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DJ电极压力" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HD焊点直径" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HH熔核直径" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ZH总厚度" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BZ备注" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Zaojian" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FistPoint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EndPoint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

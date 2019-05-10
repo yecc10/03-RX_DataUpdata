@@ -72,6 +72,7 @@
             this.FirstPoint = new System.Windows.Forms.CheckBox();
             this.AlongPonit = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.OpenDialogForPoint = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.QueXian = new System.Windows.Forms.CheckBox();
             this.EndPoint = new System.Windows.Forms.CheckBox();
@@ -80,7 +81,6 @@
             this.Ustatus = new System.Windows.Forms.Label();
             this.CTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.OpenDialogForPoint = new System.Windows.Forms.Button();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -89,9 +89,9 @@
             // InsertData
             // 
             this.InsertData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.InsertData.Location = new System.Drawing.Point(403, 583);
+            this.InsertData.Location = new System.Drawing.Point(402, 585);
             this.InsertData.Name = "InsertData";
-            this.InsertData.Size = new System.Drawing.Size(75, 30);
+            this.InsertData.Size = new System.Drawing.Size(75, 61);
             this.InsertData.TabIndex = 0;
             this.InsertData.Text = "上传数据";
             this.InsertData.UseVisualStyleBackColor = false;
@@ -498,6 +498,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "质量说明";
             // 
+            // OpenDialogForPoint
+            // 
+            this.OpenDialogForPoint.Location = new System.Drawing.Point(334, 62);
+            this.OpenDialogForPoint.Name = "OpenDialogForPoint";
+            this.OpenDialogForPoint.Size = new System.Drawing.Size(126, 28);
+            this.OpenDialogForPoint.TabIndex = 4;
+            this.OpenDialogForPoint.Text = "更新焊点参数";
+            this.OpenDialogForPoint.UseVisualStyleBackColor = true;
+            this.OpenDialogForPoint.Click += new System.EventHandler(this.OpenDialogForPoint_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(334, 90);
@@ -556,7 +566,7 @@
             // 
             this.Ustatus.AutoSize = true;
             this.Ustatus.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Ustatus.Location = new System.Drawing.Point(209, 593);
+            this.Ustatus.Location = new System.Drawing.Point(8, 625);
             this.Ustatus.Name = "Ustatus";
             this.Ustatus.Size = new System.Drawing.Size(99, 20);
             this.Ustatus.TabIndex = 17;
@@ -566,7 +576,7 @@
             // 
             this.CTime.AutoSize = true;
             this.CTime.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.CTime.Location = new System.Drawing.Point(26, 593);
+            this.CTime.Location = new System.Drawing.Point(8, 591);
             this.CTime.Name = "CTime";
             this.CTime.Size = new System.Drawing.Size(99, 20);
             this.CTime.TabIndex = 17;
@@ -577,30 +587,20 @@
             this.timer.Interval = 500;
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // OpenDialogForPoint
-            // 
-            this.OpenDialogForPoint.Location = new System.Drawing.Point(334, 62);
-            this.OpenDialogForPoint.Name = "OpenDialogForPoint";
-            this.OpenDialogForPoint.Size = new System.Drawing.Size(126, 28);
-            this.OpenDialogForPoint.TabIndex = 4;
-            this.OpenDialogForPoint.Text = "更新焊点参数";
-            this.OpenDialogForPoint.UseVisualStyleBackColor = true;
-            this.OpenDialogForPoint.Click += new System.EventHandler(this.OpenDialogForPoint_Click);
-            // 
             // ME
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(498, 625);
+            this.ClientSize = new System.Drawing.Size(498, 656);
             this.Controls.Add(this.CTime);
             this.Controls.Add(this.Ustatus);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DA);
             this.Controls.Add(this.InsertData);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(514, 664);
-            this.MinimumSize = new System.Drawing.Size(514, 664);
+            this.MaximumSize = new System.Drawing.Size(514, 695);
+            this.MinimumSize = new System.Drawing.Size(514, 695);
             this.Name = "ME";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "数据登记";

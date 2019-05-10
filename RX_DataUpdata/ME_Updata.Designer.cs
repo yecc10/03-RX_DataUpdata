@@ -72,6 +72,7 @@
             this.FirstPoint = new System.Windows.Forms.CheckBox();
             this.AlongPonit = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ReadPointData = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.QueXian = new System.Windows.Forms.CheckBox();
             this.EndPoint = new System.Windows.Forms.CheckBox();
@@ -80,7 +81,6 @@
             this.Ustatus = new System.Windows.Forms.Label();
             this.CTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.ReadPointData = new System.Windows.Forms.Button();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -89,9 +89,9 @@
             // UpdataData
             // 
             this.UpdataData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.UpdataData.Location = new System.Drawing.Point(403, 583);
+            this.UpdataData.Location = new System.Drawing.Point(403, 586);
             this.UpdataData.Name = "UpdataData";
-            this.UpdataData.Size = new System.Drawing.Size(75, 30);
+            this.UpdataData.Size = new System.Drawing.Size(75, 56);
             this.UpdataData.TabIndex = 0;
             this.UpdataData.Text = "上传数据";
             this.UpdataData.UseVisualStyleBackColor = false;
@@ -159,7 +159,7 @@
             this.Pressure.Name = "Pressure";
             this.Pressure.Size = new System.Drawing.Size(121, 21);
             this.Pressure.TabIndex = 10;
-            this.Pressure.Text = "3.6";
+            this.Pressure.Text = "0";
             // 
             // label9
             // 
@@ -176,7 +176,7 @@
             this.WeldTime.Name = "WeldTime";
             this.WeldTime.Size = new System.Drawing.Size(121, 21);
             this.WeldTime.TabIndex = 11;
-            this.WeldTime.Text = "60";
+            this.WeldTime.Text = "0";
             // 
             // label10
             // 
@@ -193,7 +193,7 @@
             this.PressTime.Name = "PressTime";
             this.PressTime.Size = new System.Drawing.Size(121, 21);
             this.PressTime.TabIndex = 12;
-            this.PressTime.Text = "20";
+            this.PressTime.Text = "0";
             // 
             // label11
             // 
@@ -227,7 +227,7 @@
             this.b2t.Name = "b2t";
             this.b2t.Size = new System.Drawing.Size(121, 21);
             this.b2t.TabIndex = 14;
-            this.b2t.Text = "0.8";
+            this.b2t.Text = "0";
             // 
             // label13
             // 
@@ -280,7 +280,7 @@
             this.KeepTime.Name = "KeepTime";
             this.KeepTime.Size = new System.Drawing.Size(121, 21);
             this.KeepTime.TabIndex = 1;
-            this.KeepTime.Text = "20";
+            this.KeepTime.Text = "0";
             // 
             // label6
             // 
@@ -297,7 +297,7 @@
             this.Weldele.Name = "Weldele";
             this.Weldele.Size = new System.Drawing.Size(121, 21);
             this.Weldele.TabIndex = 1;
-            this.Weldele.Text = "33";
+            this.Weldele.Text = "0";
             // 
             // label5
             // 
@@ -314,7 +314,7 @@
             this.PoleDim.Name = "PoleDim";
             this.PoleDim.Size = new System.Drawing.Size(121, 21);
             this.PoleDim.TabIndex = 1;
-            this.PoleDim.Text = "25";
+            this.PoleDim.Text = "0";
             // 
             // label4
             // 
@@ -348,7 +348,7 @@
             this.B1t.Name = "B1t";
             this.B1t.Size = new System.Drawing.Size(121, 21);
             this.B1t.TabIndex = 1;
-            this.B1t.Text = "0.8";
+            this.B1t.Text = "0";
             // 
             // label2
             // 
@@ -498,6 +498,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "质量说明";
             // 
+            // ReadPointData
+            // 
+            this.ReadPointData.Location = new System.Drawing.Point(334, 56);
+            this.ReadPointData.Name = "ReadPointData";
+            this.ReadPointData.Size = new System.Drawing.Size(126, 28);
+            this.ReadPointData.TabIndex = 4;
+            this.ReadPointData.Text = "读取该焊点参数";
+            this.ReadPointData.UseVisualStyleBackColor = true;
+            this.ReadPointData.Click += new System.EventHandler(this.ReadPointData_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(334, 90);
@@ -556,7 +566,7 @@
             // 
             this.Ustatus.AutoSize = true;
             this.Ustatus.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Ustatus.Location = new System.Drawing.Point(209, 593);
+            this.Ustatus.Location = new System.Drawing.Point(12, 620);
             this.Ustatus.Name = "Ustatus";
             this.Ustatus.Size = new System.Drawing.Size(99, 20);
             this.Ustatus.TabIndex = 17;
@@ -566,7 +576,7 @@
             // 
             this.CTime.AutoSize = true;
             this.CTime.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.CTime.Location = new System.Drawing.Point(26, 593);
+            this.CTime.Location = new System.Drawing.Point(12, 585);
             this.CTime.Name = "CTime";
             this.CTime.Size = new System.Drawing.Size(99, 20);
             this.CTime.TabIndex = 17;
@@ -577,30 +587,21 @@
             this.timer.Interval = 500;
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // ReadPointData
-            // 
-            this.ReadPointData.Location = new System.Drawing.Point(334, 56);
-            this.ReadPointData.Name = "ReadPointData";
-            this.ReadPointData.Size = new System.Drawing.Size(126, 28);
-            this.ReadPointData.TabIndex = 4;
-            this.ReadPointData.Text = "读取该焊点参数";
-            this.ReadPointData.UseVisualStyleBackColor = true;
-            this.ReadPointData.Click += new System.EventHandler(this.ReadPointData_Click);
-            // 
             // ME_Updata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(498, 625);
+            this.ClientSize = new System.Drawing.Size(498, 651);
             this.Controls.Add(this.CTime);
             this.Controls.Add(this.Ustatus);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DA);
             this.Controls.Add(this.UpdataData);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(514, 664);
-            this.MinimumSize = new System.Drawing.Size(514, 664);
+            this.Location = new System.Drawing.Point(500, 200);
+            this.MaximumSize = new System.Drawing.Size(514, 690);
+            this.MinimumSize = new System.Drawing.Size(514, 690);
             this.Name = "ME_Updata";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "数据更新";
