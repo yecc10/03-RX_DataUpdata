@@ -75,11 +75,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Ustatus = new System.Windows.Forms.Label();
             this.QueXian = new System.Windows.Forms.CheckBox();
+            this.EndPoint = new System.Windows.Forms.CheckBox();
+            this.ZaoJian = new System.Windows.Forms.CheckBox();
             this.Jianxi = new System.Windows.Forms.CheckBox();
             this.CTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.ZaoJian = new System.Windows.Forms.CheckBox();
-            this.EndPoint = new System.Windows.Forms.CheckBox();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -478,7 +478,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.Ustatus);
             this.groupBox1.Controls.Add(this.Waiguan);
             this.groupBox1.Controls.Add(this.QueXian);
             this.groupBox1.Controls.Add(this.EndPoint);
@@ -511,7 +510,7 @@
             // 
             this.Ustatus.AutoSize = true;
             this.Ustatus.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Ustatus.Location = new System.Drawing.Point(14, 93);
+            this.Ustatus.Location = new System.Drawing.Point(209, 593);
             this.Ustatus.Name = "Ustatus";
             this.Ustatus.Size = new System.Drawing.Size(99, 20);
             this.Ustatus.TabIndex = 17;
@@ -520,13 +519,35 @@
             // QueXian
             // 
             this.QueXian.AutoSize = true;
-            this.QueXian.Location = new System.Drawing.Point(315, 62);
+            this.QueXian.Location = new System.Drawing.Point(201, 97);
             this.QueXian.Name = "QueXian";
             this.QueXian.Size = new System.Drawing.Size(108, 16);
             this.QueXian.TabIndex = 3;
             this.QueXian.Text = "无其他明显缺陷";
             this.QueXian.UseVisualStyleBackColor = true;
             this.QueXian.CheckedChanged += new System.EventHandler(this.QueXian_CheckedChanged);
+            // 
+            // EndPoint
+            // 
+            this.EndPoint.AutoSize = true;
+            this.EndPoint.Location = new System.Drawing.Point(119, 97);
+            this.EndPoint.Name = "EndPoint";
+            this.EndPoint.Size = new System.Drawing.Size(72, 16);
+            this.EndPoint.TabIndex = 3;
+            this.EndPoint.Text = "最终认可";
+            this.EndPoint.UseVisualStyleBackColor = true;
+            this.EndPoint.CheckedChanged += new System.EventHandler(this.EndPoint_CheckedChanged);
+            // 
+            // ZaoJian
+            // 
+            this.ZaoJian.AutoSize = true;
+            this.ZaoJian.Location = new System.Drawing.Point(17, 97);
+            this.ZaoJian.Name = "ZaoJian";
+            this.ZaoJian.Size = new System.Drawing.Size(60, 16);
+            this.ZaoJian.TabIndex = 3;
+            this.ZaoJian.Text = "凿检点";
+            this.ZaoJian.UseVisualStyleBackColor = true;
+            this.ZaoJian.CheckedChanged += new System.EventHandler(this.ZaoJian_CheckedChanged);
             // 
             // Jianxi
             // 
@@ -554,28 +575,6 @@
             this.timer.Interval = 500;
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // ZaoJian
-            // 
-            this.ZaoJian.AutoSize = true;
-            this.ZaoJian.Location = new System.Drawing.Point(131, 97);
-            this.ZaoJian.Name = "ZaoJian";
-            this.ZaoJian.Size = new System.Drawing.Size(60, 16);
-            this.ZaoJian.TabIndex = 3;
-            this.ZaoJian.Text = "凿检点";
-            this.ZaoJian.UseVisualStyleBackColor = true;
-            this.ZaoJian.CheckedChanged += new System.EventHandler(this.ZaoJian_CheckedChanged);
-            // 
-            // EndPoint
-            // 
-            this.EndPoint.AutoSize = true;
-            this.EndPoint.Location = new System.Drawing.Point(213, 97);
-            this.EndPoint.Name = "EndPoint";
-            this.EndPoint.Size = new System.Drawing.Size(72, 16);
-            this.EndPoint.TabIndex = 3;
-            this.EndPoint.Text = "最终认可";
-            this.EndPoint.UseVisualStyleBackColor = true;
-            this.EndPoint.CheckedChanged += new System.EventHandler(this.EndPoint_CheckedChanged);
-            // 
             // ME
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -583,6 +582,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(498, 625);
             this.Controls.Add(this.CTime);
+            this.Controls.Add(this.Ustatus);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DA);
             this.Controls.Add(this.InsertData);

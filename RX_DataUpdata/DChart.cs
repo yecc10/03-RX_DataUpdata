@@ -35,7 +35,7 @@ namespace RX_DataUpdata
             float[] str1, str2, str3, str4, str5, str6, str7;
             //SN = SportNum.Text.Substring(0, 4);
             SN = SportNum.Text;
-            this.experienceViewTableAdapter.FillByBID(this.rXYF_YECCDataSet.ExperienceView, SN);
+            this.experienceViewTableAdapter.FillBy(this.rXYF_YECCDataSet.ExperienceView, SN);
             rXYF_YECCDataSet.Tables["experienceView"].DefaultView.Sort="PID";
             dataGridView1.DataSource= rXYF_YECCDataSet.Tables["experienceView"].DefaultView;
             str = new string[dataGridView1.Rows.Count];
