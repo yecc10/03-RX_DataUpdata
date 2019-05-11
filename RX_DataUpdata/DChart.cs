@@ -75,5 +75,11 @@ namespace RX_DataUpdata
         {
 
         }
+
+        private void OutExcel_Click(object sender, EventArgs e)
+        {
+          var RE=  RxDataOprator.ExcelOprator.SaveExcelForLvSport(dataGridView1);
+        }
+       
     }
 }
