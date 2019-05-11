@@ -150,7 +150,7 @@ namespace RX_DataUpdata
         {
             if (QueXian.Checked && Remark.Text!=string.Empty)
             {
-                Remark.Text = Remark.Text+ "无其他明显缺陷。";
+                Remark.Text = Remark.Text+ "、无其他明显缺陷。";
             }
             else if(QueXian.Checked && Remark.Text == string.Empty)
             {
