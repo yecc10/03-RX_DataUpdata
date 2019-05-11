@@ -61,6 +61,10 @@
             this.经验库查询 = new System.Windows.Forms.TabPage();
             this.WBEXP = new System.Windows.Forms.WebBrowser();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.CatiaHelp = new System.Windows.Forms.TabPage();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.DelmiaHelp = new System.Windows.Forms.TabPage();
+            this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.工具集 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PlantValue = new System.Windows.Forms.TextBox();
@@ -68,10 +72,6 @@
             this.Oprate = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.CatiaHelp = new System.Windows.Forms.TabPage();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.DelmiaHelp = new System.Windows.Forms.TabPage();
-            this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.sportDataBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.aLTDataBaseDataSet = new RX_DataUpdata.ALTDataBaseDataSet();
             this.UserName = new System.Windows.Forms.LinkLabel();
@@ -84,13 +84,14 @@
             this.sportDataTableAdapter = new RX_DataUpdata.RXYF_YECCDataSetTableAdapters.SportDataTableAdapter();
             this.Utime = new System.Windows.Forms.Timer(this.components);
             this.sportDataTableAdapter1 = new RX_DataUpdata.ALTDataBaseDataSetTableAdapters.SportDataTableAdapter();
+            this.UpdataALdata = new System.Windows.Forms.Button();
             this.瑞祥实验数据中心.SuspendLayout();
             this.经验库查询.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.工具集.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.CatiaHelp.SuspendLayout();
             this.DelmiaHelp.SuspendLayout();
+            this.工具集.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sportDataBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aLTDataBaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rXYF_YECCDataSet)).BeginInit();
@@ -131,6 +132,7 @@
             // 
             this.瑞祥实验数据中心.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.瑞祥实验数据中心.Controls.Add(this.DataSerch);
+            this.瑞祥实验数据中心.Controls.Add(this.UpdataALdata);
             this.瑞祥实验数据中心.Controls.Add(this.NewLvSport);
             this.瑞祥实验数据中心.Controls.Add(this.treeView1);
             this.瑞祥实验数据中心.Location = new System.Drawing.Point(4, 22);
@@ -227,6 +229,46 @@
             this.tabControl1.Size = new System.Drawing.Size(1513, 757);
             this.tabControl1.TabIndex = 1;
             // 
+            // CatiaHelp
+            // 
+            this.CatiaHelp.Controls.Add(this.webBrowser1);
+            this.CatiaHelp.Location = new System.Drawing.Point(4, 22);
+            this.CatiaHelp.Name = "CatiaHelp";
+            this.CatiaHelp.Size = new System.Drawing.Size(1505, 731);
+            this.CatiaHelp.TabIndex = 4;
+            this.CatiaHelp.Text = "CatiaHelp";
+            this.CatiaHelp.UseVisualStyleBackColor = true;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(1505, 731);
+            this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.Url = new System.Uri("http://rx_yfb_yf079:7080/", System.UriKind.Absolute);
+            // 
+            // DelmiaHelp
+            // 
+            this.DelmiaHelp.Controls.Add(this.webBrowser2);
+            this.DelmiaHelp.Location = new System.Drawing.Point(4, 22);
+            this.DelmiaHelp.Name = "DelmiaHelp";
+            this.DelmiaHelp.Size = new System.Drawing.Size(1505, 731);
+            this.DelmiaHelp.TabIndex = 5;
+            this.DelmiaHelp.Text = "DelmiaHelp";
+            this.DelmiaHelp.UseVisualStyleBackColor = true;
+            // 
+            // webBrowser2
+            // 
+            this.webBrowser2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser2.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser2.Name = "webBrowser2";
+            this.webBrowser2.Size = new System.Drawing.Size(1505, 731);
+            this.webBrowser2.TabIndex = 0;
+            this.webBrowser2.Url = new System.Uri("http://rx_yfb_yf079:7090/", System.UriKind.Absolute);
+            // 
             // 工具集
             // 
             this.工具集.Controls.Add(this.groupBox1);
@@ -293,46 +335,6 @@
             this.label3.Size = new System.Drawing.Size(89, 12);
             this.label3.TabIndex = 0;
             this.label3.Text = "CAD中距离值 mm";
-            // 
-            // CatiaHelp
-            // 
-            this.CatiaHelp.Controls.Add(this.webBrowser1);
-            this.CatiaHelp.Location = new System.Drawing.Point(4, 22);
-            this.CatiaHelp.Name = "CatiaHelp";
-            this.CatiaHelp.Size = new System.Drawing.Size(1505, 731);
-            this.CatiaHelp.TabIndex = 4;
-            this.CatiaHelp.Text = "CatiaHelp";
-            this.CatiaHelp.UseVisualStyleBackColor = true;
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1505, 731);
-            this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.Url = new System.Uri("http://rx_yfb_yf079:7080/", System.UriKind.Absolute);
-            // 
-            // DelmiaHelp
-            // 
-            this.DelmiaHelp.Controls.Add(this.webBrowser2);
-            this.DelmiaHelp.Location = new System.Drawing.Point(4, 22);
-            this.DelmiaHelp.Name = "DelmiaHelp";
-            this.DelmiaHelp.Size = new System.Drawing.Size(1505, 731);
-            this.DelmiaHelp.TabIndex = 5;
-            this.DelmiaHelp.Text = "DelmiaHelp";
-            this.DelmiaHelp.UseVisualStyleBackColor = true;
-            // 
-            // webBrowser2
-            // 
-            this.webBrowser2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser2.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(1505, 731);
-            this.webBrowser2.TabIndex = 0;
-            this.webBrowser2.Url = new System.Uri("http://rx_yfb_yf079:7090/", System.UriKind.Absolute);
             // 
             // sportDataBindingSource1
             // 
@@ -414,6 +416,16 @@
             // 
             this.sportDataTableAdapter1.ClearBeforeFill = true;
             // 
+            // UpdataALdata
+            // 
+            this.UpdataALdata.Location = new System.Drawing.Point(540, 6);
+            this.UpdataALdata.Name = "UpdataALdata";
+            this.UpdataALdata.Size = new System.Drawing.Size(142, 51);
+            this.UpdataALdata.TabIndex = 2;
+            this.UpdataALdata.Text = "铝点焊数据更新";
+            this.UpdataALdata.UseVisualStyleBackColor = true;
+            this.UpdataALdata.Click += new System.EventHandler(this.UpdataALdata_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -440,11 +452,11 @@
             this.瑞祥实验数据中心.ResumeLayout(false);
             this.经验库查询.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.CatiaHelp.ResumeLayout(false);
+            this.DelmiaHelp.ResumeLayout(false);
             this.工具集.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.CatiaHelp.ResumeLayout(false);
-            this.DelmiaHelp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sportDataBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aLTDataBaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rXYF_YECCDataSet)).EndInit();
@@ -488,5 +500,6 @@
         private System.Windows.Forms.TabPage DelmiaHelp;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.WebBrowser webBrowser2;
+        private System.Windows.Forms.Button UpdataALdata;
     }
 }

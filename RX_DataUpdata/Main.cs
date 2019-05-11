@@ -64,16 +64,8 @@ namespace RX_DataUpdata
 
         private void NewLvSport_Click(object sender, EventArgs e)
         {
-            if (SysVar.Acc > 16 ||SysVar.UserName=="yechaocheng")
-            {
                 ME mE = new ME();
                 mE.Show();
-            }
-            else
-            {
-                MessageBox.Show("您无权打开该页面！该页面仅供铝电焊实验人员使用！");
-                //this.Close();
-            }
         }
 
         private void DataSerch_Click(object sender, EventArgs e)
@@ -99,6 +91,12 @@ namespace RX_DataUpdata
         private void Oprate_Click(object sender, EventArgs e)
         {
             this.PlantValue.Text =Convert.ToString( Convert.ToDouble(CadValue.Text)/1000*20);
+        }
+
+        private void UpdataALdata_Click(object sender, EventArgs e)
+        {
+            ME_Updata MEU = new ME_Updata();
+            MEU.ShowDialog();
         }
     }
 }

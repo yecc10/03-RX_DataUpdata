@@ -95,6 +95,34 @@ namespace RX_DataUpdata
         /// 备注
         /// </summary>
         public virtual string remarks { get; set; }
+        /// <summary>
+        /// 粘附
+        /// </summary>
+        public virtual bool Zhanfu { get; set; }
+        /// <summary>
+        /// 裂纹
+        /// </summary>
+        public virtual bool lieWen { get; set; }
+        /// <summary>
+        /// 飞溅
+        /// </summary>
+        public virtual bool FeiJian { get; set; }
+        /// <summary>
+        /// 压痕
+        /// </summary>
+        public virtual bool Yaheng { get; set; }
+        /// <summary>
+        /// 外观质量NG
+        /// </summary>
+        public virtual bool Waiguan { get; set; }
+        /// <summary>
+        /// 连续焊点
+        /// </summary>
+        public virtual bool AlongPonit { get; set; }
+        /// <summary>
+        /// 存在焊接间隙
+        /// </summary>
+        public virtual bool Jianxi { get; set; }
     }
 
     public class ReadPonit:Spoint

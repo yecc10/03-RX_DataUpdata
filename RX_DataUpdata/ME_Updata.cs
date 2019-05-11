@@ -32,109 +32,44 @@ namespace RX_DataUpdata
 
         private void Zhanfu_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (Zhanfu.Checked)
-            {
-                Remark.Text = Remark.Text + "有粘附、";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
         }
 
         private void lieWen_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (lieWen.Checked)
-            {
-                Remark.Text = Remark.Text + "有裂纹、";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
         }
 
         private void FeiJian_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (FeiJian.Checked)
-            {
-                Remark.Text = Remark.Text + "有飞溅、";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
         }
 
         private void Yaheng_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (Yaheng.Checked)
-            {
-                Remark.Text = Remark.Text + "有压痕、";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
         }
 
         private void Waiguan_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (Waiguan.Checked)
-            {
-                Remark.Text = Remark.Text + "外观有瑕疵、";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
 
         }
 
         private void FirstPoint_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (FirstPoint.Checked)
-            {
-                Remark.Text = "修磨后焊接第一点，" + Remark.Text;
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
 
         }
 
         private void AlongPonit_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (AlongPonit.Checked)
-            {
-                Remark.Text = "修磨后焊接点," + Remark.Text;
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
 
         }
 
         private void Jianxi_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (Jianxi.Checked)
-            {
-                Remark.Text = Remark.Text + "，焊接完成后，2层板存在0mm间隙。";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
         }
 
         /// <summary>
@@ -160,14 +95,13 @@ namespace RX_DataUpdata
 
         private void QueXian_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (Jianxi.Checked)
+            if (QueXian.Checked && Remark.Text != string.Empty)
             {
                 Remark.Text = Remark.Text + "无其他明显缺陷。";
             }
-            else
+            else if (QueXian.Checked && Remark.Text == string.Empty)
             {
-                Remark.Text = SysVar.BackRemark;
+                Remark.Text = "无其他明显缺陷。";
             }
         }
 
@@ -178,12 +112,12 @@ namespace RX_DataUpdata
 
         private void EndPoint_CheckedChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("你已选定该焊点为该组实验最终焊接参数！");
+            MessageBox.Show("该焊点为该组实验最终焊接参数！");
         }
 
         private void ZaoJian_CheckedChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("你已选定该焊点为造检点！");
+            MessageBox.Show("该焊点为造检点！");
         }
 
         /// <summary>
@@ -193,35 +127,43 @@ namespace RX_DataUpdata
         /// <param name="e"></param>
         private void UpdataData_Click(object sender, EventArgs e)
         {
-            UpdataData.Enabled = false; //关闭上传点击功能
-            AutoClearData.Enabled = true; //打开计时器
-            var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            DialogResult result = MessageBox.Show("是否确认更新" + SysPid.Pid + "焊点！", "更新确认-安徽瑞祥工业！", MessageBoxButtons.YesNo);
-            if (result== System.Windows.Forms.DialogResult.Yes)
+            if (SysVar.Acc > 16 || SysVar.UserName == "yechaocheng")
             {
-                try
+                UpdataData.Enabled = false; //关闭上传点击功能
+                AutoClearData.Enabled = true; //打开计时器
+                var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+                DialogResult result = MessageBox.Show("是否确认更新" + SysPid.Pid + "焊点！", "更新确认-安徽瑞祥工业！", MessageBoxButtons.YesNo);
+                if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    var Res = NewExp.UpdataExp(SysPid.Bid, SysPid.Pid, Convert.ToDouble(B1t.Text), Convert.ToDouble(b2t.Text), Convert.ToDouble(B3t.Text), B3m.Text.ToString(), Convert.ToDouble(PoleDim.Text), Convert.ToDouble(PressTime.Text), Convert.ToDouble(Weldele.Text), Convert.ToDouble(WeldTime.Text), Convert.ToDouble(KeepTime.Text), Convert.ToDouble(Pressure.Text), Convert.ToDouble(SportDim.Text), Convert.ToDouble(RongheDim.Text), Remark.Text.ToString(), ZaoJian.Checked, FirstPoint.Checked, EndPoint.Checked);
-                    if (Res == 11)
+                    try
                     {
-                        Ustatus.Text = SysPid.Pid  + "更新成功！";
+                        var Res = NewExp.UpdataExp(SysPid.Bid, SysPid.Pid, Convert.ToDouble(B1t.Text), Convert.ToDouble(b2t.Text), Convert.ToDouble(B3t.Text), B3m.Text.ToString(), Convert.ToDouble(PoleDim.Text), Convert.ToDouble(PressTime.Text), Convert.ToDouble(Weldele.Text), Convert.ToDouble(WeldTime.Text), Convert.ToDouble(KeepTime.Text), Convert.ToDouble(Pressure.Text), Convert.ToDouble(SportDim.Text), Convert.ToDouble(RongheDim.Text), Remark.Text.ToString(), ZaoJian.Checked, FirstPoint.Checked, EndPoint.Checked, Zhanfu.Checked, lieWen.Checked, FeiJian.Checked, Yaheng.Checked, Waiguan.Checked, AlongPonit.Checked, Jianxi.Checked);
+                        if (Res == 11)
+                        {
+                            Ustatus.Text = SysPid.Pid + "更新成功！";
+                        }
+                        else if (Res == -99)
+                        {
+                            Ustatus.Text = SysPid.Pid + "该焊点已存在未成功更新！";
+                        }
                     }
-                    else if (Res == -99)
+                    catch (Exception)
                     {
-                        Ustatus.Text = SysPid.Pid  + "该焊点已存在未成功更新！";
+
+                        throw;
                     }
                 }
-                catch (Exception)
+                else
                 {
-
-                    throw;
+                    MessageBox.Show("你已取消更新该焊点参数任务！");
                 }
             }
             else
             {
-                MessageBox.Show("你已取消更新该焊点参数任务！");
+                MessageBox.Show("您无权打开该页面！该页面仅供铝电焊实验人员使用！");
+                //this.Close();
+                return;
             }
-            
         }
 
         /// <summary>
@@ -261,10 +203,41 @@ namespace RX_DataUpdata
                     ZaoJian.Checked = SP.zaoJian;
                     FirstPoint.Checked = SP.fistPoint;
                     EndPoint.Checked = SP.endPoint;
+                    Zhanfu.Checked = SP.Zhanfu;
+                    lieWen.Checked = SP.lieWen;
+                    FeiJian.Checked = SP.FeiJian;
+                    Yaheng.Checked = SP.Yaheng;
+                    Waiguan.Checked = SP.Waiguan;
+                    AlongPonit.Checked = SP.AlongPonit;
+                    Jianxi.Checked = SP.Jianxi;
                 }
                 else
                 {
                     Ustatus.Text = "服务器未检索到"+SP.pid + "焊点！";
+                    UpdataData.Enabled = false;
+                    B1t.Text = string.Empty;
+                    b2t.Text = string.Empty;
+                    B3t.Text = string.Empty;
+                    B3m.Text = string.Empty;
+                    PoleDim.Text = string.Empty;
+                    PressTime.Text = string.Empty;
+                    Weldele.Text = string.Empty;
+                    WeldTime.Text = string.Empty;
+                    KeepTime.Text = string.Empty;
+                    Pressure.Text = string.Empty;
+                    SportDim.Text = string.Empty;
+                    RongheDim.Text = string.Empty;
+                    Remark.Text = string.Empty;
+                    ZaoJian.Checked = false;
+                    FirstPoint.Checked = false;
+                    EndPoint.Checked = false;
+                    Zhanfu.Checked = false;
+                    lieWen.Checked = false;
+                    FeiJian.Checked = false;
+                    Yaheng.Checked = false;
+                    Waiguan.Checked = false;
+                    AlongPonit.Checked = false;
+                    Jianxi.Checked = false;
                 }
             }
         }

@@ -22,75 +22,53 @@ namespace RX_DataUpdata
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string text=string.Empty;
-            text = SportBordID.Text;
-            if (text.Length<6)
+            if (SysVar.Acc > 16 || SysVar.UserName == "yechaocheng")
             {
-                int len = 6 - text.Length;
-                switch (len)
+                var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+                if (SysPid.Bid.Length > 4)
                 {
-                    case 2:
+                    try
+                    {
+                        var Ret = -2;
+                        Ret = NewExp.AddExp(SysPid.Bid, SysPid.Pid, Convert.ToDouble(B1t.Text), Convert.ToDouble(b2t.Text), Convert.ToDouble(B3t.Text), B3m.Text.ToString(),
+                            Convert.ToDouble(PoleDim.Text), Convert.ToDouble(PressTime.Text), Convert.ToDouble(Weldele.Text), Convert.ToDouble(WeldTime.Text),
+                            Convert.ToDouble(KeepTime.Text), Convert.ToDouble(Pressure.Text), Convert.ToDouble(SportDim.Text), Convert.ToDouble(RongheDim.Text),
+                            Remark.Text.ToString(), ZaoJian.Checked, FirstPoint.Checked, EndPoint.Checked, Zhanfu.Checked, lieWen.Checked, FeiJian.Checked, Yaheng.Checked, Waiguan.Checked, AlongPonit.Checked, Jianxi.Checked, Ret);
+
+                        if (Ret == 11)
                         {
-                            string p = text.Substring(0, 3);
-                            string p1 = text.Substring(3, 1);
-                            string p2 = p + "00" + p1;
-                            text = p2;
-                            break;
+                            Ustatus.Text = SysPid.Bid + Pid.Text + "上传成功！";
                         }
-                    case 1:
+                        else if (Ret == -99)
                         {
-                            string p = text.Substring(0, 3);
-                            string p1 = text.Substring(3, 2);
-                            string p2 = p + "0" + p1;
-                            text = p2;
-                            break;
+                            Ustatus.Text = SysPid.Bid + Pid.Text + "该焊点已存在未进行上传！";
                         }
+                    }
+                    catch (Exception)
+                    {
+                        Ustatus.Text = SysPid.Bid + Pid.Text + "上传失败！";
+                        throw;
+                    }
+                    int NU = 0;
+                    NU = Convert.ToUInt16(Pid.Text);
+                    NU += 1;
+                    try
+                    {
+                        Pid.Text = Convert.ToString(NU);
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
                 }
-            }
-            string text2 = string.Empty;
-            text2 = Pid.Text;
-            if (text2.Length<2)
-            {
-                text2 = "0" + text2; //BID
-                text2 = text + text2; //PID
+
             }
             else
             {
-                text2 = text + text2;
-            }
-            if (text.Length>4)
-            {
-                try
-                {
-                    var Ret=-2;
-                    Ret =NewExp.AddExp(text, text2, Convert.ToDouble(B1t.Text), Convert.ToDouble(b2t.Text), Convert.ToDouble(B3t.Text), B3m.Text.ToString(), Convert.ToDouble(PoleDim.Text), Convert.ToDouble(PressTime.Text), Convert.ToDouble(Weldele.Text), Convert.ToDouble(WeldTime.Text), Convert.ToDouble(KeepTime.Text), Convert.ToDouble(Pressure.Text), Convert.ToDouble(SportDim.Text), Convert.ToDouble(RongheDim.Text), Remark.Text.ToString(),ZaoJian.Checked,FirstPoint.Checked,EndPoint.Checked,Ret);
-                    
-                    if (Ret==11)
-                    {
-                        Ustatus.Text = text + Pid.Text + "上传成功！";
-                    }
-                    else if(Ret == -99)
-                    {
-                        Ustatus.Text = text + Pid.Text + "该焊点已存在未进行上传！";
-                    }
-                }
-                catch (Exception)
-                {
-                    Ustatus.Text = text+ Pid.Text + "上传失败！";
-                    throw;
-                }
-                int NU=0;
-                NU = Convert.ToUInt16(Pid.Text);
-                NU += 1; 
-                try
-                {
-                    Pid.Text = Convert.ToString(NU); 
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
+                MessageBox.Show("您无权打开该页面！该页面仅供铝电焊实验人员使用！");
+                //this.Close();
+                return;
             }
             
       }
@@ -106,109 +84,45 @@ namespace RX_DataUpdata
 
         private void Zhanfu_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (Zhanfu.Checked)
-            {
-                Remark.Text = Remark.Text + "有粘附、";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
         }
 
         private void lieWen_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (lieWen.Checked)
-            {
-                Remark.Text = Remark.Text + "有裂纹、";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
         }
 
         private void FeiJian_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (FeiJian.Checked)
-            {
-                Remark.Text = Remark.Text + "有飞溅、";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
         }
 
         private void Yaheng_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (Yaheng.Checked)
-            {
-                Remark.Text = Remark.Text + "有压痕、";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
         }
 
         private void Waiguan_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (Waiguan.Checked)
-            {
-                Remark.Text = Remark.Text + "外观有瑕疵、";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
 
         }
 
         private void FirstPoint_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (FirstPoint.Checked)
-            {
-                Remark.Text = "修磨后焊接第一点，" + Remark.Text;
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
 
         }
 
         private void AlongPonit_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (AlongPonit.Checked)
-            {
-                Remark.Text = "修磨后焊接点," + Remark.Text;
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
 
         }
 
         private void Jianxi_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (Jianxi.Checked)
-            {
-                Remark.Text = Remark.Text + "，焊接完成后，2层板存在0mm间隙。";
-            }
-            else
-            {
-                Remark.Text = SysVar.BackRemark;
-            }
+
         }
 
         /// <summary>
@@ -234,14 +148,13 @@ namespace RX_DataUpdata
 
         private void QueXian_CheckedChanged(object sender, EventArgs e)
         {
-            SysVar.BackRemark = Remark.Text;
-            if (Jianxi.Checked)
+            if (QueXian.Checked && Remark.Text!=string.Empty)
             {
-                Remark.Text = Remark.Text + "无其他明显缺陷。";
+                Remark.Text = Remark.Text+ "无其他明显缺陷。";
             }
-            else
+            else if(QueXian.Checked && Remark.Text == string.Empty)
             {
-                Remark.Text = SysVar.BackRemark;
+                Remark.Text = "无其他明显缺陷。";
             }
         }
 
