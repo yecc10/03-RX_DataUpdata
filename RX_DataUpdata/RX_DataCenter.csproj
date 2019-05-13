@@ -190,6 +190,12 @@
     <Compile Include="DChart.Designer.cs">
       <DependentUpon>DChart.cs</DependentUpon>
     </Compile>
+    <Compile Include="DChartShowPointImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DChartShowPointImage.Designer.cs">
+      <DependentUpon>DChartShowPointImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -246,6 +252,9 @@
     </Compile>
     <EmbeddedResource Include="DChart.resx">
       <DependentUpon>DChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DChartShowPointImage.resx">
+      <DependentUpon>DChartShowPointImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

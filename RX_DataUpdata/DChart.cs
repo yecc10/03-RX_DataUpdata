@@ -80,6 +80,11 @@ namespace RX_DataUpdata
         {
           var RE=  RxDataOprator.ExcelOprator.SaveExcelForLvSport(dataGridView1, SportNum.Text);
         }
-       
+
+        private void ShowDialogForImage_Click(object sender, EventArgs e)
+        {
+            DChartShowPointImage DC = new DChartShowPointImage();
+            DC.ShowDialog();
+        }
     }
 }
