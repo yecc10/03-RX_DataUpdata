@@ -21,9 +21,8 @@ namespace RX_DataUpdata
             this.WBEXP.Size = new System.Drawing.Size(Width - 54, heigh - 100);
             this.WBEXP.IsWebBrowserContextMenuEnabled= false;
             this.WBEXP.WebBrowserShortcutsEnabled = false;
-            this.tabControl1.Size = new System.Drawing.Size(Width - 54, heigh - 100);
+            this.MainTabContent.Size = new System.Drawing.Size(Width - 54, heigh - 100);
             this.工具集.Size = new System.Drawing.Size(Width - 54, heigh - 100);
-            this.treeView1.Size = new System.Drawing.Size(238, heigh - 100);
             this.CenterToScreen();
             this.CIP.Text = SysVar.ClientIP;
             this.SIP.Text = SysVar.SIP;
@@ -97,6 +96,19 @@ namespace RX_DataUpdata
         {
             ME_Updata MEU = new ME_Updata();
             MEU.ShowDialog();
+        }
+        private void MainTabContent_Click(object sender, EventArgs e)
+        {
+            switch (MainTabContent.SelectedTab.Name)
+            {
+                case "CatiaHelp":
+                    webBrowser1.Navigate(new Uri("http://rx_yfb_yf079:7080/"));
+                    break;
+                case "DelmiaHelp":
+                    webBrowser1.Navigate(new Uri("http://rx_yfb_yf079:7090/"));
+                    break;
+            }
+            
         }
     }
 }

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ME));
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.InsertData = new System.Windows.Forms.Button();
             this.DA = new System.Windows.Forms.GroupBox();
             this.Remark = new System.Windows.Forms.TextBox();
@@ -81,9 +81,18 @@
             this.Ustatus = new System.Windows.Forms.Label();
             this.CTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.ShowFwPicture = new System.Windows.Forms.PictureBox();
+            this.ShowBwPicture = new System.Windows.Forms.PictureBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.UpdataFwPicture = new System.Windows.Forms.Button();
+            this.UpdataBwPicture = new System.Windows.Forms.Button();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowFwPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowBwPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // InsertData
@@ -588,19 +597,85 @@
             this.timer.Interval = 500;
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // ShowFwPicture
+            // 
+            this.ShowFwPicture.Location = new System.Drawing.Point(486, 42);
+            this.ShowFwPicture.Name = "ShowFwPicture";
+            this.ShowFwPicture.Size = new System.Drawing.Size(441, 279);
+            this.ShowFwPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ShowFwPicture.TabIndex = 18;
+            this.ShowFwPicture.TabStop = false;
+            // 
+            // ShowBwPicture
+            // 
+            this.ShowBwPicture.Location = new System.Drawing.Point(486, 347);
+            this.ShowBwPicture.Name = "ShowBwPicture";
+            this.ShowBwPicture.Size = new System.Drawing.Size(441, 299);
+            this.ShowBwPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ShowBwPicture.TabIndex = 18;
+            this.ShowBwPicture.TabStop = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(484, 22);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(71, 12);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "焊点正面照:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(484, 329);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 12);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "焊点反面照:";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.Title = "选择待上传的照片";
+            // 
+            // UpdataFwPicture
+            // 
+            this.UpdataFwPicture.Location = new System.Drawing.Point(561, 17);
+            this.UpdataFwPicture.Name = "UpdataFwPicture";
+            this.UpdataFwPicture.Size = new System.Drawing.Size(75, 23);
+            this.UpdataFwPicture.TabIndex = 19;
+            this.UpdataFwPicture.Text = "上传正面照";
+            this.UpdataFwPicture.UseVisualStyleBackColor = true;
+            this.UpdataFwPicture.Click += new System.EventHandler(this.UpdataFwPicture_Click);
+            // 
+            // UpdataBwPicture
+            // 
+            this.UpdataBwPicture.Location = new System.Drawing.Point(561, 324);
+            this.UpdataBwPicture.Name = "UpdataBwPicture";
+            this.UpdataBwPicture.Size = new System.Drawing.Size(75, 23);
+            this.UpdataBwPicture.TabIndex = 19;
+            this.UpdataBwPicture.Text = "上传反面照";
+            this.UpdataBwPicture.UseVisualStyleBackColor = true;
+            this.UpdataBwPicture.Click += new System.EventHandler(this.UpdataBwPicture_Click);
+            // 
             // ME
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(498, 656);
+            this.ClientSize = new System.Drawing.Size(939, 656);
+            this.Controls.Add(this.UpdataBwPicture);
+            this.Controls.Add(this.UpdataFwPicture);
+            this.Controls.Add(this.ShowBwPicture);
+            this.Controls.Add(this.ShowFwPicture);
             this.Controls.Add(this.CTime);
             this.Controls.Add(this.Ustatus);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DA);
             this.Controls.Add(this.InsertData);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(514, 695);
+            this.MaximumSize = new System.Drawing.Size(955, 695);
             this.MinimumSize = new System.Drawing.Size(514, 695);
             this.Name = "ME";
             this.Text = "数据登记";
@@ -610,6 +685,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowFwPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowBwPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -617,7 +694,7 @@
 
         #endregion
 
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button InsertData;
         private System.Windows.Forms.GroupBox DA;
         private System.Windows.Forms.TextBox Remark;
@@ -668,6 +745,13 @@
         private System.Windows.Forms.CheckBox EndPoint;
         private System.Windows.Forms.CheckBox ZaoJian;
         private System.Windows.Forms.Button OpenDialogForPoint;
+        private System.Windows.Forms.PictureBox ShowFwPicture;
+        private System.Windows.Forms.PictureBox ShowBwPicture;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button UpdataFwPicture;
+        private System.Windows.Forms.Button UpdataBwPicture;
     }
 }
 

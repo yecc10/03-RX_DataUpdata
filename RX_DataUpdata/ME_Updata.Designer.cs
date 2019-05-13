@@ -82,9 +82,17 @@
             this.CTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.AutoClearData = new System.Windows.Forms.Timer(this.components);
+            this.UpdataBwPicture = new System.Windows.Forms.Button();
+            this.UpdataFwPicture = new System.Windows.Forms.Button();
+            this.ShowBwPicture = new System.Windows.Forms.PictureBox();
+            this.ShowFwPicture = new System.Windows.Forms.PictureBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowBwPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowFwPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // UpdataData
@@ -594,12 +602,74 @@
             this.AutoClearData.Interval = 3000;
             this.AutoClearData.Tick += new System.EventHandler(this.AutoClearData_Tick);
             // 
+            // UpdataBwPicture
+            // 
+            this.UpdataBwPicture.Location = new System.Drawing.Point(561, 320);
+            this.UpdataBwPicture.Name = "UpdataBwPicture";
+            this.UpdataBwPicture.Size = new System.Drawing.Size(75, 23);
+            this.UpdataBwPicture.TabIndex = 24;
+            this.UpdataBwPicture.Text = "上传反面照";
+            this.UpdataBwPicture.UseVisualStyleBackColor = true;
+            this.UpdataBwPicture.Click += new System.EventHandler(this.UpdataBwPicture_Click);
+            // 
+            // UpdataFwPicture
+            // 
+            this.UpdataFwPicture.Location = new System.Drawing.Point(561, 13);
+            this.UpdataFwPicture.Name = "UpdataFwPicture";
+            this.UpdataFwPicture.Size = new System.Drawing.Size(75, 23);
+            this.UpdataFwPicture.TabIndex = 25;
+            this.UpdataFwPicture.Text = "上传正面照";
+            this.UpdataFwPicture.UseVisualStyleBackColor = true;
+            this.UpdataFwPicture.Click += new System.EventHandler(this.UpdataFwPicture_Click);
+            // 
+            // ShowBwPicture
+            // 
+            this.ShowBwPicture.Location = new System.Drawing.Point(486, 343);
+            this.ShowBwPicture.Name = "ShowBwPicture";
+            this.ShowBwPicture.Size = new System.Drawing.Size(441, 299);
+            this.ShowBwPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ShowBwPicture.TabIndex = 22;
+            this.ShowBwPicture.TabStop = false;
+            // 
+            // ShowFwPicture
+            // 
+            this.ShowFwPicture.Location = new System.Drawing.Point(486, 38);
+            this.ShowFwPicture.Name = "ShowFwPicture";
+            this.ShowFwPicture.Size = new System.Drawing.Size(441, 279);
+            this.ShowFwPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ShowFwPicture.TabIndex = 23;
+            this.ShowFwPicture.TabStop = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(484, 325);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 12);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "焊点反面照:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(484, 18);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(71, 12);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "焊点正面照:";
+            // 
             // ME_Updata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(498, 651);
+            this.ClientSize = new System.Drawing.Size(939, 656);
+            this.Controls.Add(this.UpdataBwPicture);
+            this.Controls.Add(this.UpdataFwPicture);
+            this.Controls.Add(this.ShowBwPicture);
+            this.Controls.Add(this.ShowFwPicture);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.CTime);
             this.Controls.Add(this.Ustatus);
             this.Controls.Add(this.groupBox1);
@@ -607,8 +677,8 @@
             this.Controls.Add(this.UpdataData);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(500, 200);
-            this.MaximumSize = new System.Drawing.Size(514, 690);
-            this.MinimumSize = new System.Drawing.Size(514, 690);
+            this.MaximumSize = new System.Drawing.Size(955, 695);
+            this.MinimumSize = new System.Drawing.Size(955, 695);
             this.Name = "ME_Updata";
             this.Text = "数据更新";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -617,6 +687,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowBwPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShowFwPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -676,6 +748,12 @@
         private System.Windows.Forms.CheckBox ZaoJian;
         private System.Windows.Forms.Button ReadPointData;
         private System.Windows.Forms.Timer AutoClearData;
+        private System.Windows.Forms.Button UpdataBwPicture;
+        private System.Windows.Forms.Button UpdataFwPicture;
+        private System.Windows.Forms.PictureBox ShowBwPicture;
+        private System.Windows.Forms.PictureBox ShowFwPicture;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
     }
 }
 

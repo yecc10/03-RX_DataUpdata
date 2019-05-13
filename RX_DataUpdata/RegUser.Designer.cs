@@ -189,7 +189,8 @@
             "设计一科",
             "设计二科",
             "仿真科",
-            "规划科"});
+            "规划科",
+            "研发部"});
             this.Keshi.Location = new System.Drawing.Point(147, 198);
             this.Keshi.Name = "Keshi";
             this.Keshi.Size = new System.Drawing.Size(168, 20);

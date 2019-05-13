@@ -29,38 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("01实验简介");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("02 实验方案/流程");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("03 实验数据-照片分类");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("04 实验数据-视频分类");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("05 实验数据-过程分析");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("06 实验数据-结论");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("01 铝点焊", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("FDS技术实验");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("激光焊实验");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("实验项目总类", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8,
-            treeNode9,
-            treeNode10});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.label1 = new System.Windows.Forms.Label();
             this.LoginTime = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.瑞祥实验数据中心 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.UpdataALdata = new System.Windows.Forms.Button();
             this.DataSerch = new System.Windows.Forms.Button();
             this.NewLvSport = new System.Windows.Forms.Button();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.经验库查询 = new System.Windows.Forms.TabPage();
             this.WBEXP = new System.Windows.Forms.WebBrowser();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.MainTabContent = new System.Windows.Forms.TabControl();
             this.CatiaHelp = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.DelmiaHelp = new System.Windows.Forms.TabPage();
@@ -84,10 +64,10 @@
             this.sportDataTableAdapter = new RX_DataUpdata.RXYF_YECCDataSetTableAdapters.SportDataTableAdapter();
             this.Utime = new System.Windows.Forms.Timer(this.components);
             this.sportDataTableAdapter1 = new RX_DataUpdata.ALTDataBaseDataSetTableAdapters.SportDataTableAdapter();
-            this.UpdataALdata = new System.Windows.Forms.Button();
             this.瑞祥实验数据中心.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.经验库查询.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.MainTabContent.SuspendLayout();
             this.CatiaHelp.SuspendLayout();
             this.DelmiaHelp.SuspendLayout();
             this.工具集.SuspendLayout();
@@ -131,20 +111,39 @@
             // 瑞祥实验数据中心
             // 
             this.瑞祥实验数据中心.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.瑞祥实验数据中心.Controls.Add(this.DataSerch);
-            this.瑞祥实验数据中心.Controls.Add(this.UpdataALdata);
-            this.瑞祥实验数据中心.Controls.Add(this.NewLvSport);
-            this.瑞祥实验数据中心.Controls.Add(this.treeView1);
+            this.瑞祥实验数据中心.Controls.Add(this.groupBox2);
             this.瑞祥实验数据中心.Location = new System.Drawing.Point(4, 22);
             this.瑞祥实验数据中心.Name = "瑞祥实验数据中心";
             this.瑞祥实验数据中心.Padding = new System.Windows.Forms.Padding(3);
-            this.瑞祥实验数据中心.Size = new System.Drawing.Size(1505, 731);
+            this.瑞祥实验数据中心.Size = new System.Drawing.Size(1552, 737);
             this.瑞祥实验数据中心.TabIndex = 2;
             this.瑞祥实验数据中心.Text = "瑞祥实验数据中心";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.UpdataALdata);
+            this.groupBox2.Controls.Add(this.DataSerch);
+            this.groupBox2.Controls.Add(this.NewLvSport);
+            this.groupBox2.Location = new System.Drawing.Point(6, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(470, 105);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "铝点焊分组";
+            // 
+            // UpdataALdata
+            // 
+            this.UpdataALdata.Location = new System.Drawing.Point(164, 29);
+            this.UpdataALdata.Name = "UpdataALdata";
+            this.UpdataALdata.Size = new System.Drawing.Size(142, 51);
+            this.UpdataALdata.TabIndex = 2;
+            this.UpdataALdata.Text = "铝点焊数据更新";
+            this.UpdataALdata.UseVisualStyleBackColor = true;
+            this.UpdataALdata.Click += new System.EventHandler(this.UpdataALdata_Click);
+            // 
             // DataSerch
             // 
-            this.DataSerch.Location = new System.Drawing.Point(392, 6);
+            this.DataSerch.Location = new System.Drawing.Point(322, 29);
             this.DataSerch.Name = "DataSerch";
             this.DataSerch.Size = new System.Drawing.Size(142, 51);
             this.DataSerch.TabIndex = 2;
@@ -154,7 +153,7 @@
             // 
             // NewLvSport
             // 
-            this.NewLvSport.Location = new System.Drawing.Point(244, 6);
+            this.NewLvSport.Location = new System.Drawing.Point(6, 29);
             this.NewLvSport.Name = "NewLvSport";
             this.NewLvSport.Size = new System.Drawing.Size(142, 51);
             this.NewLvSport.TabIndex = 2;
@@ -162,46 +161,13 @@
             this.NewLvSport.UseVisualStyleBackColor = true;
             this.NewLvSport.Click += new System.EventHandler(this.NewLvSport_Click);
             // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(0, 6);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Checked = true;
-            treeNode1.Name = "节点5";
-            treeNode1.Text = "01实验简介";
-            treeNode2.Name = "节点6";
-            treeNode2.Text = "02 实验方案/流程";
-            treeNode3.Name = "节点7";
-            treeNode3.Text = "03 实验数据-照片分类";
-            treeNode4.Name = "节点8";
-            treeNode4.Text = "04 实验数据-视频分类";
-            treeNode5.Name = "节点9";
-            treeNode5.Text = "05 实验数据-过程分析";
-            treeNode6.Name = "节点10";
-            treeNode6.Text = "06 实验数据-结论";
-            treeNode7.Name = "节点1";
-            treeNode7.Text = "01 铝点焊";
-            treeNode8.Name = "节点2";
-            treeNode8.Text = "FDS技术实验";
-            treeNode9.Name = "节点3";
-            treeNode9.Text = "激光焊实验";
-            treeNode10.Name = "节点4";
-            treeNode10.Text = "";
-            treeNode11.Name = "节点0";
-            treeNode11.NodeFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            treeNode11.Text = "实验项目总类";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode11});
-            this.treeView1.Size = new System.Drawing.Size(238, 792);
-            this.treeView1.TabIndex = 0;
-            // 
             // 经验库查询
             // 
             this.经验库查询.Controls.Add(this.WBEXP);
             this.经验库查询.Location = new System.Drawing.Point(4, 22);
             this.经验库查询.Name = "经验库查询";
             this.经验库查询.Padding = new System.Windows.Forms.Padding(3);
-            this.经验库查询.Size = new System.Drawing.Size(1505, 731);
+            this.经验库查询.Size = new System.Drawing.Size(1552, 737);
             this.经验库查询.TabIndex = 0;
             this.经验库查询.Text = "经验库查询";
             this.经验库查询.UseVisualStyleBackColor = true;
@@ -212,29 +178,30 @@
             this.WBEXP.Location = new System.Drawing.Point(3, 3);
             this.WBEXP.MinimumSize = new System.Drawing.Size(20, 20);
             this.WBEXP.Name = "WBEXP";
-            this.WBEXP.Size = new System.Drawing.Size(1499, 725);
+            this.WBEXP.Size = new System.Drawing.Size(1546, 731);
             this.WBEXP.TabIndex = 0;
             this.WBEXP.Url = new System.Uri("http://10.147.203.251:8090/", System.UriKind.Absolute);
             // 
-            // tabControl1
+            // MainTabContent
             // 
-            this.tabControl1.Controls.Add(this.经验库查询);
-            this.tabControl1.Controls.Add(this.CatiaHelp);
-            this.tabControl1.Controls.Add(this.DelmiaHelp);
-            this.tabControl1.Controls.Add(this.瑞祥实验数据中心);
-            this.tabControl1.Controls.Add(this.工具集);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1513, 757);
-            this.tabControl1.TabIndex = 1;
+            this.MainTabContent.Controls.Add(this.经验库查询);
+            this.MainTabContent.Controls.Add(this.CatiaHelp);
+            this.MainTabContent.Controls.Add(this.DelmiaHelp);
+            this.MainTabContent.Controls.Add(this.瑞祥实验数据中心);
+            this.MainTabContent.Controls.Add(this.工具集);
+            this.MainTabContent.Location = new System.Drawing.Point(12, 12);
+            this.MainTabContent.Name = "MainTabContent";
+            this.MainTabContent.SelectedIndex = 0;
+            this.MainTabContent.Size = new System.Drawing.Size(1560, 763);
+            this.MainTabContent.TabIndex = 1;
+            this.MainTabContent.Click += new System.EventHandler(this.MainTabContent_Click);
             // 
             // CatiaHelp
             // 
             this.CatiaHelp.Controls.Add(this.webBrowser1);
             this.CatiaHelp.Location = new System.Drawing.Point(4, 22);
             this.CatiaHelp.Name = "CatiaHelp";
-            this.CatiaHelp.Size = new System.Drawing.Size(1505, 731);
+            this.CatiaHelp.Size = new System.Drawing.Size(1552, 737);
             this.CatiaHelp.TabIndex = 4;
             this.CatiaHelp.Text = "CatiaHelp";
             this.CatiaHelp.UseVisualStyleBackColor = true;
@@ -245,16 +212,16 @@
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1505, 731);
+            this.webBrowser1.Size = new System.Drawing.Size(1552, 737);
             this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.Url = new System.Uri("http://rx_yfb_yf079:7080/", System.UriKind.Absolute);
+            this.webBrowser1.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // DelmiaHelp
             // 
             this.DelmiaHelp.Controls.Add(this.webBrowser2);
             this.DelmiaHelp.Location = new System.Drawing.Point(4, 22);
             this.DelmiaHelp.Name = "DelmiaHelp";
-            this.DelmiaHelp.Size = new System.Drawing.Size(1505, 731);
+            this.DelmiaHelp.Size = new System.Drawing.Size(1552, 737);
             this.DelmiaHelp.TabIndex = 5;
             this.DelmiaHelp.Text = "DelmiaHelp";
             this.DelmiaHelp.UseVisualStyleBackColor = true;
@@ -265,16 +232,16 @@
             this.webBrowser2.Location = new System.Drawing.Point(0, 0);
             this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(1505, 731);
+            this.webBrowser2.Size = new System.Drawing.Size(1552, 737);
             this.webBrowser2.TabIndex = 0;
-            this.webBrowser2.Url = new System.Uri("http://rx_yfb_yf079:7090/", System.UriKind.Absolute);
+            this.webBrowser2.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // 工具集
             // 
             this.工具集.Controls.Add(this.groupBox1);
             this.工具集.Location = new System.Drawing.Point(4, 22);
             this.工具集.Name = "工具集";
-            this.工具集.Size = new System.Drawing.Size(1505, 731);
+            this.工具集.Size = new System.Drawing.Size(1552, 737);
             this.工具集.TabIndex = 3;
             this.工具集.Text = "工具集";
             this.工具集.UseVisualStyleBackColor = true;
@@ -416,16 +383,6 @@
             // 
             this.sportDataTableAdapter1.ClearBeforeFill = true;
             // 
-            // UpdataALdata
-            // 
-            this.UpdataALdata.Location = new System.Drawing.Point(540, 6);
-            this.UpdataALdata.Name = "UpdataALdata";
-            this.UpdataALdata.Size = new System.Drawing.Size(142, 51);
-            this.UpdataALdata.TabIndex = 2;
-            this.UpdataALdata.Text = "铝点焊数据更新";
-            this.UpdataALdata.UseVisualStyleBackColor = true;
-            this.UpdataALdata.Click += new System.EventHandler(this.UpdataALdata_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -442,7 +399,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CCCIP);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.MainTabContent);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1600, 900);
@@ -450,8 +407,9 @@
             this.Text = "瑞祥数据库主页";
             this.Load += new System.EventHandler(this.Main_Load);
             this.瑞祥实验数据中心.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.经验库查询.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.MainTabContent.ResumeLayout(false);
             this.CatiaHelp.ResumeLayout(false);
             this.DelmiaHelp.ResumeLayout(false);
             this.工具集.ResumeLayout(false);
@@ -473,9 +431,8 @@
         private System.Windows.Forms.TabPage 瑞祥实验数据中心;
         private System.Windows.Forms.TabPage 经验库查询;
         private System.Windows.Forms.WebBrowser WBEXP;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl MainTabContent;
         private System.Windows.Forms.LinkLabel UserName;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Button DataSerch;
         private System.Windows.Forms.Button NewLvSport;
         private System.Windows.Forms.Label CCCIP;
@@ -501,5 +458,6 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.WebBrowser webBrowser2;
         private System.Windows.Forms.Button UpdataALdata;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

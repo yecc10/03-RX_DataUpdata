@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.IO;
 
 namespace RX_DataUpdata
 {
@@ -177,6 +178,47 @@ namespace RX_DataUpdata
         {
             ME_Updata MEU = new ME_Updata();
             MEU.ShowDialog();
+        }
+
+        private void UpdataFwPicture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OFile = new OpenFileDialog();
+            OFile.Filter= "焊点图片 | *.PNG;*.jpg";
+            OFile.Title = "选择准备上传的焊点！";
+            OFile.Multiselect = false;
+            if (Directory.Exists("F:\01 Person Lib\05 瑞祥实验及演示项目\01 铝焊点\01 铝点焊实验资料"))
+            {
+                OFile.InitialDirectory = "F:\01 Person Lib\05 瑞祥实验及演示项目\01 铝焊点\01 铝点焊实验资料";
+            }
+            else
+            {
+                OFile.InitialDirectory = "C:\\Users\\Administrator\\Desktop";
+            }
+            OFile.ShowDialog();
+            ShowFwPicture.ImageLocation = OFile.FileName.ToString();
+            ShowFwPicture.Update();
+           //MessageBox.Show(OFile.FileName.ToString());
+
+        }
+
+        private void UpdataBwPicture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OFile = new OpenFileDialog();
+            OFile.Filter = "焊点图片 | *.PNG;*.jpg";
+            OFile.Title = "选择准备上传的焊点！";
+            OFile.Multiselect = false;
+            if (Directory.Exists("F:\01 Person Lib\05 瑞祥实验及演示项目\01 铝焊点\01 铝点焊实验资料"))
+            {
+                OFile.InitialDirectory = "F:\01 Person Lib\05 瑞祥实验及演示项目\01 铝焊点\01 铝点焊实验资料";
+            }
+            else
+            {
+                OFile.InitialDirectory = "C:\\Users\\Administrator\\Desktop";
+            }
+            OFile.ShowDialog();
+            ShowBwPicture.ImageLocation = OFile.FileName.ToString();
+            ShowBwPicture.Update();
+            //MessageBox.Show(OFile.FileName.ToString());
         }
     }
 }
