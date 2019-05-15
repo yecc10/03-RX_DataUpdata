@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ME_Updata));
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.UpdataData = new System.Windows.Forms.Button();
             this.DA = new System.Windows.Forms.GroupBox();
             this.Remark = new System.Windows.Forms.TextBox();
@@ -88,6 +87,7 @@
             this.ShowFwPicture = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -624,6 +624,7 @@
             // 
             // ShowBwPicture
             // 
+            this.ShowBwPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ShowBwPicture.Location = new System.Drawing.Point(486, 343);
             this.ShowBwPicture.Name = "ShowBwPicture";
             this.ShowBwPicture.Size = new System.Drawing.Size(441, 299);
@@ -633,6 +634,7 @@
             // 
             // ShowFwPicture
             // 
+            this.ShowFwPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ShowFwPicture.Location = new System.Drawing.Point(486, 38);
             this.ShowFwPicture.Name = "ShowFwPicture";
             this.ShowFwPicture.Size = new System.Drawing.Size(441, 279);
@@ -695,8 +697,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button UpdataData;
         private System.Windows.Forms.GroupBox DA;
         private System.Windows.Forms.TextBox Remark;
@@ -754,6 +754,7 @@
         private System.Windows.Forms.PictureBox ShowFwPicture;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

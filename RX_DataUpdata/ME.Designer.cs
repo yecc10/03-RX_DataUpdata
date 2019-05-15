@@ -600,6 +600,7 @@
             // 
             // ShowFwPicture
             // 
+            this.ShowFwPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ShowFwPicture.Location = new System.Drawing.Point(486, 42);
             this.ShowFwPicture.Name = "ShowFwPicture";
             this.ShowFwPicture.Size = new System.Drawing.Size(441, 279);
@@ -609,6 +610,7 @@
             // 
             // ShowBwPicture
             // 
+            this.ShowBwPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ShowBwPicture.Location = new System.Drawing.Point(486, 347);
             this.ShowBwPicture.Name = "ShowBwPicture";
             this.ShowBwPicture.Size = new System.Drawing.Size(441, 299);
