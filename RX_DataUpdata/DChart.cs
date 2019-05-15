@@ -15,10 +15,12 @@ namespace RX_DataUpdata
         {
             InitializeComponent();
             Bam.Text = Bam.Items[0].ToString();
+            //Bam.Enabled = false;
+           //Bbm.Enabled = false;
             Bbm.Text = Bbm.Items[1].ToString();
             //Bcm.Text = Bcm.Items[0].ToString();
             Bat.Text = Bat.Items[0].ToString();
-            Bbt.Text = Bbt.Items[1].ToString();
+            Bbt.Text = Bbt.Items[0].ToString();
             //Bct.Text = Bct.Items[0].ToString();
         }
 

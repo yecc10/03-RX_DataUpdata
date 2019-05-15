@@ -19,56 +19,66 @@ namespace RX_DataUpdata
             InitializeComponent();
             CTime.Text = DateTime.Now.ToString();
             timer.Enabled = true;
+            UploadBoard.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (SysVar.Acc > 16 || SysVar.UserName == "yechaocheng")
+            DialogResult result = MessageBox.Show("你已选定该焊点为最终参数，请确认是否已上传试板数据！！！若此时不上传后期将无法继续补充！", "更新确认-安徽瑞祥工业！", MessageBoxButtons.YesNo);
+            if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-                if (SysPid.Bid.Length > 4)
+                if (SysVar.Acc > 16 || SysVar.UserName == "yechaocheng")
                 {
-                    try
+                    var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+                    if (SysPid.Bid.Length > 4)
                     {
-                        var Ret = -2;
-                        Ret = NewExp.AddExp(SysPid.Bid, SysPid.Pid, Convert.ToDouble(B1t.Text), Convert.ToDouble(b2t.Text), Convert.ToDouble(B3t.Text), B3m.Text.ToString(),
-                            Convert.ToDouble(PoleDim.Text), Convert.ToDouble(PressTime.Text), Convert.ToDouble(Weldele.Text), Convert.ToDouble(WeldTime.Text),
-                            Convert.ToDouble(KeepTime.Text), Convert.ToDouble(Pressure.Text), Convert.ToDouble(SportDim.Text), Convert.ToDouble(RongheDim.Text),
-                            Remark.Text.ToString(), ZaoJian.Checked, FirstPoint.Checked, EndPoint.Checked, Zhanfu.Checked, lieWen.Checked, FeiJian.Checked, Yaheng.Checked, Waiguan.Checked, AlongPonit.Checked, Jianxi.Checked, Ret);
-
-                        if (Ret == 11)
+                        try
                         {
-                            Ustatus.Text = SysPid.Bid + Pid.Text + "上传成功！";
-                        }
-                        else if (Ret == -99)
-                        {
-                            Ustatus.Text = SysPid.Bid + Pid.Text + "该焊点已存在未进行上传！";
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        Ustatus.Text = SysPid.Bid + Pid.Text + "上传失败！";
-                        throw;
-                    }
-                    int NU = 0;
-                    NU = Convert.ToUInt16(Pid.Text);
-                    NU += 1;
-                    try
-                    {
-                        Pid.Text = Convert.ToString(NU);
-                    }
-                    catch (Exception)
-                    {
+                            var Ret = -2;
+                            Ret = NewExp.AddExp(SysPid.Bid, SysPid.Pid, Convert.ToDouble(B1t.Text), Convert.ToDouble(b2t.Text), Convert.ToDouble(B3t.Text), B3m.Text.ToString(),
+                                Convert.ToDouble(PoleDim.Text), Convert.ToDouble(PressTime.Text), Convert.ToDouble(Weldele.Text), Convert.ToDouble(WeldTime.Text),
+                                Convert.ToDouble(KeepTime.Text), Convert.ToDouble(Pressure.Text), Convert.ToDouble(SportDim.Text), Convert.ToDouble(RongheDim.Text),
+                                Remark.Text.ToString(), ZaoJian.Checked, FirstPoint.Checked, EndPoint.Checked, Zhanfu.Checked, lieWen.Checked, FeiJian.Checked, Yaheng.Checked, Waiguan.Checked, AlongPonit.Checked, Jianxi.Checked, Ret);
 
-                        throw;
+                            if (Ret == 11)
+                            {
+                                Ustatus.Text = SysPid.Bid + Pid.Text + "上传成功！";
+                            }
+                            else if (Ret == -99)
+                            {
+                                Ustatus.Text = SysPid.Bid + Pid.Text + "该焊点已存在未进行上传！";
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            Ustatus.Text = SysPid.Bid + Pid.Text + "上传失败！";
+                            throw;
+                        }
+                        int NU = 0;
+                        NU = Convert.ToUInt16(Pid.Text);
+                        NU += 1;
+                        try
+                        {
+                            Pid.Text = Convert.ToString(NU);
+                        }
+                        catch (Exception)
+                        {
+
+                            throw;
+                        }
                     }
+
                 }
-
+                else
+                {
+                    MessageBox.Show("您无权打开该页面！该页面仅供铝电焊实验人员使用！");
+                    //this.Close();
+                    return;
+                }
             }
             else
             {
-                MessageBox.Show("您无权打开该页面！该页面仅供铝电焊实验人员使用！");
-                //this.Close();
+                MessageBox.Show("您已取消上传！请先上传试板数据！");
                 return;
             }
             
@@ -166,7 +176,18 @@ namespace RX_DataUpdata
 
         private void EndPoint_CheckedChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("你已选定该焊点为该组实验最终焊接参数！");
+            if (EndPoint.Checked)
+            {
+                UploadBoard.Enabled = true;
+                UploadBoard.BackColor = System.Drawing.Color.Green;
+                MessageBox.Show("你已选定该焊点为该组实验最终焊接参数！");
+            }
+            else
+            {
+                UploadBoard.Enabled = false;
+                UploadBoard.BackColor = System.Drawing.Color.Red;
+                MessageBox.Show("你已取消该焊点为最终焊接参数！");
+            }
         }
 
         private void ZaoJian_CheckedChanged(object sender, EventArgs e)
@@ -219,6 +240,12 @@ namespace RX_DataUpdata
             ShowBwPicture.ImageLocation = OFile.FileName.ToString();
             ShowBwPicture.Update();
             //MessageBox.Show(OFile.FileName.ToString());
+        }
+
+        private void UploadBoard_Click(object sender, EventArgs e)
+        {
+            BoardPictureUpload BPU = new BoardPictureUpload();
+            BPU.Show();
         }
     }
 }

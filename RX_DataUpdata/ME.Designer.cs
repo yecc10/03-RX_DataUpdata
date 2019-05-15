@@ -88,6 +88,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.UpdataFwPicture = new System.Windows.Forms.Button();
             this.UpdataBwPicture = new System.Windows.Forms.Button();
+            this.UploadBoard = new System.Windows.Forms.Button();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -98,9 +99,9 @@
             // InsertData
             // 
             this.InsertData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.InsertData.Location = new System.Drawing.Point(402, 585);
+            this.InsertData.Location = new System.Drawing.Point(387, 585);
             this.InsertData.Name = "InsertData";
-            this.InsertData.Size = new System.Drawing.Size(75, 61);
+            this.InsertData.Size = new System.Drawing.Size(91, 61);
             this.InsertData.TabIndex = 0;
             this.InsertData.Text = "上传数据";
             this.InsertData.UseVisualStyleBackColor = false;
@@ -657,12 +658,24 @@
             this.UpdataBwPicture.UseVisualStyleBackColor = true;
             this.UpdataBwPicture.Click += new System.EventHandler(this.UpdataBwPicture_Click);
             // 
+            // UploadBoard
+            // 
+            this.UploadBoard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.UploadBoard.Location = new System.Drawing.Point(274, 585);
+            this.UploadBoard.Name = "UploadBoard";
+            this.UploadBoard.Size = new System.Drawing.Size(91, 61);
+            this.UploadBoard.TabIndex = 20;
+            this.UploadBoard.Text = "上传试板数据";
+            this.UploadBoard.UseVisualStyleBackColor = false;
+            this.UploadBoard.Click += new System.EventHandler(this.UploadBoard_Click);
+            // 
             // ME
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(939, 656);
+            this.Controls.Add(this.UploadBoard);
             this.Controls.Add(this.UpdataBwPicture);
             this.Controls.Add(this.UpdataFwPicture);
             this.Controls.Add(this.ShowBwPicture);
@@ -752,6 +765,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button UpdataFwPicture;
         private System.Windows.Forms.Button UpdataBwPicture;
+        private System.Windows.Forms.Button UploadBoard;
     }
 }
 

@@ -183,6 +183,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ALTDataBaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BoardPictureUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoardPictureUpload.Designer.cs">
+      <DependentUpon>BoardPictureUpload.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBM.cs" />
     <Compile Include="DChart.cs">
       <SubType>Form</SubType>
@@ -250,6 +256,9 @@
     <Compile Include="ULogin.Designer.cs">
       <DependentUpon>ULogin.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BoardPictureUpload.resx">
+      <DependentUpon>BoardPictureUpload.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DChart.resx">
       <DependentUpon>DChart.cs</DependentUpon>
     </EmbeddedResource>
