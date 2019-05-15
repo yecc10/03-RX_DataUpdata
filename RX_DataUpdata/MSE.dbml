@@ -1,79 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ALTDataBase" Class="MSEDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=RX_YFB_YF079\RXYF;Initial Catalog=ALTDataBase;Persist Security Info=True;User ID=sa" SettingsObjectName="RX_DataUpdata.Properties.Settings" SettingsPropertyName="ALTDataBaseConnectionString2" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.ExperienceView" Member="ExperienceView">
-    <Type Name="ExperienceView">
-      <Column Name="ID" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
-      <Column Name="BID" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
-      <Column Name="PID" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
-      <Column Name="B1Materal" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="B1Thinkness" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="B2Materal" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="B2Thinkness" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="B3Materal" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="B3Thinkness" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DJ电极端面直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="JY加压时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HJ焊接电流" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HJ焊接时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="WC维持时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DJ电极压力" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HD焊点直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HH熔核直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TotalThinkness" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="BZ备注" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="TDate" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.[Board&amp;SportData]" Member="Board_SportData">
-    <Type Name="Board_SportData">
-      <Column Name="BID" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
-      <Column Name="PID" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
-      <Association Name="BoardData_Board_SportData" Member="BoardData" ThisKey="BID" OtherKey="ID" Type="BoardData" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="SportData_Board_SportData" Member="SportData" ThisKey="PID" OtherKey="ID" Type="SportData" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.BoardData" Member="BoardData">
-    <Type Name="BoardData">
-      <Column Name="ID" Type="System.String" DbType="VarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="BID" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
-      <Column Name="B1Materal" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="B1Thinkness" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="B2Materal" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="B2Thinkness" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="B3Materal" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="B3Thinkness" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="TotalThinkness" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Association Name="BoardData_Board_SportData" Member="Board_SportData" ThisKey="ID" OtherKey="BID" Type="Board_SportData" />
-    </Type>
-  </Table>
-  <Table Name="dbo.SportData" Member="SportData">
-    <Type Name="SportData">
-      <Column Name="ID" Type="System.String" DbType="VarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PID" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
-      <Column Name="DJ电极端面直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="JY加压时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HJ焊接电流" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HJ焊接时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="WC维持时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DJ电极压力" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HD焊点直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HH熔核直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ZH总厚度" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="BZ备注" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="TDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Zaojian" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="FistPoint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="EndPoint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Zhanfu" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="LieWen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="FeiJian" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="YaHeng" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="WaiGuanNG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="LianXuHanDian" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="HanJieJianXi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="SportData_Board_SportData" Member="Board_SportData" ThisKey="ID" OtherKey="PID" Type="Board_SportData" />
-    </Type>
-  </Table>
   <Function Name="dbo.NewExp" Method="NewExp">
     <Parameter Name="Bid" Parameter="bid" Type="System.String" DbType="NVarChar(128)" />
     <Parameter Name="pid" Type="System.String" DbType="NVarChar(128)" />
@@ -100,61 +26,11 @@
     <Parameter Name="WaiGuanNG" Parameter="waiGuanNG" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="LianXuHanDian" Parameter="lianXuHanDian" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="HanJieJianXi" Parameter="hanJieJianXi" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="FwPicture" Parameter="fwPicture" Type="System.String" DbType="VarChar(128)" />
+    <Parameter Name="BwPicture" Parameter="bwPicture" Type="System.String" DbType="VarChar(128)" />
     <Parameter Name="Rnum1" Parameter="rnum1" Type="System.Int32" DbType="Int" Direction="InOut" />
     <ElementType Name="NewExpResult">
       <Column Name="" Member="Column1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.SerchExp" Method="SerchExp">
-    <Parameter Name="pid" Type="System.String" DbType="NVarChar(128)" />
-    <Parameter Name="b1t" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="b2t" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="b3t" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="b3m" Type="System.String" DbType="NChar(50)" Direction="InOut" />
-    <Parameter Name="PoleDim" Parameter="poleDim" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="Presstime" Parameter="presstime" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="Weldele" Parameter="weldele" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="weldtime" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="Keeptime" Parameter="keeptime" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="Pressure" Parameter="pressure" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="SportDim" Parameter="sportDim" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="RongheDim" Parameter="rongheDim" Type="System.Double" DbType="Float" Direction="InOut" />
-    <Parameter Name="Remarks" Parameter="remarks" Type="System.String" DbType="NVarChar(255)" Direction="InOut" />
-    <Parameter Name="Zaojian" Parameter="zaojian" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Parameter Name="FistPoint" Parameter="fistPoint" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Parameter Name="EndPoint" Parameter="endPoint" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Parameter Name="Zhanfu" Parameter="zhanfu" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Parameter Name="LieWen" Parameter="lieWen" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Parameter Name="FeiJian" Parameter="feiJian" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Parameter Name="YaHeng" Parameter="yaHeng" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Parameter Name="WaiGuanNG" Parameter="waiGuanNG" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Parameter Name="LianXuHanDian" Parameter="lianXuHanDian" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Parameter Name="HanJieJianXi" Parameter="hanJieJianXi" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Parameter Name="Ret" Parameter="ret" Type="System.Int32" DbType="Int" Direction="InOut" />
-    <ElementType Name="SerchExpResult">
-      <Column Name="ID" Type="System.String" DbType="VarChar(128) NOT NULL" CanBeNull="false" />
-      <Column Name="PID" Type="System.String" DbType="VarChar(128)" CanBeNull="true" />
-      <Column Name="DJ电极端面直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="JY加压时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HJ焊接电流" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HJ焊接时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="WC维持时间" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="DJ电极压力" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HD焊点直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HH熔核直径" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="ZH总厚度" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="BZ备注" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="TDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Zaojian" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="FistPoint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="EndPoint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Zhanfu" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="LieWen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="FeiJian" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="YaHeng" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="WaiGuanNG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="LianXuHanDian" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="HanJieJianXi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.UpdataExp" Method="UpdataExp">
@@ -183,9 +59,41 @@
     <Parameter Name="WaiGuanNG" Parameter="waiGuanNG" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="LianXuHanDian" Parameter="lianXuHanDian" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="HanJieJianXi" Parameter="hanJieJianXi" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="FwPicture" Parameter="fwPicture" Type="System.String" DbType="VarChar(128)" />
+    <Parameter Name="BwPicture" Parameter="bwPicture" Type="System.String" DbType="VarChar(128)" />
     <Parameter Name="Rnum1" Parameter="rnum1" Type="System.Int32" DbType="Int" Direction="InOut" />
     <ElementType Name="UpdataExpResult">
       <Column Name="" Member="Column1" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.SerchExp" Method="SerchExp">
+    <Parameter Name="pid" Type="System.String" DbType="NVarChar(128)" />
+    <Parameter Name="b1t" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="b2t" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="b3t" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="b3m" Type="System.String" DbType="NChar(50)" Direction="InOut" />
+    <Parameter Name="PoleDim" Parameter="poleDim" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="Presstime" Parameter="presstime" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="Weldele" Parameter="weldele" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="weldtime" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="Keeptime" Parameter="keeptime" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="Pressure" Parameter="pressure" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="SportDim" Parameter="sportDim" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="RongheDim" Parameter="rongheDim" Type="System.Double" DbType="Float" Direction="InOut" />
+    <Parameter Name="Remarks" Parameter="remarks" Type="System.String" DbType="NVarChar(255)" Direction="InOut" />
+    <Parameter Name="Zaojian" Parameter="zaojian" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="FistPoint" Parameter="fistPoint" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="EndPoint" Parameter="endPoint" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="Zhanfu" Parameter="zhanfu" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="LieWen" Parameter="lieWen" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="FeiJian" Parameter="feiJian" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="YaHeng" Parameter="yaHeng" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="WaiGuanNG" Parameter="waiGuanNG" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="LianXuHanDian" Parameter="lianXuHanDian" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="HanJieJianXi" Parameter="hanJieJianXi" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Parameter Name="FwPicture" Parameter="fwPicture" Type="System.String" DbType="VarChar(128)" Direction="InOut" />
+    <Parameter Name="BwPicture" Parameter="bwPicture" Type="System.String" DbType="VarChar(128)" Direction="InOut" />
+    <Parameter Name="Ret" Parameter="ret" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

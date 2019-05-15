@@ -128,6 +128,8 @@ namespace RX_DataUpdata
     public class ReadPonit:Spoint
     {
         public virtual int Res { get; set; }
+        public virtual int FwPicture { get; set; }
+        public virtual int BwPicture { get; set; }
     }
 
     /// <summary>
