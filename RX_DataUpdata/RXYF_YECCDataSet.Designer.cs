@@ -5608,7 +5608,7 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT ID, BID, PID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thinkness, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, 总料厚, BZ备注, 上传日期, 凿检点, 修磨第一点, 最终焊接点, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi FROM dbo.ExperienceView";
@@ -5622,6 +5622,29 @@ FROM      ExperienceView
 WHERE   (BID = @BID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BID", global::System.Data.SqlDbType.VarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT   ID, BID, PID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thinkness, DJ电极端面直径, 
+                JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, 总料厚, BZ备注, 上传日期, 
+                凿检点, 修磨第一点, 最终焊接点, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi
+FROM      ExperienceView
+WHERE   (B1Materal = '6061') AND (B1Thinkness = @B1Thinkness) AND (B2Materal = '5052') AND 
+                (B2Thinkness = @B2Thinkness)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B1Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B1Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B2Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B2Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT   ID, BID, PID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thinkness, DJ电极端面直径, 
+                JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, 总料厚, BZ备注, 上传日期, 
+                凿检点, 修磨第一点, 最终焊接点, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi
+FROM      ExperienceView
+WHERE   (B1Materal ='6061' and B1Thinkness =@B1Thinkness and  B2Materal ='5052' and B2Thinkness=@B2Thinkness  and B3Materal =@B3Materal and B3Thinkness=@B3Thinkness)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B1Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B1Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B2Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B2Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B3Materal", global::System.Data.SqlDbType.NChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "B3Materal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B3Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B3Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5678,6 +5701,126 @@ WHERE   (BID = @BID)";
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(BID));
+            }
+            RXYF_YECCDataSet.ExperienceViewDataTable dataTable = new RXYF_YECCDataSet.ExperienceViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTwoType(RXYF_YECCDataSet.ExperienceViewDataTable dataTable, global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((B1Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((double)(B1Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((B2Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((double)(B2Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RXYF_YECCDataSet.ExperienceViewDataTable GetDataByTwoType(global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((B1Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((double)(B1Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((B2Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((double)(B2Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            RXYF_YECCDataSet.ExperienceViewDataTable dataTable = new RXYF_YECCDataSet.ExperienceViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByType(RXYF_YECCDataSet.ExperienceViewDataTable dataTable, global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness, string B3Materal, global::System.Nullable<double> B3Thinkness) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((B1Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((double)(B1Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((B2Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((double)(B2Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((B3Materal == null)) {
+                throw new global::System.ArgumentNullException("B3Materal");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(B3Materal));
+            }
+            if ((B3Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((double)(B3Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RXYF_YECCDataSet.ExperienceViewDataTable GetDataByType(global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness, string B3Materal, global::System.Nullable<double> B3Thinkness) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((B1Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((double)(B1Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((B2Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((double)(B2Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((B3Materal == null)) {
+                throw new global::System.ArgumentNullException("B3Materal");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(B3Materal));
+            }
+            if ((B3Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((double)(B3Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             RXYF_YECCDataSet.ExperienceViewDataTable dataTable = new RXYF_YECCDataSet.ExperienceViewDataTable();
             this.Adapter.Fill(dataTable);

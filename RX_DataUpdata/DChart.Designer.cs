@@ -47,18 +47,15 @@
             this.数据维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WBS = new System.Windows.Forms.WebBrowser();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.BS = new System.Windows.Forms.BindingSource(this.components);
-            this.rXYF_YECCDataSet = new RX_DataUpdata.RXYF_YECCDataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.experienceViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.experienceViewTableAdapter = new RX_DataUpdata.RXYF_YECCDataSetTableAdapters.ExperienceViewTableAdapter();
             this.SerchData = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SportNum = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.OutExcel = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.SeachTabControl = new System.Windows.Forms.TabControl();
+            this.SeachTypeA = new System.Windows.Forms.TabPage();
             this.Bct = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.Bcm = new System.Windows.Forms.ComboBox();
@@ -71,19 +68,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Bam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.RportFrame = new System.Windows.Forms.GroupBox();
+            this.SeachTypeB = new System.Windows.Forms.TabPage();
+            this.SimRport = new System.Windows.Forms.GroupBox();
             this.ShowDialogForImage = new System.Windows.Forms.Button();
+            this.BS = new System.Windows.Forms.BindingSource(this.components);
+            this.rXYF_YECCDataSet = new RX_DataUpdata.RXYF_YECCDataSet();
+            this.experienceViewTableAdapter = new RX_DataUpdata.RXYF_YECCDataSetTableAdapters.ExperienceViewTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rXYF_YECCDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.experienceViewBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.SeachTabControl.SuspendLayout();
+            this.SeachTypeA.SuspendLayout();
+            this.SeachTypeB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rXYF_YECCDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -197,16 +197,6 @@
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             // 
-            // BS
-            // 
-            this.BS.DataSource = this.rXYF_YECCDataSet;
-            this.BS.Position = 0;
-            // 
-            // rXYF_YECCDataSet
-            // 
-            this.rXYF_YECCDataSet.DataSetName = "RXYF_YECCDataSet";
-            this.rXYF_YECCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -223,10 +213,6 @@
             // 
             this.experienceViewBindingSource.DataMember = "ExperienceView";
             this.experienceViewBindingSource.DataSource = this.BS;
-            // 
-            // experienceViewTableAdapter
-            // 
-            this.experienceViewTableAdapter.ClearBeforeFill = true;
             // 
             // SerchData
             // 
@@ -283,37 +269,37 @@
             this.OutExcel.UseVisualStyleBackColor = true;
             this.OutExcel.Click += new System.EventHandler(this.OutExcel_Click);
             // 
-            // tabControl1
+            // SeachTabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(1012, 25);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(369, 154);
-            this.tabControl1.TabIndex = 9;
+            this.SeachTabControl.Controls.Add(this.SeachTypeA);
+            this.SeachTabControl.Controls.Add(this.SeachTypeB);
+            this.SeachTabControl.Location = new System.Drawing.Point(1012, 25);
+            this.SeachTabControl.Name = "SeachTabControl";
+            this.SeachTabControl.SelectedIndex = 0;
+            this.SeachTabControl.Size = new System.Drawing.Size(369, 154);
+            this.SeachTabControl.TabIndex = 9;
             // 
-            // tabPage1
+            // SeachTypeA
             // 
-            this.tabPage1.Controls.Add(this.Bct);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.Bcm);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.Bbt);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.Bat);
-            this.tabPage1.Controls.Add(this.labela);
-            this.tabPage1.Controls.Add(this.Bbm);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.Bam);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(361, 128);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "特征查询";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.SeachTypeA.Controls.Add(this.Bct);
+            this.SeachTypeA.Controls.Add(this.label7);
+            this.SeachTypeA.Controls.Add(this.Bcm);
+            this.SeachTypeA.Controls.Add(this.label6);
+            this.SeachTypeA.Controls.Add(this.Bbt);
+            this.SeachTypeA.Controls.Add(this.label5);
+            this.SeachTypeA.Controls.Add(this.Bat);
+            this.SeachTypeA.Controls.Add(this.labela);
+            this.SeachTypeA.Controls.Add(this.Bbm);
+            this.SeachTypeA.Controls.Add(this.label3);
+            this.SeachTypeA.Controls.Add(this.Bam);
+            this.SeachTypeA.Controls.Add(this.label2);
+            this.SeachTypeA.Location = new System.Drawing.Point(4, 22);
+            this.SeachTypeA.Name = "SeachTypeA";
+            this.SeachTypeA.Padding = new System.Windows.Forms.Padding(3);
+            this.SeachTypeA.Size = new System.Drawing.Size(361, 128);
+            this.SeachTypeA.TabIndex = 0;
+            this.SeachTypeA.Text = "特征查询";
+            this.SeachTypeA.UseVisualStyleBackColor = true;
             // 
             // Bct
             // 
@@ -450,25 +436,25 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "版A材料";
             // 
-            // tabPage2
+            // SeachTypeB
             // 
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(361, 128);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "焊点ID查询";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.SeachTypeB.Controls.Add(this.groupBox1);
+            this.SeachTypeB.Location = new System.Drawing.Point(4, 22);
+            this.SeachTypeB.Name = "SeachTypeB";
+            this.SeachTypeB.Padding = new System.Windows.Forms.Padding(3);
+            this.SeachTypeB.Size = new System.Drawing.Size(361, 128);
+            this.SeachTypeB.TabIndex = 1;
+            this.SeachTypeB.Text = "焊点ID查询";
+            this.SeachTypeB.UseVisualStyleBackColor = true;
             // 
-            // RportFrame
+            // SimRport
             // 
-            this.RportFrame.Location = new System.Drawing.Point(1012, 185);
-            this.RportFrame.Name = "RportFrame";
-            this.RportFrame.Size = new System.Drawing.Size(369, 233);
-            this.RportFrame.TabIndex = 10;
-            this.RportFrame.TabStop = false;
-            this.RportFrame.Text = "简要报告";
+            this.SimRport.Location = new System.Drawing.Point(1012, 185);
+            this.SimRport.Name = "SimRport";
+            this.SimRport.Size = new System.Drawing.Size(369, 233);
+            this.SimRport.TabIndex = 10;
+            this.SimRport.TabStop = false;
+            this.SimRport.Text = "简要报告";
             // 
             // ShowDialogForImage
             // 
@@ -480,6 +466,20 @@
             this.ShowDialogForImage.UseVisualStyleBackColor = true;
             this.ShowDialogForImage.Click += new System.EventHandler(this.ShowDialogForImage_Click);
             // 
+            // BS
+            // 
+            this.BS.DataSource = this.rXYF_YECCDataSet;
+            this.BS.Position = 0;
+            // 
+            // rXYF_YECCDataSet
+            // 
+            this.rXYF_YECCDataSet.DataSetName = "RXYF_YECCDataSet";
+            this.rXYF_YECCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // experienceViewTableAdapter
+            // 
+            this.experienceViewTableAdapter.ClearBeforeFill = true;
+            // 
             // DChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -488,8 +488,8 @@
             this.Controls.Add(this.ShowDialogForImage);
             this.Controls.Add(this.SerchData);
             this.Controls.Add(this.OutExcel);
-            this.Controls.Add(this.RportFrame);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.SimRport);
+            this.Controls.Add(this.SeachTabControl);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.WBS);
@@ -505,16 +505,16 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rXYF_YECCDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.experienceViewBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.SeachTabControl.ResumeLayout(false);
+            this.SeachTypeA.ResumeLayout(false);
+            this.SeachTypeA.PerformLayout();
+            this.SeachTypeB.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rXYF_YECCDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -539,9 +539,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox SportNum;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl SeachTabControl;
+        private System.Windows.Forms.TabPage SeachTypeA;
+        private System.Windows.Forms.TabPage SeachTypeB;
         private System.Windows.Forms.ComboBox Bct;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox Bcm;
@@ -555,7 +555,7 @@
         private System.Windows.Forms.ComboBox Bam;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button OutExcel;
-        private System.Windows.Forms.GroupBox RportFrame;
+        private System.Windows.Forms.GroupBox SimRport;
         private System.Windows.Forms.Button ShowDialogForImage;
     }
 }

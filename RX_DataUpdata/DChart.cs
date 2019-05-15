@@ -30,14 +30,30 @@ namespace RX_DataUpdata
 
         private void SerchData_Click(object sender, EventArgs e)
         {
-            string SN="B2S11";
+            string SN = "B2S11";
             string[] str;
             float[] str1, str2, str3, str4, str5, str6, str7;
             //SN = SportNum.Text.Substring(0, 4);
-            SN = SportNum.Text;
-            this.experienceViewTableAdapter.FillBy(this.rXYF_YECCDataSet.ExperienceView, SN);
-            rXYF_YECCDataSet.Tables["experienceView"].DefaultView.Sort="PID";
-            dataGridView1.DataSource= rXYF_YECCDataSet.Tables["experienceView"].DefaultView;
+            if (SeachTabControl.SelectedTab.Name == "SeachTypeB")
+            {
+                SN = SportNum.Text;
+                this.experienceViewTableAdapter.FillBy(this.rXYF_YECCDataSet.ExperienceView, SN);
+            }
+            else if (SeachTabControl.SelectedTab.Name == "SeachTypeA")
+            {
+                if (Bcm.Text!=string.Empty && Bct.Text != string.Empty)
+                {
+                    this.experienceViewTableAdapter.FillByType(this.rXYF_YECCDataSet.ExperienceView, Convert.ToDouble(Bat.Text), Convert.ToDouble(Bbt.Text), Bcm.Text, Convert.ToDouble(Bct.Text));
+                }
+                else
+                {
+                    this.experienceViewTableAdapter.FillByTwoType(this.rXYF_YECCDataSet.ExperienceView, Convert.ToDouble(Bat.Text), Convert.ToDouble(Bbt.Text));
+                }
+
+            }
+
+            rXYF_YECCDataSet.Tables["experienceView"].DefaultView.Sort = "PID";
+            dataGridView1.DataSource = rXYF_YECCDataSet.Tables["experienceView"].DefaultView;
             str = new string[dataGridView1.Rows.Count];
             str1 = new float[dataGridView1.Rows.Count];
             str2 = new float[dataGridView1.Rows.Count];
@@ -57,13 +73,25 @@ namespace RX_DataUpdata
                 str6[i] = Convert.ToSingle(dataGridView1.Rows[i].Cells[12].Value.ToString());
                 str7[i] = Convert.ToSingle(dataGridView1.Rows[i].Cells[13].Value.ToString());
             }
-            chart1.Series[0].Points.DataBindXY(str,str2);
+            chart1.Series[0].Points.DataBindXY(str, str2);
             chart1.Series[1].Points.DataBindXY(str, str1);
             chart1.Series[2].Points.DataBindXY(str, str3);
             chart1.Series[3].Points.DataBindXY(str, str4);
             chart1.Series[4].Points.DataBindXY(str, str5);
             chart1.Series[5].Points.DataBindXY(str, str6);
             chart1.Series[6].Points.DataBindXY(str, str7);
+
+            if (dataGridView1.Rows.Count==0)
+            {
+                SimRport.Text = "您查询的实验数据不存在！请等待或联系管理员上传！";
+                OutExcel.Enabled = false;
+            }
+            else
+            {
+                SimRport.Text = "数据已为您显示完成！";
+                OutExcel.Enabled = true;
+            }
+
         }
 
         private void DChart_FormClosed(object sender, FormClosedEventArgs e)
@@ -78,7 +106,29 @@ namespace RX_DataUpdata
 
         private void OutExcel_Click(object sender, EventArgs e)
         {
-          var RE=  RxDataOprator.ExcelOprator.SaveExcelForLvSport(dataGridView1, SportNum.Text);
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("当前输入无任何数据，无需导出XLS");
+                return;
+            }
+                if (SeachTabControl.SelectedTab.Name == "SeachTypeA")
+            {
+                if (Bcm.Text != string.Empty && Bct.Text != string.Empty)
+                {
+                    var RE = RxDataOprator.ExcelOprator.SaveExcelForLvSport(dataGridView1, "板件6061厚_" + Bat.Text + "_板件5052厚_" + Bbt.Text + "_板件_" + Bcm.Text + "_厚_" + Bct.Text + "_组合参数");
+                }
+                else
+                {
+                    var RE = RxDataOprator.ExcelOprator.SaveExcelForLvSport(dataGridView1, "板件6061厚_" + Bat.Text + "_板件5052厚_" + Bbt.Text + "_组合参数");
+                }
+               
+            }
+            else if (SeachTabControl.SelectedTab.Name == "SeachTypeB")
+            {
+                var RE = RxDataOprator.ExcelOprator.SaveExcelForLvSport(dataGridView1, SportNum.Text);
+            }
+
+                
         }
 
         private void ShowDialogForImage_Click(object sender, EventArgs e)
