@@ -88,6 +88,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.UFWprogressBar = new System.Windows.Forms.ProgressBar();
+            this.UBWprogressBar = new System.Windows.Forms.ProgressBar();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -660,12 +662,28 @@
             this.label16.TabIndex = 21;
             this.label16.Text = "焊点正面照:";
             // 
+            // UFWprogressBar
+            // 
+            this.UFWprogressBar.Location = new System.Drawing.Point(643, 13);
+            this.UFWprogressBar.Name = "UFWprogressBar";
+            this.UFWprogressBar.Size = new System.Drawing.Size(284, 23);
+            this.UFWprogressBar.TabIndex = 26;
+            // 
+            // UBWprogressBar
+            // 
+            this.UBWprogressBar.Location = new System.Drawing.Point(642, 320);
+            this.UBWprogressBar.Name = "UBWprogressBar";
+            this.UBWprogressBar.Size = new System.Drawing.Size(285, 23);
+            this.UBWprogressBar.TabIndex = 27;
+            // 
             // ME_Updata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(939, 656);
+            this.Controls.Add(this.UBWprogressBar);
+            this.Controls.Add(this.UFWprogressBar);
             this.Controls.Add(this.UpdataBwPicture);
             this.Controls.Add(this.UpdataFwPicture);
             this.Controls.Add(this.ShowBwPicture);
@@ -755,6 +773,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ProgressBar UFWprogressBar;
+        private System.Windows.Forms.ProgressBar UBWprogressBar;
     }
 }
 

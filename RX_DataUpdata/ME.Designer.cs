@@ -89,6 +89,8 @@
             this.UpdataFwPicture = new System.Windows.Forms.Button();
             this.UpdataBwPicture = new System.Windows.Forms.Button();
             this.UploadBoard = new System.Windows.Forms.Button();
+            this.UBWprogressBar = new System.Windows.Forms.ProgressBar();
+            this.UFWprogressBar = new System.Windows.Forms.ProgressBar();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -671,12 +673,28 @@
             this.UploadBoard.UseVisualStyleBackColor = false;
             this.UploadBoard.Click += new System.EventHandler(this.UploadBoard_Click);
             // 
+            // UBWprogressBar
+            // 
+            this.UBWprogressBar.Location = new System.Drawing.Point(641, 324);
+            this.UBWprogressBar.Name = "UBWprogressBar";
+            this.UBWprogressBar.Size = new System.Drawing.Size(285, 23);
+            this.UBWprogressBar.TabIndex = 29;
+            // 
+            // UFWprogressBar
+            // 
+            this.UFWprogressBar.Location = new System.Drawing.Point(642, 17);
+            this.UFWprogressBar.Name = "UFWprogressBar";
+            this.UFWprogressBar.Size = new System.Drawing.Size(284, 23);
+            this.UFWprogressBar.TabIndex = 28;
+            // 
             // ME
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(939, 656);
+            this.Controls.Add(this.UBWprogressBar);
+            this.Controls.Add(this.UFWprogressBar);
             this.Controls.Add(this.UploadBoard);
             this.Controls.Add(this.UpdataBwPicture);
             this.Controls.Add(this.UpdataFwPicture);
@@ -768,6 +786,8 @@
         private System.Windows.Forms.Button UpdataFwPicture;
         private System.Windows.Forms.Button UpdataBwPicture;
         private System.Windows.Forms.Button UploadBoard;
+        private System.Windows.Forms.ProgressBar UBWprogressBar;
+        private System.Windows.Forms.ProgressBar UFWprogressBar;
     }
 }
 

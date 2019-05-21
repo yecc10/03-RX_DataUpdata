@@ -180,7 +180,7 @@
             this.WBEXP.Name = "WBEXP";
             this.WBEXP.Size = new System.Drawing.Size(1546, 731);
             this.WBEXP.TabIndex = 0;
-            this.WBEXP.Url = new System.Uri("http://10.147.203.251:8090/", System.UriKind.Absolute);
+            this.WBEXP.Url = new System.Uri("http://rx_yfb_yf079:8090/KNE/", System.UriKind.Absolute);
             // 
             // MainTabContent
             // 

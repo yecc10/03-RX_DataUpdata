@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
+using System.Net;
+
 
 namespace RX_DataUpdata
 {
@@ -20,6 +22,8 @@ namespace RX_DataUpdata
             CTime.Text = DateTime.Now.ToString();
             timer.Enabled = true;
             UpdataData.Enabled = false; //默认更新按钮不可点击
+            UpdataFwPicture.Enabled = false;
+            UpdataBwPicture.Enabled = false;
         }
         /// <summary>
         /// 修改板号时对应的焊点编号重置为1
@@ -181,7 +185,9 @@ namespace RX_DataUpdata
             }
             else
             {
-               var SysPid= NewExp.GetPid(SportBordID.Text, Pid.Text);
+                UpdataFwPicture.Enabled = true;
+                UpdataBwPicture.Enabled = true;
+                var SysPid= NewExp.GetPid(SportBordID.Text, Pid.Text);
                 ReadPonit SP = new ReadPonit();
                 SP=NewExp.ReadExp(SysPid.Pid);
                 if (SP.Res==11)
@@ -256,42 +262,79 @@ namespace RX_DataUpdata
 
         private void UpdataFwPicture_Click(object sender, EventArgs e)
         {
+            UpdataFwPicture.Enabled = false;
             OpenFileDialog OFile = new OpenFileDialog();
             OFile.Filter = "焊点图片 | *.PNG;*.jpg";
             OFile.Title = "选择准备上传的焊点！";
             OFile.Multiselect = false;
-            if (Directory.Exists("F:\01 Person Lib\05 瑞祥实验及演示项目\01 铝焊点\01 铝点焊实验资料"))
+            if (Directory.Exists("F:\\01 Person Lib\\05 瑞祥实验及演示项目\\01 铝焊点\\01 铝点焊实验资料"))
             {
-                OFile.InitialDirectory = "F:\01 Person Lib\05 瑞祥实验及演示项目\01 铝焊点\01 铝点焊实验资料";
+                OFile.InitialDirectory = "F:\\01 Person Lib\\05 瑞祥实验及演示项目\\01 铝焊点\\01 铝点焊实验资料";
             }
             else
             {
                 OFile.InitialDirectory = "C:\\Users\\Administrator\\Desktop";
             }
             OFile.ShowDialog();
-            ShowFwPicture.ImageLocation = OFile.FileName.ToString();
-            ShowFwPicture.Update();
-            //MessageBox.Show(OFile.FileName.ToString());
+            //ShowFwPicture.ImageLocation = OFile.FileName.ToString();
+            //ShowFwPicture.Update();
+            //MessageBox.Show(OFile.FileName.ToString())http://localhost:8080/WPDS/
+            FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
+            string REloadRoute = string.Empty;
+            var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+            int Return=FOD.UpLoad("http://rx_yfb_yf079:8080/WeldPictureDocumentServer/Default", OFile.FileName.ToString(), SysPid.Pid+"_Fw_Picture", out REloadRoute, null,UFWprogressBar);
+            if (REloadRoute != string.Empty)
+            {
+                ShowFwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
+                ShowFwPicture.Update();
+            }
+            if (Return==1)
+            {
+            }
+            else
+            {
+                MessageBox.Show("上传失败！");
+            }
+
         }
 
         private void UpdataBwPicture_Click(object sender, EventArgs e)
         {
+            UpdataBwPicture.Enabled = false;
             OpenFileDialog OFile = new OpenFileDialog();
             OFile.Filter = "焊点图片 | *.PNG;*.jpg";
             OFile.Title = "选择准备上传的焊点！";
             OFile.Multiselect = false;
-            if (Directory.Exists("F:\01 Person Lib\05 瑞祥实验及演示项目\01 铝焊点\01 铝点焊实验资料"))
+            if (Directory.Exists("F:\\01 Person Lib\\05 瑞祥实验及演示项目\\01 铝焊点\\01 铝点焊实验资料"))
             {
-                OFile.InitialDirectory = "F:\01 Person Lib\05 瑞祥实验及演示项目\01 铝焊点\01 铝点焊实验资料";
+                OFile.InitialDirectory = "F:\\01 Person Lib\\05 瑞祥实验及演示项目\\01 铝焊点\\01 铝点焊实验资料";
             }
             else
             {
                 OFile.InitialDirectory = "C:\\Users\\Administrator\\Desktop";
             }
             OFile.ShowDialog();
-            ShowBwPicture.ImageLocation = OFile.FileName.ToString();
-            ShowBwPicture.Update();
-            //MessageBox.Show(OFile.FileName.ToString());
+            //ShowFwPicture.ImageLocation = OFile.FileName.ToString();
+            //ShowFwPicture.Update();
+            //MessageBox.Show(OFile.FileName.ToString())http://localhost:8080/WPDS/
+            FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
+            string REloadRoute = string.Empty;
+            var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+            int Return = FOD.UpLoad("http://rx_yfb_yf079:8080/WeldPictureDocumentServer/Default", OFile.FileName.ToString(), SysPid.Pid + "_Bw_Picture", out REloadRoute, null, UBWprogressBar);
+            if (REloadRoute != string.Empty)
+            {
+                ShowFwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
+                ShowFwPicture.Update();
+            }
+            if (Return == 1)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("图片上传失败！");
+            }
+            
         }
     }
 }
