@@ -323,8 +323,8 @@ namespace RX_DataUpdata
             int Return = FOD.UpLoad("http://rx_yfb_yf079:8080/WeldPictureDocumentServer/Default", OFile.FileName.ToString(), SysPid.Pid + "_Bw_Picture", out REloadRoute, null, UBWprogressBar);
             if (REloadRoute != string.Empty)
             {
-                ShowFwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
-                ShowFwPicture.Update();
+                ShowBwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
+                ShowBwPicture.Update();
             }
             if (Return == 1)
             {
