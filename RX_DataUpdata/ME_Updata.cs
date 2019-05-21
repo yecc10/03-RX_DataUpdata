@@ -276,9 +276,6 @@ namespace RX_DataUpdata
                 OFile.InitialDirectory = "C:\\Users\\Administrator\\Desktop";
             }
             OFile.ShowDialog();
-            //ShowFwPicture.ImageLocation = OFile.FileName.ToString();
-            //ShowFwPicture.Update();
-            //MessageBox.Show(OFile.FileName.ToString())http://localhost:8080/WPDS/
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             string REloadRoute = string.Empty;
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
@@ -314,9 +311,6 @@ namespace RX_DataUpdata
                 OFile.InitialDirectory = "C:\\Users\\Administrator\\Desktop";
             }
             OFile.ShowDialog();
-            //ShowFwPicture.ImageLocation = OFile.FileName.ToString();
-            //ShowFwPicture.Update();
-            //MessageBox.Show(OFile.FileName.ToString())http://localhost:8080/WPDS/
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             string REloadRoute = string.Empty;
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
@@ -334,7 +328,6 @@ namespace RX_DataUpdata
             {
                 MessageBox.Show("图片上传失败！");
             }
-            
         }
     }
 }

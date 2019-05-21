@@ -275,7 +275,7 @@ namespace RX_DataUpdata
             {
                 MessageBox.Show("图片上传失败！");
             }
-            FOD.DeletFile("http://rx_yfb_yf079:8080" + REloadRoute);
+         
         }
 
         private void UploadBoard_Click(object sender, EventArgs e)

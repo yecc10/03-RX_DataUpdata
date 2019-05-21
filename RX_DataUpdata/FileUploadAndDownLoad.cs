@@ -87,11 +87,9 @@ namespace RX_DataUpdata
             Uri url = new Uri(FileName);
             //WClient.UploadFileCompleted += WClient_U;
             WClient.UploadDataTaskAsync(url, "DELETE", new byte[0]);
-            Console.ReadKey();
+            Console.Read();
             return true;
         }
-
-
         /// <summary>
         /// 下载服务器文件至客户端（不带进度条）
         /// </summary>
