@@ -19,8 +19,8 @@ namespace RX_DataUpdata
         /// <summary>
         /// 文件上传、更新、下载处理地址
         /// </summary>
-        //string DeUrl = "http://rx_yfb_yf079:8080/WeldPictureDocumentServer/";
-        string DeUrl = "http://localhost:9499/WeldPictureDocumentServer/";
+        string DeUrl = "http://rx_yfb_yf079:8080/WeldPictureDocumentServer/";
+        //string DeUrl = "http://localhost:9499/WeldPictureDocumentServer/";
 
         public ME_Updata()
         {
@@ -223,6 +223,10 @@ namespace RX_DataUpdata
                     Waiguan.Checked = SP.Waiguan;
                     AlongPonit.Checked = SP.AlongPonit;
                     Jianxi.Checked = SP.Jianxi;
+                    ShowFwPicture.ImageLocation = SP.FwPicture;
+                    ShowBwPicture.ImageLocation = SP.BwPicture;
+                    ShowFwPicture.Update();
+                    ShowBwPicture.Update();
                 }
                 else
                 {
@@ -286,10 +290,14 @@ namespace RX_DataUpdata
             string REloadRoute = string.Empty;
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
             int Return=FOD.UpLoad(DeUrl, OFile.FileName.ToString(), SysPid.Pid+"_Fw_Picture", out REloadRoute, null,UFWprogressBar);
-            if (REloadRoute != string.Empty)
+            if (REloadRoute!=string.Empty)
             {
                 ShowFwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
                 ShowFwPicture.Update();
+            }
+            if (REloadRoute != string.Empty)
+            {
+
             }
             if (Return==1)
             {
@@ -326,6 +334,10 @@ namespace RX_DataUpdata
                 ShowBwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
                 ShowBwPicture.Update();
             }
+                if (REloadRoute != string.Empty)
+            {
+
+            }
             if (Return == 1)
             {
 
@@ -340,12 +352,25 @@ namespace RX_DataUpdata
         {
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            FOD.FileDelet(DeUrl, SysPid.Pid);
+            FOD.FileDelet(DeUrl, SysPid.Pid,0);
+            ShowFwPicture.ImageLocation = null;
+            ShowFwPicture.Update();
+            UpdataFwPicture.Enabled = true;
         }
         //删除完成事件处理程序
         private static void _webClient_UploadDataCompleted(object sender, UploadDataCompletedEventArgs e)
         {
             Console.WriteLine("Deleted...");
+        }
+
+        private void DELETEUpdataBwPicture_Click(object sender, EventArgs e)
+        {
+            FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
+            var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+            FOD.FileDelet(DeUrl, SysPid.Pid,1);
+            ShowBwPicture.ImageLocation = null;
+            ShowBwPicture.Update();
+            UpdataBwPicture.Enabled = true;
         }
     }
 }

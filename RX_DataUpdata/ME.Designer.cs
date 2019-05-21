@@ -91,6 +91,8 @@
             this.UploadBoard = new System.Windows.Forms.Button();
             this.UBWprogressBar = new System.Windows.Forms.ProgressBar();
             this.UFWprogressBar = new System.Windows.Forms.ProgressBar();
+            this.DELETEUpdataBwPicture = new System.Windows.Forms.Button();
+            this.DELETEUpdataFwPicture = new System.Windows.Forms.Button();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -675,17 +677,37 @@
             // 
             // UBWprogressBar
             // 
-            this.UBWprogressBar.Location = new System.Drawing.Point(641, 324);
+            this.UBWprogressBar.Location = new System.Drawing.Point(722, 324);
             this.UBWprogressBar.Name = "UBWprogressBar";
-            this.UBWprogressBar.Size = new System.Drawing.Size(285, 23);
+            this.UBWprogressBar.Size = new System.Drawing.Size(204, 23);
             this.UBWprogressBar.TabIndex = 29;
             // 
             // UFWprogressBar
             // 
-            this.UFWprogressBar.Location = new System.Drawing.Point(642, 17);
+            this.UFWprogressBar.Location = new System.Drawing.Point(722, 17);
             this.UFWprogressBar.Name = "UFWprogressBar";
-            this.UFWprogressBar.Size = new System.Drawing.Size(284, 23);
+            this.UFWprogressBar.Size = new System.Drawing.Size(204, 23);
             this.UFWprogressBar.TabIndex = 28;
+            // 
+            // DELETEUpdataBwPicture
+            // 
+            this.DELETEUpdataBwPicture.Location = new System.Drawing.Point(641, 324);
+            this.DELETEUpdataBwPicture.Name = "DELETEUpdataBwPicture";
+            this.DELETEUpdataBwPicture.Size = new System.Drawing.Size(75, 23);
+            this.DELETEUpdataBwPicture.TabIndex = 30;
+            this.DELETEUpdataBwPicture.Text = "删除";
+            this.DELETEUpdataBwPicture.UseVisualStyleBackColor = true;
+            this.DELETEUpdataBwPicture.Click += new System.EventHandler(this.DELETEUpdataBwPicture_Click);
+            // 
+            // DELETEUpdataFwPicture
+            // 
+            this.DELETEUpdataFwPicture.Location = new System.Drawing.Point(641, 17);
+            this.DELETEUpdataFwPicture.Name = "DELETEUpdataFwPicture";
+            this.DELETEUpdataFwPicture.Size = new System.Drawing.Size(75, 23);
+            this.DELETEUpdataFwPicture.TabIndex = 31;
+            this.DELETEUpdataFwPicture.Text = "删除";
+            this.DELETEUpdataFwPicture.UseVisualStyleBackColor = true;
+            this.DELETEUpdataFwPicture.Click += new System.EventHandler(this.DELETEUpdataFwPicture_Click);
             // 
             // ME
             // 
@@ -693,6 +715,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(939, 656);
+            this.Controls.Add(this.DELETEUpdataBwPicture);
+            this.Controls.Add(this.DELETEUpdataFwPicture);
             this.Controls.Add(this.UBWprogressBar);
             this.Controls.Add(this.UFWprogressBar);
             this.Controls.Add(this.UploadBoard);
@@ -788,6 +812,8 @@
         private System.Windows.Forms.Button UploadBoard;
         private System.Windows.Forms.ProgressBar UBWprogressBar;
         private System.Windows.Forms.ProgressBar UFWprogressBar;
+        private System.Windows.Forms.Button DELETEUpdataBwPicture;
+        private System.Windows.Forms.Button DELETEUpdataFwPicture;
     }
 }
 

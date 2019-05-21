@@ -106,6 +106,8 @@ namespace RX_DataUpdata
                     Waiguan = Convert.ToBoolean(WaiGuanNG),
                     AlongPonit = Convert.ToBoolean(LianXuHanDian),
                     Jianxi = Convert.ToBoolean(HanJieJianXi),
+                    FwPicture= Convert.ToString(FwPicture),
+                    BwPicture=Convert.ToString(BwPicture),
                     Res = Convert.ToInt16(Ret)
                 };
                 return sp; 

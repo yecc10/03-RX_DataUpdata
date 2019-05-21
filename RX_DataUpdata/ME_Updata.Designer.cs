@@ -696,6 +696,7 @@
             this.DELETEUpdataBwPicture.TabIndex = 24;
             this.DELETEUpdataBwPicture.Text = "删除";
             this.DELETEUpdataBwPicture.UseVisualStyleBackColor = true;
+            this.DELETEUpdataBwPicture.Click += new System.EventHandler(this.DELETEUpdataBwPicture_Click);
             // 
             // ME_Updata
             // 

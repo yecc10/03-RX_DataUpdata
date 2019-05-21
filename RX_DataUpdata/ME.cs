@@ -14,6 +14,8 @@ namespace RX_DataUpdata
 {
     public partial class ME : Form
     {
+        string DeUrl = "http://rx_yfb_yf079:8080/WeldPictureDocumentServer/";
+        //string DeUrl = "http://localhost:9499/WeldPictureDocumentServer/";
         public ME()
         {
             InitializeComponent();
@@ -217,25 +219,25 @@ namespace RX_DataUpdata
                 OFile.InitialDirectory = "C:\\Users\\Administrator\\Desktop";
             }
             OFile.ShowDialog();
-            //ShowFwPicture.ImageLocation = OFile.FileName.ToString();
-            //ShowFwPicture.Update();
-            //MessageBox.Show(OFile.FileName.ToString())http://localhost:8080/WPDS/
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             string REloadRoute = string.Empty;
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            int Return = FOD.UpLoad("http://rx_yfb_yf079:8080/WeldPictureDocumentServer/Default", OFile.FileName.ToString(), SysPid.Pid + "_Fw_Picture", out REloadRoute, null, UFWprogressBar);
+            int Return = FOD.UpLoad(DeUrl, OFile.FileName.ToString(), SysPid.Pid + "_Fw_Picture", out REloadRoute, null, UFWprogressBar);
             if (REloadRoute != string.Empty)
             {
                 ShowFwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
                 ShowFwPicture.Update();
             }
-            if (Return == 1)
+            if (REloadRoute != string.Empty)
             {
 
             }
+            if (Return == 1)
+            {
+            }
             else
             {
-                MessageBox.Show("图片上传失败！");
+                MessageBox.Show("上传失败！");
             }
 
         }
@@ -256,32 +258,54 @@ namespace RX_DataUpdata
                 OFile.InitialDirectory = "C:\\Users\\Administrator\\Desktop";
             }
             OFile.ShowDialog();
-            //ShowFwPicture.ImageLocation = OFile.FileName.ToString();
-            //ShowFwPicture.Update();
-            //MessageBox.Show(OFile.FileName.ToString())http://localhost:8080/WPDS/
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             string REloadRoute = string.Empty;
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            int Return = FOD.UpLoad("http://rx_yfb_yf079:8080/WeldPictureDocumentServer/Default", OFile.FileName.ToString(), SysPid.Pid + "_Bw_Picture", out REloadRoute, null, UBWprogressBar);
+            int Return = FOD.UpLoad(DeUrl, OFile.FileName.ToString(), SysPid.Pid + "_Bw_Picture", out REloadRoute, null, UBWprogressBar);
             if (REloadRoute != string.Empty)
             {
                 ShowBwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
                 ShowBwPicture.Update();
             }
+            if (REloadRoute != string.Empty)
+            {
+
+            }
             if (Return == 1)
             {
+
             }
             else
             {
                 MessageBox.Show("图片上传失败！");
             }
-         
+
         }
 
         private void UploadBoard_Click(object sender, EventArgs e)
         {
             BoardPictureUpload BPU = new BoardPictureUpload();
             BPU.Show();
+        }
+
+        private void DELETEUpdataFwPicture_Click(object sender, EventArgs e)
+        {
+            FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
+            var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+            FOD.FileDelet(DeUrl, SysPid.Pid, 0);
+            ShowFwPicture.ImageLocation = null;
+            ShowFwPicture.Update();
+            UpdataFwPicture.Enabled = true;
+        }
+
+        private void DELETEUpdataBwPicture_Click(object sender, EventArgs e)
+        {
+            FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
+            var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+            FOD.FileDelet(DeUrl, SysPid.Pid, 1);
+            ShowBwPicture.ImageLocation = null;
+            ShowBwPicture.Update();
+            UpdataBwPicture.Enabled = true;
         }
     }
 }

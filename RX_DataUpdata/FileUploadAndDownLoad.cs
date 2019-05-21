@@ -276,10 +276,25 @@ namespace RX_DataUpdata
         /// </summary>
         /// <param name="Url">服务其处理地址</param>
         /// <param name="FileName">图片对应焊点PID</param>
+        /// <param name="FWBW">0=FW;1=BW</param>
         /// <returns>成功返回1，失败返回-1,文件不存在返回0</returns>
-        public void FileDelet(string Url,string FileName)
+        public void FileDelet(string Url,string FileName,int FWBW)
         {
-            Url= Url + "?OPM=FileDelete&DeleteFileName=" + FileName + "_Fw_Picture" + ".jpg";
+            string Picture = string.Empty;
+            if (FWBW==0)
+            {
+                Picture = "_Fw_Picture";
+            }
+            else if (FWBW == 1)
+            {
+                Picture = "_Bw_Picture";
+            }
+            else
+            {
+                MessageBox.Show("未指示或所指示删除的照片前后照错误！-已退出删除操作！");
+                return;
+            }
+            Url= Url + "?OPM=FileDelete&DeleteFileName=" + FileName + Picture + ".jpg";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri(Url));
             WebResponse webRespon = request.GetResponse();
             Stream s = webRespon.GetResponseStream();
