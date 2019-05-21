@@ -90,9 +90,7 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.UFWprogressBar = new System.Windows.Forms.ProgressBar();
             this.UBWprogressBar = new System.Windows.Forms.ProgressBar();
-            this.REUpdataFwPicture = new System.Windows.Forms.Button();
             this.DELETEUpdataFwPicture = new System.Windows.Forms.Button();
-            this.REUpdataBwPicture = new System.Windows.Forms.Button();
             this.DELETEUpdataBwPicture = new System.Windows.Forms.Button();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
@@ -668,30 +666,21 @@
             // 
             // UFWprogressBar
             // 
-            this.UFWprogressBar.Location = new System.Drawing.Point(801, 13);
+            this.UFWprogressBar.Location = new System.Drawing.Point(723, 13);
             this.UFWprogressBar.Name = "UFWprogressBar";
-            this.UFWprogressBar.Size = new System.Drawing.Size(126, 23);
+            this.UFWprogressBar.Size = new System.Drawing.Size(204, 23);
             this.UFWprogressBar.TabIndex = 26;
             // 
             // UBWprogressBar
             // 
-            this.UBWprogressBar.Location = new System.Drawing.Point(801, 320);
+            this.UBWprogressBar.Location = new System.Drawing.Point(723, 320);
             this.UBWprogressBar.Name = "UBWprogressBar";
-            this.UBWprogressBar.Size = new System.Drawing.Size(126, 23);
+            this.UBWprogressBar.Size = new System.Drawing.Size(204, 23);
             this.UBWprogressBar.TabIndex = 27;
-            // 
-            // REUpdataFwPicture
-            // 
-            this.REUpdataFwPicture.Location = new System.Drawing.Point(642, 13);
-            this.REUpdataFwPicture.Name = "REUpdataFwPicture";
-            this.REUpdataFwPicture.Size = new System.Drawing.Size(75, 23);
-            this.REUpdataFwPicture.TabIndex = 25;
-            this.REUpdataFwPicture.Text = "重传";
-            this.REUpdataFwPicture.UseVisualStyleBackColor = true;
             // 
             // DELETEUpdataFwPicture
             // 
-            this.DELETEUpdataFwPicture.Location = new System.Drawing.Point(721, 13);
+            this.DELETEUpdataFwPicture.Location = new System.Drawing.Point(642, 12);
             this.DELETEUpdataFwPicture.Name = "DELETEUpdataFwPicture";
             this.DELETEUpdataFwPicture.Size = new System.Drawing.Size(75, 23);
             this.DELETEUpdataFwPicture.TabIndex = 25;
@@ -699,18 +688,9 @@
             this.DELETEUpdataFwPicture.UseVisualStyleBackColor = true;
             this.DELETEUpdataFwPicture.Click += new System.EventHandler(this.DELETEUpdataFwPicture_Click);
             // 
-            // REUpdataBwPicture
-            // 
-            this.REUpdataBwPicture.Location = new System.Drawing.Point(642, 320);
-            this.REUpdataBwPicture.Name = "REUpdataBwPicture";
-            this.REUpdataBwPicture.Size = new System.Drawing.Size(75, 23);
-            this.REUpdataBwPicture.TabIndex = 24;
-            this.REUpdataBwPicture.Text = "重传";
-            this.REUpdataBwPicture.UseVisualStyleBackColor = true;
-            // 
             // DELETEUpdataBwPicture
             // 
-            this.DELETEUpdataBwPicture.Location = new System.Drawing.Point(721, 320);
+            this.DELETEUpdataBwPicture.Location = new System.Drawing.Point(642, 320);
             this.DELETEUpdataBwPicture.Name = "DELETEUpdataBwPicture";
             this.DELETEUpdataBwPicture.Size = new System.Drawing.Size(75, 23);
             this.DELETEUpdataBwPicture.TabIndex = 24;
@@ -726,10 +706,8 @@
             this.Controls.Add(this.UBWprogressBar);
             this.Controls.Add(this.UFWprogressBar);
             this.Controls.Add(this.DELETEUpdataBwPicture);
-            this.Controls.Add(this.REUpdataBwPicture);
             this.Controls.Add(this.UpdataBwPicture);
             this.Controls.Add(this.DELETEUpdataFwPicture);
-            this.Controls.Add(this.REUpdataFwPicture);
             this.Controls.Add(this.UpdataFwPicture);
             this.Controls.Add(this.ShowBwPicture);
             this.Controls.Add(this.ShowFwPicture);
@@ -820,9 +798,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.ProgressBar UFWprogressBar;
         private System.Windows.Forms.ProgressBar UBWprogressBar;
-        private System.Windows.Forms.Button REUpdataFwPicture;
         private System.Windows.Forms.Button DELETEUpdataFwPicture;
-        private System.Windows.Forms.Button REUpdataBwPicture;
         private System.Windows.Forms.Button DELETEUpdataBwPicture;
     }
 }

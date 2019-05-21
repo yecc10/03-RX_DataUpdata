@@ -341,16 +341,6 @@ namespace RX_DataUpdata
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
             FOD.FileDelet(DeUrl, SysPid.Pid);
-            //WebClient webclient = new WebClient();
-            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri(DeUrl));
-            //var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            //Uri upTargetUri = new Uri(String.Format(DeUrl + "?OPM=FileDelete&DeleteFileName=" + SysPid.Pid+ "_Fw_Picture" + ".jpg", UriKind.Absolute));
-            //webclient.UploadStringAsync(upTargetUri, "");
-            //request.Credentials = CredentialCache.DefaultCredentials;
-            //WebResponse webRespon = request.GetResponse();
-            //Stream s = webRespon.GetResponseStream();
-            //StreamReader sr = new StreamReader(s);
-            //String sReturnString = sr.ReadLine();
         }
         //删除完成事件处理程序
         private static void _webClient_UploadDataCompleted(object sender, UploadDataCompletedEventArgs e)

@@ -277,29 +277,31 @@ namespace RX_DataUpdata
         /// <param name="Url">服务其处理地址</param>
         /// <param name="FileName">图片对应焊点PID</param>
         /// <returns>成功返回1，失败返回-1,文件不存在返回0</returns>
-        public int FileDelet(string Url,string FileName)
+        public void FileDelet(string Url,string FileName)
         {
-            string DeUrl = Url;
-            WebClient webclient = new WebClient();
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri(DeUrl));
-            Uri upTargetUri = new Uri(String.Format(DeUrl + "?OPM=FileDelete&DeleteFileName=" + FileName + "_Fw_Picture" + ".jpg", UriKind.Absolute));
-            webclient.UploadStringAsync(upTargetUri, "");
-            request.Credentials = CredentialCache.DefaultCredentials;
+            Url= Url + "?OPM=FileDelete&DeleteFileName=" + FileName + "_Fw_Picture" + ".jpg";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri(Url));
             WebResponse webRespon = request.GetResponse();
             Stream s = webRespon.GetResponseStream();
             StreamReader sr = new StreamReader(s);
             String sReturnString = sr.ReadLine();
-            if (sReturnString== "Success")
+            switch (sReturnString)
             {
-                return 1;
-            }
-            else if(sReturnString=="NoExistsDocument")
-            {
-                return 0;
-            }
-            else
-            {
-                return -1;
+                case "Success":
+                    {
+                        MessageBox.Show("图片删除成功！");
+                        break;
+                    }
+                case "NoExistsDocument":
+                    {
+                        MessageBox.Show("服务器不存在该图片，无法执行删除操作！");
+                        break;
+                    }
+                case "Error":
+                    {
+                        MessageBox.Show("删除操作失败！");
+                        break;
+                    }
             }
         }
     }
