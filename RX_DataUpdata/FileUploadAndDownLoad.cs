@@ -80,16 +80,16 @@ namespace RX_DataUpdata
             }
         }
 
-        public bool DeletFile(string FileName)
-        {
-            WebClient WClient = new WebClient();
-            WClient.Credentials = new NetworkCredential("NWUSER","ycc123!");
-            Uri url = new Uri(FileName);
-            //WClient.UploadFileCompleted += WClient_U;
-            WClient.UploadDataTaskAsync(url, "DELETE", new byte[0]);
-            Console.Read();
-            return true;
-        }
+        //public bool DeletFile(string FileName)
+        //{
+        //    WebClient WClient = new WebClient();
+        //    WClient.Credentials = new NetworkCredential("NWUSER","ycc123!");
+        //    Uri url = new Uri(FileName);
+        //    //WClient.UploadFileCompleted += WClient_U;
+        //    WClient.UploadDataTaskAsync(url, "DELETE", new byte[0]);
+        //    Console.Read();
+        //    return true;
+        //}
         /// <summary>
         /// 下载服务器文件至客户端（不带进度条）
         /// </summary>
@@ -269,6 +269,37 @@ namespace RX_DataUpdata
             catch (Exception)
             {
                 return false;
+            }
+        }
+        /// <summary>
+        /// 删除服务器指定文件
+        /// </summary>
+        /// <param name="Url">服务其处理地址</param>
+        /// <param name="FileName">图片对应焊点PID</param>
+        /// <returns>成功返回1，失败返回-1,文件不存在返回0</returns>
+        public int FileDelet(string Url,string FileName)
+        {
+            string DeUrl = Url;
+            WebClient webclient = new WebClient();
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri(DeUrl));
+            Uri upTargetUri = new Uri(String.Format(DeUrl + "?OPM=FileDelete&DeleteFileName=" + FileName + "_Fw_Picture" + ".jpg", UriKind.Absolute));
+            webclient.UploadStringAsync(upTargetUri, "");
+            request.Credentials = CredentialCache.DefaultCredentials;
+            WebResponse webRespon = request.GetResponse();
+            Stream s = webRespon.GetResponseStream();
+            StreamReader sr = new StreamReader(s);
+            String sReturnString = sr.ReadLine();
+            if (sReturnString== "Success")
+            {
+                return 1;
+            }
+            else if(sReturnString=="NoExistsDocument")
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
             }
         }
     }

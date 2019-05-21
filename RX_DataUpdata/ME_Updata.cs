@@ -16,6 +16,12 @@ namespace RX_DataUpdata
 {
     public partial class ME_Updata : Form
     {
+        /// <summary>
+        /// 文件上传、更新、下载处理地址
+        /// </summary>
+        //string DeUrl = "http://rx_yfb_yf079:8080/WeldPictureDocumentServer/";
+        string DeUrl = "http://localhost:9499/WeldPictureDocumentServer/";
+
         public ME_Updata()
         {
             InitializeComponent();
@@ -279,7 +285,7 @@ namespace RX_DataUpdata
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             string REloadRoute = string.Empty;
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            int Return=FOD.UpLoad("http://rx_yfb_yf079:8080/WeldPictureDocumentServer/Default", OFile.FileName.ToString(), SysPid.Pid+"_Fw_Picture", out REloadRoute, null,UFWprogressBar);
+            int Return=FOD.UpLoad(DeUrl, OFile.FileName.ToString(), SysPid.Pid+"_Fw_Picture", out REloadRoute, null,UFWprogressBar);
             if (REloadRoute != string.Empty)
             {
                 ShowFwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
@@ -314,7 +320,7 @@ namespace RX_DataUpdata
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             string REloadRoute = string.Empty;
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            int Return = FOD.UpLoad("http://rx_yfb_yf079:8080/WeldPictureDocumentServer/Default", OFile.FileName.ToString(), SysPid.Pid + "_Bw_Picture", out REloadRoute, null, UBWprogressBar);
+            int Return = FOD.UpLoad(DeUrl, OFile.FileName.ToString(), SysPid.Pid + "_Bw_Picture", out REloadRoute, null, UBWprogressBar);
             if (REloadRoute != string.Empty)
             {
                 ShowBwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
@@ -328,6 +334,28 @@ namespace RX_DataUpdata
             {
                 MessageBox.Show("图片上传失败！");
             }
+        }
+
+        private void DELETEUpdataFwPicture_Click(object sender, EventArgs e)
+        {
+            FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
+            var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+            FOD.FileDelet(DeUrl, SysPid.Pid);
+            //WebClient webclient = new WebClient();
+            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri(DeUrl));
+            //var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
+            //Uri upTargetUri = new Uri(String.Format(DeUrl + "?OPM=FileDelete&DeleteFileName=" + SysPid.Pid+ "_Fw_Picture" + ".jpg", UriKind.Absolute));
+            //webclient.UploadStringAsync(upTargetUri, "");
+            //request.Credentials = CredentialCache.DefaultCredentials;
+            //WebResponse webRespon = request.GetResponse();
+            //Stream s = webRespon.GetResponseStream();
+            //StreamReader sr = new StreamReader(s);
+            //String sReturnString = sr.ReadLine();
+        }
+        //删除完成事件处理程序
+        private static void _webClient_UploadDataCompleted(object sender, UploadDataCompletedEventArgs e)
+        {
+            Console.WriteLine("Deleted...");
         }
     }
 }
