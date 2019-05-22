@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 
 namespace RX_DataUpdata
 {
+    #region 全局变量-登录获取
     /// <summary>
     ///自定义系统函数
     /// </summary>
@@ -22,7 +23,9 @@ namespace RX_DataUpdata
         public static string ClientIP = string.Empty;  //客户端IP
         public static string BackRemark = string.Empty;  //程序临时备份文件
     }
-  public  class Spoint
+    #endregion
+    #region 铝点焊基本属性
+    public class Spoint
     {
         /// <summary>
         /// 实验版ID
@@ -124,14 +127,16 @@ namespace RX_DataUpdata
         /// </summary>
         public virtual bool Jianxi { get; set; }
     }
-
+    #endregion
+    #region 铝点焊焊点扩展属性
     public class ReadPonit:Spoint
     {
         public virtual int Res { get; set; }
         public virtual string FwPicture { get; set; }
         public virtual string BwPicture { get; set; }
     }
-
+    #endregion
+    #region 焊点编号集BID/PID
     /// <summary>
     /// 焊点编号集BID/PID
     /// </summary>
@@ -140,6 +145,8 @@ namespace RX_DataUpdata
         public virtual string Bid { get; set; }
         public virtual string Pid { get; set; }
     }
+    #endregion
+    #region 注册操作集
     class RegOprate
     {
         /// <summary>
@@ -203,4 +210,29 @@ namespace RX_DataUpdata
         }
 
     }
+    #endregion
+    #region 实板属性集
+    /// <summary>
+    /// 试板整体照片及最终备注
+    /// </summary>
+    public class BoardPictureAndRemark
+    {
+        /// <summary>
+        /// 试板BID编号
+        /// </summary>
+        public virtual string BID { get; set; }
+        /// <summary>
+        /// 试板整体正面照片
+        /// </summary>
+        public virtual string FwPictured { get; set; }
+        /// <summary>
+        /// 试板整体反面照片
+        /// </summary>
+        public virtual string BwPicture { get; set; }
+        /// <summary>
+        /// 试板备注总结
+        /// </summary>
+        public virtual string Ret { get; set; }
+    }
+    #endregion
 }

@@ -193,6 +193,22 @@ namespace RX_DataUpdata
 			ret = ((System.Nullable<int>)(result.GetParameterValue(26)));
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateBoardPictureAndRemark")]
+		public int UpdateBoardPictureAndRemark([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BID", DbType="VarChar(128)")] string bID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FwPicture", DbType="VarChar(128)")] string fwPicture, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BwPicture", DbType="VarChar(128)")] string bwPicture, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReMark", DbType="NVarChar(255)")] string reMark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ret", DbType="Int")] ref System.Nullable<int> ret)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bID, fwPicture, bwPicture, reMark, ret);
+			ret = ((System.Nullable<int>)(result.GetParameterValue(4)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CreatBoardPictureAndRemark")]
+		public int CreatBoardPictureAndRemark([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BID", DbType="VarChar(128)")] string bID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FwPicture", DbType="VarChar(128)")] string fwPicture, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BwPicture", DbType="VarChar(128)")] string bwPicture, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReMark", DbType="NVarChar(255)")] string reMark, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ret", DbType="Int")] ref System.Nullable<int> ret)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bID, fwPicture, bwPicture, reMark, ret);
+			ret = ((System.Nullable<int>)(result.GetParameterValue(4)));
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class NewExpResult

@@ -96,4 +96,20 @@
     <Parameter Name="Ret" Parameter="ret" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.UpdateBoardPictureAndRemark" Method="UpdateBoardPictureAndRemark">
+    <Parameter Name="BID" Parameter="bID" Type="System.String" DbType="VarChar(128)" />
+    <Parameter Name="FwPicture" Parameter="fwPicture" Type="System.String" DbType="VarChar(128)" />
+    <Parameter Name="BwPicture" Parameter="bwPicture" Type="System.String" DbType="VarChar(128)" />
+    <Parameter Name="ReMark" Parameter="reMark" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Ret" Parameter="ret" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CreatBoardPictureAndRemark" Method="CreatBoardPictureAndRemark">
+    <Parameter Name="BID" Parameter="bID" Type="System.String" DbType="VarChar(128)" />
+    <Parameter Name="FwPicture" Parameter="fwPicture" Type="System.String" DbType="VarChar(128)" />
+    <Parameter Name="BwPicture" Parameter="bwPicture" Type="System.String" DbType="VarChar(128)" />
+    <Parameter Name="ReMark" Parameter="reMark" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Ret" Parameter="ret" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
