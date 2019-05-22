@@ -105,12 +105,48 @@ namespace RX_DataUpdata
 
         private void Upload_Click(object sender, EventArgs e)
         {
+            try
+            {
+              int RET=  NewExp.UpdataBoardPictureAndRemark(BID, ShowFwPicture.ImageLocation, ShowBwPicture.ImageLocation, Introduction.Text);
+                if (RET==11)
+                {
+                    CreatData.Enabled = false;
+                    MessageBox.Show("上传成功！");
+                }
+                else if (RET == -11)
+                {
+                    MessageBox.Show("数据不存在！，已停止上传");
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("上传发生错误！未和数据库产生链接！");
+            }
+
 
         }
 
         private void CreatData_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int RET = NewExp.CreatBoardPictureAndRemark(BID, ShowFwPicture.ImageLocation, ShowBwPicture.ImageLocation, Introduction.Text);
+                if (RET == 11)
+                {
+                    CreatData.Enabled = false;
+                    MessageBox.Show("上传成功！");
+                }
+                else if (RET == -11)
+                {
+                    MessageBox.Show("数据不存在！，已停止上传");
+                }
+            }
+            catch (Exception)
+            {
 
+                MessageBox.Show("上传发生错误！未和数据库产生链接！");
+            }
         }
 
         private void DELETEUpdataFwPicture_Click(object sender, EventArgs e)
