@@ -120,6 +120,7 @@ namespace RX_DataUpdata
             ShowFwPicture.ImageLocation = null;
             ShowFwPicture.Update();
             UpdataFwPicture.Enabled = true;
+            UFWprogressBar.Value = 0;
         }
 
         private void DELETEUpdataBwPicture_Click(object sender, EventArgs e)
@@ -129,6 +130,7 @@ namespace RX_DataUpdata
             ShowBwPicture.ImageLocation = null;
             ShowBwPicture.Update();
             UpdataBwPicture.Enabled = true;
+            UBWprogressBar.Value = 0;
         }
     }
 }

@@ -128,7 +128,7 @@
             this.UpdataContent.Name = "UpdataContent";
             this.UpdataContent.Size = new System.Drawing.Size(122, 48);
             this.UpdataContent.TabIndex = 27;
-            this.UpdataContent.Text = "上传";
+            this.UpdataContent.Text = "更新";
             this.UpdataContent.UseVisualStyleBackColor = true;
             this.UpdataContent.Click += new System.EventHandler(this.Upload_Click);
             // 

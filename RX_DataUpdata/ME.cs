@@ -283,7 +283,7 @@ namespace RX_DataUpdata
         private void UploadBoard_Click(object sender, EventArgs e)
         {
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            BoardPictureUpload BPU = new BoardPictureUpload(SysPid.Pid);
+            BoardPictureUpload BPU = new BoardPictureUpload(SysPid.Bid);
             BPU.Text = SysPid.Bid+"_最终照片上传";
             BPU.Show();
         }

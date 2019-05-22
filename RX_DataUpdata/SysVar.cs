@@ -25,7 +25,7 @@ namespace RX_DataUpdata
         /// <summary>
         /// 上传文件服务地址
         /// </summary>
-        public static string DeUrl = "http://rx_yfb_yf079:8080/WeldPictureDocumentServer/";//上传文件服务地址
+        public static string DeUrl = "http://rx_yfb_yf079:8080/WPDS/default";//上传文件服务地址
         /// <summary>
         /// 文件检查地址
         /// </summary>
