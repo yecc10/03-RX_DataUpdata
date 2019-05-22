@@ -26,15 +26,15 @@ namespace RX_DataUpdata {
         
         private _Board_SportDataDataTable _tableBoard_SportData;
         
-        private SportDataDataTable tableSportData;
-        
         private ExperienceViewDataTable tableExperienceView;
         
         private BoardDataDataTable tableBoardData;
         
-        private global::System.Data.DataRelation _relationFK_Board_SportData_SportData;
+        private SportDataDataTable tableSportData;
         
         private global::System.Data.DataRelation _relationFK_Board_SportData_BoardData;
+        
+        private global::System.Data.DataRelation _relationFK_Board_SportData_SportData;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -67,14 +67,14 @@ namespace RX_DataUpdata {
                 if ((ds.Tables["Board&SportData"] != null)) {
                     base.Tables.Add(new _Board_SportDataDataTable(ds.Tables["Board&SportData"]));
                 }
-                if ((ds.Tables["SportData"] != null)) {
-                    base.Tables.Add(new SportDataDataTable(ds.Tables["SportData"]));
-                }
                 if ((ds.Tables["ExperienceView"] != null)) {
                     base.Tables.Add(new ExperienceViewDataTable(ds.Tables["ExperienceView"]));
                 }
                 if ((ds.Tables["BoardData"] != null)) {
                     base.Tables.Add(new BoardDataDataTable(ds.Tables["BoardData"]));
+                }
+                if ((ds.Tables["SportData"] != null)) {
+                    base.Tables.Add(new SportDataDataTable(ds.Tables["SportData"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -108,16 +108,6 @@ namespace RX_DataUpdata {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SportDataDataTable SportData {
-            get {
-                return this.tableSportData;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public ExperienceViewDataTable ExperienceView {
             get {
                 return this.tableExperienceView;
@@ -131,6 +121,16 @@ namespace RX_DataUpdata {
         public BoardDataDataTable BoardData {
             get {
                 return this.tableBoardData;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SportDataDataTable SportData {
+            get {
+                return this.tableSportData;
             }
         }
         
@@ -204,14 +204,14 @@ namespace RX_DataUpdata {
                 if ((ds.Tables["Board&SportData"] != null)) {
                     base.Tables.Add(new _Board_SportDataDataTable(ds.Tables["Board&SportData"]));
                 }
-                if ((ds.Tables["SportData"] != null)) {
-                    base.Tables.Add(new SportDataDataTable(ds.Tables["SportData"]));
-                }
                 if ((ds.Tables["ExperienceView"] != null)) {
                     base.Tables.Add(new ExperienceViewDataTable(ds.Tables["ExperienceView"]));
                 }
                 if ((ds.Tables["BoardData"] != null)) {
                     base.Tables.Add(new BoardDataDataTable(ds.Tables["BoardData"]));
+                }
+                if ((ds.Tables["SportData"] != null)) {
+                    base.Tables.Add(new SportDataDataTable(ds.Tables["SportData"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -252,12 +252,6 @@ namespace RX_DataUpdata {
                     this._tableBoard_SportData.InitVars();
                 }
             }
-            this.tableSportData = ((SportDataDataTable)(base.Tables["SportData"]));
-            if ((initTable == true)) {
-                if ((this.tableSportData != null)) {
-                    this.tableSportData.InitVars();
-                }
-            }
             this.tableExperienceView = ((ExperienceViewDataTable)(base.Tables["ExperienceView"]));
             if ((initTable == true)) {
                 if ((this.tableExperienceView != null)) {
@@ -270,8 +264,14 @@ namespace RX_DataUpdata {
                     this.tableBoardData.InitVars();
                 }
             }
-            this._relationFK_Board_SportData_SportData = this.Relations["FK_Board&SportData_SportData"];
+            this.tableSportData = ((SportDataDataTable)(base.Tables["SportData"]));
+            if ((initTable == true)) {
+                if ((this.tableSportData != null)) {
+                    this.tableSportData.InitVars();
+                }
+            }
             this._relationFK_Board_SportData_BoardData = this.Relations["FK_Board&SportData_BoardData"];
+            this._relationFK_Board_SportData_SportData = this.Relations["FK_Board&SportData_SportData"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -284,31 +284,25 @@ namespace RX_DataUpdata {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this._tableBoard_SportData = new _Board_SportDataDataTable();
             base.Tables.Add(this._tableBoard_SportData);
-            this.tableSportData = new SportDataDataTable();
-            base.Tables.Add(this.tableSportData);
             this.tableExperienceView = new ExperienceViewDataTable();
             base.Tables.Add(this.tableExperienceView);
             this.tableBoardData = new BoardDataDataTable();
             base.Tables.Add(this.tableBoardData);
-            this._relationFK_Board_SportData_SportData = new global::System.Data.DataRelation("FK_Board&SportData_SportData", new global::System.Data.DataColumn[] {
-                        this.tableSportData.IDColumn}, new global::System.Data.DataColumn[] {
-                        this._tableBoard_SportData.PIDColumn}, false);
-            this.Relations.Add(this._relationFK_Board_SportData_SportData);
+            this.tableSportData = new SportDataDataTable();
+            base.Tables.Add(this.tableSportData);
             this._relationFK_Board_SportData_BoardData = new global::System.Data.DataRelation("FK_Board&SportData_BoardData", new global::System.Data.DataColumn[] {
                         this.tableBoardData.IDColumn}, new global::System.Data.DataColumn[] {
                         this._tableBoard_SportData.BIDColumn}, false);
             this.Relations.Add(this._relationFK_Board_SportData_BoardData);
+            this._relationFK_Board_SportData_SportData = new global::System.Data.DataRelation("FK_Board&SportData_SportData", new global::System.Data.DataColumn[] {
+                        this.tableSportData.IDColumn}, new global::System.Data.DataColumn[] {
+                        this._tableBoard_SportData.PIDColumn}, false);
+            this.Relations.Add(this._relationFK_Board_SportData_SportData);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerialize_Board_SportData() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeSportData() {
             return false;
         }
         
@@ -321,6 +315,12 @@ namespace RX_DataUpdata {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeBoardData() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeSportData() {
             return false;
         }
         
@@ -383,13 +383,13 @@ namespace RX_DataUpdata {
         public delegate void _Board_SportDataRowChangeEventHandler(object sender, _Board_SportDataRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void SportDataRowChangeEventHandler(object sender, SportDataRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void ExperienceViewRowChangeEventHandler(object sender, ExperienceViewRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void BoardDataRowChangeEventHandler(object sender, BoardDataRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void SportDataRowChangeEventHandler(object sender, SportDataRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -624,435 +624,6 @@ namespace RX_DataUpdata {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "_Board_SportDataDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SportDataDataTable : global::System.Data.TypedTableBase<SportDataRow> {
-            
-            private global::System.Data.DataColumn columnID;
-            
-            private global::System.Data.DataColumn columnPID;
-            
-            private global::System.Data.DataColumn columnDJ电极端面直径;
-            
-            private global::System.Data.DataColumn columnJY加压时间;
-            
-            private global::System.Data.DataColumn columnHJ焊接电流;
-            
-            private global::System.Data.DataColumn columnHJ焊接时间;
-            
-            private global::System.Data.DataColumn columnWC维持时间;
-            
-            private global::System.Data.DataColumn columnDJ电极压力;
-            
-            private global::System.Data.DataColumn columnHD焊点直径;
-            
-            private global::System.Data.DataColumn columnHH熔核直径;
-            
-            private global::System.Data.DataColumn columnZH总厚度;
-            
-            private global::System.Data.DataColumn columnBZ备注;
-            
-            private global::System.Data.DataColumn columnTDate;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SportDataDataTable() {
-                this.TableName = "SportData";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal SportDataDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected SportDataDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
-                get {
-                    return this.columnID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PIDColumn {
-                get {
-                    return this.columnPID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DJ电极端面直径Column {
-                get {
-                    return this.columnDJ电极端面直径;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn JY加压时间Column {
-                get {
-                    return this.columnJY加压时间;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HJ焊接电流Column {
-                get {
-                    return this.columnHJ焊接电流;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HJ焊接时间Column {
-                get {
-                    return this.columnHJ焊接时间;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WC维持时间Column {
-                get {
-                    return this.columnWC维持时间;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DJ电极压力Column {
-                get {
-                    return this.columnDJ电极压力;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HD焊点直径Column {
-                get {
-                    return this.columnHD焊点直径;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HH熔核直径Column {
-                get {
-                    return this.columnHH熔核直径;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ZH总厚度Column {
-                get {
-                    return this.columnZH总厚度;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn BZ备注Column {
-                get {
-                    return this.columnBZ备注;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TDateColumn {
-                get {
-                    return this.columnTDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SportDataRow this[int index] {
-                get {
-                    return ((SportDataRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SportDataRowChangeEventHandler SportDataRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SportDataRowChangeEventHandler SportDataRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SportDataRowChangeEventHandler SportDataRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SportDataRowChangeEventHandler SportDataRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddSportDataRow(SportDataRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SportDataRow AddSportDataRow(string ID, string PID, double DJ电极端面直径, double JY加压时间, double HJ焊接电流, double HJ焊接时间, double WC维持时间, double DJ电极压力, double HD焊点直径, double HH熔核直径, double ZH总厚度, string BZ备注, System.DateTime TDate) {
-                SportDataRow rowSportDataRow = ((SportDataRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        ID,
-                        PID,
-                        DJ电极端面直径,
-                        JY加压时间,
-                        HJ焊接电流,
-                        HJ焊接时间,
-                        WC维持时间,
-                        DJ电极压力,
-                        HD焊点直径,
-                        HH熔核直径,
-                        ZH总厚度,
-                        BZ备注,
-                        TDate};
-                rowSportDataRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSportDataRow);
-                return rowSportDataRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SportDataRow FindByID(string ID) {
-                return ((SportDataRow)(this.Rows.Find(new object[] {
-                            ID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                SportDataDataTable cln = ((SportDataDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new SportDataDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnPID = base.Columns["PID"];
-                this.columnDJ电极端面直径 = base.Columns["DJ电极端面直径"];
-                this.columnJY加压时间 = base.Columns["JY加压时间"];
-                this.columnHJ焊接电流 = base.Columns["HJ焊接电流"];
-                this.columnHJ焊接时间 = base.Columns["HJ焊接时间"];
-                this.columnWC维持时间 = base.Columns["WC维持时间"];
-                this.columnDJ电极压力 = base.Columns["DJ电极压力"];
-                this.columnHD焊点直径 = base.Columns["HD焊点直径"];
-                this.columnHH熔核直径 = base.Columns["HH熔核直径"];
-                this.columnZH总厚度 = base.Columns["ZH总厚度"];
-                this.columnBZ备注 = base.Columns["BZ备注"];
-                this.columnTDate = base.Columns["TDate"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnPID = new global::System.Data.DataColumn("PID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPID);
-                this.columnDJ电极端面直径 = new global::System.Data.DataColumn("DJ电极端面直径", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDJ电极端面直径);
-                this.columnJY加压时间 = new global::System.Data.DataColumn("JY加压时间", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnJY加压时间);
-                this.columnHJ焊接电流 = new global::System.Data.DataColumn("HJ焊接电流", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHJ焊接电流);
-                this.columnHJ焊接时间 = new global::System.Data.DataColumn("HJ焊接时间", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHJ焊接时间);
-                this.columnWC维持时间 = new global::System.Data.DataColumn("WC维持时间", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWC维持时间);
-                this.columnDJ电极压力 = new global::System.Data.DataColumn("DJ电极压力", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDJ电极压力);
-                this.columnHD焊点直径 = new global::System.Data.DataColumn("HD焊点直径", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHD焊点直径);
-                this.columnHH熔核直径 = new global::System.Data.DataColumn("HH熔核直径", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHH熔核直径);
-                this.columnZH总厚度 = new global::System.Data.DataColumn("ZH总厚度", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnZH总厚度);
-                this.columnBZ备注 = new global::System.Data.DataColumn("BZ备注", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBZ备注);
-                this.columnTDate = new global::System.Data.DataColumn("TDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTDate);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
-                this.columnID.AllowDBNull = false;
-                this.columnID.Unique = true;
-                this.columnID.MaxLength = 128;
-                this.columnPID.MaxLength = 128;
-                this.columnBZ备注.MaxLength = 255;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SportDataRow NewSportDataRow() {
-                return ((SportDataRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SportDataRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(SportDataRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.SportDataRowChanged != null)) {
-                    this.SportDataRowChanged(this, new SportDataRowChangeEvent(((SportDataRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.SportDataRowChanging != null)) {
-                    this.SportDataRowChanging(this, new SportDataRowChangeEvent(((SportDataRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.SportDataRowDeleted != null)) {
-                    this.SportDataRowDeleted(this, new SportDataRowChangeEvent(((SportDataRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.SportDataRowDeleting != null)) {
-                    this.SportDataRowDeleting(this, new SportDataRowChangeEvent(((SportDataRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveSportDataRow(SportDataRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                RXYF_YECCDataSet ds = new RXYF_YECCDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SportDataDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2217,6 +1788,630 @@ namespace RX_DataUpdata {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SportDataDataTable : global::System.Data.TypedTableBase<SportDataRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnPID;
+            
+            private global::System.Data.DataColumn columnDJ电极端面直径;
+            
+            private global::System.Data.DataColumn columnJY加压时间;
+            
+            private global::System.Data.DataColumn columnHJ焊接电流;
+            
+            private global::System.Data.DataColumn columnHJ焊接时间;
+            
+            private global::System.Data.DataColumn columnWC维持时间;
+            
+            private global::System.Data.DataColumn columnDJ电极压力;
+            
+            private global::System.Data.DataColumn columnHD焊点直径;
+            
+            private global::System.Data.DataColumn columnHH熔核直径;
+            
+            private global::System.Data.DataColumn columnZH总厚度;
+            
+            private global::System.Data.DataColumn columnBZ备注;
+            
+            private global::System.Data.DataColumn columnTDate;
+            
+            private global::System.Data.DataColumn columnZaojian;
+            
+            private global::System.Data.DataColumn columnFistPoint;
+            
+            private global::System.Data.DataColumn columnEndPoint;
+            
+            private global::System.Data.DataColumn columnZhanfu;
+            
+            private global::System.Data.DataColumn columnLieWen;
+            
+            private global::System.Data.DataColumn columnFeiJian;
+            
+            private global::System.Data.DataColumn columnYaHeng;
+            
+            private global::System.Data.DataColumn columnWaiGuanNG;
+            
+            private global::System.Data.DataColumn columnLianXuHanDian;
+            
+            private global::System.Data.DataColumn columnHanJieJianXi;
+            
+            private global::System.Data.DataColumn columnFwPicture;
+            
+            private global::System.Data.DataColumn columnBwPicture;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SportDataDataTable() {
+                this.TableName = "SportData";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal SportDataDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected SportDataDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PIDColumn {
+                get {
+                    return this.columnPID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DJ电极端面直径Column {
+                get {
+                    return this.columnDJ电极端面直径;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn JY加压时间Column {
+                get {
+                    return this.columnJY加压时间;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HJ焊接电流Column {
+                get {
+                    return this.columnHJ焊接电流;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HJ焊接时间Column {
+                get {
+                    return this.columnHJ焊接时间;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WC维持时间Column {
+                get {
+                    return this.columnWC维持时间;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DJ电极压力Column {
+                get {
+                    return this.columnDJ电极压力;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HD焊点直径Column {
+                get {
+                    return this.columnHD焊点直径;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HH熔核直径Column {
+                get {
+                    return this.columnHH熔核直径;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ZH总厚度Column {
+                get {
+                    return this.columnZH总厚度;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BZ备注Column {
+                get {
+                    return this.columnBZ备注;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TDateColumn {
+                get {
+                    return this.columnTDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ZaojianColumn {
+                get {
+                    return this.columnZaojian;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FistPointColumn {
+                get {
+                    return this.columnFistPoint;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EndPointColumn {
+                get {
+                    return this.columnEndPoint;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ZhanfuColumn {
+                get {
+                    return this.columnZhanfu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LieWenColumn {
+                get {
+                    return this.columnLieWen;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FeiJianColumn {
+                get {
+                    return this.columnFeiJian;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn YaHengColumn {
+                get {
+                    return this.columnYaHeng;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WaiGuanNGColumn {
+                get {
+                    return this.columnWaiGuanNG;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LianXuHanDianColumn {
+                get {
+                    return this.columnLianXuHanDian;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HanJieJianXiColumn {
+                get {
+                    return this.columnHanJieJianXi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FwPictureColumn {
+                get {
+                    return this.columnFwPicture;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BwPictureColumn {
+                get {
+                    return this.columnBwPicture;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SportDataRow this[int index] {
+                get {
+                    return ((SportDataRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SportDataRowChangeEventHandler SportDataRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SportDataRowChangeEventHandler SportDataRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SportDataRowChangeEventHandler SportDataRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SportDataRowChangeEventHandler SportDataRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddSportDataRow(SportDataRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SportDataRow AddSportDataRow(
+                        string ID, 
+                        string PID, 
+                        double DJ电极端面直径, 
+                        double JY加压时间, 
+                        double HJ焊接电流, 
+                        double HJ焊接时间, 
+                        double WC维持时间, 
+                        double DJ电极压力, 
+                        double HD焊点直径, 
+                        double HH熔核直径, 
+                        double ZH总厚度, 
+                        string BZ备注, 
+                        System.DateTime TDate, 
+                        bool Zaojian, 
+                        bool FistPoint, 
+                        bool EndPoint, 
+                        bool Zhanfu, 
+                        bool LieWen, 
+                        bool FeiJian, 
+                        bool YaHeng, 
+                        bool WaiGuanNG, 
+                        bool LianXuHanDian, 
+                        bool HanJieJianXi, 
+                        string FwPicture, 
+                        string BwPicture) {
+                SportDataRow rowSportDataRow = ((SportDataRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        ID,
+                        PID,
+                        DJ电极端面直径,
+                        JY加压时间,
+                        HJ焊接电流,
+                        HJ焊接时间,
+                        WC维持时间,
+                        DJ电极压力,
+                        HD焊点直径,
+                        HH熔核直径,
+                        ZH总厚度,
+                        BZ备注,
+                        TDate,
+                        Zaojian,
+                        FistPoint,
+                        EndPoint,
+                        Zhanfu,
+                        LieWen,
+                        FeiJian,
+                        YaHeng,
+                        WaiGuanNG,
+                        LianXuHanDian,
+                        HanJieJianXi,
+                        FwPicture,
+                        BwPicture};
+                rowSportDataRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSportDataRow);
+                return rowSportDataRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SportDataRow FindByID(string ID) {
+                return ((SportDataRow)(this.Rows.Find(new object[] {
+                            ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                SportDataDataTable cln = ((SportDataDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SportDataDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columnPID = base.Columns["PID"];
+                this.columnDJ电极端面直径 = base.Columns["DJ电极端面直径"];
+                this.columnJY加压时间 = base.Columns["JY加压时间"];
+                this.columnHJ焊接电流 = base.Columns["HJ焊接电流"];
+                this.columnHJ焊接时间 = base.Columns["HJ焊接时间"];
+                this.columnWC维持时间 = base.Columns["WC维持时间"];
+                this.columnDJ电极压力 = base.Columns["DJ电极压力"];
+                this.columnHD焊点直径 = base.Columns["HD焊点直径"];
+                this.columnHH熔核直径 = base.Columns["HH熔核直径"];
+                this.columnZH总厚度 = base.Columns["ZH总厚度"];
+                this.columnBZ备注 = base.Columns["BZ备注"];
+                this.columnTDate = base.Columns["TDate"];
+                this.columnZaojian = base.Columns["Zaojian"];
+                this.columnFistPoint = base.Columns["FistPoint"];
+                this.columnEndPoint = base.Columns["EndPoint"];
+                this.columnZhanfu = base.Columns["Zhanfu"];
+                this.columnLieWen = base.Columns["LieWen"];
+                this.columnFeiJian = base.Columns["FeiJian"];
+                this.columnYaHeng = base.Columns["YaHeng"];
+                this.columnWaiGuanNG = base.Columns["WaiGuanNG"];
+                this.columnLianXuHanDian = base.Columns["LianXuHanDian"];
+                this.columnHanJieJianXi = base.Columns["HanJieJianXi"];
+                this.columnFwPicture = base.Columns["FwPicture"];
+                this.columnBwPicture = base.Columns["BwPicture"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnPID = new global::System.Data.DataColumn("PID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPID);
+                this.columnDJ电极端面直径 = new global::System.Data.DataColumn("DJ电极端面直径", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDJ电极端面直径);
+                this.columnJY加压时间 = new global::System.Data.DataColumn("JY加压时间", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnJY加压时间);
+                this.columnHJ焊接电流 = new global::System.Data.DataColumn("HJ焊接电流", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHJ焊接电流);
+                this.columnHJ焊接时间 = new global::System.Data.DataColumn("HJ焊接时间", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHJ焊接时间);
+                this.columnWC维持时间 = new global::System.Data.DataColumn("WC维持时间", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWC维持时间);
+                this.columnDJ电极压力 = new global::System.Data.DataColumn("DJ电极压力", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDJ电极压力);
+                this.columnHD焊点直径 = new global::System.Data.DataColumn("HD焊点直径", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHD焊点直径);
+                this.columnHH熔核直径 = new global::System.Data.DataColumn("HH熔核直径", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHH熔核直径);
+                this.columnZH总厚度 = new global::System.Data.DataColumn("ZH总厚度", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZH总厚度);
+                this.columnBZ备注 = new global::System.Data.DataColumn("BZ备注", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBZ备注);
+                this.columnTDate = new global::System.Data.DataColumn("TDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTDate);
+                this.columnZaojian = new global::System.Data.DataColumn("Zaojian", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZaojian);
+                this.columnFistPoint = new global::System.Data.DataColumn("FistPoint", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFistPoint);
+                this.columnEndPoint = new global::System.Data.DataColumn("EndPoint", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEndPoint);
+                this.columnZhanfu = new global::System.Data.DataColumn("Zhanfu", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZhanfu);
+                this.columnLieWen = new global::System.Data.DataColumn("LieWen", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLieWen);
+                this.columnFeiJian = new global::System.Data.DataColumn("FeiJian", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFeiJian);
+                this.columnYaHeng = new global::System.Data.DataColumn("YaHeng", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnYaHeng);
+                this.columnWaiGuanNG = new global::System.Data.DataColumn("WaiGuanNG", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWaiGuanNG);
+                this.columnLianXuHanDian = new global::System.Data.DataColumn("LianXuHanDian", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLianXuHanDian);
+                this.columnHanJieJianXi = new global::System.Data.DataColumn("HanJieJianXi", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHanJieJianXi);
+                this.columnFwPicture = new global::System.Data.DataColumn("FwPicture", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFwPicture);
+                this.columnBwPicture = new global::System.Data.DataColumn("BwPicture", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBwPicture);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
+                this.columnID.AllowDBNull = false;
+                this.columnID.Unique = true;
+                this.columnID.MaxLength = 128;
+                this.columnPID.MaxLength = 128;
+                this.columnBZ备注.MaxLength = 255;
+                this.columnFwPicture.MaxLength = 128;
+                this.columnBwPicture.MaxLength = 128;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SportDataRow NewSportDataRow() {
+                return ((SportDataRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SportDataRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(SportDataRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SportDataRowChanged != null)) {
+                    this.SportDataRowChanged(this, new SportDataRowChangeEvent(((SportDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SportDataRowChanging != null)) {
+                    this.SportDataRowChanging(this, new SportDataRowChangeEvent(((SportDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SportDataRowDeleted != null)) {
+                    this.SportDataRowDeleted(this, new SportDataRowChangeEvent(((SportDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SportDataRowDeleting != null)) {
+                    this.SportDataRowDeleting(this, new SportDataRowChangeEvent(((SportDataRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveSportDataRow(SportDataRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                RXYF_YECCDataSet ds = new RXYF_YECCDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SportDataDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class _Board_SportDataRow : global::System.Data.DataRow {
@@ -2254,17 +2449,6 @@ namespace RX_DataUpdata {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SportDataRow SportDataRow {
-                get {
-                    return ((SportDataRow)(this.GetParentRow(this.Table.ParentRelations["FK_Board&SportData_SportData"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Board&SportData_SportData"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BoardDataRow BoardDataRow {
                 get {
                     return ((BoardDataRow)(this.GetParentRow(this.Table.ParentRelations["FK_Board&SportData_BoardData"])));
@@ -2273,377 +2457,15 @@ namespace RX_DataUpdata {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Board&SportData_BoardData"]);
                 }
             }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class SportDataRow : global::System.Data.DataRow {
-            
-            private SportDataDataTable tableSportData;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal SportDataRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableSportData = ((SportDataDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ID {
+            public SportDataRow SportDataRow {
                 get {
-                    return ((string)(this[this.tableSportData.IDColumn]));
+                    return ((SportDataRow)(this.GetParentRow(this.Table.ParentRelations["FK_Board&SportData_SportData"])));
                 }
                 set {
-                    this[this.tableSportData.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string PID {
-                get {
-                    try {
-                        return ((string)(this[this.tableSportData.PIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“PID”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.PIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double DJ电极端面直径 {
-                get {
-                    try {
-                        return ((double)(this[this.tableSportData.DJ电极端面直径Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“DJ电极端面直径”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.DJ电极端面直径Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double JY加压时间 {
-                get {
-                    try {
-                        return ((double)(this[this.tableSportData.JY加压时间Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“JY加压时间”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.JY加压时间Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double HJ焊接电流 {
-                get {
-                    try {
-                        return ((double)(this[this.tableSportData.HJ焊接电流Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“HJ焊接电流”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.HJ焊接电流Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double HJ焊接时间 {
-                get {
-                    try {
-                        return ((double)(this[this.tableSportData.HJ焊接时间Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“HJ焊接时间”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.HJ焊接时间Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double WC维持时间 {
-                get {
-                    try {
-                        return ((double)(this[this.tableSportData.WC维持时间Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“WC维持时间”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.WC维持时间Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double DJ电极压力 {
-                get {
-                    try {
-                        return ((double)(this[this.tableSportData.DJ电极压力Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“DJ电极压力”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.DJ电极压力Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double HD焊点直径 {
-                get {
-                    try {
-                        return ((double)(this[this.tableSportData.HD焊点直径Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“HD焊点直径”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.HD焊点直径Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double HH熔核直径 {
-                get {
-                    try {
-                        return ((double)(this[this.tableSportData.HH熔核直径Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“HH熔核直径”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.HH熔核直径Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double ZH总厚度 {
-                get {
-                    try {
-                        return ((double)(this[this.tableSportData.ZH总厚度Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“ZH总厚度”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.ZH总厚度Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string BZ备注 {
-                get {
-                    try {
-                        return ((string)(this[this.tableSportData.BZ备注Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“BZ备注”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.BZ备注Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime TDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableSportData.TDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“SportData”中列“TDate”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableSportData.TDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPIDNull() {
-                return this.IsNull(this.tableSportData.PIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPIDNull() {
-                this[this.tableSportData.PIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDJ电极端面直径Null() {
-                return this.IsNull(this.tableSportData.DJ电极端面直径Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDJ电极端面直径Null() {
-                this[this.tableSportData.DJ电极端面直径Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsJY加压时间Null() {
-                return this.IsNull(this.tableSportData.JY加压时间Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetJY加压时间Null() {
-                this[this.tableSportData.JY加压时间Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHJ焊接电流Null() {
-                return this.IsNull(this.tableSportData.HJ焊接电流Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHJ焊接电流Null() {
-                this[this.tableSportData.HJ焊接电流Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHJ焊接时间Null() {
-                return this.IsNull(this.tableSportData.HJ焊接时间Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHJ焊接时间Null() {
-                this[this.tableSportData.HJ焊接时间Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWC维持时间Null() {
-                return this.IsNull(this.tableSportData.WC维持时间Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWC维持时间Null() {
-                this[this.tableSportData.WC维持时间Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDJ电极压力Null() {
-                return this.IsNull(this.tableSportData.DJ电极压力Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDJ电极压力Null() {
-                this[this.tableSportData.DJ电极压力Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHD焊点直径Null() {
-                return this.IsNull(this.tableSportData.HD焊点直径Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHD焊点直径Null() {
-                this[this.tableSportData.HD焊点直径Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHH熔核直径Null() {
-                return this.IsNull(this.tableSportData.HH熔核直径Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHH熔核直径Null() {
-                this[this.tableSportData.HH熔核直径Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsZH总厚度Null() {
-                return this.IsNull(this.tableSportData.ZH总厚度Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetZH总厚度Null() {
-                this[this.tableSportData.ZH总厚度Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsBZ备注Null() {
-                return this.IsNull(this.tableSportData.BZ备注Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetBZ备注Null() {
-                this[this.tableSportData.BZ备注Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTDateNull() {
-                return this.IsNull(this.tableSportData.TDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTDateNull() {
-                this[this.tableSportData.TDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public _Board_SportDataRow[] _GetBoard_SportDataRows() {
-                if ((this.Table.ChildRelations["FK_Board&SportData_SportData"] == null)) {
-                    return new _Board_SportDataRow[0];
-                }
-                else {
-                    return ((_Board_SportDataRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Board&SportData_SportData"])));
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Board&SportData_SportData"]);
                 }
             }
         }
@@ -3798,6 +3620,715 @@ namespace RX_DataUpdata {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class SportDataRow : global::System.Data.DataRow {
+            
+            private SportDataDataTable tableSportData;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal SportDataRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSportData = ((SportDataDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ID {
+                get {
+                    return ((string)(this[this.tableSportData.IDColumn]));
+                }
+                set {
+                    this[this.tableSportData.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PID {
+                get {
+                    try {
+                        return ((string)(this[this.tableSportData.PIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“PID”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.PIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double DJ电极端面直径 {
+                get {
+                    try {
+                        return ((double)(this[this.tableSportData.DJ电极端面直径Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“DJ电极端面直径”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.DJ电极端面直径Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double JY加压时间 {
+                get {
+                    try {
+                        return ((double)(this[this.tableSportData.JY加压时间Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“JY加压时间”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.JY加压时间Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double HJ焊接电流 {
+                get {
+                    try {
+                        return ((double)(this[this.tableSportData.HJ焊接电流Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“HJ焊接电流”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.HJ焊接电流Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double HJ焊接时间 {
+                get {
+                    try {
+                        return ((double)(this[this.tableSportData.HJ焊接时间Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“HJ焊接时间”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.HJ焊接时间Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double WC维持时间 {
+                get {
+                    try {
+                        return ((double)(this[this.tableSportData.WC维持时间Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“WC维持时间”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.WC维持时间Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double DJ电极压力 {
+                get {
+                    try {
+                        return ((double)(this[this.tableSportData.DJ电极压力Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“DJ电极压力”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.DJ电极压力Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double HD焊点直径 {
+                get {
+                    try {
+                        return ((double)(this[this.tableSportData.HD焊点直径Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“HD焊点直径”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.HD焊点直径Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double HH熔核直径 {
+                get {
+                    try {
+                        return ((double)(this[this.tableSportData.HH熔核直径Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“HH熔核直径”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.HH熔核直径Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double ZH总厚度 {
+                get {
+                    try {
+                        return ((double)(this[this.tableSportData.ZH总厚度Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“ZH总厚度”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.ZH总厚度Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BZ备注 {
+                get {
+                    try {
+                        return ((string)(this[this.tableSportData.BZ备注Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“BZ备注”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.BZ备注Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime TDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSportData.TDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“TDate”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.TDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Zaojian {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSportData.ZaojianColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“Zaojian”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.ZaojianColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool FistPoint {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSportData.FistPointColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“FistPoint”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.FistPointColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool EndPoint {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSportData.EndPointColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“EndPoint”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.EndPointColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Zhanfu {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSportData.ZhanfuColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“Zhanfu”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.ZhanfuColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool LieWen {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSportData.LieWenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“LieWen”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.LieWenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool FeiJian {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSportData.FeiJianColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“FeiJian”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.FeiJianColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool YaHeng {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSportData.YaHengColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“YaHeng”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.YaHengColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool WaiGuanNG {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSportData.WaiGuanNGColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“WaiGuanNG”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.WaiGuanNGColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool LianXuHanDian {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSportData.LianXuHanDianColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“LianXuHanDian”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.LianXuHanDianColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool HanJieJianXi {
+                get {
+                    try {
+                        return ((bool)(this[this.tableSportData.HanJieJianXiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“HanJieJianXi”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.HanJieJianXiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FwPicture {
+                get {
+                    try {
+                        return ((string)(this[this.tableSportData.FwPictureColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“FwPicture”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.FwPictureColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BwPicture {
+                get {
+                    try {
+                        return ((string)(this[this.tableSportData.BwPictureColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“SportData”中列“BwPicture”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableSportData.BwPictureColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPIDNull() {
+                return this.IsNull(this.tableSportData.PIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPIDNull() {
+                this[this.tableSportData.PIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDJ电极端面直径Null() {
+                return this.IsNull(this.tableSportData.DJ电极端面直径Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDJ电极端面直径Null() {
+                this[this.tableSportData.DJ电极端面直径Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsJY加压时间Null() {
+                return this.IsNull(this.tableSportData.JY加压时间Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetJY加压时间Null() {
+                this[this.tableSportData.JY加压时间Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHJ焊接电流Null() {
+                return this.IsNull(this.tableSportData.HJ焊接电流Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHJ焊接电流Null() {
+                this[this.tableSportData.HJ焊接电流Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHJ焊接时间Null() {
+                return this.IsNull(this.tableSportData.HJ焊接时间Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHJ焊接时间Null() {
+                this[this.tableSportData.HJ焊接时间Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWC维持时间Null() {
+                return this.IsNull(this.tableSportData.WC维持时间Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWC维持时间Null() {
+                this[this.tableSportData.WC维持时间Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDJ电极压力Null() {
+                return this.IsNull(this.tableSportData.DJ电极压力Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDJ电极压力Null() {
+                this[this.tableSportData.DJ电极压力Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHD焊点直径Null() {
+                return this.IsNull(this.tableSportData.HD焊点直径Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHD焊点直径Null() {
+                this[this.tableSportData.HD焊点直径Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHH熔核直径Null() {
+                return this.IsNull(this.tableSportData.HH熔核直径Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHH熔核直径Null() {
+                this[this.tableSportData.HH熔核直径Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsZH总厚度Null() {
+                return this.IsNull(this.tableSportData.ZH总厚度Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetZH总厚度Null() {
+                this[this.tableSportData.ZH总厚度Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBZ备注Null() {
+                return this.IsNull(this.tableSportData.BZ备注Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBZ备注Null() {
+                this[this.tableSportData.BZ备注Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTDateNull() {
+                return this.IsNull(this.tableSportData.TDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTDateNull() {
+                this[this.tableSportData.TDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsZaojianNull() {
+                return this.IsNull(this.tableSportData.ZaojianColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetZaojianNull() {
+                this[this.tableSportData.ZaojianColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFistPointNull() {
+                return this.IsNull(this.tableSportData.FistPointColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFistPointNull() {
+                this[this.tableSportData.FistPointColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEndPointNull() {
+                return this.IsNull(this.tableSportData.EndPointColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEndPointNull() {
+                this[this.tableSportData.EndPointColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsZhanfuNull() {
+                return this.IsNull(this.tableSportData.ZhanfuColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetZhanfuNull() {
+                this[this.tableSportData.ZhanfuColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLieWenNull() {
+                return this.IsNull(this.tableSportData.LieWenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLieWenNull() {
+                this[this.tableSportData.LieWenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFeiJianNull() {
+                return this.IsNull(this.tableSportData.FeiJianColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFeiJianNull() {
+                this[this.tableSportData.FeiJianColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsYaHengNull() {
+                return this.IsNull(this.tableSportData.YaHengColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetYaHengNull() {
+                this[this.tableSportData.YaHengColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWaiGuanNGNull() {
+                return this.IsNull(this.tableSportData.WaiGuanNGColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWaiGuanNGNull() {
+                this[this.tableSportData.WaiGuanNGColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLianXuHanDianNull() {
+                return this.IsNull(this.tableSportData.LianXuHanDianColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLianXuHanDianNull() {
+                this[this.tableSportData.LianXuHanDianColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHanJieJianXiNull() {
+                return this.IsNull(this.tableSportData.HanJieJianXiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHanJieJianXiNull() {
+                this[this.tableSportData.HanJieJianXiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFwPictureNull() {
+                return this.IsNull(this.tableSportData.FwPictureColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFwPictureNull() {
+                this[this.tableSportData.FwPictureColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBwPictureNull() {
+                return this.IsNull(this.tableSportData.BwPictureColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBwPictureNull() {
+                this[this.tableSportData.BwPictureColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public _Board_SportDataRow[] _GetBoard_SportDataRows() {
+                if ((this.Table.ChildRelations["FK_Board&SportData_SportData"] == null)) {
+                    return new _Board_SportDataRow[0];
+                }
+                else {
+                    return ((_Board_SportDataRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Board&SportData_SportData"])));
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3817,40 +4348,6 @@ namespace RX_DataUpdata {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public _Board_SportDataRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class SportDataRowChangeEvent : global::System.EventArgs {
-            
-            private SportDataRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SportDataRowChangeEvent(SportDataRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SportDataRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3919,6 +4416,40 @@ namespace RX_DataUpdata {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BoardDataRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class SportDataRowChangeEvent : global::System.EventArgs {
+            
+            private SportDataRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SportDataRowChangeEvent(SportDataRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SportDataRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4182,787 +4713,6 @@ namespace RX_DataUpdata.RXYF_YECCDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SportDataTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public SportDataTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "SportData";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("PID", "PID");
-            tableMapping.ColumnMappings.Add("DJ电极端面直径", "DJ电极端面直径");
-            tableMapping.ColumnMappings.Add("JY加压时间", "JY加压时间");
-            tableMapping.ColumnMappings.Add("HJ焊接电流", "HJ焊接电流");
-            tableMapping.ColumnMappings.Add("HJ焊接时间", "HJ焊接时间");
-            tableMapping.ColumnMappings.Add("WC维持时间", "WC维持时间");
-            tableMapping.ColumnMappings.Add("DJ电极压力", "DJ电极压力");
-            tableMapping.ColumnMappings.Add("HD焊点直径", "HD焊点直径");
-            tableMapping.ColumnMappings.Add("HH熔核直径", "HH熔核直径");
-            tableMapping.ColumnMappings.Add("ZH总厚度", "ZH总厚度");
-            tableMapping.ColumnMappings.Add("BZ备注", "BZ备注");
-            tableMapping.ColumnMappings.Add("TDate", "TDate");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[SportData] WHERE (([ID] = @Original_ID) AND ((@IsNull_PID = 1 AND [PID] IS NULL) OR ([PID] = @Original_PID)) AND ((@IsNull_DJ电极端面直径 = 1 AND [DJ电极端面直径] IS NULL) OR ([DJ电极端面直径] = @Original_DJ电极端面直径)) AND ((@IsNull_JY加压时间 = 1 AND [JY加压时间] IS NULL) OR ([JY加压时间] = @Original_JY加压时间)) AND ((@IsNull_HJ焊接电流 = 1 AND [HJ焊接电流] IS NULL) OR ([HJ焊接电流] = @Original_HJ焊接电流)) AND ((@IsNull_HJ焊接时间 = 1 AND [HJ焊接时间] IS NULL) OR ([HJ焊接时间] = @Original_HJ焊接时间)) AND ((@IsNull_WC维持时间 = 1 AND [WC维持时间] IS NULL) OR ([WC维持时间] = @Original_WC维持时间)) AND ((@IsNull_DJ电极压力 = 1 AND [DJ电极压力] IS NULL) OR ([DJ电极压力] = @Original_DJ电极压力)) AND ((@IsNull_HD焊点直径 = 1 AND [HD焊点直径] IS NULL) OR ([HD焊点直径] = @Original_HD焊点直径)) AND ((@IsNull_HH熔核直径 = 1 AND [HH熔核直径] IS NULL) OR ([HH熔核直径] = @Original_HH熔核直径)) AND ((@IsNull_ZH总厚度 = 1 AND [ZH总厚度] IS NULL) OR ([ZH总厚度] = @Original_ZH总厚度)) AND ((@IsNull_BZ备注 = 1 AND [BZ备注] IS NULL) OR ([BZ备注] = @Original_BZ备注)) AND ((@IsNull_TDate = 1 AND [TDate] IS NULL) OR ([TDate] = @Original_TDate)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DJ电极端面直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DJ电极端面直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_JY加压时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JY加压时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HJ焊接电流", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HJ焊接电流", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HJ焊接时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HJ焊接时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WC维持时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WC维持时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DJ电极压力", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DJ电极压力", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HD焊点直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HD焊点直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HH熔核直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HH熔核直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ZH总厚度", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ZH总厚度", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BZ备注", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BZ备注", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[SportData] ([ID], [PID], [DJ电极端面直径], [JY加压时间], [HJ焊接电流], [HJ焊接时间], [WC维持时间], [DJ电极压力], [HD焊点直径], [HH熔核直径], [ZH总厚度], [BZ备注], [TDate]) VALUES (@ID, @PID, @DJ电极端面直径, @JY加压时间, @HJ焊接电流, @HJ焊接时间, @WC维持时间, @DJ电极压力, @HD焊点直径, @HH熔核直径, @ZH总厚度, @BZ备注, @TDate);
-SELECT ID, PID, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, ZH总厚度, BZ备注, TDate FROM SportData WHERE (ID = @ID)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DJ电极端面直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JY加压时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HJ焊接电流", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HJ焊接时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WC维持时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DJ电极压力", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD焊点直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HH熔核直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZH总厚度", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BZ备注", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[SportData] SET [ID] = @ID, [PID] = @PID, [DJ电极端面直径] = @DJ电极端面直径, [JY加压时间] = @JY加压时间, [HJ焊接电流] = @HJ焊接电流, [HJ焊接时间] = @HJ焊接时间, [WC维持时间] = @WC维持时间, [DJ电极压力] = @DJ电极压力, [HD焊点直径] = @HD焊点直径, [HH熔核直径] = @HH熔核直径, [ZH总厚度] = @ZH总厚度, [BZ备注] = @BZ备注, [TDate] = @TDate WHERE (([ID] = @Original_ID) AND ((@IsNull_PID = 1 AND [PID] IS NULL) OR ([PID] = @Original_PID)) AND ((@IsNull_DJ电极端面直径 = 1 AND [DJ电极端面直径] IS NULL) OR ([DJ电极端面直径] = @Original_DJ电极端面直径)) AND ((@IsNull_JY加压时间 = 1 AND [JY加压时间] IS NULL) OR ([JY加压时间] = @Original_JY加压时间)) AND ((@IsNull_HJ焊接电流 = 1 AND [HJ焊接电流] IS NULL) OR ([HJ焊接电流] = @Original_HJ焊接电流)) AND ((@IsNull_HJ焊接时间 = 1 AND [HJ焊接时间] IS NULL) OR ([HJ焊接时间] = @Original_HJ焊接时间)) AND ((@IsNull_WC维持时间 = 1 AND [WC维持时间] IS NULL) OR ([WC维持时间] = @Original_WC维持时间)) AND ((@IsNull_DJ电极压力 = 1 AND [DJ电极压力] IS NULL) OR ([DJ电极压力] = @Original_DJ电极压力)) AND ((@IsNull_HD焊点直径 = 1 AND [HD焊点直径] IS NULL) OR ([HD焊点直径] = @Original_HD焊点直径)) AND ((@IsNull_HH熔核直径 = 1 AND [HH熔核直径] IS NULL) OR ([HH熔核直径] = @Original_HH熔核直径)) AND ((@IsNull_ZH总厚度 = 1 AND [ZH总厚度] IS NULL) OR ([ZH总厚度] = @Original_ZH总厚度)) AND ((@IsNull_BZ备注 = 1 AND [BZ备注] IS NULL) OR ([BZ备注] = @Original_BZ备注)) AND ((@IsNull_TDate = 1 AND [TDate] IS NULL) OR ([TDate] = @Original_TDate)));
-SELECT ID, PID, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, ZH总厚度, BZ备注, TDate FROM SportData WHERE (ID = @ID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DJ电极端面直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JY加压时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HJ焊接电流", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HJ焊接时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WC维持时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DJ电极压力", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD焊点直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HH熔核直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZH总厚度", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BZ备注", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DJ电极端面直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DJ电极端面直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_JY加压时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JY加压时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HJ焊接电流", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HJ焊接电流", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HJ焊接时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HJ焊接时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WC维持时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WC维持时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DJ电极压力", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DJ电极压力", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HD焊点直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HD焊点直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HH熔核直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HH熔核直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ZH总厚度", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ZH总厚度", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BZ备注", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BZ备注", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::RX_DataUpdata.Properties.Settings.Default.ALTDataBaseConnectionString2;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, PID, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径," +
-                " ZH总厚度, BZ备注, TDate FROM dbo.SportData";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RXYF_YECCDataSet.SportDataDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RXYF_YECCDataSet.SportDataDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            RXYF_YECCDataSet.SportDataDataTable dataTable = new RXYF_YECCDataSet.SportDataDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(RXYF_YECCDataSet.SportDataDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(RXYF_YECCDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "SportData");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_ID, string Original_PID, global::System.Nullable<double> Original_DJ电极端面直径, global::System.Nullable<double> Original_JY加压时间, global::System.Nullable<double> Original_HJ焊接电流, global::System.Nullable<double> Original_HJ焊接时间, global::System.Nullable<double> Original_WC维持时间, global::System.Nullable<double> Original_DJ电极压力, global::System.Nullable<double> Original_HD焊点直径, global::System.Nullable<double> Original_HH熔核直径, global::System.Nullable<double> Original_ZH总厚度, string Original_BZ备注, global::System.Nullable<global::System.DateTime> Original_TDate) {
-            if ((Original_ID == null)) {
-                throw new global::System.ArgumentNullException("Original_ID");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_ID));
-            }
-            if ((Original_PID == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_PID));
-            }
-            if ((Original_DJ电极端面直径.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((double)(Original_DJ电极端面直径.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Original_JY加压时间.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((double)(Original_JY加压时间.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_HJ焊接电流.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((double)(Original_HJ焊接电流.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Original_HJ焊接时间.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((double)(Original_HJ焊接时间.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_WC维持时间.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((double)(Original_WC维持时间.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_DJ电极压力.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((double)(Original_DJ电极压力.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_HD焊点直径.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((double)(Original_HD焊点直径.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Original_HH熔核直径.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((double)(Original_HH熔核直径.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ZH总厚度.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((double)(Original_ZH总厚度.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((Original_BZ备注 == null)) {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_BZ备注));
-            }
-            if ((Original_TDate.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((System.DateTime)(Original_TDate.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ID, string PID, global::System.Nullable<double> DJ电极端面直径, global::System.Nullable<double> JY加压时间, global::System.Nullable<double> HJ焊接电流, global::System.Nullable<double> HJ焊接时间, global::System.Nullable<double> WC维持时间, global::System.Nullable<double> DJ电极压力, global::System.Nullable<double> HD焊点直径, global::System.Nullable<double> HH熔核直径, global::System.Nullable<double> ZH总厚度, string BZ备注, global::System.Nullable<global::System.DateTime> TDate) {
-            if ((ID == null)) {
-                throw new global::System.ArgumentNullException("ID");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ID));
-            }
-            if ((PID == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(PID));
-            }
-            if ((DJ电极端面直径.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((double)(DJ电极端面直径.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((JY加压时间.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(JY加压时间.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((HJ焊接电流.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(HJ焊接电流.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((HJ焊接时间.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((double)(HJ焊接时间.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((WC维持时间.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((double)(WC维持时间.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((DJ电极压力.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((double)(DJ电极压力.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((HD焊点直径.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((double)(HD焊点直径.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((HH熔核直径.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((double)(HH熔核直径.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((ZH总厚度.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((double)(ZH总厚度.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((BZ备注 == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(BZ备注));
-            }
-            if ((TDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(TDate.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string ID, 
-                    string PID, 
-                    global::System.Nullable<double> DJ电极端面直径, 
-                    global::System.Nullable<double> JY加压时间, 
-                    global::System.Nullable<double> HJ焊接电流, 
-                    global::System.Nullable<double> HJ焊接时间, 
-                    global::System.Nullable<double> WC维持时间, 
-                    global::System.Nullable<double> DJ电极压力, 
-                    global::System.Nullable<double> HD焊点直径, 
-                    global::System.Nullable<double> HH熔核直径, 
-                    global::System.Nullable<double> ZH总厚度, 
-                    string BZ备注, 
-                    global::System.Nullable<global::System.DateTime> TDate, 
-                    string Original_ID, 
-                    string Original_PID, 
-                    global::System.Nullable<double> Original_DJ电极端面直径, 
-                    global::System.Nullable<double> Original_JY加压时间, 
-                    global::System.Nullable<double> Original_HJ焊接电流, 
-                    global::System.Nullable<double> Original_HJ焊接时间, 
-                    global::System.Nullable<double> Original_WC维持时间, 
-                    global::System.Nullable<double> Original_DJ电极压力, 
-                    global::System.Nullable<double> Original_HD焊点直径, 
-                    global::System.Nullable<double> Original_HH熔核直径, 
-                    global::System.Nullable<double> Original_ZH总厚度, 
-                    string Original_BZ备注, 
-                    global::System.Nullable<global::System.DateTime> Original_TDate) {
-            if ((ID == null)) {
-                throw new global::System.ArgumentNullException("ID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ID));
-            }
-            if ((PID == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(PID));
-            }
-            if ((DJ电极端面直径.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((double)(DJ电极端面直径.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((JY加压时间.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(JY加压时间.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((HJ焊接电流.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((double)(HJ焊接电流.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((HJ焊接时间.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((double)(HJ焊接时间.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((WC维持时间.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(WC维持时间.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((DJ电极压力.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((double)(DJ电极压力.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((HD焊点直径.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(HD焊点直径.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((HH熔核直径.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((double)(HH熔核直径.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((ZH总厚度.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(ZH总厚度.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((BZ备注 == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(BZ备注));
-            }
-            if ((TDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(TDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ID == null)) {
-                throw new global::System.ArgumentNullException("Original_ID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_ID));
-            }
-            if ((Original_PID == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_PID));
-            }
-            if ((Original_DJ电极端面直径.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((double)(Original_DJ电极端面直径.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((Original_JY加压时间.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((double)(Original_JY加压时间.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_HJ焊接电流.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((double)(Original_HJ焊接电流.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            if ((Original_HJ焊接时间.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((double)(Original_HJ焊接时间.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            if ((Original_WC维持时间.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((double)(Original_WC维持时间.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((Original_DJ电极压力.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((double)(Original_DJ电极压力.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            if ((Original_HD焊点直径.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((double)(Original_HD焊点直径.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
-            }
-            if ((Original_HH熔核直径.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((double)(Original_HH熔核直径.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ZH总厚度.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((double)(Original_ZH总厚度.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
-            }
-            if ((Original_BZ备注 == null)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_BZ备注));
-            }
-            if ((Original_TDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((System.DateTime)(Original_TDate.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string PID, 
-                    global::System.Nullable<double> DJ电极端面直径, 
-                    global::System.Nullable<double> JY加压时间, 
-                    global::System.Nullable<double> HJ焊接电流, 
-                    global::System.Nullable<double> HJ焊接时间, 
-                    global::System.Nullable<double> WC维持时间, 
-                    global::System.Nullable<double> DJ电极压力, 
-                    global::System.Nullable<double> HD焊点直径, 
-                    global::System.Nullable<double> HH熔核直径, 
-                    global::System.Nullable<double> ZH总厚度, 
-                    string BZ备注, 
-                    global::System.Nullable<global::System.DateTime> TDate, 
-                    string Original_ID, 
-                    string Original_PID, 
-                    global::System.Nullable<double> Original_DJ电极端面直径, 
-                    global::System.Nullable<double> Original_JY加压时间, 
-                    global::System.Nullable<double> Original_HJ焊接电流, 
-                    global::System.Nullable<double> Original_HJ焊接时间, 
-                    global::System.Nullable<double> Original_WC维持时间, 
-                    global::System.Nullable<double> Original_DJ电极压力, 
-                    global::System.Nullable<double> Original_HD焊点直径, 
-                    global::System.Nullable<double> Original_HH熔核直径, 
-                    global::System.Nullable<double> Original_ZH总厚度, 
-                    string Original_BZ备注, 
-                    global::System.Nullable<global::System.DateTime> Original_TDate) {
-            return this.Update(Original_ID, PID, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, ZH总厚度, BZ备注, TDate, Original_ID, Original_PID, Original_DJ电极端面直径, Original_JY加压时间, Original_HJ焊接电流, Original_HJ焊接时间, Original_WC维持时间, Original_DJ电极压力, Original_HD焊点直径, Original_HH熔核直径, Original_ZH总厚度, Original_BZ备注, Original_TDate);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class ExperienceViewTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -5118,7 +4868,7 @@ SELECT ID, PID, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接�
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT ID, BID, PID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thinkness, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, 总料厚, BZ备注, 上传日期, 凿检点, 修磨第一点, 最终焊接点, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi FROM dbo.ExperienceView";
@@ -5134,27 +4884,33 @@ WHERE   (BID = @BID)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BID", global::System.Data.SqlDbType.VarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT   ID, BID, PID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thinkness, DJ电极端面直径, 
-                JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, 总料厚, BZ备注, 上传日期, 
-                凿检点, 修磨第一点, 最终焊接点, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi
-FROM      ExperienceView
-WHERE   (B1Materal = '6061') AND (B1Thinkness = @B1Thinkness) AND (B2Materal = '5052') AND 
-                (B2Thinkness = @B2Thinkness)";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B1Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B1Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B2Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B2Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].CommandText = "dbo.GetPidListThoughtBid";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BID", global::System.Data.SqlDbType.VarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT   ID, BID, PID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thinkness, DJ电极端面直径, 
                 JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, 总料厚, BZ备注, 上传日期, 
                 凿检点, 修磨第一点, 最终焊接点, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi
 FROM      ExperienceView
-WHERE   (B1Materal ='6061' and B1Thinkness =@B1Thinkness and  B2Materal ='5052' and B2Thinkness=@B2Thinkness  and B3Materal =@B3Materal and B3Thinkness=@B3Thinkness)";
+WHERE   (B1Materal = '6061') AND (B1Thinkness = @B1Thinkness) AND (B2Materal = '5052') AND 
+                (B2Thinkness = @B2Thinkness)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B1Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B1Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B2Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B2Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B3Materal", global::System.Data.SqlDbType.NChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "B3Materal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B3Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B3Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT   ID, BID, PID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thinkness, DJ电极端面直径, 
+                JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, 总料厚, BZ备注, 上传日期, 
+                凿检点, 修磨第一点, 最终焊接点, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi
+FROM      ExperienceView
+WHERE   (B1Materal ='6061' and B1Thinkness =@B1Thinkness and  B2Materal ='5052' and B2Thinkness=@B2Thinkness  and B3Materal =@B3Materal and B3Thinkness=@B3Thinkness)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B1Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B1Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B2Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B2Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B3Materal", global::System.Data.SqlDbType.NChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "B3Materal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B3Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "B3Thinkness", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5221,8 +4977,44 @@ WHERE   (B1Materal ='6061' and B1Thinkness =@B1Thinkness and  B2Materal ='5052' 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTwoType(RXYF_YECCDataSet.ExperienceViewDataTable dataTable, global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness) {
+        public virtual int FillByPID(RXYF_YECCDataSet.ExperienceViewDataTable dataTable, string BID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((BID == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(BID));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RXYF_YECCDataSet.ExperienceViewDataTable GetDataByPID(string BID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((BID == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(BID));
+            }
+            RXYF_YECCDataSet.ExperienceViewDataTable dataTable = new RXYF_YECCDataSet.ExperienceViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTwoType(RXYF_YECCDataSet.ExperienceViewDataTable dataTable, global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((B1Thinkness.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((double)(B1Thinkness.Value));
             }
@@ -5247,7 +5039,7 @@ WHERE   (B1Materal ='6061' and B1Thinkness =@B1Thinkness and  B2Materal ='5052' 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual RXYF_YECCDataSet.ExperienceViewDataTable GetDataByTwoType(global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((B1Thinkness.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((double)(B1Thinkness.Value));
             }
@@ -5270,7 +5062,7 @@ WHERE   (B1Materal ='6061' and B1Thinkness =@B1Thinkness and  B2Materal ='5052' 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByType(RXYF_YECCDataSet.ExperienceViewDataTable dataTable, global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness, string B3Materal, global::System.Nullable<double> B3Thinkness) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((B1Thinkness.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((double)(B1Thinkness.Value));
             }
@@ -5307,7 +5099,7 @@ WHERE   (B1Materal ='6061' and B1Thinkness =@B1Thinkness and  B2Materal ='5052' 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual RXYF_YECCDataSet.ExperienceViewDataTable GetDataByType(global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness, string B3Materal, global::System.Nullable<double> B3Thinkness) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((B1Thinkness.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((double)(B1Thinkness.Value));
             }
@@ -5583,7 +5375,7 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thin" +
@@ -5596,6 +5388,22 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
                 "   BoardData\r\nWHERE   (BID = @BID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BID", global::System.Data.SqlDbType.VarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "dbo.SerchBoardPictureListFor2CS";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B1Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 53, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B2Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 53, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "dbo.SerchBoardPictureListFor3CS";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B1Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 53, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B2Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 53, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B3Materal", global::System.Data.SqlDbType.NChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B3Thinkness", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 53, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5652,6 +5460,126 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(BID));
+            }
+            RXYF_YECCDataSet.BoardDataDataTable dataTable = new RXYF_YECCDataSet.BoardDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy2CS_SerchBoardPictureList(RXYF_YECCDataSet.BoardDataDataTable dataTable, global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((B1Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((double)(B1Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((B2Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((double)(B2Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RXYF_YECCDataSet.BoardDataDataTable GetDataBy_SerchBoardPictureList(global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((B1Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((double)(B1Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((B2Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((double)(B2Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            RXYF_YECCDataSet.BoardDataDataTable dataTable = new RXYF_YECCDataSet.BoardDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy3CS_SerchBoardPictureList(RXYF_YECCDataSet.BoardDataDataTable dataTable, global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness, string B3Materal, global::System.Nullable<double> B3Thinkness) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((B1Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((double)(B1Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((B2Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((double)(B2Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((B3Materal == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(B3Materal));
+            }
+            if ((B3Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((double)(B3Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RXYF_YECCDataSet.BoardDataDataTable GetDataBy3CS_SerchBoardPictureList(global::System.Nullable<double> B1Thinkness, global::System.Nullable<double> B2Thinkness, string B3Materal, global::System.Nullable<double> B3Thinkness) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((B1Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((double)(B1Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((B2Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((double)(B2Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((B3Materal == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(B3Materal));
+            }
+            if ((B3Thinkness.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((double)(B3Thinkness.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             RXYF_YECCDataSet.BoardDataDataTable dataTable = new RXYF_YECCDataSet.BoardDataDataTable();
             this.Adapter.Fill(dataTable);
@@ -6143,6 +6071,1410 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class SportDataTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public SportDataTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "SportData";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("PID", "PID");
+            tableMapping.ColumnMappings.Add("DJ电极端面直径", "DJ电极端面直径");
+            tableMapping.ColumnMappings.Add("JY加压时间", "JY加压时间");
+            tableMapping.ColumnMappings.Add("HJ焊接电流", "HJ焊接电流");
+            tableMapping.ColumnMappings.Add("HJ焊接时间", "HJ焊接时间");
+            tableMapping.ColumnMappings.Add("WC维持时间", "WC维持时间");
+            tableMapping.ColumnMappings.Add("DJ电极压力", "DJ电极压力");
+            tableMapping.ColumnMappings.Add("HD焊点直径", "HD焊点直径");
+            tableMapping.ColumnMappings.Add("HH熔核直径", "HH熔核直径");
+            tableMapping.ColumnMappings.Add("ZH总厚度", "ZH总厚度");
+            tableMapping.ColumnMappings.Add("BZ备注", "BZ备注");
+            tableMapping.ColumnMappings.Add("TDate", "TDate");
+            tableMapping.ColumnMappings.Add("Zaojian", "Zaojian");
+            tableMapping.ColumnMappings.Add("FistPoint", "FistPoint");
+            tableMapping.ColumnMappings.Add("EndPoint", "EndPoint");
+            tableMapping.ColumnMappings.Add("Zhanfu", "Zhanfu");
+            tableMapping.ColumnMappings.Add("LieWen", "LieWen");
+            tableMapping.ColumnMappings.Add("FeiJian", "FeiJian");
+            tableMapping.ColumnMappings.Add("YaHeng", "YaHeng");
+            tableMapping.ColumnMappings.Add("WaiGuanNG", "WaiGuanNG");
+            tableMapping.ColumnMappings.Add("LianXuHanDian", "LianXuHanDian");
+            tableMapping.ColumnMappings.Add("HanJieJianXi", "HanJieJianXi");
+            tableMapping.ColumnMappings.Add("FwPicture", "FwPicture");
+            tableMapping.ColumnMappings.Add("BwPicture", "BwPicture");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[SportData] WHERE (([ID] = @Original_ID) AND ((@IsNull_PID = 1 " +
+                "AND [PID] IS NULL) OR ([PID] = @Original_PID)) AND ((@IsNull_DJ电极端面直径 = 1 AND [D" +
+                "J电极端面直径] IS NULL) OR ([DJ电极端面直径] = @Original_DJ电极端面直径)) AND ((@IsNull_JY加压时间 = 1" +
+                " AND [JY加压时间] IS NULL) OR ([JY加压时间] = @Original_JY加压时间)) AND ((@IsNull_HJ焊接电流 = " +
+                "1 AND [HJ焊接电流] IS NULL) OR ([HJ焊接电流] = @Original_HJ焊接电流)) AND ((@IsNull_HJ焊接时间 =" +
+                " 1 AND [HJ焊接时间] IS NULL) OR ([HJ焊接时间] = @Original_HJ焊接时间)) AND ((@IsNull_WC维持时间 " +
+                "= 1 AND [WC维持时间] IS NULL) OR ([WC维持时间] = @Original_WC维持时间)) AND ((@IsNull_DJ电极压力" +
+                " = 1 AND [DJ电极压力] IS NULL) OR ([DJ电极压力] = @Original_DJ电极压力)) AND ((@IsNull_HD焊点直" +
+                "径 = 1 AND [HD焊点直径] IS NULL) OR ([HD焊点直径] = @Original_HD焊点直径)) AND ((@IsNull_HH熔核" +
+                "直径 = 1 AND [HH熔核直径] IS NULL) OR ([HH熔核直径] = @Original_HH熔核直径)) AND ((@IsNull_ZH总" +
+                "厚度 = 1 AND [ZH总厚度] IS NULL) OR ([ZH总厚度] = @Original_ZH总厚度)) AND ((@IsNull_BZ备注 =" +
+                " 1 AND [BZ备注] IS NULL) OR ([BZ备注] = @Original_BZ备注)) AND ((@IsNull_TDate = 1 AND" +
+                " [TDate] IS NULL) OR ([TDate] = @Original_TDate)) AND ((@IsNull_Zaojian = 1 AND " +
+                "[Zaojian] IS NULL) OR ([Zaojian] = @Original_Zaojian)) AND ((@IsNull_FistPoint =" +
+                " 1 AND [FistPoint] IS NULL) OR ([FistPoint] = @Original_FistPoint)) AND ((@IsNul" +
+                "l_EndPoint = 1 AND [EndPoint] IS NULL) OR ([EndPoint] = @Original_EndPoint)) AND" +
+                " ((@IsNull_Zhanfu = 1 AND [Zhanfu] IS NULL) OR ([Zhanfu] = @Original_Zhanfu)) AN" +
+                "D ((@IsNull_LieWen = 1 AND [LieWen] IS NULL) OR ([LieWen] = @Original_LieWen)) A" +
+                "ND ((@IsNull_FeiJian = 1 AND [FeiJian] IS NULL) OR ([FeiJian] = @Original_FeiJia" +
+                "n)) AND ((@IsNull_YaHeng = 1 AND [YaHeng] IS NULL) OR ([YaHeng] = @Original_YaHe" +
+                "ng)) AND ((@IsNull_WaiGuanNG = 1 AND [WaiGuanNG] IS NULL) OR ([WaiGuanNG] = @Ori" +
+                "ginal_WaiGuanNG)) AND ((@IsNull_LianXuHanDian = 1 AND [LianXuHanDian] IS NULL) O" +
+                "R ([LianXuHanDian] = @Original_LianXuHanDian)) AND ((@IsNull_HanJieJianXi = 1 AN" +
+                "D [HanJieJianXi] IS NULL) OR ([HanJieJianXi] = @Original_HanJieJianXi)) AND ((@I" +
+                "sNull_FwPicture = 1 AND [FwPicture] IS NULL) OR ([FwPicture] = @Original_FwPictu" +
+                "re)) AND ((@IsNull_BwPicture = 1 AND [BwPicture] IS NULL) OR ([BwPicture] = @Ori" +
+                "ginal_BwPicture)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DJ电极端面直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DJ电极端面直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_JY加压时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JY加压时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HJ焊接电流", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HJ焊接电流", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HJ焊接时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HJ焊接时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WC维持时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WC维持时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DJ电极压力", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DJ电极压力", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HD焊点直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HD焊点直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HH熔核直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HH熔核直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ZH总厚度", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ZH总厚度", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BZ备注", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BZ备注", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Zaojian", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zaojian", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Zaojian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zaojian", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FistPoint", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FistPoint", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FistPoint", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FistPoint", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EndPoint", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndPoint", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EndPoint", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndPoint", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Zhanfu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zhanfu", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Zhanfu", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zhanfu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LieWen", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LieWen", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LieWen", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LieWen", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FeiJian", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeiJian", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FeiJian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeiJian", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_YaHeng", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YaHeng", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_YaHeng", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YaHeng", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WaiGuanNG", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WaiGuanNG", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WaiGuanNG", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WaiGuanNG", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LianXuHanDian", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LianXuHanDian", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LianXuHanDian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LianXuHanDian", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HanJieJianXi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HanJieJianXi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HanJieJianXi", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HanJieJianXi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FwPicture", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FwPicture", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FwPicture", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FwPicture", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BwPicture", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BwPicture", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BwPicture", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BwPicture", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[SportData] ([ID], [PID], [DJ电极端面直径], [JY加压时间], [HJ焊接电流], [HJ焊接时间], [WC维持时间], [DJ电极压力], [HD焊点直径], [HH熔核直径], [ZH总厚度], [BZ备注], [TDate], [Zaojian], [FistPoint], [EndPoint], [Zhanfu], [LieWen], [FeiJian], [YaHeng], [WaiGuanNG], [LianXuHanDian], [HanJieJianXi], [FwPicture], [BwPicture]) VALUES (@ID, @PID, @DJ电极端面直径, @JY加压时间, @HJ焊接电流, @HJ焊接时间, @WC维持时间, @DJ电极压力, @HD焊点直径, @HH熔核直径, @ZH总厚度, @BZ备注, @TDate, @Zaojian, @FistPoint, @EndPoint, @Zhanfu, @LieWen, @FeiJian, @YaHeng, @WaiGuanNG, @LianXuHanDian, @HanJieJianXi, @FwPicture, @BwPicture);
+SELECT ID, PID, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, ZH总厚度, BZ备注, TDate, Zaojian, FistPoint, EndPoint, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi, FwPicture, BwPicture FROM SportData WHERE (ID = @ID)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DJ电极端面直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JY加压时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HJ焊接电流", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HJ焊接时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WC维持时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DJ电极压力", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD焊点直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HH熔核直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZH总厚度", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BZ备注", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zaojian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zaojian", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FistPoint", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FistPoint", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndPoint", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndPoint", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zhanfu", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zhanfu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LieWen", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LieWen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeiJian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeiJian", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YaHeng", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YaHeng", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WaiGuanNG", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WaiGuanNG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LianXuHanDian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LianXuHanDian", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HanJieJianXi", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HanJieJianXi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FwPicture", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FwPicture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BwPicture", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BwPicture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[SportData] SET [ID] = @ID, [PID] = @PID, [DJ电极端面直径] = @DJ电极端面直径, [J" +
+                "Y加压时间] = @JY加压时间, [HJ焊接电流] = @HJ焊接电流, [HJ焊接时间] = @HJ焊接时间, [WC维持时间] = @WC维持时间, [D" +
+                "J电极压力] = @DJ电极压力, [HD焊点直径] = @HD焊点直径, [HH熔核直径] = @HH熔核直径, [ZH总厚度] = @ZH总厚度, [BZ备" +
+                "注] = @BZ备注, [TDate] = @TDate, [Zaojian] = @Zaojian, [FistPoint] = @FistPoint, [E" +
+                "ndPoint] = @EndPoint, [Zhanfu] = @Zhanfu, [LieWen] = @LieWen, [FeiJian] = @FeiJi" +
+                "an, [YaHeng] = @YaHeng, [WaiGuanNG] = @WaiGuanNG, [LianXuHanDian] = @LianXuHanDi" +
+                "an, [HanJieJianXi] = @HanJieJianXi, [FwPicture] = @FwPicture, [BwPicture] = @BwP" +
+                "icture WHERE (([ID] = @Original_ID) AND ((@IsNull_PID = 1 AND [PID] IS NULL) OR " +
+                "([PID] = @Original_PID)) AND ((@IsNull_DJ电极端面直径 = 1 AND [DJ电极端面直径] IS NULL) OR (" +
+                "[DJ电极端面直径] = @Original_DJ电极端面直径)) AND ((@IsNull_JY加压时间 = 1 AND [JY加压时间] IS NULL)" +
+                " OR ([JY加压时间] = @Original_JY加压时间)) AND ((@IsNull_HJ焊接电流 = 1 AND [HJ焊接电流] IS NULL" +
+                ") OR ([HJ焊接电流] = @Original_HJ焊接电流)) AND ((@IsNull_HJ焊接时间 = 1 AND [HJ焊接时间] IS NUL" +
+                "L) OR ([HJ焊接时间] = @Original_HJ焊接时间)) AND ((@IsNull_WC维持时间 = 1 AND [WC维持时间] IS NU" +
+                "LL) OR ([WC维持时间] = @Original_WC维持时间)) AND ((@IsNull_DJ电极压力 = 1 AND [DJ电极压力] IS N" +
+                "ULL) OR ([DJ电极压力] = @Original_DJ电极压力)) AND ((@IsNull_HD焊点直径 = 1 AND [HD焊点直径] IS " +
+                "NULL) OR ([HD焊点直径] = @Original_HD焊点直径)) AND ((@IsNull_HH熔核直径 = 1 AND [HH熔核直径] IS" +
+                " NULL) OR ([HH熔核直径] = @Original_HH熔核直径)) AND ((@IsNull_ZH总厚度 = 1 AND [ZH总厚度] IS " +
+                "NULL) OR ([ZH总厚度] = @Original_ZH总厚度)) AND ((@IsNull_BZ备注 = 1 AND [BZ备注] IS NULL)" +
+                " OR ([BZ备注] = @Original_BZ备注)) AND ((@IsNull_TDate = 1 AND [TDate] IS NULL) OR (" +
+                "[TDate] = @Original_TDate)) AND ((@IsNull_Zaojian = 1 AND [Zaojian] IS NULL) OR " +
+                "([Zaojian] = @Original_Zaojian)) AND ((@IsNull_FistPoint = 1 AND [FistPoint] IS " +
+                "NULL) OR ([FistPoint] = @Original_FistPoint)) AND ((@IsNull_EndPoint = 1 AND [En" +
+                "dPoint] IS NULL) OR ([EndPoint] = @Original_EndPoint)) AND ((@IsNull_Zhanfu = 1 " +
+                "AND [Zhanfu] IS NULL) OR ([Zhanfu] = @Original_Zhanfu)) AND ((@IsNull_LieWen = 1" +
+                " AND [LieWen] IS NULL) OR ([LieWen] = @Original_LieWen)) AND ((@IsNull_FeiJian =" +
+                " 1 AND [FeiJian] IS NULL) OR ([FeiJian] = @Original_FeiJian)) AND ((@IsNull_YaHe" +
+                "ng = 1 AND [YaHeng] IS NULL) OR ([YaHeng] = @Original_YaHeng)) AND ((@IsNull_Wai" +
+                "GuanNG = 1 AND [WaiGuanNG] IS NULL) OR ([WaiGuanNG] = @Original_WaiGuanNG)) AND " +
+                "((@IsNull_LianXuHanDian = 1 AND [LianXuHanDian] IS NULL) OR ([LianXuHanDian] = @" +
+                "Original_LianXuHanDian)) AND ((@IsNull_HanJieJianXi = 1 AND [HanJieJianXi] IS NU" +
+                "LL) OR ([HanJieJianXi] = @Original_HanJieJianXi)) AND ((@IsNull_FwPicture = 1 AN" +
+                "D [FwPicture] IS NULL) OR ([FwPicture] = @Original_FwPicture)) AND ((@IsNull_BwP" +
+                "icture = 1 AND [BwPicture] IS NULL) OR ([BwPicture] = @Original_BwPicture)));\r\nS" +
+                "ELECT ID, PID, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径," +
+                " ZH总厚度, BZ备注, TDate, Zaojian, FistPoint, EndPoint, Zhanfu, LieWen, FeiJian, YaHe" +
+                "ng, WaiGuanNG, LianXuHanDian, HanJieJianXi, FwPicture, BwPicture FROM SportData " +
+                "WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DJ电极端面直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@JY加压时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HJ焊接电流", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HJ焊接时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WC维持时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DJ电极压力", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD焊点直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HH熔核直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZH总厚度", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BZ备注", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zaojian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zaojian", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FistPoint", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FistPoint", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndPoint", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndPoint", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zhanfu", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zhanfu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LieWen", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LieWen", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FeiJian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeiJian", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YaHeng", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YaHeng", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WaiGuanNG", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WaiGuanNG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LianXuHanDian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LianXuHanDian", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HanJieJianXi", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HanJieJianXi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FwPicture", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FwPicture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BwPicture", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BwPicture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DJ电极端面直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DJ电极端面直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极端面直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_JY加压时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_JY加压时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "JY加压时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HJ焊接电流", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HJ焊接电流", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接电流", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HJ焊接时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HJ焊接时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HJ焊接时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WC维持时间", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WC维持时间", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WC维持时间", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DJ电极压力", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DJ电极压力", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DJ电极压力", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HD焊点直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HD焊点直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HD焊点直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HH熔核直径", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HH熔核直径", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HH熔核直径", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ZH总厚度", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ZH总厚度", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZH总厚度", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BZ备注", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BZ备注", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BZ备注", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Zaojian", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zaojian", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Zaojian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zaojian", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FistPoint", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FistPoint", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FistPoint", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FistPoint", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EndPoint", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndPoint", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EndPoint", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndPoint", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Zhanfu", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zhanfu", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Zhanfu", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zhanfu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LieWen", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LieWen", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LieWen", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LieWen", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FeiJian", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeiJian", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FeiJian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FeiJian", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_YaHeng", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YaHeng", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_YaHeng", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YaHeng", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WaiGuanNG", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WaiGuanNG", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WaiGuanNG", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WaiGuanNG", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LianXuHanDian", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LianXuHanDian", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LianXuHanDian", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LianXuHanDian", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HanJieJianXi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HanJieJianXi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HanJieJianXi", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HanJieJianXi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FwPicture", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FwPicture", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FwPicture", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FwPicture", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BwPicture", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BwPicture", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BwPicture", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BwPicture", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::RX_DataUpdata.Properties.Settings.Default.ALTDataBaseConnectionString2;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID, PID, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径," +
+                " ZH总厚度, BZ备注, TDate, Zaojian, FistPoint, EndPoint, Zhanfu, LieWen, FeiJian, YaHe" +
+                "ng, WaiGuanNG, LianXuHanDian, HanJieJianXi, FwPicture, BwPicture FROM dbo.SportD" +
+                "ata";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "dbo.SerchPidPicture";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PID", global::System.Data.SqlDbType.VarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(RXYF_YECCDataSet.SportDataDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual RXYF_YECCDataSet.SportDataDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            RXYF_YECCDataSet.SportDataDataTable dataTable = new RXYF_YECCDataSet.SportDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy_SerchPidPicture(RXYF_YECCDataSet.SportDataDataTable dataTable, string PID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((PID == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(PID));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RXYF_YECCDataSet.SportDataDataTable GetDataBy_SerchPidPicture(string PID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((PID == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(PID));
+            }
+            RXYF_YECCDataSet.SportDataDataTable dataTable = new RXYF_YECCDataSet.SportDataDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(RXYF_YECCDataSet.SportDataDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(RXYF_YECCDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "SportData");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(
+                    string Original_ID, 
+                    string Original_PID, 
+                    global::System.Nullable<double> Original_DJ电极端面直径, 
+                    global::System.Nullable<double> Original_JY加压时间, 
+                    global::System.Nullable<double> Original_HJ焊接电流, 
+                    global::System.Nullable<double> Original_HJ焊接时间, 
+                    global::System.Nullable<double> Original_WC维持时间, 
+                    global::System.Nullable<double> Original_DJ电极压力, 
+                    global::System.Nullable<double> Original_HD焊点直径, 
+                    global::System.Nullable<double> Original_HH熔核直径, 
+                    global::System.Nullable<double> Original_ZH总厚度, 
+                    string Original_BZ备注, 
+                    global::System.Nullable<global::System.DateTime> Original_TDate, 
+                    global::System.Nullable<bool> Original_Zaojian, 
+                    global::System.Nullable<bool> Original_FistPoint, 
+                    global::System.Nullable<bool> Original_EndPoint, 
+                    global::System.Nullable<bool> Original_Zhanfu, 
+                    global::System.Nullable<bool> Original_LieWen, 
+                    global::System.Nullable<bool> Original_FeiJian, 
+                    global::System.Nullable<bool> Original_YaHeng, 
+                    global::System.Nullable<bool> Original_WaiGuanNG, 
+                    global::System.Nullable<bool> Original_LianXuHanDian, 
+                    global::System.Nullable<bool> Original_HanJieJianXi, 
+                    string Original_FwPicture, 
+                    string Original_BwPicture) {
+            if ((Original_ID == null)) {
+                throw new global::System.ArgumentNullException("Original_ID");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_ID));
+            }
+            if ((Original_PID == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_PID));
+            }
+            if ((Original_DJ电极端面直径.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((double)(Original_DJ电极端面直径.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_JY加压时间.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((double)(Original_JY加压时间.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HJ焊接电流.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((double)(Original_HJ焊接电流.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HJ焊接时间.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((double)(Original_HJ焊接时间.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_WC维持时间.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((double)(Original_WC维持时间.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DJ电极压力.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((double)(Original_DJ电极压力.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HD焊点直径.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((double)(Original_HD焊点直径.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HH熔核直径.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((double)(Original_HH熔核直径.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ZH总厚度.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((double)(Original_ZH总厚度.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_BZ备注 == null)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_BZ备注));
+            }
+            if ((Original_TDate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((System.DateTime)(Original_TDate.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Zaojian.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((bool)(Original_Zaojian.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FistPoint.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((bool)(Original_FistPoint.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_EndPoint.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((bool)(Original_EndPoint.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Zhanfu.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((bool)(Original_Zhanfu.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LieWen.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((bool)(Original_LieWen.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FeiJian.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((bool)(Original_FeiJian.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            if ((Original_YaHeng.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((bool)(Original_YaHeng.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            if ((Original_WaiGuanNG.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((bool)(Original_WaiGuanNG.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LianXuHanDian.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((bool)(Original_LianXuHanDian.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HanJieJianXi.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((bool)(Original_HanJieJianXi.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FwPicture == null)) {
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((string)(Original_FwPicture));
+            }
+            if ((Original_BwPicture == null)) {
+                this.Adapter.DeleteCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((string)(Original_BwPicture));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    string ID, 
+                    string PID, 
+                    global::System.Nullable<double> DJ电极端面直径, 
+                    global::System.Nullable<double> JY加压时间, 
+                    global::System.Nullable<double> HJ焊接电流, 
+                    global::System.Nullable<double> HJ焊接时间, 
+                    global::System.Nullable<double> WC维持时间, 
+                    global::System.Nullable<double> DJ电极压力, 
+                    global::System.Nullable<double> HD焊点直径, 
+                    global::System.Nullable<double> HH熔核直径, 
+                    global::System.Nullable<double> ZH总厚度, 
+                    string BZ备注, 
+                    global::System.Nullable<global::System.DateTime> TDate, 
+                    global::System.Nullable<bool> Zaojian, 
+                    global::System.Nullable<bool> FistPoint, 
+                    global::System.Nullable<bool> EndPoint, 
+                    global::System.Nullable<bool> Zhanfu, 
+                    global::System.Nullable<bool> LieWen, 
+                    global::System.Nullable<bool> FeiJian, 
+                    global::System.Nullable<bool> YaHeng, 
+                    global::System.Nullable<bool> WaiGuanNG, 
+                    global::System.Nullable<bool> LianXuHanDian, 
+                    global::System.Nullable<bool> HanJieJianXi, 
+                    string FwPicture, 
+                    string BwPicture) {
+            if ((ID == null)) {
+                throw new global::System.ArgumentNullException("ID");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ID));
+            }
+            if ((PID == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(PID));
+            }
+            if ((DJ电极端面直径.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((double)(DJ电极端面直径.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((JY加压时间.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(JY加压时间.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((HJ焊接电流.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(HJ焊接电流.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((HJ焊接时间.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((double)(HJ焊接时间.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((WC维持时间.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((double)(WC维持时间.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((DJ电极压力.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((double)(DJ电极压力.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((HD焊点直径.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((double)(HD焊点直径.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((HH熔核直径.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((double)(HH熔核直径.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((ZH总厚度.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((double)(ZH总厚度.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((BZ备注 == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(BZ备注));
+            }
+            if ((TDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(TDate.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Zaojian.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((bool)(Zaojian.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((FistPoint.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((bool)(FistPoint.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((EndPoint.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((bool)(EndPoint.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((Zhanfu.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((bool)(Zhanfu.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((LieWen.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((bool)(LieWen.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((FeiJian.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((bool)(FeiJian.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((YaHeng.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((bool)(YaHeng.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((WaiGuanNG.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((bool)(WaiGuanNG.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((LianXuHanDian.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((bool)(LianXuHanDian.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((HanJieJianXi.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((bool)(HanJieJianXi.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((FwPicture == null)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((string)(FwPicture));
+            }
+            if ((BwPicture == null)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((string)(BwPicture));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string ID, 
+                    string PID, 
+                    global::System.Nullable<double> DJ电极端面直径, 
+                    global::System.Nullable<double> JY加压时间, 
+                    global::System.Nullable<double> HJ焊接电流, 
+                    global::System.Nullable<double> HJ焊接时间, 
+                    global::System.Nullable<double> WC维持时间, 
+                    global::System.Nullable<double> DJ电极压力, 
+                    global::System.Nullable<double> HD焊点直径, 
+                    global::System.Nullable<double> HH熔核直径, 
+                    global::System.Nullable<double> ZH总厚度, 
+                    string BZ备注, 
+                    global::System.Nullable<global::System.DateTime> TDate, 
+                    global::System.Nullable<bool> Zaojian, 
+                    global::System.Nullable<bool> FistPoint, 
+                    global::System.Nullable<bool> EndPoint, 
+                    global::System.Nullable<bool> Zhanfu, 
+                    global::System.Nullable<bool> LieWen, 
+                    global::System.Nullable<bool> FeiJian, 
+                    global::System.Nullable<bool> YaHeng, 
+                    global::System.Nullable<bool> WaiGuanNG, 
+                    global::System.Nullable<bool> LianXuHanDian, 
+                    global::System.Nullable<bool> HanJieJianXi, 
+                    string FwPicture, 
+                    string BwPicture, 
+                    string Original_ID, 
+                    string Original_PID, 
+                    global::System.Nullable<double> Original_DJ电极端面直径, 
+                    global::System.Nullable<double> Original_JY加压时间, 
+                    global::System.Nullable<double> Original_HJ焊接电流, 
+                    global::System.Nullable<double> Original_HJ焊接时间, 
+                    global::System.Nullable<double> Original_WC维持时间, 
+                    global::System.Nullable<double> Original_DJ电极压力, 
+                    global::System.Nullable<double> Original_HD焊点直径, 
+                    global::System.Nullable<double> Original_HH熔核直径, 
+                    global::System.Nullable<double> Original_ZH总厚度, 
+                    string Original_BZ备注, 
+                    global::System.Nullable<global::System.DateTime> Original_TDate, 
+                    global::System.Nullable<bool> Original_Zaojian, 
+                    global::System.Nullable<bool> Original_FistPoint, 
+                    global::System.Nullable<bool> Original_EndPoint, 
+                    global::System.Nullable<bool> Original_Zhanfu, 
+                    global::System.Nullable<bool> Original_LieWen, 
+                    global::System.Nullable<bool> Original_FeiJian, 
+                    global::System.Nullable<bool> Original_YaHeng, 
+                    global::System.Nullable<bool> Original_WaiGuanNG, 
+                    global::System.Nullable<bool> Original_LianXuHanDian, 
+                    global::System.Nullable<bool> Original_HanJieJianXi, 
+                    string Original_FwPicture, 
+                    string Original_BwPicture) {
+            if ((ID == null)) {
+                throw new global::System.ArgumentNullException("ID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ID));
+            }
+            if ((PID == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(PID));
+            }
+            if ((DJ电极端面直径.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((double)(DJ电极端面直径.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((JY加压时间.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(JY加压时间.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((HJ焊接电流.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((double)(HJ焊接电流.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((HJ焊接时间.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((double)(HJ焊接时间.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((WC维持时间.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(WC维持时间.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((DJ电极压力.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((double)(DJ电极压力.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((HD焊点直径.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(HD焊点直径.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((HH熔核直径.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((double)(HH熔核直径.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((ZH总厚度.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(ZH总厚度.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((BZ备注 == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(BZ备注));
+            }
+            if ((TDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(TDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Zaojian.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((bool)(Zaojian.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((FistPoint.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((bool)(FistPoint.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((EndPoint.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(EndPoint.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((Zhanfu.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(Zhanfu.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((LieWen.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((bool)(LieWen.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((FeiJian.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((bool)(FeiJian.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((YaHeng.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((bool)(YaHeng.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((WaiGuanNG.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((bool)(WaiGuanNG.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((LianXuHanDian.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((bool)(LianXuHanDian.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((HanJieJianXi.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((bool)(HanJieJianXi.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((FwPicture == null)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(FwPicture));
+            }
+            if ((BwPicture == null)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(BwPicture));
+            }
+            if ((Original_ID == null)) {
+                throw new global::System.ArgumentNullException("Original_ID");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_ID));
+            }
+            if ((Original_PID == null)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_PID));
+            }
+            if ((Original_DJ电极端面直径.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((double)(Original_DJ电极端面直径.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((Original_JY加压时间.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((double)(Original_JY加压时间.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HJ焊接电流.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((double)(Original_HJ焊接电流.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HJ焊接时间.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((double)(Original_HJ焊接时间.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((Original_WC维持时间.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((double)(Original_WC维持时间.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DJ电极压力.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((double)(Original_DJ电极压力.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HD焊点直径.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((double)(Original_HD焊点直径.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HH熔核直径.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((double)(Original_HH熔核直径.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ZH总厚度.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((double)(Original_ZH总厚度.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            if ((Original_BZ备注 == null)) {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_BZ备注));
+            }
+            if ((Original_TDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((System.DateTime)(Original_TDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Zaojian.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((bool)(Original_Zaojian.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FistPoint.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((bool)(Original_FistPoint.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            if ((Original_EndPoint.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((bool)(Original_EndPoint.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Zhanfu.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((bool)(Original_Zhanfu.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LieWen.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((bool)(Original_LieWen.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FeiJian.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((bool)(Original_FeiJian.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
+            }
+            if ((Original_YaHeng.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((bool)(Original_YaHeng.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
+            }
+            if ((Original_WaiGuanNG.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((bool)(Original_WaiGuanNG.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LianXuHanDian.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((bool)(Original_LianXuHanDian.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HanJieJianXi.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((bool)(Original_HanJieJianXi.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FwPicture == null)) {
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[71].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((string)(Original_FwPicture));
+            }
+            if ((Original_BwPicture == null)) {
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[73].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((string)(Original_BwPicture));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string PID, 
+                    global::System.Nullable<double> DJ电极端面直径, 
+                    global::System.Nullable<double> JY加压时间, 
+                    global::System.Nullable<double> HJ焊接电流, 
+                    global::System.Nullable<double> HJ焊接时间, 
+                    global::System.Nullable<double> WC维持时间, 
+                    global::System.Nullable<double> DJ电极压力, 
+                    global::System.Nullable<double> HD焊点直径, 
+                    global::System.Nullable<double> HH熔核直径, 
+                    global::System.Nullable<double> ZH总厚度, 
+                    string BZ备注, 
+                    global::System.Nullable<global::System.DateTime> TDate, 
+                    global::System.Nullable<bool> Zaojian, 
+                    global::System.Nullable<bool> FistPoint, 
+                    global::System.Nullable<bool> EndPoint, 
+                    global::System.Nullable<bool> Zhanfu, 
+                    global::System.Nullable<bool> LieWen, 
+                    global::System.Nullable<bool> FeiJian, 
+                    global::System.Nullable<bool> YaHeng, 
+                    global::System.Nullable<bool> WaiGuanNG, 
+                    global::System.Nullable<bool> LianXuHanDian, 
+                    global::System.Nullable<bool> HanJieJianXi, 
+                    string FwPicture, 
+                    string BwPicture, 
+                    string Original_ID, 
+                    string Original_PID, 
+                    global::System.Nullable<double> Original_DJ电极端面直径, 
+                    global::System.Nullable<double> Original_JY加压时间, 
+                    global::System.Nullable<double> Original_HJ焊接电流, 
+                    global::System.Nullable<double> Original_HJ焊接时间, 
+                    global::System.Nullable<double> Original_WC维持时间, 
+                    global::System.Nullable<double> Original_DJ电极压力, 
+                    global::System.Nullable<double> Original_HD焊点直径, 
+                    global::System.Nullable<double> Original_HH熔核直径, 
+                    global::System.Nullable<double> Original_ZH总厚度, 
+                    string Original_BZ备注, 
+                    global::System.Nullable<global::System.DateTime> Original_TDate, 
+                    global::System.Nullable<bool> Original_Zaojian, 
+                    global::System.Nullable<bool> Original_FistPoint, 
+                    global::System.Nullable<bool> Original_EndPoint, 
+                    global::System.Nullable<bool> Original_Zhanfu, 
+                    global::System.Nullable<bool> Original_LieWen, 
+                    global::System.Nullable<bool> Original_FeiJian, 
+                    global::System.Nullable<bool> Original_YaHeng, 
+                    global::System.Nullable<bool> Original_WaiGuanNG, 
+                    global::System.Nullable<bool> Original_LianXuHanDian, 
+                    global::System.Nullable<bool> Original_HanJieJianXi, 
+                    string Original_FwPicture, 
+                    string Original_BwPicture) {
+            return this.Update(Original_ID, PID, DJ电极端面直径, JY加压时间, HJ焊接电流, HJ焊接时间, WC维持时间, DJ电极压力, HD焊点直径, HH熔核直径, ZH总厚度, BZ备注, TDate, Zaojian, FistPoint, EndPoint, Zhanfu, LieWen, FeiJian, YaHeng, WaiGuanNG, LianXuHanDian, HanJieJianXi, FwPicture, BwPicture, Original_ID, Original_PID, Original_DJ电极端面直径, Original_JY加压时间, Original_HJ焊接电流, Original_HJ焊接时间, Original_WC维持时间, Original_DJ电极压力, Original_HD焊点直径, Original_HH熔核直径, Original_ZH总厚度, Original_BZ备注, Original_TDate, Original_Zaojian, Original_FistPoint, Original_EndPoint, Original_Zhanfu, Original_LieWen, Original_FeiJian, Original_YaHeng, Original_WaiGuanNG, Original_LianXuHanDian, Original_HanJieJianXi, Original_FwPicture, Original_BwPicture);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.IDbCommand[] _commandCollection;
@@ -6248,9 +7580,9 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
         
         private Board_SportDataTableAdapter _board_SportDataTableAdapter;
         
-        private SportDataTableAdapter _sportDataTableAdapter;
-        
         private BoardDataTableAdapter _boardDataTableAdapter;
+        
+        private SportDataTableAdapter _sportDataTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -6286,12 +7618,12 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public SportDataTableAdapter SportDataTableAdapter {
+        public BoardDataTableAdapter BoardDataTableAdapter {
             get {
-                return this._sportDataTableAdapter;
+                return this._boardDataTableAdapter;
             }
             set {
-                this._sportDataTableAdapter = value;
+                this._boardDataTableAdapter = value;
             }
         }
         
@@ -6300,12 +7632,12 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public BoardDataTableAdapter BoardDataTableAdapter {
+        public SportDataTableAdapter SportDataTableAdapter {
             get {
-                return this._boardDataTableAdapter;
+                return this._sportDataTableAdapter;
             }
             set {
-                this._boardDataTableAdapter = value;
+                this._sportDataTableAdapter = value;
             }
         }
         
@@ -6332,13 +7664,13 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
                             && (this._board_SportDataTableAdapter.Connection != null))) {
                     return this._board_SportDataTableAdapter.Connection;
                 }
-                if (((this._sportDataTableAdapter != null) 
-                            && (this._sportDataTableAdapter.Connection != null))) {
-                    return this._sportDataTableAdapter.Connection;
-                }
                 if (((this._boardDataTableAdapter != null) 
                             && (this._boardDataTableAdapter.Connection != null))) {
                     return this._boardDataTableAdapter.Connection;
+                }
+                if (((this._sportDataTableAdapter != null) 
+                            && (this._sportDataTableAdapter.Connection != null))) {
+                    return this._sportDataTableAdapter.Connection;
                 }
                 return null;
             }
@@ -6356,10 +7688,10 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
                 if ((this._board_SportDataTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._sportDataTableAdapter != null)) {
+                if ((this._boardDataTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._boardDataTableAdapter != null)) {
+                if ((this._sportDataTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -6373,21 +7705,21 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(RXYF_YECCDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._sportDataTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.SportData.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._sportDataTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._boardDataTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.BoardData.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._boardDataTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._sportDataTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SportData.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._sportDataTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6410,19 +7742,19 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(RXYF_YECCDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._sportDataTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.SportData.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._sportDataTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._boardDataTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.BoardData.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._boardDataTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._sportDataTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SportData.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._sportDataTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6452,19 +7784,19 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._boardDataTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.BoardData.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._boardDataTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._sportDataTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.SportData.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._sportDataTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._boardDataTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.BoardData.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._boardDataTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6511,12 +7843,12 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
                         && (this.MatchTableAdapterConnection(this._board_SportDataTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
             }
-            if (((this._sportDataTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._sportDataTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
-            }
             if (((this._boardDataTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._boardDataTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
+            }
+            if (((this._sportDataTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._sportDataTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
@@ -6559,15 +7891,6 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
                         adaptersWithAcceptChangesDuringUpdate.Add(this._board_SportDataTableAdapter.Adapter);
                     }
                 }
-                if ((this._sportDataTableAdapter != null)) {
-                    revertConnections.Add(this._sportDataTableAdapter, this._sportDataTableAdapter.Connection);
-                    this._sportDataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._sportDataTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._sportDataTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._sportDataTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._sportDataTableAdapter.Adapter);
-                    }
-                }
                 if ((this._boardDataTableAdapter != null)) {
                     revertConnections.Add(this._boardDataTableAdapter, this._boardDataTableAdapter.Connection);
                     this._boardDataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -6575,6 +7898,15 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
                     if (this._boardDataTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._boardDataTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._boardDataTableAdapter.Adapter);
+                    }
+                }
+                if ((this._sportDataTableAdapter != null)) {
+                    revertConnections.Add(this._sportDataTableAdapter, this._sportDataTableAdapter.Connection);
+                    this._sportDataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._sportDataTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._sportDataTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._sportDataTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._sportDataTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -6639,13 +7971,13 @@ SELECT ID, BID, B1Materal, B1Thinkness, B2Materal, B2Thinkness, B3Materal, B3Thi
                     this._board_SportDataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._board_SportDataTableAdapter]));
                     this._board_SportDataTableAdapter.Transaction = null;
                 }
-                if ((this._sportDataTableAdapter != null)) {
-                    this._sportDataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sportDataTableAdapter]));
-                    this._sportDataTableAdapter.Transaction = null;
-                }
                 if ((this._boardDataTableAdapter != null)) {
                     this._boardDataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._boardDataTableAdapter]));
                     this._boardDataTableAdapter.Transaction = null;
+                }
+                if ((this._sportDataTableAdapter != null)) {
+                    this._sportDataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sportDataTableAdapter]));
+                    this._sportDataTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

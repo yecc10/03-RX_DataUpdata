@@ -41,6 +41,9 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.boardDataTableAdapter = new RX_DataUpdata.RXYF_YECCDataSetTableAdapters.BoardDataTableAdapter();
+            this.sportDataTableAdapter = new RX_DataUpdata.RXYF_YECCDataSetTableAdapters.SportDataTableAdapter();
+            this.experienceViewTableAdapter = new RX_DataUpdata.RXYF_YECCDataSetTableAdapters.ExperienceViewTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -157,6 +160,18 @@
             this.button6.Text = "下一个焊点照片";
             this.button6.UseVisualStyleBackColor = true;
             // 
+            // boardDataTableAdapter
+            // 
+            this.boardDataTableAdapter.ClearBeforeFill = true;
+            // 
+            // sportDataTableAdapter
+            // 
+            this.sportDataTableAdapter.ClearBeforeFill = true;
+            // 
+            // experienceViewTableAdapter
+            // 
+            this.experienceViewTableAdapter.ClearBeforeFill = true;
+            // 
             // DChartShowPointImage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -200,5 +215,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private RXYF_YECCDataSetTableAdapters.BoardDataTableAdapter boardDataTableAdapter;
+        private RXYF_YECCDataSetTableAdapters.SportDataTableAdapter sportDataTableAdapter;
+        private RXYF_YECCDataSetTableAdapters.ExperienceViewTableAdapter experienceViewTableAdapter;
     }
 }
