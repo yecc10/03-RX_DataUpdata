@@ -149,7 +149,7 @@ namespace RX_DataUpdata
             }
             //string year = DateTime.Now.Year.ToString();
             string filename = NewFileName+Suffix;
-            if (! FileCheck("http://rx_yfb_yf079:8080/WPDS/"+ filename))
+            if (! FileCheck(SysVar.DocumentServer+ filename))
             {
                 int result = Upload_Request(ServerUrl, LocationFilePath, filename, progressBar);
                 if (result == 1)

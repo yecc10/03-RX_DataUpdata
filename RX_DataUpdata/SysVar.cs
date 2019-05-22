@@ -22,6 +22,20 @@ namespace RX_DataUpdata
         public static string SName = string.Empty;  //服务器名称
         public static string ClientIP = string.Empty;  //客户端IP
         public static string BackRemark = string.Empty;  //程序临时备份文件
+        /// <summary>
+        /// 上传文件服务地址
+        /// </summary>
+        public static string DeUrl = "http://rx_yfb_yf079:8080/WeldPictureDocumentServer/";//上传文件服务地址
+        /// <summary>
+        /// 文件检查地址
+        /// </summary>
+        public static string DocumentServer = "http://rx_yfb_yf079:8080/WPDS/";//文件检查地址
+        /// <summary>
+        /// 文件服务器地址
+        /// </summary>
+        public static string Server = "http://rx_yfb_yf079:8080";//文件检查地址
+
+        //string DeUrl = "http://localhost:9499/WeldPictureDocumentServer/";
     }
     #endregion
     #region 铝点焊基本属性

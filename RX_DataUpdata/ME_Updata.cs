@@ -19,9 +19,6 @@ namespace RX_DataUpdata
         /// <summary>
         /// 文件上传、更新、下载处理地址
         /// </summary>
-        string DeUrl = "http://rx_yfb_yf079:8080/WeldPictureDocumentServer/";
-        //string DeUrl = "http://localhost:9499/WeldPictureDocumentServer/";
-
         public ME_Updata()
         {
             InitializeComponent();
@@ -289,7 +286,7 @@ namespace RX_DataUpdata
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             string REloadRoute = string.Empty;
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            int Return=FOD.UpLoad(DeUrl, OFile.FileName.ToString(), SysPid.Pid+"_Fw_Picture", out REloadRoute, null,UFWprogressBar);
+            int Return=FOD.UpLoad(SysVar.DeUrl, OFile.FileName.ToString(), SysPid.Pid+"_Fw_Picture", out REloadRoute, null,UFWprogressBar);
             if (REloadRoute!=string.Empty)
             {
                 ShowFwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
@@ -328,7 +325,7 @@ namespace RX_DataUpdata
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             string REloadRoute = string.Empty;
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            int Return = FOD.UpLoad(DeUrl, OFile.FileName.ToString(), SysPid.Pid + "_Bw_Picture", out REloadRoute, null, UBWprogressBar);
+            int Return = FOD.UpLoad(SysVar.DeUrl, OFile.FileName.ToString(), SysPid.Pid + "_Bw_Picture", out REloadRoute, null, UBWprogressBar);
             if (REloadRoute != string.Empty)
             {
                 ShowBwPicture.ImageLocation = "http://rx_yfb_yf079:8080" + REloadRoute;
@@ -352,7 +349,7 @@ namespace RX_DataUpdata
         {
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            FOD.FileDelet(DeUrl, SysPid.Pid,0);
+            FOD.FileDelet(SysVar.DeUrl, SysPid.Pid,0);
             ShowFwPicture.ImageLocation = null;
             ShowFwPicture.Update();
             UpdataFwPicture.Enabled = true;
@@ -367,7 +364,7 @@ namespace RX_DataUpdata
         {
             FileUploadAndDownLoad FOD = new FileUploadAndDownLoad();
             var SysPid = NewExp.GetPid(SportBordID.Text, Pid.Text);
-            FOD.FileDelet(DeUrl, SysPid.Pid,1);
+            FOD.FileDelet(SysVar.DeUrl, SysPid.Pid,1);
             ShowBwPicture.ImageLocation = null;
             ShowBwPicture.Update();
             UpdataBwPicture.Enabled = true;
