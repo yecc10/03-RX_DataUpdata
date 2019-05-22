@@ -246,7 +246,7 @@ namespace RX_DataUpdata
         /// <summary>
         /// 试板备注总结
         /// </summary>
-        public virtual string Ret { get; set; }
+        public virtual string ReMark { get; set; }
     }
     #endregion
 }

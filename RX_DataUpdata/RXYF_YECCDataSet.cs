@@ -9,6 +9,10 @@
 
 namespace RX_DataUpdata.RXYF_YECCDataSetTableAdapters
 {
+    partial class BoardDataTableAdapter
+    {
+    }
+
     partial class ExperienceViewTableAdapter
     {
     }

@@ -11,6 +11,7 @@ namespace RX_DataUpdata
 {
     public partial class DChart : Form
     {
+        string Bid=string.Empty, Pid = string.Empty;
         public DChart()
         {
             InitializeComponent();
@@ -28,10 +29,12 @@ namespace RX_DataUpdata
         {
             // TODO: 这行代码将数据加载到表“rXYF_YECCDataSet.ExperienceView”中。您可以根据需要移动或删除它。
             this.experienceViewTableAdapter.Fill(this.rXYF_YECCDataSet.ExperienceView);
+            this.BoardDataTableAdapter.Fill(this.rXYF_YECCDataSet.BoardData);
         }
 
         private void SerchData_Click(object sender, EventArgs e)
         {
+            #region 数据操作
             string SN = "B2S11";
             string[] str;
             float[] str1, str2, str3, str4, str5, str6, str7;
@@ -53,7 +56,6 @@ namespace RX_DataUpdata
                 }
 
             }
-
             rXYF_YECCDataSet.Tables["experienceView"].DefaultView.Sort = "PID";
             dataGridView1.DataSource = rXYF_YECCDataSet.Tables["experienceView"].DefaultView;
             str = new string[dataGridView1.Rows.Count];
@@ -93,6 +95,34 @@ namespace RX_DataUpdata
                 SimRport.Text = "数据已为您显示完成！";
                 OutExcel.Enabled = true;
             }
+            #endregion
+            #region 图片读取
+            try
+            {
+                this.BoardDataTableAdapter.FillBy(this.rXYF_YECCDataSet.BoardData, "B2S001");
+                DataRow DR;
+                DR= rXYF_YECCDataSet.Tables["BoardData"].Rows[0];
+                if (DR.Table.Rows.Count == 1)
+                {
+                    BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+                    BPAR.FwPictured = Convert.ToString(DR["FwPicture"]);
+                    BPAR.BwPicture = Convert.ToString(DR["BwPicture"]);
+                    BPAR.ReMark = Convert.ToString(DR["ReMark"]);
+                    RpText.Text = BPAR.ReMark;
+                }
+                else
+                {
+                    RpText.Text = "未读取到该试板任何总结性报告！";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            #endregion
 
         }
 
@@ -135,8 +165,33 @@ namespace RX_DataUpdata
 
         private void ShowDialogForImage_Click(object sender, EventArgs e)
         {
+            try
+            {
+                this.BoardDataTableAdapter.FillBy(this.rXYF_YECCDataSet.BoardData, "B2S001");
+                DataRow DR;
+                DR = rXYF_YECCDataSet.Tables["BoardData"].Rows[0];
+                if (DR.Table.Rows.Count == 1)
+                {
+                    BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+                    BPAR.FwPictured = Convert.ToString(DR["FwPicture"]);
+                    BPAR.BwPicture = Convert.ToString(DR["BwPicture"]);
+                    BPAR.ReMark = Convert.ToString(DR["ReMark"]);
+                    RpText.Text = BPAR.ReMark;
+                }
+                else
+                {
+                    RpText.Text = "未读取到该试板任何总结性报告！";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
             DChartShowPointImage DC = new DChartShowPointImage();
             DC.ShowDialog();
+
         }
     }
 }

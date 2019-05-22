@@ -49,6 +49,8 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.experienceViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BS = new System.Windows.Forms.BindingSource(this.components);
+            this.rXYF_YECCDataSet = new RX_DataUpdata.RXYF_YECCDataSet();
             this.SerchData = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SportNum = new System.Windows.Forms.TextBox();
@@ -70,20 +72,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SeachTypeB = new System.Windows.Forms.TabPage();
             this.SimRport = new System.Windows.Forms.GroupBox();
+            this.RpText = new System.Windows.Forms.TextBox();
             this.ShowDialogForImage = new System.Windows.Forms.Button();
-            this.BS = new System.Windows.Forms.BindingSource(this.components);
-            this.rXYF_YECCDataSet = new RX_DataUpdata.RXYF_YECCDataSet();
             this.experienceViewTableAdapter = new RX_DataUpdata.RXYF_YECCDataSetTableAdapters.ExperienceViewTableAdapter();
+            this.BoardDataTableAdapter = new RX_DataUpdata.RXYF_YECCDataSetTableAdapters.BoardDataTableAdapter();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.experienceViewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rXYF_YECCDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SeachTabControl.SuspendLayout();
             this.SeachTypeA.SuspendLayout();
             this.SeachTypeB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rXYF_YECCDataSet)).BeginInit();
+            this.SimRport.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -213,6 +216,16 @@
             // 
             this.experienceViewBindingSource.DataMember = "ExperienceView";
             this.experienceViewBindingSource.DataSource = this.BS;
+            // 
+            // BS
+            // 
+            this.BS.DataSource = this.rXYF_YECCDataSet;
+            this.BS.Position = 0;
+            // 
+            // rXYF_YECCDataSet
+            // 
+            this.rXYF_YECCDataSet.DataSetName = "RXYF_YECCDataSet";
+            this.rXYF_YECCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // SerchData
             // 
@@ -449,12 +462,22 @@
             // 
             // SimRport
             // 
+            this.SimRport.Controls.Add(this.RpText);
             this.SimRport.Location = new System.Drawing.Point(1012, 185);
             this.SimRport.Name = "SimRport";
             this.SimRport.Size = new System.Drawing.Size(369, 233);
             this.SimRport.TabIndex = 10;
             this.SimRport.TabStop = false;
             this.SimRport.Text = "简要报告";
+            // 
+            // RpText
+            // 
+            this.RpText.Location = new System.Drawing.Point(6, 20);
+            this.RpText.Multiline = true;
+            this.RpText.Name = "RpText";
+            this.RpText.ReadOnly = true;
+            this.RpText.Size = new System.Drawing.Size(357, 207);
+            this.RpText.TabIndex = 0;
             // 
             // ShowDialogForImage
             // 
@@ -466,19 +489,13 @@
             this.ShowDialogForImage.UseVisualStyleBackColor = true;
             this.ShowDialogForImage.Click += new System.EventHandler(this.ShowDialogForImage_Click);
             // 
-            // BS
-            // 
-            this.BS.DataSource = this.rXYF_YECCDataSet;
-            this.BS.Position = 0;
-            // 
-            // rXYF_YECCDataSet
-            // 
-            this.rXYF_YECCDataSet.DataSetName = "RXYF_YECCDataSet";
-            this.rXYF_YECCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // experienceViewTableAdapter
             // 
             this.experienceViewTableAdapter.ClearBeforeFill = true;
+            // 
+            // BoardDataTableAdapter
+            // 
+            this.BoardDataTableAdapter.ClearBeforeFill = true;
             // 
             // DChart
             // 
@@ -507,14 +524,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.experienceViewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rXYF_YECCDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.SeachTabControl.ResumeLayout(false);
             this.SeachTypeA.ResumeLayout(false);
             this.SeachTypeA.PerformLayout();
             this.SeachTypeB.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rXYF_YECCDataSet)).EndInit();
+            this.SimRport.ResumeLayout(false);
+            this.SimRport.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,5 +576,7 @@
         private System.Windows.Forms.Button OutExcel;
         private System.Windows.Forms.GroupBox SimRport;
         private System.Windows.Forms.Button ShowDialogForImage;
+        private RXYF_YECCDataSetTableAdapters.BoardDataTableAdapter BoardDataTableAdapter;
+        private System.Windows.Forms.TextBox RpText;
     }
 }
