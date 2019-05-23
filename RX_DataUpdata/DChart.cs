@@ -11,13 +11,14 @@ namespace RX_DataUpdata
 {
     public partial class DChart : Form
     {
-        string Bid=string.Empty, Pid = string.Empty;
+        string Bid = string.Empty, Pid = string.Empty;
+        DataTable DT=null;
         public DChart()
         {
             InitializeComponent();
             Bam.Text = Bam.Items[0].ToString();
             //Bam.Enabled = false;
-           //Bbm.Enabled = false;
+            //Bbm.Enabled = false;
             Bbm.Text = Bbm.Items[1].ToString();
             //Bcm.Text = Bcm.Items[0].ToString();
             Bat.Text = Bat.Items[0].ToString();
@@ -46,7 +47,7 @@ namespace RX_DataUpdata
             }
             else if (SeachTabControl.SelectedTab.Name == "SeachTypeA")
             {
-                if (Bcm.Text!=string.Empty && Bct.Text != string.Empty)
+                if (Bcm.Text != string.Empty && Bct.Text != string.Empty)
                 {
                     this.experienceViewTableAdapter.FillByType(this.rXYF_YECCDataSet.ExperienceView, Convert.ToDouble(Bat.Text), Convert.ToDouble(Bbt.Text), Bcm.Text, Convert.ToDouble(Bct.Text));
                 }
@@ -58,6 +59,7 @@ namespace RX_DataUpdata
             }
             rXYF_YECCDataSet.Tables["experienceView"].DefaultView.Sort = "PID";
             dataGridView1.DataSource = rXYF_YECCDataSet.Tables["experienceView"].DefaultView;
+            DT=rXYF_YECCDataSet.Tables["experienceView"].DefaultView.ToTable();
             str = new string[dataGridView1.Rows.Count];
             str1 = new float[dataGridView1.Rows.Count];
             str2 = new float[dataGridView1.Rows.Count];
@@ -85,7 +87,7 @@ namespace RX_DataUpdata
             chart1.Series[5].Points.DataBindXY(str, str6);
             chart1.Series[6].Points.DataBindXY(str, str7);
 
-            if (dataGridView1.Rows.Count==0)
+            if (dataGridView1.Rows.Count == 0)
             {
                 SimRport.Text = "您查询的实验数据不存在！请等待或联系管理员上传！";
                 OutExcel.Enabled = false;
@@ -99,15 +101,10 @@ namespace RX_DataUpdata
             #region 图片读取
             try
             {
-                this.BoardDataTableAdapter.FillBy(this.rXYF_YECCDataSet.BoardData, "B2S001");
-                DataRow DR;
-                DR= rXYF_YECCDataSet.Tables["BoardData"].Rows[0];
-                if (DR.Table.Rows.Count == 1)
+                BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+                BPAR = ReadBoardPicture(DT.Rows[DT.Rows.Count - 1][1].ToString());
+                if (BPAR!=null)
                 {
-                    BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
-                    BPAR.FwPictured = Convert.ToString(DR["FwPicture"]);
-                    BPAR.BwPicture = Convert.ToString(DR["BwPicture"]);
-                    BPAR.ReMark = Convert.ToString(DR["ReMark"]);
                     RpText.Text = BPAR.ReMark;
                 }
                 else
@@ -118,7 +115,7 @@ namespace RX_DataUpdata
             catch (Exception)
             {
 
-                throw;
+                RpText.Text = "未读取到该试板任何总结性报告！";
             }
 
 
@@ -143,7 +140,7 @@ namespace RX_DataUpdata
                 MessageBox.Show("当前输入无任何数据，无需导出XLS");
                 return;
             }
-                if (SeachTabControl.SelectedTab.Name == "SeachTypeA")
+            if (SeachTabControl.SelectedTab.Name == "SeachTypeA")
             {
                 if (Bcm.Text != string.Empty && Bct.Text != string.Empty)
                 {
@@ -153,14 +150,14 @@ namespace RX_DataUpdata
                 {
                     var RE = RxDataOprator.ExcelOprator.SaveExcelForLvSport(dataGridView1, "板件6061厚_" + Bat.Text + "_板件5052厚_" + Bbt.Text + "_组合参数");
                 }
-               
+
             }
             else if (SeachTabControl.SelectedTab.Name == "SeachTypeB")
             {
                 var RE = RxDataOprator.ExcelOprator.SaveExcelForLvSport(dataGridView1, SportNum.Text);
             }
 
-                
+
         }
 
         private void ShowDialogForImage_Click(object sender, EventArgs e)
@@ -189,9 +186,42 @@ namespace RX_DataUpdata
                 throw;
             }
 
-            DChartShowPointImage DC = new DChartShowPointImage(Bat.Text,Bbt.Text,Bct.Text,Bcm.Text, SeachTabControl.SelectedTab.Name);
-            DC.Show() ;
+            DChartShowPointImage DC = new DChartShowPointImage(Bat.Text, Bbt.Text, Bct.Text, Bcm.Text, SeachTabControl.SelectedTab.Name);
+            DC.Show();
 
         }
+        #region 读取试板图片，每次仅返回一个试板正反照
+        /// <summary>
+        /// 读取试板图片，每次仅返回一个试板正反照
+        /// </summary>
+        /// <param name="BID">需要读取试板的BID</param>
+        /// <returns>NULL为读取失败</returns>
+        public BoardPictureAndRemark ReadBoardPicture(string BID)
+        {
+            try
+            {
+                this.BoardDataTableAdapter.FillBy(this.rXYF_YECCDataSet.BoardData, BID);
+                DataRow DR;
+                DR =rXYF_YECCDataSet.Tables["BoardData"].Rows[0];
+                if (DR.Table.Rows.Count == 1)
+                {
+                    BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+                    BPAR.FwPictured = Convert.ToString(DR["FwPicture"]);
+                    BPAR.BwPicture = Convert.ToString(DR["BwPicture"]);
+                    BPAR.ReMark = Convert.ToString(DR["ReMark"]);
+                    return BPAR;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+        #endregion
     }
 }

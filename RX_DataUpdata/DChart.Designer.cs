@@ -475,7 +475,6 @@
             this.RpText.Location = new System.Drawing.Point(6, 20);
             this.RpText.Multiline = true;
             this.RpText.Name = "RpText";
-            this.RpText.ReadOnly = true;
             this.RpText.Size = new System.Drawing.Size(357, 207);
             this.RpText.TabIndex = 0;
             // 
