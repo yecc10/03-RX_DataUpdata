@@ -19,12 +19,15 @@ namespace RX_DataUpdata
         BoardPictureAndRemark BARB = new BoardPictureAndRemark();
         BoardPictureAndRemark SARA = new BoardPictureAndRemark();
         BoardPictureAndRemark SARB = new BoardPictureAndRemark();
+        string SModelA = string.Empty;
+        string SModelB = string.Empty;
         int BoardLocationA = 1, BoardLocationB = 1, TotalBoardNum = 0;
 
-        int SpointLocationA = 1, SpointLocationB = 1, TotalSpointNumA = 0, TotalSpointNumB = 0;
+        int SpointLocationA = 0, SpointLocationB = 0, TotalSpointNumA = 0, TotalSpointNumB = 0;
 
         private void NextBoard_Click(object sender, EventArgs e)
         {
+            SModelA = "Board";
             LastBoard.Enabled = true;
             BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
             BoardLocationA += 1;
@@ -51,38 +54,42 @@ namespace RX_DataUpdata
 
         private void LastSpointB_Click(object sender, EventArgs e)
         {
+            SModelB = "Sport";
             NextSpointPictureB.Enabled = true;
+            SpointLocationB -= 1;
+            SportStatusB.Text = SpointLocationB + "/" + TotalSpointNumB;
             if (ReadPointPicture(BoardNameB.Text, "B"))
             {
-                SpointLocationB -= 1;
                 if (SpointLocationB <= 1)
                 {
                     LastSpointB.Enabled = false;
                 }
                 PictureBoxB.ImageLocation = SARB.FwPictured;
                 PictureBoxB.Update();
-                SportStatusB.Text = SpointLocationA + "/" + TotalSpointNumB;
+ 
             }
         }
 
         private void NextSpointPictureB_Click(object sender, EventArgs e)
         {
+            SModelB = "Sport";
             LastSpointB.Enabled = true;
+            SpointLocationB += 1;
+            SportStatusB.Text = SpointLocationB + "/" + TotalSpointNumB;
             if (ReadPointPicture(BoardNameB.Text, "B"))
             {
-                SpointLocationB += 1;
                 if (SpointLocationB == TotalSpointNumB)
                 {
                     NextSpointPictureB.Enabled = false;
                 }
                 PictureBoxB.ImageLocation = SARB.FwPictured;
                 PictureBoxB.Update();
-                SportStatusB.Text = SpointLocationA + "/" + TotalSpointNumB;
             }
         }
 
         private void LastBoardB_Click(object sender, EventArgs e)
         {
+            SModelB = "Board";
             NextBoardB.Enabled = true;
             BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
             BoardLocationB -= 1;
@@ -109,6 +116,7 @@ namespace RX_DataUpdata
 
         private void NextBoardB_Click(object sender, EventArgs e)
         {
+            SModelB = "Board";
             LastBoardB.Enabled = true;
             BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
             BoardLocationB += 1;
@@ -135,62 +143,118 @@ namespace RX_DataUpdata
 
         private void FWPictureA_Click(object sender, EventArgs e)
         {
-            PictureBoxA.ImageLocation = BARA.FwPictured;
-            PictureBoxA.Update();
+            switch (SModelA)
+            {
+                case "Board":
+                    {
+                        PictureBoxA.ImageLocation = BARA.FwPictured;
+                        PictureBoxA.Update();
+                        break;
+                    }
+                case "Sport":
+                    {
+                        PictureBoxA.ImageLocation = SARA.FwPictured;
+                        PictureBoxA.Update();
+                        break;
+                    }     
+            }
         }
 
         private void BWPictureA_Click(object sender, EventArgs e)
         {
-            PictureBoxA.ImageLocation = BARA.BwPicture;
-            PictureBoxA.Update();
+            switch (SModelA)
+            {
+                case "Board":
+                    {
+                        PictureBoxA.ImageLocation = BARA.BwPicture;
+                        PictureBoxA.Update();
+                        break;
+                    }
+                case "Sport":
+                    {
+                        PictureBoxA.ImageLocation = SARA.BwPicture;
+                        PictureBoxA.Update();
+                        break;
+                    }
+            }
+
         }
 
         private void FWPictureB_Click(object sender, EventArgs e)
         {
-            PictureBoxB.ImageLocation = BARB.FwPictured;
-            PictureBoxB.Update();
+            switch (SModelA)
+            {
+                case "Board":
+                    {
+                        PictureBoxB.ImageLocation = BARB.FwPictured;
+                        PictureBoxB.Update();
+                        break;
+                    }
+                case "Sport":
+                    {
+                        PictureBoxB.ImageLocation = SARB.FwPictured;
+                        PictureBoxB.Update();
+                        break;
+                    }
+            }
         }
 
         private void BWPictureB_Click(object sender, EventArgs e)
         {
-            PictureBoxB.ImageLocation = BARB.BwPicture;
-            PictureBoxB.Update();
+            switch (SModelA)
+            {
+                case "Board":
+                    {
+                        PictureBoxB.ImageLocation = BARB.BwPicture;
+                        PictureBoxB.Update();
+                        break;
+                    }
+                case "Sport":
+                    {
+                        PictureBoxB.ImageLocation = SARB.BwPicture;
+                        PictureBoxB.Update();
+                        break;
+                    }
+            }
         }
 
         private void NextSpointPictureA_Click(object sender, EventArgs e)
         {
+            SModelA = "Sport";
             LastSpointA.Enabled = true;
+            SpointLocationA += 1;
+            SportStatusA.Text = SpointLocationA + "/" + TotalSpointNumA;
             if (ReadPointPicture(BoardNameA.Text, "A"))
             {
-                SpointLocationA += 1;
                 if (SpointLocationA == TotalSpointNumA)
                 {
                     NextSpointPictureA.Enabled = false;
                 }
                 PictureBoxA.ImageLocation = SARA.FwPictured;
                 PictureBoxA.Update();
-                SportStatusA.Text = SpointLocationA + "/" + TotalSpointNumA;
             }
         }
 
         private void LastSpointA_Click(object sender, EventArgs e)
         {
+            SModelA = "Sport";
             NextSpointPictureA.Enabled = true;
+            SpointLocationA -= 1;
+            SportStatusA.Text = SpointLocationA + "/" + TotalSpointNumA;
             if (ReadPointPicture(BoardNameA.Text, "A"))
             {
-                SpointLocationA -= 1;
                 if (SpointLocationA <=1)
                 {
                     LastSpointA.Enabled = false;
                 }
                 PictureBoxA.ImageLocation = SARA.FwPictured;
                 PictureBoxA.Update();
-                SportStatusA.Text = SpointLocationA + "/" + TotalSpointNumA;
             }
         }
 
         private void LastBoard_Click(object sender, EventArgs e)
         {
+            SModelA = "Board";
             LastBoard.Enabled = true;
             BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
             BoardLocationA -= 1;
@@ -351,7 +415,7 @@ namespace RX_DataUpdata
                     }
                 case "B":
                     {
-                        PID = PPLA.Rows[SpointLocationB - 1][2].ToString();
+                        PID = PPLA.Rows[SpointLocationB-1][2].ToString();
                         SpointNameB.Text = PID;
                         break;
                     }
@@ -372,13 +436,13 @@ namespace RX_DataUpdata
                         case "A":
                             {
                                 SARA = BPAR;
-                                SportStatusA.Text = "/" + TotalSpointNumA;
+                                SportStatusA.Text = SpointLocationA+ "/" + TotalSpointNumA;
                                 return true;
                             }
                         case "B":
                             {
                                 SARB = BPAR;
-                                SportStatusB.Text = "/" + TotalSpointNumB;
+                                SportStatusB.Text = SpointLocationB+ "/" + TotalSpointNumB;
                                 return true;
                             }
                     }
