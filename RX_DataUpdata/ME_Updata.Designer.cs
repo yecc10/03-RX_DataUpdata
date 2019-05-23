@@ -92,6 +92,7 @@
             this.UBWprogressBar = new System.Windows.Forms.ProgressBar();
             this.DELETEUpdataFwPicture = new System.Windows.Forms.Button();
             this.DELETEUpdataBwPicture = new System.Windows.Forms.Button();
+            this.UploadBoard = new System.Windows.Forms.Button();
             this.DA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -102,9 +103,9 @@
             // UpdataData
             // 
             this.UpdataData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.UpdataData.Location = new System.Drawing.Point(403, 586);
+            this.UpdataData.Location = new System.Drawing.Point(381, 585);
             this.UpdataData.Name = "UpdataData";
-            this.UpdataData.Size = new System.Drawing.Size(75, 56);
+            this.UpdataData.Size = new System.Drawing.Size(91, 61);
             this.UpdataData.TabIndex = 0;
             this.UpdataData.Text = "执行更新";
             this.UpdataData.UseVisualStyleBackColor = false;
@@ -698,12 +699,24 @@
             this.DELETEUpdataBwPicture.UseVisualStyleBackColor = true;
             this.DELETEUpdataBwPicture.Click += new System.EventHandler(this.DELETEUpdataBwPicture_Click);
             // 
+            // UploadBoard
+            // 
+            this.UploadBoard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.UploadBoard.Location = new System.Drawing.Point(264, 585);
+            this.UploadBoard.Name = "UploadBoard";
+            this.UploadBoard.Size = new System.Drawing.Size(91, 61);
+            this.UploadBoard.TabIndex = 28;
+            this.UploadBoard.Text = "上传试板数据";
+            this.UploadBoard.UseVisualStyleBackColor = false;
+            this.UploadBoard.Click += new System.EventHandler(this.UploadBoard_Click);
+            // 
             // ME_Updata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(939, 656);
+            this.Controls.Add(this.UploadBoard);
             this.Controls.Add(this.UBWprogressBar);
             this.Controls.Add(this.UFWprogressBar);
             this.Controls.Add(this.DELETEUpdataBwPicture);
@@ -801,6 +814,7 @@
         private System.Windows.Forms.ProgressBar UBWprogressBar;
         private System.Windows.Forms.Button DELETEUpdataFwPicture;
         private System.Windows.Forms.Button DELETEUpdataBwPicture;
+        private System.Windows.Forms.Button UploadBoard;
     }
 }
 
