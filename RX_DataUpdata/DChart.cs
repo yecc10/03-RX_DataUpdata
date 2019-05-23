@@ -162,30 +162,6 @@ namespace RX_DataUpdata
 
         private void ShowDialogForImage_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.BoardDataTableAdapter.FillBy(this.rXYF_YECCDataSet.BoardData, "B2S001");
-                DataRow DR;
-                DR = rXYF_YECCDataSet.Tables["BoardData"].Rows[0];
-                if (DR.Table.Rows.Count == 1)
-                {
-                    BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
-                    BPAR.FwPictured = Convert.ToString(DR["FwPicture"]);
-                    BPAR.BwPicture = Convert.ToString(DR["BwPicture"]);
-                    BPAR.ReMark = Convert.ToString(DR["ReMark"]);
-                    RpText.Text = BPAR.ReMark;
-                }
-                else
-                {
-                    RpText.Text = "未读取到该试板任何总结性报告！";
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
             DChartShowPointImage DC = new DChartShowPointImage(Bat.Text, Bbt.Text, Bct.Text, Bcm.Text, SeachTabControl.SelectedTab.Name);
             DC.Show();
 
