@@ -11,9 +11,6 @@ namespace RX_DataUpdata
    /// </summary>
    public class ReadLvPicture
     {
-        public BoardPictureAndRemark BoardPicture(string BID)
-        {
 
-        }
     }
 }

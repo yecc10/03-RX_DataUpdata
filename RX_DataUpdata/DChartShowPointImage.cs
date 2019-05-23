@@ -12,8 +12,39 @@ namespace RX_DataUpdata
 {
     public partial class DChartShowPointImage : Form
     {
-        DataTable BPL; //BoardPictureList
-        DataTable PPL; //PointPictureLisT
+        DataTable BPL=null; //BoardPictureList
+        DataTable PPL=null; //PointPictureLisT
+        int SpointLocationA=0, SpointLocationB = 0, BoardLocationA = 0, BoardLocationB = 0, TotalSpointNumA = 0, TotalSpointNumB = 0, TotalBoardNum = 0;
+
+        private void NextBoard_Click(object sender, EventArgs e)
+        {
+            LastBoard.Enabled = true;
+        }
+
+        private void LastSpointB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NextSpointPictureB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NextSpointPictureA_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LastSpointA_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LastBoard_Click(object sender, EventArgs e)
+        {
+            LastBoard.Enabled = false;
+        }
 
         /// <summary>
         /// 调用焊点图片显示窗口
@@ -35,6 +66,24 @@ namespace RX_DataUpdata
                 rxyF_YECCDataSet.Tables["BoardData"].DefaultView.Sort = "BID";
                 this.boardDataTableAdapter.FillBy2CS_SerchBoardPictureList(this.rxyF_YECCDataSet.BoardData, Convert.ToDouble(Bat), Convert.ToDouble(Bbt));
                 BPL =this.rxyF_YECCDataSet.Tables["BoardData"].DefaultView.ToTable();
+                TotalBoardNum = BPL.Rows.Count;
+                if (TotalBoardNum>0)
+                {
+                    LastBoard.Enabled = false;
+                    this.Text = "焊点图片对比显示_本组实验共涉及_" + TotalBoardNum+"_个试板！";
+                    BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+                    string Tbid = BPL.Rows[0][1].ToString();
+                    BPAR= ReadBoardPicture(Tbid);
+                    PictureBoxA.ImageLocation = BPAR.FwPictured;
+                    PictureBoxA.Update();
+                    PictureBoxB.ImageLocation = BPAR.BwPicture;
+                    PictureBoxB.Update();
+                    BoardNameA.Text = Tbid;
+                    BoardNameB.Text = Tbid;
+                    StatusA.Text= "1/" + TotalBoardNum;
+                    StatusB.Text = "1/" + TotalBoardNum;
+
+                }
             }
         }
         #region 读取试板图片，每次仅返回一个试板正反照
