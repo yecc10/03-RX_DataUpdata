@@ -14,11 +14,30 @@ namespace RX_DataUpdata
     {
         DataTable BPL=null; //BoardPictureList
         DataTable PPL=null; //PointPictureLisT
-        int SpointLocationA=0, SpointLocationB = 0, BoardLocationA = 0, BoardLocationB = 0, TotalSpointNumA = 0, TotalSpointNumB = 0, TotalBoardNum = 0;
+        int SpointLocationA=1, SpointLocationB = 1, BoardLocationA = 1, BoardLocationB = 1, TotalSpointNumA = 0, TotalSpointNumB = 0, TotalBoardNum = 0;
 
         private void NextBoard_Click(object sender, EventArgs e)
         {
             LastBoard.Enabled = true;
+            BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+            BoardLocationA += 1;
+            if (BoardLocationA== TotalBoardNum)
+            {
+                NextBoard.Enabled = false;
+            }
+            string Tbid = BPL.Rows[BoardLocationA-1][1].ToString();
+            BPAR = ReadBoardPicture(Tbid);
+            if (BPAR!=null)
+            {
+                PictureBoxA.ImageLocation = BPAR.FwPictured;
+                PictureBoxA.Update();
+                BoardNameA.Text = Tbid;
+                StatusA.Text = BoardLocationA + "/" + TotalBoardNum;
+            }
+            else
+            {
+                StatusA.Text = "NoBoardPicture";
+            }
         }
 
         private void LastSpointB_Click(object sender, EventArgs e)
@@ -33,12 +52,12 @@ namespace RX_DataUpdata
 
         private void LastBoardB_Click(object sender, EventArgs e)
         {
-
+            LastBoard.Enabled = false;
         }
 
         private void NextBoardB_Click(object sender, EventArgs e)
         {
-
+            LastBoardB.Enabled = true;
         }
 
         private void NextSpointPictureA_Click(object sender, EventArgs e)
@@ -53,7 +72,26 @@ namespace RX_DataUpdata
 
         private void LastBoard_Click(object sender, EventArgs e)
         {
-            LastBoard.Enabled = false;
+            LastBoard.Enabled = true;
+            BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+            BoardLocationA -= 1;
+            if (BoardLocationA <=1)
+            {
+                LastBoard.Enabled = false;
+            }
+            string Tbid = BPL.Rows[BoardLocationA - 1][1].ToString();
+            BPAR = ReadBoardPicture(Tbid);
+            if (BPAR != null)
+            {
+                PictureBoxA.ImageLocation = BPAR.FwPictured;
+                PictureBoxA.Update();
+                BoardNameA.Text = Tbid;
+                StatusA.Text = BoardLocationA + "/" + TotalBoardNum;
+            }
+            else
+            {
+                StatusA.Text = "NoBoardPicture";
+            }
         }
 
         /// <summary>
@@ -92,7 +130,6 @@ namespace RX_DataUpdata
                     BoardNameB.Text = Tbid;
                     StatusA.Text= "1/" + TotalBoardNum;
                     StatusB.Text = "1/" + TotalBoardNum;
-
                 }
             }
         }
