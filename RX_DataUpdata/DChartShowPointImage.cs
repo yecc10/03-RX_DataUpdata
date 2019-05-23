@@ -13,8 +13,15 @@ namespace RX_DataUpdata
     public partial class DChartShowPointImage : Form
     {
         DataTable BPL=null; //BoardPictureList
-        DataTable PPL=null; //PointPictureLisT
-        int SpointLocationA=1, SpointLocationB = 1, BoardLocationA = 1, BoardLocationB = 1, TotalSpointNumA = 0, TotalSpointNumB = 0, TotalBoardNum = 0;
+        DataTable PPLA=null; //PointPictureLisTA
+        DataTable PPLB = null; //PointPictureLisTB
+        BoardPictureAndRemark BARA = new BoardPictureAndRemark();
+        BoardPictureAndRemark BARB = new BoardPictureAndRemark();
+        BoardPictureAndRemark SARA = new BoardPictureAndRemark();
+        BoardPictureAndRemark SARB = new BoardPictureAndRemark();
+        int BoardLocationA = 1, BoardLocationB = 1, TotalBoardNum = 0;
+
+        int SpointLocationA = 1, SpointLocationB = 1, TotalSpointNumA = 0, TotalSpointNumB = 0;
 
         private void NextBoard_Click(object sender, EventArgs e)
         {
@@ -29,9 +36,11 @@ namespace RX_DataUpdata
             BPAR = ReadBoardPicture(Tbid);
             if (BPAR!=null)
             {
+                BARA = BPAR;
                 PictureBoxA.ImageLocation = BPAR.FwPictured;
                 PictureBoxA.Update();
                 BoardNameA.Text = Tbid;
+                ReadPointList(Tbid, "A");
                 StatusA.Text = BoardLocationA + "/" + TotalBoardNum;
             }
             else
@@ -63,9 +72,11 @@ namespace RX_DataUpdata
             BPAR = ReadBoardPicture(Tbid);
             if (BPAR != null)
             {
+                BARB = BPAR;
                 PictureBoxB.ImageLocation = BPAR.FwPictured;
                 PictureBoxB.Update();
                 BoardNameB.Text = Tbid;
+                ReadPointList(Tbid, "B");
                 StatusB.Text = BoardLocationB + "/" + TotalBoardNum;
             }
             else
@@ -87,9 +98,11 @@ namespace RX_DataUpdata
             BPAR = ReadBoardPicture(Tbid);
             if (BPAR != null)
             {
+                BARB = BPAR;
                 PictureBoxB.ImageLocation = BPAR.FwPictured;
                 PictureBoxB.Update();
                 BoardNameB.Text = Tbid;
+                ReadPointList(Tbid, "B");
                 StatusB.Text = BoardLocationB + "/" + TotalBoardNum;
             }
             else
@@ -100,22 +113,26 @@ namespace RX_DataUpdata
 
         private void FWPictureA_Click(object sender, EventArgs e)
         {
-
+            PictureBoxA.ImageLocation = BARA.FwPictured;
+            PictureBoxA.Update();
         }
 
         private void BWPictureA_Click(object sender, EventArgs e)
         {
-
+            PictureBoxA.ImageLocation = BARA.BwPicture;
+            PictureBoxA.Update();
         }
 
         private void FWPictureB_Click(object sender, EventArgs e)
         {
-
+            PictureBoxB.ImageLocation = BARB.FwPictured;
+            PictureBoxB.Update();
         }
 
         private void BWPictureB_Click(object sender, EventArgs e)
         {
-
+            PictureBoxB.ImageLocation = BARB.BwPicture;
+            PictureBoxB.Update();
         }
 
         private void NextSpointPictureA_Click(object sender, EventArgs e)
@@ -141,9 +158,11 @@ namespace RX_DataUpdata
             BPAR = ReadBoardPicture(Tbid);
             if (BPAR != null)
             {
+                BARA = BPAR;
                 PictureBoxA.ImageLocation = BPAR.FwPictured;
                 PictureBoxA.Update();
                 BoardNameA.Text = Tbid;
+                ReadPointList(Tbid, "A");
                 StatusA.Text = BoardLocationA + "/" + TotalBoardNum;
             }
             else
@@ -177,16 +196,22 @@ namespace RX_DataUpdata
                 {
                     LastBoard.Enabled = false;
                     LastBoardB.Enabled = false;
+                    LastSpointA.Enabled = false;
+                    LastSpointB.Enabled = false;
                     this.Text = "焊点图片对比显示_本组实验共涉及_" + TotalBoardNum+"_个试板！";
                     BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
                     string Tbid = BPL.Rows[0][1].ToString();
                     BPAR= ReadBoardPicture(Tbid);
+                    BARA = BPAR;
+                    BARB = BPAR;
                     PictureBoxA.ImageLocation = BPAR.FwPictured;
                     PictureBoxA.Update();
                     PictureBoxB.ImageLocation = BPAR.BwPicture;
                     PictureBoxB.Update();
                     BoardNameA.Text = Tbid;
                     BoardNameB.Text = Tbid;
+                    ReadPointList(Tbid, "A");
+                    ReadPointList(Tbid, "B");
                     StatusA.Text= "1/" + TotalBoardNum;
                     StatusB.Text = "1/" + TotalBoardNum;
                 }
@@ -224,6 +249,45 @@ namespace RX_DataUpdata
                 return null;
             }
         }
+        #endregion
+        #region 读取指定试板焊点总数以及焊点名数组
+        /// <summary>
+        ///读取指定试板焊点总数以及焊点名数组,赋值到全局变量无返回值
+        /// </summary>
+        /// <param name="BID">指定需要读取的试板BID</param>
+        /// <param name="Type">输出到A图表位置/B位置</param>
+        /// <returns></returns>
+        public void ReadPointList(string BID,string Type)
+        {
+            try
+            {
+                rxyF_YECCDataSet.Tables["ExperienceView"].DefaultView.Sort = "PID";
+                this.experienceViewTableAdapter.FillByPID(this.rxyF_YECCDataSet.ExperienceView, BID);
+                switch (Type)
+                {
+                    case "A":
+                        {
+                            PPLA = this.rxyF_YECCDataSet.Tables["ExperienceView"].DefaultView.ToTable();
+                            TotalSpointNumA = PPLA.Rows.Count;
+                            SportStatusA.Text = "0/" + TotalSpointNumA;
+                            break;
+                        }
+                    case "B":
+                        {
+                            PPLB = this.rxyF_YECCDataSet.Tables["ExperienceView"].DefaultView.ToTable();
+                            TotalSpointNumB = PPLB.Rows.Count;
+                            SportStatusB.Text = "0/" + TotalSpointNumB;
+                            break;
+                        }
+                }
+                
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         #endregion
         #region  读取焊点图片，每次仅返回一个焊点正反照
         /// <summary>
