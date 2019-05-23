@@ -27,6 +27,7 @@ namespace RX_DataUpdata
             UpdataData.Enabled = false; //默认更新按钮不可点击
             UpdataFwPicture.Enabled = false;
             UpdataBwPicture.Enabled = false;
+            UploadBoard.Enabled = false;
         }
         /// <summary>
         /// 修改板号时对应的焊点编号重置为1
@@ -120,7 +121,16 @@ namespace RX_DataUpdata
 
         private void EndPoint_CheckedChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("该焊点为该组实验最终焊接参数！");
+            if (EndPoint.Checked)
+            {
+                MessageBox.Show("该焊点为该组实验最终焊接参数！");
+                UploadBoard.Enabled = true;
+            }
+            else
+            {
+                UploadBoard.Enabled = false;
+            }
+
         }
 
         private void ZaoJian_CheckedChanged(object sender, EventArgs e)
