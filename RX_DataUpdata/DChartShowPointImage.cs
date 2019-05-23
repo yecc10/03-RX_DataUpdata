@@ -12,8 +12,8 @@ namespace RX_DataUpdata
 {
     public partial class DChartShowPointImage : Form
     {
-        DataTable BPL=null; //BoardPictureList
-        DataTable PPLA=null; //PointPictureLisTA
+        DataTable BPL = null; //BoardPictureList
+        DataTable PPLA = null; //PointPictureLisTA
         DataTable PPLB = null; //PointPictureLisTB
         BoardPictureAndRemark BARA = new BoardPictureAndRemark();
         BoardPictureAndRemark BARB = new BoardPictureAndRemark();
@@ -28,13 +28,13 @@ namespace RX_DataUpdata
             LastBoard.Enabled = true;
             BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
             BoardLocationA += 1;
-            if (BoardLocationA== TotalBoardNum)
+            if (BoardLocationA == TotalBoardNum)
             {
                 NextBoard.Enabled = false;
             }
-            string Tbid = BPL.Rows[BoardLocationA-1][1].ToString();
+            string Tbid = BPL.Rows[BoardLocationA - 1][1].ToString();
             BPAR = ReadBoardPicture(Tbid);
-            if (BPAR!=null)
+            if (BPAR != null)
             {
                 BARA = BPAR;
                 PictureBoxA.ImageLocation = BPAR.FwPictured;
@@ -51,12 +51,34 @@ namespace RX_DataUpdata
 
         private void LastSpointB_Click(object sender, EventArgs e)
         {
-
+            NextSpointPictureB.Enabled = true;
+            if (ReadPointPicture(BoardNameB.Text, "B"))
+            {
+                SpointLocationB -= 1;
+                if (SpointLocationB <= 1)
+                {
+                    LastSpointB.Enabled = false;
+                }
+                PictureBoxB.ImageLocation = SARB.FwPictured;
+                PictureBoxB.Update();
+                SportStatusB.Text = SpointLocationA + "/" + TotalSpointNumB;
+            }
         }
 
         private void NextSpointPictureB_Click(object sender, EventArgs e)
         {
-
+            LastSpointB.Enabled = true;
+            if (ReadPointPicture(BoardNameB.Text, "B"))
+            {
+                SpointLocationB += 1;
+                if (SpointLocationB == TotalSpointNumB)
+                {
+                    NextSpointPictureB.Enabled = false;
+                }
+                PictureBoxB.ImageLocation = SARB.FwPictured;
+                PictureBoxB.Update();
+                SportStatusB.Text = SpointLocationA + "/" + TotalSpointNumB;
+            }
         }
 
         private void LastBoardB_Click(object sender, EventArgs e)
@@ -64,7 +86,7 @@ namespace RX_DataUpdata
             NextBoardB.Enabled = true;
             BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
             BoardLocationB -= 1;
-            if (BoardLocationB <=1)
+            if (BoardLocationB <= 1)
             {
                 LastBoardB.Enabled = false;
             }
@@ -137,12 +159,34 @@ namespace RX_DataUpdata
 
         private void NextSpointPictureA_Click(object sender, EventArgs e)
         {
-
+            LastSpointA.Enabled = true;
+            if (ReadPointPicture(BoardNameA.Text, "A"))
+            {
+                SpointLocationA += 1;
+                if (SpointLocationA == TotalSpointNumA)
+                {
+                    NextSpointPictureA.Enabled = false;
+                }
+                PictureBoxA.ImageLocation = SARA.FwPictured;
+                PictureBoxA.Update();
+                SportStatusA.Text = SpointLocationA + "/" + TotalSpointNumA;
+            }
         }
 
         private void LastSpointA_Click(object sender, EventArgs e)
         {
-
+            NextSpointPictureA.Enabled = true;
+            if (ReadPointPicture(BoardNameA.Text, "A"))
+            {
+                SpointLocationA -= 1;
+                if (SpointLocationA <=1)
+                {
+                    LastSpointA.Enabled = false;
+                }
+                PictureBoxA.ImageLocation = SARA.FwPictured;
+                PictureBoxA.Update();
+                SportStatusA.Text = SpointLocationA + "/" + TotalSpointNumA;
+            }
         }
 
         private void LastBoard_Click(object sender, EventArgs e)
@@ -150,7 +194,7 @@ namespace RX_DataUpdata
             LastBoard.Enabled = true;
             BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
             BoardLocationA -= 1;
-            if (BoardLocationA <=1)
+            if (BoardLocationA <= 1)
             {
                 LastBoard.Enabled = false;
             }
@@ -179,10 +223,10 @@ namespace RX_DataUpdata
         /// <param name="Bct">第三层板厚</param>
         /// <param name="Bcm">第三层材料</param>
         /// /// <param name="SerchModel">查询模式-默认料厚查询-此次暂不写入程序</param>
-        public DChartShowPointImage(string Bat,string Bbt,string Bct,string Bcm,string SerchModel)
+        public DChartShowPointImage(string Bat, string Bbt, string Bct, string Bcm, string SerchModel)
         {
             InitializeComponent();
-            if (Bcm!= string.Empty && Bct!= string.Empty)
+            if (Bcm != string.Empty && Bct != string.Empty)
             {
                 //var RE = RxDataOprator.ExcelOprator.SaveExcelForLvSport(dataGridView1, "板件6061厚_" + Bat.Text + "_板件5052厚_" + Bbt.Text + "_板件_" + Bcm.Text + "_厚_" + Bct.Text + "_组合参数");
             }
@@ -190,18 +234,18 @@ namespace RX_DataUpdata
             {
                 rxyF_YECCDataSet.Tables["BoardData"].DefaultView.Sort = "BID";
                 this.boardDataTableAdapter.FillBy2CS_SerchBoardPictureList(this.rxyF_YECCDataSet.BoardData, Convert.ToDouble(Bat), Convert.ToDouble(Bbt));
-                BPL =this.rxyF_YECCDataSet.Tables["BoardData"].DefaultView.ToTable();
+                BPL = this.rxyF_YECCDataSet.Tables["BoardData"].DefaultView.ToTable();
                 TotalBoardNum = BPL.Rows.Count;
-                if (TotalBoardNum>0)
+                if (TotalBoardNum > 0)
                 {
                     LastBoard.Enabled = false;
                     LastBoardB.Enabled = false;
                     LastSpointA.Enabled = false;
                     LastSpointB.Enabled = false;
-                    this.Text = "焊点图片对比显示_本组实验共涉及_" + TotalBoardNum+"_个试板！";
+                    this.Text = "焊点图片对比显示_本组实验共涉及_" + TotalBoardNum + "_个试板！";
                     BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
                     string Tbid = BPL.Rows[0][1].ToString();
-                    BPAR= ReadBoardPicture(Tbid);
+                    BPAR = ReadBoardPicture(Tbid);
                     BARA = BPAR;
                     BARB = BPAR;
                     PictureBoxA.ImageLocation = BPAR.FwPictured;
@@ -212,7 +256,7 @@ namespace RX_DataUpdata
                     BoardNameB.Text = Tbid;
                     ReadPointList(Tbid, "A");
                     ReadPointList(Tbid, "B");
-                    StatusA.Text= "1/" + TotalBoardNum;
+                    StatusA.Text = "1/" + TotalBoardNum;
                     StatusB.Text = "1/" + TotalBoardNum;
                 }
             }
@@ -257,7 +301,7 @@ namespace RX_DataUpdata
         /// <param name="BID">指定需要读取的试板BID</param>
         /// <param name="Type">输出到A图表位置/B位置</param>
         /// <returns></returns>
-        public void ReadPointList(string BID,string Type)
+        public void ReadPointList(string BID, string Type)
         {
             try
             {
@@ -269,18 +313,18 @@ namespace RX_DataUpdata
                         {
                             PPLA = this.rxyF_YECCDataSet.Tables["ExperienceView"].DefaultView.ToTable();
                             TotalSpointNumA = PPLA.Rows.Count;
-                            SportStatusA.Text = "0/" + TotalSpointNumA;
+                            SportStatusA.Text = SpointLocationA + "/" + TotalSpointNumA;
                             break;
                         }
                     case "B":
                         {
                             PPLB = this.rxyF_YECCDataSet.Tables["ExperienceView"].DefaultView.ToTable();
                             TotalSpointNumB = PPLB.Rows.Count;
-                            SportStatusB.Text = "0/" + TotalSpointNumB;
+                            SportStatusB.Text = SpointLocationA + "/" + TotalSpointNumB;
                             break;
                         }
                 }
-                
+
             }
             catch (Exception e)
             {
@@ -295,8 +339,23 @@ namespace RX_DataUpdata
         /// </summary>
         /// <param name="BID">需要读取试板的BID</param>
         /// <returns>NULL为读取失败</returns>
-        public BoardPictureAndRemark ReadPointPicture(string PID)
+        public bool ReadPointPicture(string PID, string Type)
         {
+            switch (Type)
+            {
+                case "A":
+                    {
+                        PID = PPLA.Rows[SpointLocationA-1][2].ToString();
+                        SpointNameA.Text = PID;
+                        break;
+                    }
+                case "B":
+                    {
+                        PID = PPLA.Rows[SpointLocationB - 1][2].ToString();
+                        SpointNameB.Text = PID;
+                        break;
+                    }
+            }
             try
             {
                 this.sportDataTableAdapter.FillBy_SerchPidPicture(this.rxyF_YECCDataSet.SportData, PID);
@@ -308,17 +367,31 @@ namespace RX_DataUpdata
                     BPAR.FwPictured = Convert.ToString(DR["FwPicture"]);
                     BPAR.BwPicture = Convert.ToString(DR["BwPicture"]);
                     BPAR.ReMark = Convert.ToString(DR["BZ备注"]);
-                    return BPAR;
+                    switch (Type)
+                    {
+                        case "A":
+                            {
+                                SARA = BPAR;
+                                SportStatusA.Text = "/" + TotalSpointNumA;
+                                return true;
+                            }
+                        case "B":
+                            {
+                                SARB = BPAR;
+                                SportStatusB.Text = "/" + TotalSpointNumB;
+                                return true;
+                            }
+                    }
+                    return false;
                 }
                 else
                 {
-                    return null;
+                    return false;
                 }
             }
             catch (Exception)
             {
-
-                return null;
+                return false;
             }
         }
         #endregion
