@@ -53,7 +53,7 @@
             this.StatusA = new System.Windows.Forms.Label();
             this.SportStatusA = new System.Windows.Forms.Label();
             this.SportStatusB = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.NextBoardB = new System.Windows.Forms.Button();
             this.LastBoardB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxB)).BeginInit();
@@ -82,7 +82,7 @@
             // 
             // LastSpointB
             // 
-            this.LastSpointB.Location = new System.Drawing.Point(964, 540);
+            this.LastSpointB.Location = new System.Drawing.Point(1005, 540);
             this.LastSpointB.Name = "LastSpointB";
             this.LastSpointB.Size = new System.Drawing.Size(101, 40);
             this.LastSpointB.TabIndex = 1;
@@ -92,7 +92,7 @@
             // 
             // NextSpointPictureB
             // 
-            this.NextSpointPictureB.Location = new System.Drawing.Point(1102, 540);
+            this.NextSpointPictureB.Location = new System.Drawing.Point(1177, 540);
             this.NextSpointPictureB.Name = "NextSpointPictureB";
             this.NextSpointPictureB.Size = new System.Drawing.Size(101, 40);
             this.NextSpointPictureB.TabIndex = 1;
@@ -152,7 +152,7 @@
             // 
             // LastSpointA
             // 
-            this.LastSpointA.Location = new System.Drawing.Point(243, 542);
+            this.LastSpointA.Location = new System.Drawing.Point(273, 542);
             this.LastSpointA.Name = "LastSpointA";
             this.LastSpointA.Size = new System.Drawing.Size(101, 40);
             this.LastSpointA.TabIndex = 1;
@@ -172,7 +172,7 @@
             // 
             // NextSpointPictureA
             // 
-            this.NextSpointPictureA.Location = new System.Drawing.Point(404, 542);
+            this.NextSpointPictureA.Location = new System.Drawing.Point(421, 540);
             this.NextSpointPictureA.Name = "NextSpointPictureA";
             this.NextSpointPictureA.Size = new System.Drawing.Size(101, 40);
             this.NextSpointPictureA.TabIndex = 1;
@@ -277,15 +277,15 @@
             this.SportStatusB.TabIndex = 2;
             this.SportStatusB.Text = "0/0";
             // 
-            // button1
+            // NextBoardB
             // 
-            this.button1.Location = new System.Drawing.Point(833, 591);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 40);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "下一个试板";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.NextBoard_Click);
+            this.NextBoardB.Location = new System.Drawing.Point(833, 591);
+            this.NextBoardB.Name = "NextBoardB";
+            this.NextBoardB.Size = new System.Drawing.Size(101, 40);
+            this.NextBoardB.TabIndex = 1;
+            this.NextBoardB.Text = "下一个试板";
+            this.NextBoardB.UseVisualStyleBackColor = true;
+            this.NextBoardB.Click += new System.EventHandler(this.NextBoardB_Click);
             // 
             // LastBoardB
             // 
@@ -295,7 +295,7 @@
             this.LastBoardB.TabIndex = 1;
             this.LastBoardB.Text = "上一个试板";
             this.LastBoardB.UseVisualStyleBackColor = true;
-            this.LastBoardB.Click += new System.EventHandler(this.LastBoard_Click);
+            this.LastBoardB.Click += new System.EventHandler(this.LastBoardB_Click);
             // 
             // DChartShowPointImage
             // 
@@ -318,7 +318,7 @@
             this.Controls.Add(this.LastBoardB);
             this.Controls.Add(this.LastBoard);
             this.Controls.Add(this.NextSpointPictureB);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.NextBoardB);
             this.Controls.Add(this.LastSpointA);
             this.Controls.Add(this.NextBoard);
             this.Controls.Add(this.LastSpointB);
@@ -363,7 +363,7 @@
         private System.Windows.Forms.Label StatusA;
         private System.Windows.Forms.Label SportStatusA;
         private System.Windows.Forms.Label SportStatusB;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button NextBoardB;
         private System.Windows.Forms.Button LastBoardB;
     }
 }

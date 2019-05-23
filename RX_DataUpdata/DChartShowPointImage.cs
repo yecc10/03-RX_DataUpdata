@@ -31,6 +31,16 @@ namespace RX_DataUpdata
 
         }
 
+        private void LastBoardB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NextBoardB_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void NextSpointPictureA_Click(object sender, EventArgs e)
         {
 
