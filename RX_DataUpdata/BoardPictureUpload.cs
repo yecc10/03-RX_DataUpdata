@@ -25,6 +25,13 @@ namespace RX_DataUpdata
             else
             {
                 BID = CBID;
+                BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+                BPAR = ReadBoardPicture(BID);
+                ShowFwPicture.ImageLocation = BPAR.FwPictured;
+                ShowBwPicture.ImageLocation = BPAR.BwPicture;
+                Introduction.Text = BPAR.ReMark;
+                ShowFwPicture.Update();
+                ShowBwPicture.Update();
             }
         }
 
@@ -117,7 +124,12 @@ namespace RX_DataUpdata
                 {
                     MessageBox.Show("数据不存在！，已停止上传");
                 }
+                else
+                {
+                    MessageBox.Show("更新发生错误！");
+                }
             }
+
             catch (Exception)
             {
 
@@ -168,5 +180,49 @@ namespace RX_DataUpdata
             UpdataBwPicture.Enabled = true;
             UBWprogressBar.Value = 0;
         }
+
+        private void ReadServerData_Click(object sender, EventArgs e)
+        {
+            BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+            BPAR = ReadBoardPicture(BID);
+            ShowFwPicture.ImageLocation= BPAR.FwPictured;
+            ShowBwPicture.ImageLocation=BPAR.BwPicture;
+            Introduction.Text= BPAR.ReMark;
+            ShowFwPicture.Update();
+            ShowBwPicture.Update();
+        }
+        #region 读取试板图片，每次仅返回一个试板正反照
+        /// <summary>
+        /// 读取试板图片，每次仅返回一个试板正反照
+        /// </summary>
+        /// <param name="BID">需要读取试板的BID</param>
+        /// <returns>NULL为读取失败</returns>
+        public BoardPictureAndRemark ReadBoardPicture(string BID)
+        {
+            try
+            {
+                this.boardDataTableAdapter.FillBy(this.rxyF_YECCDataSet.BoardData, BID);
+                DataRow DR;
+                DR = rxyF_YECCDataSet.Tables["BoardData"].Rows[0];
+                if (DR.Table.Rows.Count == 1)
+                {
+                    BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+                    BPAR.FwPictured = Convert.ToString(DR["FwPicture"]);
+                    BPAR.BwPicture = Convert.ToString(DR["BwPicture"]);
+                    BPAR.ReMark = Convert.ToString(DR["ReMark"]);
+                    return BPAR;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+        #endregion
     }
 }

@@ -43,8 +43,12 @@
             this.DELETEUpdataFwPicture = new System.Windows.Forms.Button();
             this.UBWprogressBar = new System.Windows.Forms.ProgressBar();
             this.UFWprogressBar = new System.Windows.Forms.ProgressBar();
+            this.rxyF_YECCDataSet = new RX_DataUpdata.RXYF_YECCDataSet();
+            this.boardDataTableAdapter = new RX_DataUpdata.RXYF_YECCDataSetTableAdapters.BoardDataTableAdapter();
+            this.ReadServerData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ShowBwPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ShowFwPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // UpdataBwPicture
@@ -176,6 +180,25 @@
             this.UFWprogressBar.Size = new System.Drawing.Size(261, 23);
             this.UFWprogressBar.TabIndex = 32;
             // 
+            // rxyF_YECCDataSet
+            // 
+            this.rxyF_YECCDataSet.DataSetName = "RXYF_YECCDataSet";
+            this.rxyF_YECCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // boardDataTableAdapter
+            // 
+            this.boardDataTableAdapter.ClearBeforeFill = true;
+            // 
+            // ReadServerData
+            // 
+            this.ReadServerData.Location = new System.Drawing.Point(664, 762);
+            this.ReadServerData.Name = "ReadServerData";
+            this.ReadServerData.Size = new System.Drawing.Size(122, 48);
+            this.ReadServerData.TabIndex = 27;
+            this.ReadServerData.Text = "读取服务器数据";
+            this.ReadServerData.UseVisualStyleBackColor = true;
+            this.ReadServerData.Click += new System.EventHandler(this.ReadServerData_Click);
+            // 
             // BoardPictureUpload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -185,6 +208,7 @@
             this.Controls.Add(this.DELETEUpdataFwPicture);
             this.Controls.Add(this.UBWprogressBar);
             this.Controls.Add(this.UFWprogressBar);
+            this.Controls.Add(this.ReadServerData);
             this.Controls.Add(this.CreatData);
             this.Controls.Add(this.UpdataContent);
             this.Controls.Add(this.Introduction);
@@ -196,10 +220,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label16);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1090, 853);
+            this.MinimumSize = new System.Drawing.Size(1090, 853);
             this.Name = "BoardPictureUpload";
             this.Text = "照片上传";
             ((System.ComponentModel.ISupportInitialize)(this.ShowBwPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ShowFwPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +248,8 @@
         private System.Windows.Forms.Button DELETEUpdataFwPicture;
         private System.Windows.Forms.ProgressBar UBWprogressBar;
         private System.Windows.Forms.ProgressBar UFWprogressBar;
+        private RXYF_YECCDataSet rxyF_YECCDataSet;
+        private RXYF_YECCDataSetTableAdapters.BoardDataTableAdapter boardDataTableAdapter;
+        private System.Windows.Forms.Button ReadServerData;
     }
 }
