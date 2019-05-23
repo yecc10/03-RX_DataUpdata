@@ -19,8 +19,8 @@ namespace RX_DataUpdata
         BoardPictureAndRemark BARB = new BoardPictureAndRemark();
         BoardPictureAndRemark SARA = new BoardPictureAndRemark();
         BoardPictureAndRemark SARB = new BoardPictureAndRemark();
-        string SModelA = string.Empty;
-        string SModelB = string.Empty;
+        string SModelA = "Board";
+        string SModelB = "Board";
         int BoardLocationA = 1, BoardLocationB = 1, TotalBoardNum = 0;
 
         int SpointLocationA = 0, SpointLocationB = 0, TotalSpointNumA = 0, TotalSpointNumB = 0;
