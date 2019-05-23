@@ -52,12 +52,70 @@ namespace RX_DataUpdata
 
         private void LastBoardB_Click(object sender, EventArgs e)
         {
-            LastBoard.Enabled = false;
+            NextBoardB.Enabled = true;
+            BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+            BoardLocationB -= 1;
+            if (BoardLocationB <=1)
+            {
+                LastBoardB.Enabled = false;
+            }
+            string Tbid = BPL.Rows[BoardLocationB - 1][1].ToString();
+            BPAR = ReadBoardPicture(Tbid);
+            if (BPAR != null)
+            {
+                PictureBoxB.ImageLocation = BPAR.FwPictured;
+                PictureBoxB.Update();
+                BoardNameB.Text = Tbid;
+                StatusB.Text = BoardLocationB + "/" + TotalBoardNum;
+            }
+            else
+            {
+                StatusB.Text = "NoBoardPicture";
+            }
         }
 
         private void NextBoardB_Click(object sender, EventArgs e)
         {
             LastBoardB.Enabled = true;
+            BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
+            BoardLocationB += 1;
+            if (BoardLocationB == TotalBoardNum)
+            {
+                NextBoardB.Enabled = false;
+            }
+            string Tbid = BPL.Rows[BoardLocationB - 1][1].ToString();
+            BPAR = ReadBoardPicture(Tbid);
+            if (BPAR != null)
+            {
+                PictureBoxB.ImageLocation = BPAR.FwPictured;
+                PictureBoxB.Update();
+                BoardNameB.Text = Tbid;
+                StatusB.Text = BoardLocationB + "/" + TotalBoardNum;
+            }
+            else
+            {
+                StatusB.Text = "NoBoardPicture";
+            }
+        }
+
+        private void FWPictureA_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BWPictureA_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FWPictureB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BWPictureB_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void NextSpointPictureA_Click(object sender, EventArgs e)
@@ -118,6 +176,7 @@ namespace RX_DataUpdata
                 if (TotalBoardNum>0)
                 {
                     LastBoard.Enabled = false;
+                    LastBoardB.Enabled = false;
                     this.Text = "焊点图片对比显示_本组实验共涉及_" + TotalBoardNum+"_个试板！";
                     BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
                     string Tbid = BPL.Rows[0][1].ToString();

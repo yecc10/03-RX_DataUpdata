@@ -55,6 +55,10 @@
             this.SportStatusB = new System.Windows.Forms.Label();
             this.NextBoardB = new System.Windows.Forms.Button();
             this.LastBoardB = new System.Windows.Forms.Button();
+            this.FWPictureA = new System.Windows.Forms.Button();
+            this.BWPictureA = new System.Windows.Forms.Button();
+            this.FWPictureB = new System.Windows.Forms.Button();
+            this.BWPictureB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet)).BeginInit();
@@ -82,7 +86,7 @@
             // 
             // LastSpointB
             // 
-            this.LastSpointB.Location = new System.Drawing.Point(1005, 540);
+            this.LastSpointB.Location = new System.Drawing.Point(914, 542);
             this.LastSpointB.Name = "LastSpointB";
             this.LastSpointB.Size = new System.Drawing.Size(101, 40);
             this.LastSpointB.TabIndex = 1;
@@ -92,7 +96,7 @@
             // 
             // NextSpointPictureB
             // 
-            this.NextSpointPictureB.Location = new System.Drawing.Point(1177, 540);
+            this.NextSpointPictureB.Location = new System.Drawing.Point(1053, 542);
             this.NextSpointPictureB.Name = "NextSpointPictureB";
             this.NextSpointPictureB.Size = new System.Drawing.Size(101, 40);
             this.NextSpointPictureB.TabIndex = 1;
@@ -134,7 +138,7 @@
             // 
             this.BoardNameB.AutoSize = true;
             this.BoardNameB.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BoardNameB.Location = new System.Drawing.Point(713, 578);
+            this.BoardNameB.Location = new System.Drawing.Point(677, 578);
             this.BoardNameB.Name = "BoardNameB";
             this.BoardNameB.Size = new System.Drawing.Size(98, 21);
             this.BoardNameB.TabIndex = 2;
@@ -144,7 +148,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(710, 546);
+            this.label4.Location = new System.Drawing.Point(674, 546);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 21);
             this.label4.TabIndex = 2;
@@ -221,7 +225,7 @@
             // 
             this.SpointNameB.AutoSize = true;
             this.SpointNameB.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SpointNameB.Location = new System.Drawing.Point(1083, 601);
+            this.SpointNameB.Location = new System.Drawing.Point(1025, 601);
             this.SpointNameB.Name = "SpointNameB";
             this.SpointNameB.Size = new System.Drawing.Size(98, 21);
             this.SpointNameB.TabIndex = 2;
@@ -231,7 +235,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(960, 601);
+            this.label8.Location = new System.Drawing.Point(902, 601);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(105, 21);
             this.label8.TabIndex = 2;
@@ -241,7 +245,7 @@
             // 
             this.StatusB.AutoSize = true;
             this.StatusB.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.StatusB.Location = new System.Drawing.Point(730, 610);
+            this.StatusB.Location = new System.Drawing.Point(694, 610);
             this.StatusB.Name = "StatusB";
             this.StatusB.Size = new System.Drawing.Size(65, 21);
             this.StatusB.TabIndex = 2;
@@ -271,7 +275,7 @@
             // 
             this.SportStatusB.AutoSize = true;
             this.SportStatusB.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SportStatusB.Location = new System.Drawing.Point(1206, 601);
+            this.SportStatusB.Location = new System.Drawing.Point(1148, 601);
             this.SportStatusB.Name = "SportStatusB";
             this.SportStatusB.Size = new System.Drawing.Size(43, 21);
             this.SportStatusB.TabIndex = 2;
@@ -279,7 +283,7 @@
             // 
             // NextBoardB
             // 
-            this.NextBoardB.Location = new System.Drawing.Point(833, 591);
+            this.NextBoardB.Location = new System.Drawing.Point(781, 591);
             this.NextBoardB.Name = "NextBoardB";
             this.NextBoardB.Size = new System.Drawing.Size(101, 40);
             this.NextBoardB.TabIndex = 1;
@@ -289,13 +293,53 @@
             // 
             // LastBoardB
             // 
-            this.LastBoardB.Location = new System.Drawing.Point(833, 540);
+            this.LastBoardB.Location = new System.Drawing.Point(781, 540);
             this.LastBoardB.Name = "LastBoardB";
             this.LastBoardB.Size = new System.Drawing.Size(101, 40);
             this.LastBoardB.TabIndex = 1;
             this.LastBoardB.Text = "上一个试板";
             this.LastBoardB.UseVisualStyleBackColor = true;
             this.LastBoardB.Click += new System.EventHandler(this.LastBoardB_Click);
+            // 
+            // FWPictureA
+            // 
+            this.FWPictureA.Location = new System.Drawing.Point(561, 540);
+            this.FWPictureA.Name = "FWPictureA";
+            this.FWPictureA.Size = new System.Drawing.Size(101, 40);
+            this.FWPictureA.TabIndex = 1;
+            this.FWPictureA.Text = "正面照";
+            this.FWPictureA.UseVisualStyleBackColor = true;
+            this.FWPictureA.Click += new System.EventHandler(this.FWPictureA_Click);
+            // 
+            // BWPictureA
+            // 
+            this.BWPictureA.Location = new System.Drawing.Point(561, 595);
+            this.BWPictureA.Name = "BWPictureA";
+            this.BWPictureA.Size = new System.Drawing.Size(101, 40);
+            this.BWPictureA.TabIndex = 1;
+            this.BWPictureA.Text = "反面照";
+            this.BWPictureA.UseVisualStyleBackColor = true;
+            this.BWPictureA.Click += new System.EventHandler(this.BWPictureA_Click);
+            // 
+            // FWPictureB
+            // 
+            this.FWPictureB.Location = new System.Drawing.Point(1218, 540);
+            this.FWPictureB.Name = "FWPictureB";
+            this.FWPictureB.Size = new System.Drawing.Size(101, 40);
+            this.FWPictureB.TabIndex = 1;
+            this.FWPictureB.Text = "正面照";
+            this.FWPictureB.UseVisualStyleBackColor = true;
+            this.FWPictureB.Click += new System.EventHandler(this.FWPictureB_Click);
+            // 
+            // BWPictureB
+            // 
+            this.BWPictureB.Location = new System.Drawing.Point(1218, 595);
+            this.BWPictureB.Name = "BWPictureB";
+            this.BWPictureB.Size = new System.Drawing.Size(101, 40);
+            this.BWPictureB.TabIndex = 1;
+            this.BWPictureB.Text = "反面照";
+            this.BWPictureB.UseVisualStyleBackColor = true;
+            this.BWPictureB.Click += new System.EventHandler(this.BWPictureB_Click);
             // 
             // DChartShowPointImage
             // 
@@ -314,6 +358,10 @@
             this.Controls.Add(this.StatusB);
             this.Controls.Add(this.SpointNameA);
             this.Controls.Add(this.BoardNameA);
+            this.Controls.Add(this.BWPictureB);
+            this.Controls.Add(this.BWPictureA);
+            this.Controls.Add(this.FWPictureB);
+            this.Controls.Add(this.FWPictureA);
             this.Controls.Add(this.NextSpointPictureA);
             this.Controls.Add(this.LastBoardB);
             this.Controls.Add(this.LastBoard);
@@ -365,5 +413,9 @@
         private System.Windows.Forms.Label SportStatusB;
         private System.Windows.Forms.Button NextBoardB;
         private System.Windows.Forms.Button LastBoardB;
+        private System.Windows.Forms.Button FWPictureA;
+        private System.Windows.Forms.Button BWPictureA;
+        private System.Windows.Forms.Button FWPictureB;
+        private System.Windows.Forms.Button BWPictureB;
     }
 }
