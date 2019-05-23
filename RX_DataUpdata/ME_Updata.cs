@@ -159,6 +159,14 @@ namespace RX_DataUpdata
                         if (Res == 11)
                         {
                             Ustatus.Text = SysPid.Pid + "更新成功！";
+                            UpdataFwPicture.Enabled = true;
+                            UpdataBwPicture.Enabled = true;
+                            ShowFwPicture.ImageLocation = null;
+                            ShowBwPicture.ImageLocation = null;
+                            ShowFwPicture.Update();
+                            ShowBwPicture.Update();
+                            UFWprogressBar.Value = 0;
+                            UBWprogressBar.Value = 0;
                         }
                         else if (Res == -99)
                         {

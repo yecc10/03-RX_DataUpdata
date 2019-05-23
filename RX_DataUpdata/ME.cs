@@ -24,7 +24,7 @@ namespace RX_DataUpdata
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("你已选定该焊点为最终参数，请确认是否已上传试板数据！！！若此时不上传后期将无法继续补充！", "更新确认-安徽瑞祥工业！", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("你已选定该焊点包含图片，请确认是否已上传试板数据！！！", "更新确认-安徽瑞祥工业！", MessageBoxButtons.YesNo);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 if (SysVar.Acc > 16 || SysVar.UserName == "yechaocheng")
@@ -43,6 +43,14 @@ namespace RX_DataUpdata
                             if (Ret == 11)
                             {
                                 Ustatus.Text = SysPid.Bid + Pid.Text + "上传成功！";
+                                UpdataFwPicture.Enabled = true;
+                                UpdataBwPicture.Enabled = true;
+                                ShowFwPicture.ImageLocation = null;
+                                ShowBwPicture.ImageLocation = null;
+                                ShowFwPicture.Update();
+                                ShowBwPicture.Update();
+                                UFWprogressBar.Value = 0;
+                                UBWprogressBar.Value = 0;
                             }
                             else if (Ret == -99)
                             {

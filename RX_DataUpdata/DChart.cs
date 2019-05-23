@@ -21,8 +21,8 @@ namespace RX_DataUpdata
             //Bbm.Enabled = false;
             Bbm.Text = Bbm.Items[1].ToString();
             //Bcm.Text = Bcm.Items[0].ToString();
-            Bat.Text = Bat.Items[0].ToString();
-            Bbt.Text = Bbt.Items[0].ToString();
+            Bat.Text = Bat.Items[3].ToString();
+            Bbt.Text = Bbt.Items[3].ToString();
             //Bct.Text = Bct.Items[0].ToString();
         }
 
