@@ -54,6 +54,11 @@ namespace RX_DataUpdata
 
         private void LastSpointB_Click(object sender, EventArgs e)
         {
+            if (SpointLocationB == 1)
+            {
+                LastSpointB.Enabled = false;
+                return;
+            }
             SModelB = "Sport";
             NextSpointPictureB.Enabled = true;
             SpointLocationB -= 1;
@@ -182,7 +187,7 @@ namespace RX_DataUpdata
 
         private void FWPictureB_Click(object sender, EventArgs e)
         {
-            switch (SModelA)
+            switch (SModelB)
             {
                 case "Board":
                     {
@@ -201,7 +206,7 @@ namespace RX_DataUpdata
 
         private void BWPictureB_Click(object sender, EventArgs e)
         {
-            switch (SModelA)
+            switch (SModelB)
             {
                 case "Board":
                     {
@@ -237,6 +242,11 @@ namespace RX_DataUpdata
 
         private void LastSpointA_Click(object sender, EventArgs e)
         {
+            if (SpointLocationA==1)
+            {
+                LastSpointA.Enabled = false;
+                return;
+            }
             SModelA = "Sport";
             NextSpointPictureA.Enabled = true;
             SpointLocationA -= 1;
