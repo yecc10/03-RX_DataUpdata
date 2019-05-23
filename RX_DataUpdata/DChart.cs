@@ -190,7 +190,7 @@ namespace RX_DataUpdata
             }
 
             DChartShowPointImage DC = new DChartShowPointImage(Bat.Text,Bbt.Text,Bct.Text,Bcm.Text, SeachTabControl.SelectedTab.Name);
-            DC.ShowDialog();
+            DC.Show() ;
 
         }
     }
