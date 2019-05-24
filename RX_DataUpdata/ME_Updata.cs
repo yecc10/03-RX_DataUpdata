@@ -400,10 +400,17 @@ namespace RX_DataUpdata
         {
             if (ShowFwPicture.ImageLocation != null || ShowBwPicture.ImageLocation != null)
             {
-                MessageBox.Show("你正在关闭对话框，且该对话框中存在已上传到服务器，但未上传到数据库的图片,软件正在删除已上传图片并退出页面！", "更新确认-安徽瑞祥工业！");
-
+                DialogResult DR = MessageBox.Show("当前正在关闭图片已上传到服务器，但未上传到数据库的情况，点“Y”,取消关闭返回当前页面上传，点“N”删除该页面在服务器中已上传的文件", "关闭警告-瑞祥工业研发部", MessageBoxButtons.YesNo);
+                if (DR==DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
                     DELETEUpdataFwPicture_Click(this, new EventArgs());
                     DELETEUpdataBwPicture_Click(this, new EventArgs());
+                }
+
             }
         }
     }
