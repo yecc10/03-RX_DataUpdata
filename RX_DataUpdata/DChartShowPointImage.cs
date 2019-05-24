@@ -27,6 +27,10 @@ namespace RX_DataUpdata
 
         private void NextBoard_Click(object sender, EventArgs e)
         {
+             TotalSpointNumA = 0; TotalSpointNumA = 0;
+            LastSpointA.Enabled = false;
+            NextSpointPictureA.Enabled = true;
+
             SModelA = "Board";
             LastBoard.Enabled = true;
             BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
@@ -94,6 +98,10 @@ namespace RX_DataUpdata
 
         private void LastBoardB_Click(object sender, EventArgs e)
         {
+            SpointLocationB = 0;  TotalSpointNumB = 0;
+            LastSpointB.Enabled = false;
+            NextSpointPictureB.Enabled = true;
+
             SModelB = "Board";
             NextBoardB.Enabled = true;
             BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
@@ -121,6 +129,10 @@ namespace RX_DataUpdata
 
         private void NextBoardB_Click(object sender, EventArgs e)
         {
+            SpointLocationB = 0; TotalSpointNumB = 0;
+            LastSpointB.Enabled = false;
+            NextSpointPictureB.Enabled = true;
+
             SModelB = "Board";
             LastBoardB.Enabled = true;
             BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
@@ -264,6 +276,10 @@ namespace RX_DataUpdata
 
         private void LastBoard_Click(object sender, EventArgs e)
         {
+            SpointLocationA = 0;TotalSpointNumA = 0;
+            LastSpointA.Enabled = false;
+            NextSpointPictureA.Enabled = true;
+
             SModelA = "Board";
             LastBoard.Enabled = true;
             BoardPictureAndRemark BPAR = new BoardPictureAndRemark();
