@@ -395,5 +395,16 @@ namespace RX_DataUpdata
             BPU.Text = SysPid.Bid + "_最终照片上传";
             BPU.Show();
         }
+
+        private void ME_Updata_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (ShowFwPicture.ImageLocation != null || ShowBwPicture.ImageLocation != null)
+            {
+                MessageBox.Show("你正在关闭对话框，且该对话框中存在已上传到服务器，但未上传到数据库的图片,软件正在删除已上传图片并退出页面！", "更新确认-安徽瑞祥工业！");
+
+                    DELETEUpdataFwPicture_Click(this, new EventArgs());
+                    DELETEUpdataBwPicture_Click(this, new EventArgs());
+            }
+        }
     }
 }

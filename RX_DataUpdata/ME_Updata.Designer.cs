@@ -739,6 +739,7 @@
             this.Name = "ME_Updata";
             this.Text = "数据更新";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ME_Updata_FormClosing);
             this.DA.ResumeLayout(false);
             this.DA.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rxyF_YECCDataSet1)).EndInit();
