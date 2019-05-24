@@ -312,6 +312,11 @@ namespace RX_DataUpdata
                 TotalBoardNum = BPL.Rows.Count;
                 if (TotalBoardNum > 0)
                 {
+                    if (TotalBoardNum==1)
+                    {
+                        NextBoard.Enabled = false;
+                        NextBoardB.Enabled = false;
+                    }
                     LastBoard.Enabled = false;
                     LastBoardB.Enabled = false;
                     LastSpointA.Enabled = false;
