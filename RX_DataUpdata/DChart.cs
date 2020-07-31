@@ -27,7 +27,7 @@ namespace RX_DataUpdata
         }
 
         private void DChart_Load(object sender, EventArgs e)
-        {
+        {  
             // TODO: 这行代码将数据加载到表“rXYF_YECCDataSet.ExperienceView”中。您可以根据需要移动或删除它。
             this.experienceViewTableAdapter.Fill(this.rXYF_YECCDataSet.ExperienceView);
             this.BoardDataTableAdapter.Fill(this.rXYF_YECCDataSet.BoardData);
